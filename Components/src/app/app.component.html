@@ -55,9 +55,9 @@
                         <div class="badges">
                             <div nz-row>
                                 <div nz-col nzSpan="12">
-                                    <div *ngFor="let color of colors">
+                                    <span *ngFor="let color of colors">
                                         <nz-tag nzStandalone [nzColor]="color.color">{{color.name}} BADGE</nz-tag>
-                                    </div>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,9 @@
                 </div>
                 <div class="section">
                     <h2>ICONS</h2>
-                    <span nz-tooltip nzTooltipTitle="account-box"><svg-icon name="account-box" [svgStyle]="{ 'width.px':24 }"></svg-icon></span>
+                    <span class="icons" *ngFor="let icon of icons">
+                        <span nz-tooltip nzTooltipTitle="{{icon.name}}"><svg-icon name="{{icon.name}}" [svgStyle]="{ 'width.px':24 }"></svg-icon></span>
+                    </span>
                 </div>
                 <div class="section">
                     <h2>PROGRESS BAR</h2>
