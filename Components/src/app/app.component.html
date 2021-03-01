@@ -98,14 +98,14 @@
                         </div>
                     </nz-checkbox-wrapper>
                     <h2>RADIO BUTTONS</h2>
-                    <nz-radio-group>
-                        <label nz-radio nzValue="A" [ngModel]="true">A</label>
-                        <label nz-radio nzValue="B" [nzDisabled]="true" [ngModel]="true">B</label>
-                        <label nz-radio nzValue="C" [ngModel]="true">C</label>
-                        <label nz-radio nzValue="D" [ngModel]="true">D</label>
+                    <nz-radio-group [ngModel]="'B'">
+                        <label nz-radio nzValue="A">A</label>
+                        <label nz-radio nzValue="B" [nzDisabled]="true">B</label>
+                        <label nz-radio nzValue="C">C</label>
+                        <label nz-radio nzValue="D">D</label>
                     </nz-radio-group>
                     <br />
-                    <nz-radio-group>
+                    <nz-radio-group [ngModel]="'A'">
                         <label nz-radio nzValue="A">A</label>
                         <label nz-radio [nzDisabled]="true" nzValue="B">B</label>
                         <label nz-radio nzValue="C">C</label>
