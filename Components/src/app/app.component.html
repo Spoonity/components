@@ -55,9 +55,9 @@
                         <div class="badges">
                             <div nz-row>
                                 <div nz-col nzSpan="12">
-                                    <div *ngFor="let color of colors">
+                                    <span *ngFor="let color of colors">
                                         <nz-tag nzStandalone [nzColor]="color.color">{{color.name}} BADGE</nz-tag>
-                                    </div>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,9 @@
                 </div>
                 <div class="section">
                     <h2>ICONS</h2>
-                    <span nz-tooltip nzTooltipTitle="account-box"><svg-icon name="account-box" [svgStyle]="{ 'width.px':24 }"></svg-icon></span>
+                    <span class="icons" *ngFor="let icon of icons">
+                        <span nz-tooltip nzTooltipTitle="{{icon.name}}"><svg-icon name="{{icon.name}}" [svgStyle]="{ 'width.px':24 }"></svg-icon></span>
+                    </span>
                 </div>
                 <div class="section">
                     <h2>PROGRESS BAR</h2>
@@ -96,14 +98,14 @@
                         </div>
                     </nz-checkbox-wrapper>
                     <h2>RADIO BUTTONS</h2>
-                    <nz-radio-group>
-                        <label nz-radio nzValue="A" [ngModel]="true">A</label>
-                        <label nz-radio nzValue="B" [nzDisabled]="true" [ngModel]="true">B</label>
-                        <label nz-radio nzValue="C" [ngModel]="true">C</label>
-                        <label nz-radio nzValue="D" [ngModel]="true">D</label>
+                    <nz-radio-group [ngModel]="'B'">
+                        <label nz-radio nzValue="A">A</label>
+                        <label nz-radio nzValue="B" [nzDisabled]="true">B</label>
+                        <label nz-radio nzValue="C">C</label>
+                        <label nz-radio nzValue="D">D</label>
                     </nz-radio-group>
                     <br />
-                    <nz-radio-group>
+                    <nz-radio-group [ngModel]="'A'">
                         <label nz-radio nzValue="A">A</label>
                         <label nz-radio [nzDisabled]="true" nzValue="B">B</label>
                         <label nz-radio nzValue="C">C</label>

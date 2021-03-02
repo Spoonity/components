@@ -207,6 +207,20 @@
 @checkbox-check-color: #fff;
 @checkbox-border-width: @border-width-base;
 
+.ant-checkbox-inner {
+  border-width: 2px !important
+}
+
+.ant-checkbox-indeterminate .ant-checkbox-inner::after {
+  height: 2px !important;
+  background-color: #fff !important;
+}
+
+.ant-checkbox-indeterminate .ant-checkbox-inner {
+  background-color: #FF9900 !important;
+  border-color: #FF9900 !important;
+}
+
 // Descriptions
 @descriptions-bg: #fafafa;
 
@@ -226,6 +240,23 @@
 @radio-button-color: @btn-default-color;
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
+
+.ant-radio-disabled .ant-radio-inner {
+   background-color: #fff !important;
+}
+
+.ant-radio-inner {
+  width: 20px !important;
+  height: 20px !important;
+  border-width: 2px;
+}
+
+.ant-radio-inner::after {
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+}
 
 // Media queries breakpoints
 // Extra small screen / phone
@@ -553,10 +584,14 @@ nz-tag{
 @tabs-vertical-margin: 0 0 16px 0;
 @tabs-scrolling-size: 32px;
 @tabs-highlight-color: @black;
-@tabs-hover-color: @primary-5;
+@tabs-hover-color: @black;
 @tabs-active-color: @primary-7;
 @tabs-card-gutter: 2px;
 @tabs-card-tab-active-border-top: 2px solid transparent;
+
+.ant-tabs-nav .ant-tabs-tab:hover {
+  background-color: #F3F3F3;
+}
 
 // BackTop
 // ---
@@ -596,8 +631,15 @@ nz-tag{
 }
 
 .ant-switch-checked::after {
+  background-color: #FF9900;
   margin-left: 1px !important;
 }
+
+.ant-switch-checked {
+  background-color: #FFE1B4;
+}
+
+
 // .ant-switch-checked::after {
 //   margin-left: 2px;
 // }
@@ -661,6 +703,17 @@ nz-tag{
 }
 .ant-slider-disabled .ant-slider-handle:hover{
   box-shadow: none;
+}
+
+.ant-slider-handle {
+  width: 20px;
+  height: 20px;
+  margin-top: -8px;
+}
+
+.ant-slider-track {
+  height: 6px;
+  top: 3px;
 }
 
 // Tree
