@@ -643,7 +643,7 @@ nz-tag{
 @slider-handle-color-focus: @primary-color;
 @slider-handle-color-focus-shadow: @primary-color;
 @slider-handle-color-tooltip-open: @primary-color;
-@slider-handle-shadow: 0;
+@slider-handle-shadow: none;
 @slider-dot-border-color: @primary-color;
 @slider-dot-border-color-active: @primary-color;
 @slider-disabled-color: @gray40;
@@ -652,8 +652,15 @@ nz-tag{
 .ant-slider-handle{
   border: solid 2px #FF9900 !important;
 }
+.ant-slider-handle:hover,
+.ant-slider-handle:active{
+  box-shadow: 0 0px 0px 7px rgba(255,153,0,0.16);
+}
 .ant-slider-disabled .ant-slider-handle{
   background-color: @slider-disabled-color;
+}
+.ant-slider-disabled .ant-slider-handle:hover{
+  box-shadow: none;
 }
 
 // Tree
