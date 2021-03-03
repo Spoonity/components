@@ -18,8 +18,12 @@
 @normal-color: #d9d9d9;
 @white: #fff;
 @black: #000;
-
 @gray: #706f6e;
+@gray20:#e2e2e2;
+@gray30: #d2d2d2;
+@gray40:#b1b1b1;
+@gray60: #909090;
+@gray80: #4f4e4d;
 @red: #ef5350;
 @pink: #ec407a;
 @purple: #ab47bc;
@@ -693,10 +697,10 @@ nz-tag {
 // Slider
 // ---
 @slider-margin: 14px 6px 10px;
-@slider-rail-background-color: @background-color-base;
-@slider-rail-background-color-hover: #e1e1e1;
-@slider-track-background-color: @primary-3;
-@slider-track-background-color-hover: @primary-4;
+@slider-rail-background-color: #FFE1B4;
+@slider-rail-background-color-hover: #FFE1B4;
+@slider-track-background-color: @primary-color;
+@slider-track-background-color-hover: @primary-color;
 @slider-handle-border-width: 2px;
 @slider-handle-background-color: @primary-color;
 @slider-handle-color: @primary-3;
@@ -704,20 +708,39 @@ nz-tag {
 @slider-handle-color-focus: @primary-color;
 @slider-handle-color-focus-shadow: @primary-color;
 @slider-handle-color-tooltip-open: @primary-color;
-@slider-handle-shadow: 0;
+@slider-handle-shadow: none;
 @slider-dot-border-color: @primary-color;
 @slider-dot-border-color-active: @primary-color;
-@slider-disabled-color: @disabled-color;
+@slider-disabled-color: @gray40;
 @slider-disabled-background-color: @component-background;
 
-.ant-slider-handle {
-  border: solid 2px #ff9900 !important;
-}
-
-.ant-slider-handle {
+.ant-slider-handle{
+  border: solid 2px @primary-color !important;
   width: 20px;
   height: 20px;
   margin-top: -8px;
+}
+.ant-slider-handle:hover,
+.ant-slider-handle:active{
+  box-shadow: 0 0px 0px 10px rgba(255,153,0,0.16);
+}
+.ant-slider-disabled{
+  .ant-slider-handle{
+    background-color: @gray40;
+  }
+  .ant-slider-rail{
+    background-color: @gray30;
+  }
+}
+
+.ant-slider-disabled:active,
+.ant-slider-disabled:hover{
+  .ant-slider-handle{
+    box-shadow: none;
+  }
+  .ant-slider-rail{
+    background-color: @gray30;
+  }
 }
 
 .ant-slider-track {
@@ -808,5 +831,65 @@ nz-tag {
 // Typography
 // ---
 @typography-title-font-weight: 600;
+
+// Scrollbar
+// ---
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: @gray20;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: @gray40;
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: @gray60;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: @gray80;
+}
+
+
+::-webkit-scrollbar-track {
+  background-color: @gray20;
+}
+
+// Elevation
+// ---
+.sp-elevation--1,
+.sp-elevation--2,
+.sp-elevation--6,
+.sp-elevation--8,
+.sp-elevation--12,
+.sp-elevation--24 {
+  border-radius: 4px;
+}
+.sp-elevation--1 {
+  box-shadow: 0 0 2px rgba(13, 12, 11, 0.08), 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.sp-elevation--2 {
+  box-shadow: 0 0 2px rgba(13, 12, 11, 0.08), 0 2px 4px rgba(13, 12, 11, 0.12);
+}
+
+.sp-elevation--6 {
+  box-shadow: 0 1px 4px rgba(13, 12, 11, 0.08), 0 3px 8px rgba(13, 12, 11, 0.16);
+}
+
+.sp-elevation--8 {
+  box-shadow: 0 1px 4px rgba(13, 12, 11, 0.04), 0 4px 12px rgba(13, 12, 11, 0.16);
+}
+
+.sp-elevation--12 {
+  box-shadow: 0 1px 2px rgba(13, 12, 11, 0.04), 0 6px 16px rgba(13, 12, 11, 0.16);
+}
+
+.sp-elevation--24 {
+  box-shadow: 0 4px 12px rgba(13, 12, 11, 0.08), 0 10px 36px rgba(13, 12, 11, 0.24);
+}
+
 
 /* You can add global styles to this file, and also import other style files */
