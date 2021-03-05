@@ -9,12 +9,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { MoleculesComponent } from './molecules/molecules.component';
+import { AtomsComponent } from './atoms/atoms.component';
+import { AppRoutingModule } from './app-routing.module';
+import { OrganismsComponent } from './organisms/organisms.component';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MoleculesComponent,
+    AtomsComponent,
+    OrganismsComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +29,8 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AngularSvgIconModule.forRoot()
+    AngularSvgIconModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

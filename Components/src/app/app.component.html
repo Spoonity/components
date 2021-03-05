@@ -4,7 +4,7 @@
             <img src="../assets/spoonity_logo.png" height="32">
         </div>
         <ul nz-menu nzTheme="dark" nzMode="inline">
-            <li nz-submenu nzTitle="Atoms" nzIcon="border" nzOpen>
+            <li nz-submenu nzTitle="Atoms" nzIcon="border" nzOpen [routerLink]="['/atoms']" routerLinkActive="router-link-active">
                 <ul>
                     <li nz-menu-group nzTitle="Avatars"></li>
                     <li nz-menu-group nzTitle="Badges"></li>
@@ -17,8 +17,8 @@
 
                 </ul>
             </li>
-            <li nz-submenu nzTitle="Molecules" nzIcon="apartment"></li>
-            <li nz-submenu nzTitle="Organisms" nzIcon="gateway"></li>
+            <li nz-submenu nzTitle="Molecules" nzIcon="apartment" [routerLink]="['/molecules']" routerLinkActive="router-link-active"></li>
+            <li nz-submenu nzTitle="Organisms" nzIcon="gateway" [routerLink]="['/organims']" routerLinkActive="router-link-active"></li>
         </ul>
     </nz-sider>
     <nz-layout>
@@ -28,166 +28,7 @@
             </div>
         </nz-header>
         <nz-content>
-            <div class="inner-content">
-
-                <div class="section">
-
-                    <h2>AVATARS</h2>
-                    <div>
-                        <div nz-space nzAlign="start" class="space-align-block">
-                            <nz-avatar nzText="A" [nzSize]="48"></nz-avatar>
-                            <nz-avatar nzText="A" [nzSize]="40"></nz-avatar>
-                            <nz-avatar nzText="A" [nzSize]="32"></nz-avatar>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="section">
-                    <h2>BADGES</h2>
-                    <h3>ACTIVITY BADGES</h3>
-                    <div>
-                        <nz-tag nzStandalone nzColor="#42A5F5">ACTIVE</nz-tag>
-                        <nz-tag nzStandalone nzColor="#706F6E">INACTIVE</nz-tag>
-                    </div>
-                    <div>
-                        <h3>SMALL BADGES</h3>
-                        <div class="badges">
-                            <div nz-row>
-                                <div nz-col nzSpan="12">
-                                    <span *ngFor="let color of colors">
-                                        <nz-tag nzStandalone [nzColor]="color.color">{{color.name}} BADGE</nz-tag>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2>DIVIDER</h2>
-                    <nz-divider></nz-divider>
-                    <nz-divider nzType="vertical"></nz-divider>
-                </div>
-                <div class="section">
-                    <h2>ICONS</h2>
-                    <span class="icons" *ngFor="let icon of icons">
-                        <span nz-tooltip nzTooltipTitle="{{icon.name}}"><svg-icon name="{{icon.name}}" [svgStyle]="{ 'width.px':24 }"></svg-icon></span>
-                    </span>
-                </div>
-                <div class="section">
-                    <h2>PROGRESS BAR</h2>
-                    <nz-progress [nzPercent]="50" [nzShowInfo]="false"></nz-progress>
-                    <nz-progress [nzPercent]="70" [nzShowInfo]="false" nzType="circle"></nz-progress>
-                </div>
-                <div class="section">
-                    <h2>SELECTION CONTROLS</h2>
-
-                    <h2>CHECK BOXES</h2>
-                    <nz-checkbox-wrapper style="width: 100%;" (nzOnChange)="log($event)">
-                        <div nz-row>
-                            <div nz-col nzSpan="8"><label nz-checkbox nzValue="A" [ngModel]="true">A</label></div>
-                            <div nz-col nzSpan="8"><label nz-checkbox nzValue="B" [ngModel]="true">B</label></div>
-                            <div nz-col nzSpan="8"><label nz-checkbox nzValue="C" [ngModel]="true">C</label></div>
-                            <div nz-col nzSpan="8"><label nz-checkbox nzValue="D">D</label></div>
-                            <div nz-col nzSpan="8"><label nz-checkbox nzValue="E">E</label></div>
-                            <div nz-col nzSpan="8"><label nz-checkbox nzValue="F">F</label></div>
-                            <div nz-col nzSpan="8"><label nz-checkbox [nzIndeterminate]="true" nzValue="G">G</label></div>
-                            <div nz-col nzSpan="8"><label nz-checkbox [nzIndeterminate]="true" nzValue="H">H</label></div>
-                            <div nz-col nzSpan="8"><label nz-checkbox [nzIndeterminate]="true" nzValue="I">I</label></div>
-                        </div>
-                    </nz-checkbox-wrapper>
-                    <h2>RADIO BUTTONS</h2>
-                    <nz-radio-group [ngModel]="'B'">
-                        <label nz-radio nzValue="A">A</label>
-                        <label nz-radio nzValue="B" [nzDisabled]="true">B</label>
-                        <label nz-radio nzValue="C">C</label>
-                        <label nz-radio nzValue="D">D</label>
-                    </nz-radio-group>
-                    <br />
-                    <nz-radio-group [ngModel]="'A'">
-                        <label nz-radio nzValue="A">A</label>
-                        <label nz-radio [nzDisabled]="true" nzValue="B">B</label>
-                        <label nz-radio nzValue="C">C</label>
-                        <label nz-radio nzValue="D">D</label>
-                    </nz-radio-group>
-                    <h2>SWITCHES</h2>
-                    <nz-switch [ngModel]="true"></nz-switch>
-                    <nz-switch [ngModel]="true"></nz-switch>
-                    <nz-switch [ngModel]="true"></nz-switch>
-                    <nz-switch [ngModel]="true"></nz-switch>
-                    <br />
-                    <nz-switch></nz-switch>
-                    <nz-switch></nz-switch>
-                    <nz-switch></nz-switch>
-                    <nz-switch></nz-switch>
-                </div>
-                <div class="section">
-                    <h2>SLIDERS</h2>
-                    <nz-slider [nzMax]="100" [nzStep]="10" [ngModel]="0"></nz-slider>
-                    <nz-slider [nzMax]="100" [nzStep]="10" [ngModel]="50"></nz-slider>
-                    <nz-slider [nzMax]="100" [nzStep]="10" [ngModel]="100"></nz-slider>
-                    <nz-slider [nzMax]="100" [nzDisabled]="true" [nzStep]="10" [ngModel]="50"></nz-slider>
-                </div>
-                <div class="section">
-                    <h2>TABS</h2>
-                    <nz-tabset>
-                        <nz-tab *ngFor="let tab of tabs" [nzTitle]="tab.name" [nzDisabled]="tab.disabled">
-                            {{ tab.name }}
-                        </nz-tab>
-                    </nz-tabset>
-                </div>
-                <div class="section">
-                    <h2>TOOLTIPS</h2>
-                    <span nz-tooltip nzTooltipTitle="prompt text">Tooltip will show when mouse enter.</span>
-                </div>
-                <div class="section">
-                    <h2>ELEVATION</h2>
-                    <div class="elevation">
-                        <div class="elevation-container">
-                            <p>01 dp</p>
-                            <div class="sp-elevation--1 elevation-box"></div>
-                        </div>
-                        <div class="elevation-container">
-                            <p>02 dp</p>
-                            <div class="sp-elevation--2 elevation-box"></div>
-                        </div>
-                        <div class="elevation-container">
-                            <p>06 dp</p>
-                            <div class="sp-elevation--3 elevation-box"></div>
-                        </div>
-                        <div class="elevation-container">
-                            <p>08 dp</p>
-                            <div class="sp-elevation--4 elevation-box"></div>
-                        </div>
-                        <div class="elevation-container">
-                            <p>12 dp</p>
-                            <div class="sp-elevation--5 elevation-box"></div>
-                        </div>
-                        <div class="elevation-container">
-                            <p>24 dp</p>
-                            <div class="sp-elevation--6 elevation-box"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="section">
-                    <h2>SPACING</h2>
-                    <div class="spacing">
-                        <div *ngFor="let section of spacing" class="spacing-section">
-                            <h3>{{ section.sectionName }}</h3>
-                            <div class="spacing-container">
-                                <div *ngFor="let subsection of section.sections" class="spacing-example">
-                                    <div class="spacing-wrapper sp-elevation--2 {{ section.sectionClassName }} {{subsection.className}}">
-                                        <div class="spacing-box">
-                                            <p class="spacing-label">{{ subsection.label }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <router-outlet></router-outlet>
         </nz-content>
         <nz-footer>Angular UI Components - implemented by Spoonity</nz-footer>
     </nz-layout>
