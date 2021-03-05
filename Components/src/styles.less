@@ -19,11 +19,12 @@
 @white: #fff;
 @black: #000;
 @gray: #706f6e;
-@gray20:#e2e2e2;
+@gray20: #e2e2e2;
 @gray30: #d2d2d2;
-@gray40:#b1b1b1;
+@gray40: #b1b1b1;
 @gray60: #909090;
 @gray80: #4f4e4d;
+@gray100: #0d0c0b;
 @red: #ef5350;
 @pink: #ec407a;
 @purple: #ab47bc;
@@ -71,7 +72,7 @@
   "Segoe UI Symbol";
 @code-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
   monospace;
-@text-color: fade(@black, 65%);
+@text-color: @gray100;
 @text-color-secondary: fade(@black, 45%);
 @text-color-inverse: @white;
 @icon-color: inherit;
@@ -107,14 +108,14 @@
 // The background colors for active and hover states for things like
 // list items or table cells.
 @item-active-bg: @primary-1;
-@item-hover-bg: @primary-1;
+@item-hover-bg: @gray20;
 
 // ICONFONT
 @iconfont-css-prefix: anticon;
 
 // LINK
-@link-color: @primary-color;
-@link-hover-color: color(~`colorPalette("@{link-color}", 5) `);
+@link-color: @gray100;
+@link-hover-color: @gray100;
 @link-active-color: color(~`colorPalette("@{link-color}", 7) `);
 @link-decoration: none;
 @link-hover-decoration: none;
@@ -170,7 +171,7 @@
 @shadow-2: 0 4px 12px @shadow-color;
 
 // Buttons
-@btn-font-weight: 400;
+@btn-font-weight: 700;
 @btn-border-radius-base: @border-radius-base;
 @btn-border-radius-sm: @border-radius-base;
 @btn-border-width: @border-width-base;
@@ -179,7 +180,7 @@
 @btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
 @btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
 
-@btn-primary-color: #fff;
+@btn-primary-color: @gray100;
 @btn-primary-bg: @primary-color;
 
 @btn-default-color: @text-color;
@@ -200,9 +201,9 @@
 @btn-padding-lg: @btn-padding-base;
 @btn-padding-sm: 0 @padding-xs - 1px;
 
-@btn-height-base: 32px;
-@btn-height-lg: 40px;
-@btn-height-sm: 24px;
+@btn-height-base: 48px;
+@btn-height-lg: 56px;
+@btn-height-sm: 40px;
 
 @btn-circle-size: @btn-height-base;
 @btn-circle-size-lg: @btn-height-lg;
@@ -213,6 +214,19 @@
 @btn-square-size-sm: @btn-height-sm;
 
 @btn-group-border: @primary-5;
+
+.ant-btn > .anticon + span,
+.ant-btn > span + .anticon {
+  margin-left: 2px;
+}
+
+.ant-btn-link:hover,
+.ant-btn-link:focus,
+.ant-btn-link:active {
+  border-color: transparent;
+  background-color: @gray20;
+  color: @gray100;
+}
 
 // Checkbox
 @checkbox-size: 18px;
@@ -409,7 +423,7 @@
 // Tooltip text color
 @tooltip-color: #fff;
 // Tooltip background color
-@tooltip-bg: #4F4E4D;
+@tooltip-bg: #4f4e4d;
 // Tooltip arrow width
 @tooltip-arrow-width: 5px;
 // Tooltip distance with trigger
@@ -656,7 +670,8 @@ nz-tag {
   left: -4px !important;
 }
 
-.ant-switch-loading-icon, .ant-switch::after {
+.ant-switch-loading-icon,
+.ant-switch::after {
   left: -2px;
 }
 
@@ -697,8 +712,8 @@ nz-tag {
 // Slider
 // ---
 @slider-margin: 14px 6px 10px;
-@slider-rail-background-color: #FFE1B4;
-@slider-rail-background-color-hover: #FFE1B4;
+@slider-rail-background-color: #ffe1b4;
+@slider-rail-background-color-hover: #ffe1b4;
 @slider-track-background-color: @primary-color;
 @slider-track-background-color-hover: @primary-color;
 @slider-handle-border-width: 2px;
@@ -714,31 +729,31 @@ nz-tag {
 @slider-disabled-color: @gray40;
 @slider-disabled-background-color: @component-background;
 
-.ant-slider-handle{
+.ant-slider-handle {
   border: solid 2px @primary-color !important;
   width: 20px;
   height: 20px;
   margin-top: -8px;
 }
 .ant-slider-handle:hover,
-.ant-slider-handle:active{
-  box-shadow: 0 0px 0px 10px rgba(255,153,0,0.16);
+.ant-slider-handle:active {
+  box-shadow: 0 0px 0px 10px rgba(255, 153, 0, 0.16);
 }
-.ant-slider-disabled{
-  .ant-slider-handle{
+.ant-slider-disabled {
+  .ant-slider-handle {
     background-color: @gray40;
   }
-  .ant-slider-rail{
+  .ant-slider-rail {
     background-color: @gray30;
   }
 }
 
 .ant-slider-disabled:active,
-.ant-slider-disabled:hover{
-  .ant-slider-handle{
+.ant-slider-disabled:hover {
+  .ant-slider-handle {
     box-shadow: none;
   }
-  .ant-slider-rail{
+  .ant-slider-rail {
     background-color: @gray30;
   }
 }
@@ -852,7 +867,6 @@ nz-tag {
   background-color: @gray80;
 }
 
-
 ::-webkit-scrollbar-track {
   background-color: @gray20;
 }
@@ -880,15 +894,18 @@ nz-tag {
 }
 
 .sp-elevation--4 {
-  box-shadow: 0 1px 4px rgba(13, 12, 11, 0.04), 0 4px 12px rgba(13, 12, 11, 0.16);
+  box-shadow: 0 1px 4px rgba(13, 12, 11, 0.04),
+    0 4px 12px rgba(13, 12, 11, 0.16);
 }
 
 .sp-elevation--5 {
-  box-shadow: 0 1px 2px rgba(13, 12, 11, 0.04), 0 6px 16px rgba(13, 12, 11, 0.16);
+  box-shadow: 0 1px 2px rgba(13, 12, 11, 0.04),
+    0 6px 16px rgba(13, 12, 11, 0.16);
 }
 
 .sp-elevation--6 {
-  box-shadow: 0 4px 12px rgba(13, 12, 11, 0.08), 0 10px 36px rgba(13, 12, 11, 0.24);
+  box-shadow: 0 4px 12px rgba(13, 12, 11, 0.08),
+    0 10px 36px rgba(13, 12, 11, 0.24);
 }
 
 // Spacing
@@ -1078,3 +1095,7 @@ nz-tag {
 }
 
 /* You can add global styles to this file, and also import other style files */
+
+svg-icon svg {
+  width: 20px;
+}

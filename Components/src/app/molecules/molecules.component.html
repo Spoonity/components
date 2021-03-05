@@ -1,0 +1,77 @@
+<div class="inner-content">
+    <div class="section">
+        <h2>BUTTONS</h2>
+        <span>Button Type: </span>
+        <nz-select [(ngModel)]="buttonType" nzPlaceHolder="Select type">
+            <ng-container *ngFor="let enum of enumButtonType | keyvalue">
+                <nz-option nzValue="{{ enum.value }}" nzLabel="{{ enum.key }}"></nz-option>
+            </ng-container>
+        </nz-select>
+        <span class="sp-spacing-y-left--1">Button Size: </span>
+        <nz-select [(ngModel)]="buttonSize" nzPlaceHolder="Select Size">
+            <ng-container *ngFor="let enum of enumButtonSize | keyvalue">
+                <nz-option nzValue="{{ enum.value }}" nzLabel="{{ enum.key }}"></nz-option>
+            </ng-container>
+        </nz-select>
+
+        <h4 nz-typography>LARGE</h4>
+        <div style="display: flex;">
+            <table style="width:100%">
+                <tr>
+                    <th></th>
+                    <th>
+                        Enabled
+                    </th>
+                    <th>
+                        Disabled
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        No Icon
+                    </th>
+                    <th>
+                        <button class="sp-spacing--1" nz-button [nzType]="buttonType" [nzSize]="buttonSize">
+              Button
+            </button>
+                    </th>
+                    <th>
+                        <button class="sp-spacing--1" nz-button [nzType]="buttonType" [nzSize]="buttonSize" disabled>
+              Button
+            </button>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        With Icon Left
+                    </th>
+                    <td>
+                        <button nz-button [nzType]="buttonType" [nzSize]="buttonSize">
+              <svg-icon nz-icon name="favorite"></svg-icon>Button
+            </button>
+                    </td>
+                    <td>
+                        <button nz-button [nzType]="buttonType" [nzSize]="buttonSize" disabled>
+              <svg-icon nz-icon name="favorite"></svg-icon>Button
+            </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        With Icon Right
+                    </th>
+                    <td>
+                        <button nz-button [nzType]="buttonType" [nzSize]="buttonSize">
+              <svg-icon nz-icon name="favorite"></svg-icon>Button
+            </button>
+                    </td>
+                    <td>
+                        <button nz-button [nzType]="buttonType" disabled [nzSize]="buttonSize">
+              Button<svg-icon nz-icon name="favorite"></svg-icon>
+            </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
