@@ -14,7 +14,6 @@
             </ng-container>
         </nz-select>
 
-        <h4 nz-typography>LARGE</h4>
         <div style="display: flex;">
             <table style="width:100%">
                 <tr>
@@ -31,14 +30,10 @@
                         No Icon
                     </th>
                     <th>
-                        <button class="sp-spacing--1" nz-button [nzType]="buttonType" [nzSize]="buttonSize">
-              Button
-            </button>
+                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize"></sp-button>
                     </th>
                     <th>
-                        <button class="sp-spacing--1" nz-button [nzType]="buttonType" [nzSize]="buttonSize" disabled>
-              Button
-            </button>
+                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [disabled]="disabled"></sp-button>
                     </th>
                 </tr>
                 <tr>
@@ -46,14 +41,10 @@
                         With Icon Left
                     </th>
                     <td>
-                        <button nz-button [nzType]="buttonType" [nzSize]="buttonSize">
-              <svg-icon nz-icon name="favorite"></svg-icon>Button
-            </button>
+                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [leftIcon]="'favorite'"></sp-button>
                     </td>
                     <td>
-                        <button nz-button [nzType]="buttonType" [nzSize]="buttonSize" disabled>
-              <svg-icon nz-icon name="favorite"></svg-icon>Button
-            </button>
+                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [leftIcon]="'favorite'" [disabled]="disabled"></sp-button>
                     </td>
                 </tr>
                 <tr>
@@ -61,14 +52,21 @@
                         With Icon Right
                     </th>
                     <td>
-                        <button nz-button [nzType]="buttonType" [nzSize]="buttonSize">
-              <svg-icon nz-icon name="favorite"></svg-icon>Button
-            </button>
+                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'"></sp-button>
                     </td>
                     <td>
-                        <button nz-button [nzType]="buttonType" disabled [nzSize]="buttonSize">
-              Button<svg-icon nz-icon name="favorite"></svg-icon>
-            </button>
+                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'" [disabled]="disabled"></sp-button>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Only Icon
+                    </th>
+                    <td>
+                        <sp-button [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'"></sp-button>
+                    </td>
+                    <td>
+                        <sp-button [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'" [disabled]="disabled"></sp-button>
                     </td>
                 </tr>
             </table>

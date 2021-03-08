@@ -16,6 +16,7 @@ export class MoleculesComponent implements OnInit {
   enumButtonType = ButtonType;
   enumButtonSize = ButtonSize;
 
+
   ngOnInit() {
   }
 
