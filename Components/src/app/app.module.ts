@@ -14,6 +14,7 @@ import { AtomsComponent } from './atoms/atoms.component';
 import { AppRoutingModule } from './app-routing.module';
 import { OrganismsComponent } from './organisms/organisms.component';
 import { ButtonComponent } from './Components/button/button.component';
+import { BannerComponent } from './Components/banner/banner.component';
 
 registerLocaleData(en);
 
@@ -23,7 +24,8 @@ registerLocaleData(en);
     MoleculesComponent,
     AtomsComponent,
     OrganismsComponent,
-    ButtonComponent
+    ButtonComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,
