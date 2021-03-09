@@ -1,0 +1,14 @@
+<div *ngFor="let banner of bannerList" class="sp-spacing-y--1">
+    <div class="sp-elevation--6 banner-component banner-{{banner.type}}" [ngClass]="{'banner-hide': close[banner.id]}">
+        <div class="banner-icon">
+            <svg-icon name="{{icon[banner.type]}}" [svgStyle]="{ 'width.px':24 }"></svg-icon>
+        </div>
+        <div class="banner-message banner-message-action">{{banner.message}}</div>
+        <div class="banner-close-action" (click)="onCloseButtonClick(banner.id)">
+            <nz-divider nzType="vertical"></nz-divider>
+            <div class="banner-icon close-icon">
+                <svg-icon name="clear" [svgStyle]="{ 'width.px':24 }"></svg-icon>
+            </div>
+        </div>
+    </div>
+</div>

@@ -73,4 +73,14 @@
         </div>
     </div>
 
+    <!-- BANNER -->
+
+    <div class="section banner-section sp-spacing-y--4">
+        <h2>BANNER</h2>
+        <p class="banner-reset" (click)="resetBanner()">Reset</p>
+        <div class="banner-container" *ngIf="banners.length > 0">
+            <sp-banner [bannerList]="banners"></sp-banner>
+        </div>
+    </div>
+
 </div>
