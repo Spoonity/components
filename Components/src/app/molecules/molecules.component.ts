@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ButtonSize, ButtonType } from '../utils/enums';
+import { ButtonSize, ButtonType, TagType } from '../utils/enums';
 
 @Component({
   selector: 'app-molecules',
@@ -11,10 +11,22 @@ export class MoleculesComponent implements OnInit {
   constructor() { }
 
   buttonType: ButtonType = ButtonType.primary;
-  buttonSize: ButtonSize= ButtonSize.medium;
+  buttonSize: ButtonSize = ButtonSize.medium;
+
+  tagType: TagType = TagType.default;
 
   enumButtonType = ButtonType;
   enumButtonSize = ButtonSize;
+
+  enumTagType = TagType;
+
+  onClose(): void {
+    console.log('tag was closed.');
+  }
+
+  checkChange(e: boolean): void {
+    console.log(e);
+  }
 
 
   ngOnInit() {
