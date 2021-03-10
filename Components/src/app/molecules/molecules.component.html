@@ -33,7 +33,7 @@
                         <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize"></sp-button>
                     </th>
                     <th>
-                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [disabled]="disabled"></sp-button>
+                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [disabled]="'true'"></sp-button>
                     </th>
                 </tr>
                 <tr>
@@ -44,7 +44,7 @@
                         <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [leftIcon]="'favorite'"></sp-button>
                     </td>
                     <td>
-                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [leftIcon]="'favorite'" [disabled]="disabled"></sp-button>
+                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [leftIcon]="'favorite'" [disabled]="'true'"></sp-button>
                     </td>
                 </tr>
                 <tr>
@@ -55,7 +55,7 @@
                         <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'"></sp-button>
                     </td>
                     <td>
-                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'" [disabled]="disabled"></sp-button>
+                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'" [disabled]="'true'"></sp-button>
                     </td>
                 </tr>
                 <tr>
@@ -66,13 +66,73 @@
                         <sp-button [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'"></sp-button>
                     </td>
                     <td>
-                        <sp-button [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'" [disabled]="disabled"></sp-button>
+                        <sp-button [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'" [disabled]="'true'"></sp-button>
                     </td>
                 </tr>
             </table>
         </div>
     </div>
+    <div class="section">
+        <h2>Chips</h2>
 
+        <div style="display: flex;">
+            <table style="width:100%">
+                <tr>
+                    <th></th>
+                    <th>
+                        Enabled
+                    </th>
+                    <th>
+                        Disabled
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        No Icon
+                    </th>
+                    <th>
+                        <sp-chip [text]="'Chip'"></sp-chip>
+                    </th>
+                    <th>
+                        <sp-chip [text]="'Chip'" [disabled]="true"></sp-chip>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        With Icon
+                    </th>
+                    <td>
+                        <sp-chip [text]="'Chip'" [icon]="'favorite'"></sp-chip>
+                    </td>
+                    <td>
+                        <sp-chip [text]="'Chip'" [icon]="'favorite'" [disabled]="true"></sp-chip>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Closeable
+                    </th>
+                    <td>
+                        <sp-chip [text]="'Chip'" [icon]="'favorite'" [mode]="'closeable'" (onCloseEvent)="onClose(e)"></sp-chip>
+                    </td>
+                    <td>
+                        <sp-chip [text]="'Chip'" [icon]="'favorite'" [mode]="'closeable'" (onCloseEvent)="onClose(e)" [disabled]="true"></sp-chip>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Checkable
+                    </th>
+                    <td>
+                        <sp-chip [text]="'Chip'" [mode]="'checkable'" [checked]="true" (onCheckEvent)="checkChange($event)"></sp-chip>
+                    </td>
+                    <td>
+                        <sp-chip [text]="'Chip'" [mode]="'checkable'" [checked]="true" (onCheckEvent)="checkChange($event)" [disabled]="true"></sp-chip>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
     <!-- Text field Example -->
     <sp-text-field-example></sp-text-field-example>
 
@@ -87,4 +147,3 @@
     </div>
 
 </div>
-

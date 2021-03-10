@@ -13,6 +13,7 @@ import { MoleculesComponent } from './molecules/molecules.component';
 import { AtomsComponent } from './atoms/atoms.component';
 import { AppRoutingModule } from './app-routing.module';
 import { OrganismsComponent } from './organisms/organisms.component';
+import { ChipComponent } from './Components/chip/chip.component';
 import { ButtonComponent } from './Components/button/button.component';
 import { TextFieldComponent } from './Components/text-field/text-field.component';
 import { TextFieldExampleComponent } from './molecules/text-field-example/text-field-example.component';
@@ -26,6 +27,7 @@ registerLocaleData(en);
     MoleculesComponent,
     AtomsComponent,
     OrganismsComponent,
+    ChipComponent,
     ButtonComponent,
     TextFieldComponent,
     TextFieldExampleComponent,
