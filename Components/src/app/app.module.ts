@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
@@ -14,6 +14,8 @@ import { AtomsComponent } from './atoms/atoms.component';
 import { AppRoutingModule } from './app-routing.module';
 import { OrganismsComponent } from './organisms/organisms.component';
 import { ButtonComponent } from './Components/button/button.component';
+import { TextFieldComponent } from './Components/text-field/text-field.component';
+import { TextFieldExampleComponent } from './molecules/text-field-example/text-field-example.component';
 
 registerLocaleData(en);
 
@@ -23,7 +25,9 @@ registerLocaleData(en);
     MoleculesComponent,
     AtomsComponent,
     OrganismsComponent,
-    ButtonComponent
+    ButtonComponent,
+    TextFieldComponent,
+    TextFieldExampleComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,8 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     AngularSvgIconModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

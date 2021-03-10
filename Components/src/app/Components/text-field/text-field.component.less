@@ -1,0 +1,177 @@
+@gray40: #B1B1B1;
+@gray60: #909090;
+@gray70: #706F6E;
+@primary100: #FF9900;
+@error: #EF5350;
+
+@font-size: 14px;
+@padding-y-large: 12px;
+@padding-x-large: 10px;
+@padding-y-medium: 8px;
+@padding-x-medium: 10px;
+
+.sp-input-container {
+  max-width: 520px;
+  min-width: 220px;
+  margin: 10px 0 30px 0;
+  position: relative;
+  input {
+    color: #0D0C0B;
+    font-size: @font-size;
+    max-width: 520px;
+    min-height: 24px;
+    height: inherit;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid @gray60 !important;
+    box-shadow: none;
+    outline: none;
+    &.large {
+      padding: @padding-y-large @padding-x-large;
+      & + label {
+        top: @padding-y-large;
+      }
+    }
+    &.medium {
+      padding: @padding-y-medium @padding-x-medium;
+      & + label {
+        top: @padding-y-medium;
+      }
+    }
+    &.error {
+      border: 1px solid @error !important;
+      & + label {
+        color: @error !important;
+      }
+      &:focus, &:hover {
+        border: 1px solid @error !important;
+        caret-color: @error;
+      }
+    }
+    &.error, &.has-right-icon {
+      padding-right: 45px;
+    }
+    &.has-left-icon {
+      padding-left: 45px;
+      & + label {
+        left: 45px;
+      }
+    }
+    &[disabled] {
+      background-color: #ffffff !important;
+      color: @gray40 !important;
+      border: 1px solid @gray40 !important;
+      cursor: not-allowed;
+    }
+    &[disabled] + label {
+      color: @gray40 !important;
+    }
+    &::placeholder {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.1s ease-out, opacity 0.1s ease-out;
+      padding: 0 4px;
+    }
+    &:hover {
+      border: 1px solid #000 !important;
+    }
+    &:focus {
+      border: 1px solid @primary100 !important;
+      caret-color: @primary100;
+      &::placeholder {
+        visibility: visible;
+        opacity: 1;
+      }
+      & + label {
+        color: @primary100;
+      }
+    }
+    &.dirty {
+      & + label {
+        color: @gray60;
+      }
+    }
+    &.dirty:hover {
+      & + label {
+        color: #000;
+      }
+    }
+    &:focus, &.dirty {
+      & + label {
+        font-size: 11px;
+        top: -8px;
+        left: 8px;
+        padding: 0 4px;
+        background-color: #fff;
+      }
+    }
+    & + label {
+      position: absolute;
+      left: 12px;
+      font-size: @font-size;
+      background-color: rgba(255,255,255,0);
+      pointer-events: none;
+      transition: all 0.2s ease, background-color 0.2s ease-in;
+    }
+  }
+  .text-field-icon {
+    position: absolute;
+    height: 26px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .error-icon, .right-icon {
+    right: 12px;
+  }
+  .left-icon {
+    left: 12px;
+  }
+
+  .left-icon, .right-icon {
+    svg {
+      path {
+        fill: @gray70;
+      }
+    }
+  }
+  .error-icon {
+    svg {
+      path {
+        fill: @error;
+      }
+    }
+  }
+  label {
+    &.text-field-bottom-label {
+      font-size: 12px;
+      margin-top: 10px;
+      position: absolute;
+      bottom: -20px;
+    }
+    &.error-label, &.hint-label {
+      left: 12px;
+    }
+    &.length-label {
+      right: 12px;
+    }
+    &.error-label {
+      color: @error;
+    }
+    &.hint-label, &.length-label {
+      color: #4F4E4D;
+    }
+  }
+  &.disabled-container {
+    .text-field-bottom-label {
+      color: @gray40 !important;
+    }
+
+    .text-field-icon {
+      svg {
+        path {
+          fill: @gray40;
+        }
+      }
+    }
+  }
+}
