@@ -16,6 +16,7 @@ import { OrganismsComponent } from './organisms/organisms.component';
 import { ButtonComponent } from './Components/button/button.component';
 import { TextFieldComponent } from './Components/text-field/text-field.component';
 import { TextFieldExampleComponent } from './molecules/text-field-example/text-field-example.component';
+import { BannerComponent } from './Components/banner/banner.component';
 
 registerLocaleData(en);
 
@@ -27,7 +28,8 @@ registerLocaleData(en);
     OrganismsComponent,
     ButtonComponent,
     TextFieldComponent,
-    TextFieldExampleComponent
+    TextFieldExampleComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,
