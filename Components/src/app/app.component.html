@@ -1,24 +1,15 @@
 <nz-layout class="layout">
-    <nz-sider nzCollapsible nzBreakpoint="lg" [nzWidth]="280" [nzCollapsedWidth]="88" [nzTheme]="light">
+    <nz-sider nzCollapsible nzBreakpoint="lg" [nzWidth]="280" [nzCollapsedWidth]="88" [nzTheme]="'light'">
         <div class="logo">
-            <img src="../assets/spoonity_logo.png" height="32">
+            <img src="../assets/spoonity_logo.png" height="32" />
         </div>
-        <ul nz-menu nzTheme="dark" nzMode="inline">
-            <li nz-submenu nzTitle="Atoms" nzIcon="border" nzOpen [routerLink]="['/atoms']" routerLinkActive="router-link-active">
-                <ul>
-                    <li nz-menu-group nzTitle="Avatars"></li>
-                    <li nz-menu-group nzTitle="Badges"></li>
-                    <li nz-menu-group nzTitle="Divider"></li>
-                    <li nz-menu-group nzTitle="Progress Bar"></li>
-                    <li nz-menu-group nzTitle="Selection Controls"></li>
-                    <li nz-menu-group nzTitle="Sliders"></li>
-                    <li nz-menu-group nzTitle="Tabs"></li>
-                    <li nz-menu-group nzTitle="Tooltips"></li>
-
-                </ul>
-            </li>
-            <li nz-submenu nzTitle="Molecules" nzIcon="apartment" [routerLink]="['/molecules']" routerLinkActive="router-link-active"></li>
-            <li nz-submenu nzTitle="Organisms" nzIcon="gateway" [routerLink]="['/organims']" routerLinkActive="router-link-active"></li>
+        <ul nz-menu nzMode="inline">
+            <sp-side-navigation [type]="sideNavigationType.subMenu" [text]="'Atoms'" [icon]="'favorite'" [routerLink]="['/atoms']" [items]="atomsMenuItems">
+            </sp-side-navigation>
+            <sp-side-navigation [type]="sideNavigationType.subMenu" [text]="'Molecules'" [icon]="'apartment'" [routerLink]="['/molecules']">
+            </sp-side-navigation>
+            <sp-side-navigation [type]="sideNavigationType.subMenu" [text]="'Organisms'" [icon]="'gateway'" [routerLink]="['/organims']">
+            </sp-side-navigation>
         </ul>
     </nz-sider>
     <nz-layout>
