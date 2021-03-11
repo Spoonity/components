@@ -1,0 +1,3 @@
+<nz-tag [nzMode]="mode" [nzChecked]="checked" (nzOnClose)="onClose($event)" (nzCheckedChange)="checkChange($event)" [attr.disabled]="disabled">
+    <svg-icon *ngIf="icon || checked" nz-icon [name]="checked ? 'check' : icon"></svg-icon>{{ text }}
+</nz-tag>

@@ -16,3 +16,9 @@ export enum SideNavigationType {
   menuGroup = 'menuGroup',
   menuItem = 'menuItem'
 }
+
+export enum TagType {
+  closeable = 'closeable',
+  default = 'default',
+  checkable = 'checkable'
+}
