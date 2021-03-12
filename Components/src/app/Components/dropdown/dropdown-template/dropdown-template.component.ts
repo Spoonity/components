@@ -4,8 +4,7 @@ import {Overlay, OverlayConfig, OverlayRef} from '@angular/cdk/overlay';
 
 @Component({
   selector: 'sp-dropdown-template',
-  templateUrl: './dropdown-template.component.html',
-  styleUrls: ['./dropdown-template.component.less']
+  templateUrl: './dropdown-template.component.html'
 })
 export class DropdownTemplateComponent implements OnInit {
 

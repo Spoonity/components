@@ -1,11 +1,11 @@
 <div #dropReference class="sp-input-container" [ngClass]="{'disabled-container': isDisabled}">
 
-    <input #input [ngClass]="{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'has-right-icon': !!endIcon, 'disabled-state': isDisabled}"
+    <input #input [ngClass]="{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'disabled-state': isDisabled}"
            (click)="showDropdown()"
            [(ngModel)]="value"
            (ngModelChange)="changeAction($event)"
            (keydown)="onKeyDown($event)"
-           [class]="size"
+           class="{{size}} has-right-icon"
            [attr.disabled]="isDisabled" readonly autocomplete="off">
 
     <!-- label -->

@@ -1,0 +1,18 @@
+<div class="dropdown-example">
+    <h2>DROPDOWN</h2>
+    <!----- LARGE ----->
+    <div class="input-large sp-spacing-y--2">
+        <h3>Large</h3>
+
+        <div class="sp-spacing-y--1 dropdown-row">
+            <div class="sp-spacing-x--1">
+                <sp-search size="large"
+                           placeholder="Search Province"
+                           [(ngModel)]="searchModel"
+                           (filter)="filter()">
+                    <sp-search-option [value]="f" *ngFor="let f of filteredList">{{f.name}} - <em>{{f.address}}</em></sp-search-option>
+                </sp-search>
+            </div>
+        </div>
+    </div>
+</div>

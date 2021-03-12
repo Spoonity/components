@@ -25,6 +25,10 @@ import { PortalModule } from '@angular/cdk/portal';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { DropdownTemplateComponent } from './Components/dropdown/dropdown-template/dropdown-template.component';
 import { SideNavigationComponent } from './Components/side-navigation/side-navigation.component';
+import {SearchComponent} from './Components/search/search.component';
+import {SearchExampleComponent} from './molecules/search-example/search-example.component';
+import { SearchTemplateComponent } from './Components/search/search-template/search-template.component';
+import { SearchOptionComponent } from './Components/search/search-option/search-option.component';
 
 registerLocaleData(en);
 
@@ -43,7 +47,11 @@ registerLocaleData(en);
     DropdownComponent,
     OptionComponent,
     DropdownTemplateComponent,
-    SideNavigationComponent
+    SideNavigationComponent,
+    SearchComponent,
+    SearchExampleComponent,
+    SearchTemplateComponent,
+    SearchOptionComponent
   ],
   imports: [
     BrowserModule,

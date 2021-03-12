@@ -12,6 +12,23 @@
 @padding-y-small: 6px;
 @padding-x-small: 10px;
 
+.text-field-container {
+  input {
+    &::placeholder {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.1s ease-out, opacity 0.1s ease-out;
+      padding: 0 4px;
+    }
+    &:focus {
+      &::placeholder {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
+
 .sp-input-container {
   max-width: 520px;
   min-width: 220px;
@@ -46,7 +63,6 @@
         top: @padding-y-small;
       }
     }
-
     &.error, &.has-right-icon {
       padding-right: 45px;
     }
@@ -78,22 +94,12 @@
         border: 1px solid @gray40 !important;
       }
     }
-    &::placeholder {
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0.1s ease-out, opacity 0.1s ease-out;
-      padding: 0 4px;
-    }
     &:hover {
       border: 1px solid #000 !important;
     }
     &:focus {
       border: 1px solid @primary100 !important;
       caret-color: @primary100;
-      &::placeholder {
-        visibility: visible;
-        opacity: 1;
-      }
       & + label {
         color: @primary100;
       }
@@ -102,17 +108,18 @@
       & + label {
         color: @gray60;
       }
-    }
-    &.dirty:hover {
-      & + label {
-        color: #000;
+      &:hover {
+        & + label {
+          color: #000;
+        }
+      }
+      &:focus {
+        & + label {
+          color: @primary100;
+        }
       }
     }
-    &.dirty:focus {
-      & + label {
-        color: @primary100;
-      }
-    }
+
     &:focus, &.dirty {
       & + label {
         font-size: 11px;
