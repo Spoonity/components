@@ -4,6 +4,7 @@
            (click)="isDisabled ? $event.stopPropagation() : null"
            [(ngModel)]="value"
            (ngModelChange)="changeAction($event)"
+           [attr.type]="type"
            [attr.maxlength]="max"
            [class]="size" placeholder="{{placeholder}}"
            [attr.disabled]="isDisabled">

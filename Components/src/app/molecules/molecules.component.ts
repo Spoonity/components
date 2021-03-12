@@ -28,6 +28,8 @@ export class MoleculesComponent implements OnInit {
   enumTagType = TagType;
 
   currentStep = 0;
+  banners: IBanner[] = [];
+  steps: ISteps[] = []
 
   onClose(): void {
     console.log('tag was closed.');
@@ -37,8 +39,7 @@ export class MoleculesComponent implements OnInit {
     console.log(e);
   }
 
-  banners: IBanner[] = [];
-  steps: ISteps[] = []
+
 
   ngOnInit() {
     this.banners = this.getBanner();
