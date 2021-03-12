@@ -19,6 +19,7 @@ import { TextFieldComponent } from './Components/text-field/text-field.component
 import { TextFieldExampleComponent } from './molecules/text-field-example/text-field-example.component';
 import { BannerComponent } from './Components/banner/banner.component';
 import { SideNavigationComponent } from './Components/side-navigation/side-navigation.component';
+import { StepsComponent } from './Components/steps/steps.component';
 
 registerLocaleData(en);
 
@@ -33,7 +34,8 @@ registerLocaleData(en);
     TextFieldComponent,
     TextFieldExampleComponent,
     BannerComponent,
-    SideNavigationComponent
+    SideNavigationComponent,
+    StepsComponent
   ],
   imports: [
     BrowserModule,

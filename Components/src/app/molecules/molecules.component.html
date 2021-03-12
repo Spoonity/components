@@ -145,4 +145,9 @@
             <sp-banner [bannerList]="banners"></sp-banner>
         </div>
     </div>
+
+    <div class="section sp-spacing-y--4">
+        <h2>Steps</h2>
+        <sp-steps [current]="currentStep" [steps]="steps" (onIndexChangeEvent)="onIndexChange($event)"></sp-steps>
+    </div>
 </div>
