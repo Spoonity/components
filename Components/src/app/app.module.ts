@@ -24,6 +24,7 @@ import { OptionComponent } from './Components/dropdown/option/option.component';
 import { PortalModule } from '@angular/cdk/portal';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { DropdownTemplateComponent } from './Components/dropdown/dropdown-template/dropdown-template.component';
+import { SideNavigationComponent } from './Components/side-navigation/side-navigation.component';
 
 registerLocaleData(en);
 
@@ -41,7 +42,8 @@ registerLocaleData(en);
     DropdownExampleComponent,
     DropdownComponent,
     OptionComponent,
-    DropdownTemplateComponent
+    DropdownTemplateComponent,
+    SideNavigationComponent
   ],
   imports: [
     BrowserModule,

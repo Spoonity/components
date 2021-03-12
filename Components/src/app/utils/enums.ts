@@ -10,6 +10,13 @@ export enum ButtonSize {
   small = 'small'
 }
 
+export enum SideNavigationType {
+  menu = 'menu',
+  subMenu = 'subMenu',
+  menuGroup = 'menuGroup',
+  menuItem = 'menuItem'
+}
+
 export enum TagType {
   closeable = 'closeable',
   default = 'default',
