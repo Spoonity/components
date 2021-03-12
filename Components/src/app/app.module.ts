@@ -25,6 +25,7 @@ import { PortalModule } from '@angular/cdk/portal';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { DropdownTemplateComponent } from './Components/dropdown/dropdown-template/dropdown-template.component';
 import { SideNavigationComponent } from './Components/side-navigation/side-navigation.component';
+import { StepsComponent } from './Components/steps/steps.component';
 
 registerLocaleData(en);
 
@@ -39,6 +40,8 @@ registerLocaleData(en);
     TextFieldComponent,
     TextFieldExampleComponent,
     BannerComponent,
+    SideNavigationComponent,
+    StepsComponent,
     DropdownExampleComponent,
     DropdownComponent,
     OptionComponent,

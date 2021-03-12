@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ISteps } from '../Components/steps/steps.component';
 import { ButtonSize, ButtonType, TagType } from '../utils/enums';
 
 interface IBanner {
@@ -26,7 +27,9 @@ export class MoleculesComponent implements OnInit {
 
   enumTagType = TagType;
 
+  currentStep = 0;
   banners: IBanner[] = [];
+  steps: ISteps[] = []
 
   onClose(): void {
     console.log('tag was closed.');
@@ -36,16 +39,29 @@ export class MoleculesComponent implements OnInit {
     console.log(e);
   }
 
+
+
   ngOnInit() {
     this.banners = this.getBanner();
+    this.steps = this.getSteps();
   }
 
   getBanner(): IBanner[] {
     return [
-      {id: 0, message: 'Error', type: 'error'},
-      {id: 1, message: 'Warning', type: 'warning'},
-      {id: 2, message: 'Success', type: 'success'},
-      {id: 3, message: 'Informational', type: 'info'}
+      { id: 0, message: 'Error', type: 'error' },
+      { id: 1, message: 'Warning', type: 'warning' },
+      { id: 2, message: 'Success', type: 'success' },
+      { id: 3, message: 'Informational', type: 'info' }
+    ];
+  }
+
+  getSteps(): ISteps[] {
+    return [
+      { title: 'Step 1', description: '' },
+      { title: 'Step 2', description: '' },
+      { title: 'Step 3', description: '' },
+      { title: 'Step 4', description: '' },
+      { title: 'Step 5', description: '' }
     ];
   }
 
@@ -54,6 +70,10 @@ export class MoleculesComponent implements OnInit {
     setTimeout(() => {
       this.banners = this.getBanner();
     }, 100);
+  }
+
+  onIndexChange(event: number) {
+    this.currentStep = event;
   }
 
 }
