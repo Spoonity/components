@@ -11,7 +11,7 @@ export class StepsComponent implements OnInit {
 
   @Input() current: number;
   @Input() steps: Array<ISteps>;
-  @Input() navigation : string = 'horizontal';
+  @Input() type : string = 'horizontal';
   @Output() onIndexChangeEvent = new EventEmitter<number>();
 
     ngOnInit() {
