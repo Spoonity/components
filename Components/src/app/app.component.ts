@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { SvgIconRegistryService } from 'angular-svg-icon';
+import { MenuItems } from './Components/side-navigation/side-navigation.component';
+import { SideNavigationType } from './utils/enums';
 import * as ic from './utils/icons';
 @Component({
   selector: 'app-root',
@@ -8,9 +10,22 @@ import * as ic from './utils/icons';
 })
 export class AppComponent {
 
-  constructor(private iconReg: SvgIconRegistryService){
+  constructor(private iconReg: SvgIconRegistryService) {
     this.registerIcons();
+
   }
+
+  sideNavigationType = SideNavigationType;
+  atomsMenuItems : Array<MenuItems> = [
+    {icon:"",link:"",text:"Avatars"},
+    {icon:"",link:"",text:"Badges"},
+    {icon:"",link:"",text:"Divider"},
+    {icon:"",link:"",text:"Progress Bar"},
+    {icon:"",link:"",text:"Selection Controls"},
+    {icon:"",link:"",text:"Sliders"},
+    {icon:"",link:"",text:"Tabs"},
+    {icon:"",link:"",text:"Tooltips"}
+  ];
 
 
   registerIcons() {
