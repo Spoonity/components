@@ -6,17 +6,23 @@ nz-select {
   width: 100px;
 }
 
+.inner-content {
+  padding: 24px;
+  background-color: #fff;
+  min-width: 100%;
+  width: fit-content;
+  max-width: 1200px;
+}
+
 .section {
   padding: 10px 24px;
-  background: #fff;
-  .inner-content {
-    padding: 24px;
-    background: #fff;
-    min-height: 360px;
-    .inner-content {
-      background-color: #ffffff;
-      padding: 24px;
-      min-height: 360px;
+  .banner-section {
+    height: 440px;
+    .banner-reset {
+      cursor: pointer;
+      text-decoration: underline;
+      font-weight: bold;
+      color: #888;
     }
 
     .banner-section {
@@ -27,19 +33,9 @@ nz-select {
         font-weight: bold;
         color: #888;
       }
-
-      .banner-section {
-        height: 440px;
-        .banner-reset {
-          cursor: pointer;
-          text-decoration: underline;
-          font-weight: bold;
-          color: #888;
-        }
-        .banner-container {
-          .banner {
-            padding: 10px;
-          }
+      .banner-container {
+        .banner {
+          padding: 10px;
         }
       }
     }

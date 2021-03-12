@@ -1,0 +1,25 @@
+@primary100: #FF9900;
+
+.dropdown-options-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.sp-input-container {
+  input {
+    & ~ .right-icon {
+      transition: all 0.2s ease, background-color 0.2s ease-in;
+    }
+  }
+  input:focus {
+    & ~ .right-icon {
+      transform: rotateZ(180deg) translateY(50%);
+      transition: all 0.2s ease, background-color 0.2s ease-in;
+      svg {
+        path {
+          fill: @primary100;
+        }
+      }
+    }
+  }
+}

@@ -18,6 +18,12 @@ import { ButtonComponent } from './Components/button/button.component';
 import { TextFieldComponent } from './Components/text-field/text-field.component';
 import { TextFieldExampleComponent } from './molecules/text-field-example/text-field-example.component';
 import { BannerComponent } from './Components/banner/banner.component';
+import { DropdownExampleComponent } from './molecules/dropdown-example/dropdown-example.component';
+import { DropdownComponent } from './Components/dropdown/dropdown.component';
+import { OptionComponent } from './Components/dropdown/option/option.component';
+import { PortalModule } from '@angular/cdk/portal';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { DropdownTemplateComponent } from './Components/dropdown/dropdown-template/dropdown-template.component';
 
 registerLocaleData(en);
 
@@ -31,7 +37,11 @@ registerLocaleData(en);
     ButtonComponent,
     TextFieldComponent,
     TextFieldExampleComponent,
-    BannerComponent
+    BannerComponent,
+    DropdownExampleComponent,
+    DropdownComponent,
+    OptionComponent,
+    DropdownTemplateComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +51,9 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     AngularSvgIconModule.forRoot(),
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PortalModule,
+    OverlayModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
