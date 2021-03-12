@@ -20,6 +20,8 @@ export class TextFieldComponent extends FormFieldManager implements OnInit {
     super();
   }
 
+  @Input() type: string;
+
   /* optional: max length */
   @Input() max: number;
 
