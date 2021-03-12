@@ -1,0 +1,43 @@
+<div #dropReference class="sp-input-container" [ngClass]="{'disabled-container': isDisabled}">
+
+    <input #input [ngClass]="{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'has-right-icon': !!endIcon, 'disabled-state': isDisabled}"
+           (click)="showDropdown()"
+           [(ngModel)]="value"
+           (ngModelChange)="changeAction($event)"
+           (keydown)="onKeyDown($event)"
+           [class]="size"
+           [attr.disabled]="isDisabled" readonly autocomplete="off">
+
+    <!-- label -->
+    <label class="text-field-label label">{{ label || placeholder }}</label>
+
+    <!-- hint -->
+    <label class="text-field-bottom-label hint-label" *ngIf="!!hint && !error">{{ hint }}</label>
+
+    <!-- error -->
+    <label class="text-field-bottom-label error-label" *ngIf="!!error">{{ error }}</label>
+
+    <!-- error icon -->
+    <span *ngIf="!!error" class="text-field-icon error-icon">
+        <svg-icon name="report" [svgStyle]="{ 'width.px':24 }"></svg-icon>
+    </span>
+
+    <!-- left icon -->
+    <span *ngIf="!!startIcon" class="text-field-icon left-icon">
+        <svg-icon name="{{startIcon}}" [svgStyle]="{ 'width.px':24 }"></svg-icon>
+    </span>
+
+    <!-- right icon (arrow) -->
+    <div *ngIf="!error" class="text-field-icon right-icon" (click)="onDropMenuIconClick($event)">
+        <svg-icon name="expand-more" [svgStyle]="{ 'width.px':24 }"></svg-icon>
+    </div>
+
+    <sp-dropdown-template [reference]="dropReference" #dropdownComp>
+        <div class="dropdown-options-container sp-elevation--5">
+            <ng-content select="sp-option"></ng-content>
+        </div>
+    </sp-dropdown-template>
+
+</div>
+
+
