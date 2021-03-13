@@ -25,6 +25,7 @@
 @gray30: #d2d2d2;
 @gray40: #b1b1b1;
 @gray60: #909090;
+@gray70: #706F6E;
 @gray80: #4f4e4d;
 @gray100: #0d0c0b;
 @red: #ef5350;
@@ -549,6 +550,26 @@ nz-tag {
   line-height: 30px !important;
   background-color: @gray10;
   border-color: @gray10 !important;
+  .anticon {
+    transform: translateY(2px);
+    svg {
+      path {
+        fill: @gray70;
+      }
+    }
+  }
+  .anticon-close {
+    padding: 5px;
+    font-size: 12px !important;
+    background: @gray70;
+    border-radius: 50px;
+    transform: translateY(-2px) scale(0.83333333) !important;
+    svg {
+      path {
+        fill: @gray10 !important;
+      }
+    }
+  }
 }
 
 .ant-tag-checkable-checked {

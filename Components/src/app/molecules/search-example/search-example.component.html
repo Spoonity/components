@@ -9,7 +9,9 @@
                 <sp-search size="large"
                            placeholder="Search Province"
                            [(ngModel)]="searchModel"
-                           (filter)="filter()">
+                           [selectedItems]="selectedItems"
+                           (filter)="filter()"
+                           (itemSelected)="itemSelected($event)">
                     <sp-search-option [value]="f" *ngFor="let f of filteredList">{{f.name}} - <em>{{f.address}}</em></sp-search-option>
                 </sp-search>
             </div>

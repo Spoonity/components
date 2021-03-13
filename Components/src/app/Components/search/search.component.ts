@@ -1,22 +1,20 @@
-import {Component, EventEmitter, forwardRef, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  Component, ContentChildren,
+  EventEmitter,
+  forwardRef,
+  Input,
+  OnInit,
+  Output,
+  QueryList,
+  ViewChild
+} from '@angular/core';
 import {FormFieldManager} from '../shared/form-field.manager';
 import {DropdownTemplateComponent} from '../dropdown/dropdown-template/dropdown-template.component';
 import {SearchService} from './search.service';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {SearchOptionComponent} from './search-option/search-option.component';
-
-interface IOption {
-  id: any;
-  value: any;
-  text: string;
-  icon?: string;
-}
-
-export interface ISelectedItem {
-  id: any;
-  icon: string;
-  text: string;
-}
+import {ActiveDescendantKeyManager} from '@angular/cdk/a11y';
 
 
 @Component({
@@ -32,14 +30,23 @@ export interface ISelectedItem {
     }
   ]
 })
-export class SearchComponent extends FormFieldManager implements OnInit {
+export class SearchComponent extends FormFieldManager implements OnInit, AfterViewInit {
 
   @Input() placeholder;
-  @Input() selectedItems = [];
+  @Input() selectedItems: {id: string; icon: string; text: string}[] = [];
   @Output() filter: EventEmitter<any> = new EventEmitter();
   @Output() itemSelected: EventEmitter<any> = new EventEmitter<any>();
 
   public selected: SearchOptionComponent;
+
+  focus: boolean;
+
+  @ContentChildren(SearchOptionComponent)
+  options: QueryList<SearchOptionComponent>;
+
+  /* key manager */
+  private keyManager: ActiveDescendantKeyManager<SearchOptionComponent>;
+
 
   constructor(
     private _searchService: SearchService
@@ -52,6 +59,16 @@ export class SearchComponent extends FormFieldManager implements OnInit {
   public search: DropdownTemplateComponent;
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.keyManager = new ActiveDescendantKeyManager(this.options)
+        .withHorizontalOrientation('ltr')
+        .withVerticalOrientation()
+        .withWrap();
+      this.checkDirty();
+    }, 100);
   }
 
   /**
@@ -101,6 +118,13 @@ export class SearchComponent extends FormFieldManager implements OnInit {
       if (this.search.showing) {
         this.hideDropdown();
       }
+    } else if (['ArrowUp', 'Up', 'ArrowDown', 'Down', 'ArrowRight', 'Right', 'ArrowLeft', 'Left']
+      .indexOf(event.key) > -1) {
+      this.keyManager.onKeydown(event);
+    } else if (event.key === 'PageUp' || event.key === 'PageDown' || event.key === 'Tab') {
+      if (this.search.showing) {
+        event.preventDefault();
+      }
     }
   }
 
@@ -113,5 +137,9 @@ export class SearchComponent extends FormFieldManager implements OnInit {
 
   public filterAction() {
     this.filter.emit();
+  }
+
+  public onClose(item: any) {
+    // TODO:
   }
 }
