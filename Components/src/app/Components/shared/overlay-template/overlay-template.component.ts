@@ -3,10 +3,10 @@ import { CdkPortal } from '@angular/cdk/portal';
 import {Overlay, OverlayConfig, OverlayRef} from '@angular/cdk/overlay';
 
 @Component({
-  selector: 'sp-dropdown-template',
-  templateUrl: './dropdown-template.component.html'
+  selector: 'sp-overlay-template',
+  templateUrl: './overlay-template.component.html'
 })
-export class DropdownTemplateComponent implements OnInit {
+export class OverlayTemplateComponent implements OnInit {
 
   @Input()
   public reference: HTMLElement;

@@ -23,7 +23,7 @@ import { DropdownComponent } from './Components/dropdown/dropdown.component';
 import { OptionComponent } from './Components/dropdown/option/option.component';
 import { PortalModule } from '@angular/cdk/portal';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { DropdownTemplateComponent } from './Components/dropdown/dropdown-template/dropdown-template.component';
+import { OverlayTemplateComponent } from './Components/shared/overlay-template/overlay-template.component';
 import { SideNavigationComponent } from './Components/side-navigation/side-navigation.component';
 import {SearchComponent} from './Components/search/search.component';
 import {SearchExampleComponent} from './molecules/search-example/search-example.component';
@@ -46,7 +46,7 @@ registerLocaleData(en);
     DropdownExampleComponent,
     DropdownComponent,
     OptionComponent,
-    DropdownTemplateComponent,
+    OverlayTemplateComponent,
     SideNavigationComponent,
     SearchComponent,
     SearchExampleComponent,

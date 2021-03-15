@@ -40,4 +40,17 @@ export class SearchOptionComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * set active status
+   */
+  public setActiveStyles(): void {
+    this.active = true;
+  }
+
+  /**
+   * set inactive status
+   */
+  public setInactiveStyles(): void {
+    this.active = false;
+  }
 }

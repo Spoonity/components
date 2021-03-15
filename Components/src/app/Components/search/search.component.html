@@ -7,9 +7,14 @@
 
         <!-- selected items (chips) -->
         <div class="selected-items sp-spacing-x--1" *ngIf="selectedItems.length">
-            <sp-chip *ngFor="let s of selectedItems" [text]="s.text" [icon]="s.icon" mode="closeable" (onCloseEvent)="onClose(s)"></sp-chip>
+            <div class="selected-item" *ngFor="let s of selectedItems">
+                <sp-chip [text]="s.text"
+                         [icon]="s.icon" mode="closeable"
+                         (onCloseEvent)="onClose(s)"></sp-chip>
+            </div>
         </div>
-        <input #input (focus)="focus=true" (blur)="focus=false"
+        <input #input *ngIf="maximumSelection ? selectedItems.length <= maximumSelection : true"
+               (focus)="focus=true" (blur)="focus=false"
                [ngClass]="{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}"
                [(ngModel)]="value"
                (ngModelChange)="changeAction($event)"
@@ -17,11 +22,11 @@
                placeholder="{{placeholder}}" autocomplete="off">
     </div>
 
-    <sp-dropdown-template [reference]="searchReference" #searchComp>
+    <sp-overlay-template [reference]="searchReference" #searchComp>
         <div class="search-options-container sp-elevation--5">
             <ng-content select="sp-search-option"></ng-content>
         </div>
-    </sp-dropdown-template>
+    </sp-overlay-template>
 
 </div>
 

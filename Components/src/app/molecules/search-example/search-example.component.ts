@@ -1,67 +1,182 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'sp-search-example',
   templateUrl: './search-example.component.html',
   styleUrls: ['./search-example.component.less']
 })
-export class SearchExampleComponent implements OnInit {
+export class SearchExampleComponent {
 
-  filteredList: any[] = [];
-  selectedItems: {id: string; icon: string; text: string}[] = [];
-  searchModel: string;
+  /* filtered list (by example type) */
+  largeFilteredList: any[] = [];
+  mediumFilteredList: any[] = [];
+  smallFilteredList: any[] = [];
+  noDropdownFilteredList: any[] = [];
 
+  /* selected items - chips (by example type */
+  largeSelectedItems: {id: string; icon: string; text: string}[] = [];
+  mediumSelectedItems: {id: string; icon: string; text: string}[] = [];
+  smallSelectedItems: {id: string; icon: string; text: string}[] = [];
+
+  /* search model (by example type) */
+  largeSearchModel: string;
+  mediumSearchModel: string;
+  smallSearchModel: string;
+  noDropdownSearchModel: string;
+
+  /* option items */
   allOptions: any[] = [
-    {id: 0, name: 'Option # 1', address: 'British Columbia'},
-    {id: 1, name: 'Option # 2', address: 'Alberta'},
-    {id: 2, name: 'Option # 3', address: 'Saskatchewan'},
-    {id: 3, name: 'Option # 4', address: 'Winnipeg'},
-    {id: 4, name: 'Option # 5', address: 'Quebec'},
-    {id: 5, name: 'Option # 6', address: 'Ontario'},
-    {id: 6, name: 'Option # 7', address: 'Newfoundland and Labrador'},
-    {id: 7, name: 'Option # 8', address: 'Nova Scotia'},
-    {id: 8, name: 'Option # 9', address: 'Prince Edward Island'},
-    {id: 9, name: 'Option # 10', address: 'Northwest Territories'},
-    {id: 10, name: 'Option # 11', address: 'Yukon Territories'},
-    {id: 10, name: 'Option # 11', address: 'Nunavut'}
+    {id: 0, name: 'banana', color: 'yellow', type: 'fruit'},
+    {id: 1, name: 'apple', color: 'red', type: 'fruit'},
+    {id: 2, name: 'orange', color: 'orange', type: 'fruit'},
+    {id: 3, name: 'strawberry', color: 'pink', type: 'fruit'},
+    {id: 4, name: 'blueberry', color: 'blue', type: 'fruit'},
+    {id: 5, name: 'kale', color: 'green', type: 'vegetable'},
+    {id: 6, name: 'carrot', color: 'orange', type: 'vegetable'},
+    {id: 7, name: 'broccoli', color: 'green', type: 'vegetable'},
+    {id: 8, name: 'spinach', color: 'green', type: 'vegetable'},
+    {id: 9, name: 'asparagus', color: 'green', type: 'vegetable'},
   ];
 
-  constructor() { }
 
-  ngOnInit() {
+  /**
+   * filter action via type
+   */
+  public filter(searchType: string): void {
+    switch (searchType) {
+      case 'large':
+        this.largeFilteredList = this._filterItems(this.largeSearchModel, this.largeSelectedItems);
+        break;
+      case 'medium':
+        this.mediumFilteredList = this._filterItems(this.mediumSearchModel, this.mediumSelectedItems);
+        break;
+      case 'small':
+        this.smallFilteredList = this._filterItems(this.smallSearchModel, this.smallSelectedItems);
+        break;
+      case 'noDropdown':
+        this.noDropdownFilteredList = this._filterItems(this.noDropdownSearchModel, []);
+        break;
+    }
   }
 
 
-  public filter() {
+  /**
+   * filter action given the type
+   */
+  private _filterItems(model, selectedItems): any[] {
     let _filteredList = [];
-    const _filterByAddress = Object.assign([], this.allOptions)
-      .filter(s => s.address.toString().toLowerCase().
-      indexOf(this.searchModel.toLowerCase()) > -1);
 
-    _filteredList = [..._filterByAddress];
+    const addToFilteredList = (list: any[]): void => {
+      if (_filteredList.length === 0) {
+        _filteredList = Array.from(list);
+      }
+      list.forEach(f => {
+        if (!_filteredList.find(x => x.id.toString() === f.id.toString())) {
+          _filteredList.push(f);
+        }
+      });
+    };
+
+    const _filterByColor = Object.assign([], this.allOptions)
+      .filter(s => s.color.toString().toLowerCase().
+      indexOf(model.toLowerCase()) > -1);
+
+    addToFilteredList(_filterByColor);
+
+    const _filterByType = Object.assign([], this.allOptions)
+      .filter(s => s.type.toString().toLowerCase().
+      indexOf(model.toLowerCase()) > -1);
+
+    addToFilteredList(_filterByType);
 
     const _filterByName = Object.assign([], this.allOptions)
       .filter(s => s.name.toString().toLowerCase().
-      indexOf(this.searchModel.toLowerCase()) > -1);
+      indexOf(model.toLowerCase()) > -1);
 
-    _filterByName.forEach(f => {
-      if (!_filteredList.find(x => x.id == f.id)) {
-        _filteredList.push(f);
-      }
-    });
+    addToFilteredList(_filterByName);
 
-    this.filteredList = [..._filteredList];
+    _filteredList = Array.from(
+      _filteredList.filter(s1 => !selectedItems.find(s2 => s1.id.toString() === s2.id.toString()))
+    );
+
+    return Array.from(_filteredList);
   }
 
-  itemSelected(selectedItem: any) {
-    console.log(selectedItem);
-    this.selectedItems.push({
+  /**
+   * on select action (Large example type)
+   */
+  largeItemSelected(selectedItem: any): void {
+    this.largeSelectedItems.push({
       id: selectedItem.id.toString(),
       text: selectedItem.name,
       icon: 'favorite'
     });
 
     // clear model
-    this.searchModel = '';
+    this.largeSearchModel = '';
+  }
+
+  /**
+   * on select action (Medium example type)
+   */
+  mediumItemSelected(selectedItem: any): void {
+    this.mediumSelectedItems.push({
+      id: selectedItem.id.toString(),
+      text: selectedItem.name,
+      icon: 'favorite'
+    });
+
+    // clear model
+    this.mediumSearchModel = '';
+  }
+
+  /**
+   * on select action (Small example type)
+   */
+  smallItemSelected(selectedItem: any): void {
+    this.smallSelectedItems.push({
+      id: selectedItem.id.toString(),
+      text: selectedItem.name,
+      icon: 'favorite'
+    });
+
+    // clear model
+    this.smallSearchModel = '';
+  }
+
+  /**
+   * remove item action (Large example type)
+   */
+  largeItemRemoved(removedItem: any): void {
+    this.largeSelectedItems = Array.from(
+      this.largeSelectedItems.filter(s => s.id.toString() !== removedItem.id.toString())
+    );
+  }
+
+  /**
+   * remove item action (Medium example type)
+   */
+  mediumItemRemoved(removedItem: any): void {
+    this.mediumSelectedItems = Array.from(
+      this.mediumSelectedItems.filter(s => s.id.toString() !== removedItem.id.toString())
+    );
+  }
+
+  /**
+   * remove item action (Small example type)
+   */
+  smallItemRemoved(removedItem: any): void {
+    this.smallSelectedItems = Array.from(
+      this.smallSelectedItems.filter(s => s.id.toString() !== removedItem.id.toString())
+    );
+  }
+
+  /**
+   * return list of options (No Dropdown example type)
+   */
+  getNoDropdownList(): any[] {
+    return this.noDropdownSearchModel == null || this.noDropdownSearchModel === ''
+      ? this.allOptions
+      : this.noDropdownFilteredList;
   }
 }

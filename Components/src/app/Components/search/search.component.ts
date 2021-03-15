@@ -4,17 +4,15 @@ import {
   EventEmitter,
   forwardRef,
   Input,
-  OnInit,
   Output,
   QueryList,
   ViewChild
 } from '@angular/core';
 import {FormFieldManager} from '../shared/form-field.manager';
-import {DropdownTemplateComponent} from '../dropdown/dropdown-template/dropdown-template.component';
+import {OverlayTemplateComponent} from '../shared/overlay-template/overlay-template.component';
 import {SearchService} from './search.service';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {SearchOptionComponent} from './search-option/search-option.component';
-import {ActiveDescendantKeyManager} from '@angular/cdk/a11y';
 
 
 @Component({
@@ -30,22 +28,40 @@ import {ActiveDescendantKeyManager} from '@angular/cdk/a11y';
     }
   ]
 })
-export class SearchComponent extends FormFieldManager implements OnInit, AfterViewInit {
+export class SearchComponent extends FormFieldManager implements AfterViewInit {
 
+  /* Placeholder text */
   @Input() placeholder;
+
+  /* selected items (chips) */
   @Input() selectedItems: {id: string; icon: string; text: string}[] = [];
+
+  /* optional maximum selected items */
+  @Input() maximumSelection?: number;
+
+  /* filter action */
   @Output() filter: EventEmitter<any> = new EventEmitter();
+
+  /* item selected action */
   @Output() itemSelected: EventEmitter<any> = new EventEmitter<any>();
 
+  /* item removed action */
+  @Output() itemRemoved: EventEmitter<any> = new EventEmitter<any>();
+
+  /* overlay template component */
+  @ViewChild(OverlayTemplateComponent, {static: false})
+  public search: OverlayTemplateComponent;
+
+  /* children component for options */
+  @ContentChildren(SearchOptionComponent)
+  public options: QueryList<SearchOptionComponent>;
+
+
+  /* selected option */
   public selected: SearchOptionComponent;
 
+  /* focus state */
   focus: boolean;
-
-  @ContentChildren(SearchOptionComponent)
-  options: QueryList<SearchOptionComponent>;
-
-  /* key manager */
-  private keyManager: ActiveDescendantKeyManager<SearchOptionComponent>;
 
 
   constructor(
@@ -55,27 +71,13 @@ export class SearchComponent extends FormFieldManager implements OnInit, AfterVi
     this._searchService.register(this);
   }
 
-  @ViewChild(DropdownTemplateComponent, {static: false})
-  public search: DropdownTemplateComponent;
-
-  ngOnInit() {
-  }
-
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.keyManager = new ActiveDescendantKeyManager(this.options)
-        .withHorizontalOrientation('ltr')
-        .withVerticalOrientation()
-        .withWrap();
-      this.checkDirty();
-    }, 100);
   }
 
   /**
    * override: on change action
    */
-  changeAction($event) {
-    console.log($event);
+  changeAction($event): void {
     this.onChange($event);
     this.checkDirty();
 
@@ -94,8 +96,6 @@ export class SearchComponent extends FormFieldManager implements OnInit, AfterVi
    */
   public showDropdown(): void {
     this.search.show();
-
-    // TODO:
   }
 
   /**
@@ -106,40 +106,35 @@ export class SearchComponent extends FormFieldManager implements OnInit, AfterVi
   }
 
   /**
-   * keydown event (applies only to single selection items)
-   * @param event
+   * keydown event
    */
-  public onKeyDown(event: KeyboardEvent) {
-    if (event.key === 'Enter') {
-      this.hideDropdown();
-      this.onChange();
-      this.checkDirty();
-    } else if (event.key === 'Escape' || event.key === 'Esc') {
+  public onKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'Escape' || event.key === 'Esc') {
       if (this.search.showing) {
         this.hideDropdown();
-      }
-    } else if (['ArrowUp', 'Up', 'ArrowDown', 'Down', 'ArrowRight', 'Right', 'ArrowLeft', 'Left']
-      .indexOf(event.key) > -1) {
-      this.keyManager.onKeydown(event);
-    } else if (event.key === 'PageUp' || event.key === 'PageDown' || event.key === 'Tab') {
-      if (this.search.showing) {
-        event.preventDefault();
       }
     }
   }
 
-  public select(selection: any) {
-    console.log('select', selection);
+  /**
+   * on select item
+   */
+  public select(selection: any): void {
     this.itemSelected.emit(selection);
-    // TODO:
     this.hideDropdown();
   }
 
-  public filterAction() {
+  /**
+   * on filter action
+   */
+  public filterAction(): void {
     this.filter.emit();
   }
 
-  public onClose(item: any) {
-    // TODO:
+  /**
+   * on close item
+   */
+  public onClose(selection: any): void {
+    this.itemRemoved.emit(selection);
   }
 }

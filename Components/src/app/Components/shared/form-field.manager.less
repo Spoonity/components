@@ -16,8 +16,6 @@
 .form-field {
   color: #0D0C0B;
   font-size: @font-size;
-  max-width: 520px;
-  min-height: 24px;
   height: inherit;
   width: 100%;
   border-radius: 4px;
@@ -94,13 +92,13 @@
 }
 
 .sp-input-container {
-  max-width: 520px;
-  min-width: 220px;
   margin: 10px 0 30px 0;
   position: relative;
   input {
     box-shadow: none;
     outline: none;
+    max-width: 520px;
+    min-height: 24px;
     .form-field();
 
     &[disabled] {
@@ -236,6 +234,7 @@
     }
   }
   &.small {
+    padding: 4px @padding-x-small;
     .search-icon {
       margin-left: @padding-x-small;
       margin-right: @padding-x-small;
@@ -244,5 +243,8 @@
   .selected-items {
     display: flex;
     flex-wrap: wrap;
+    .selected-item {
+      margin: 1px
+    }
   }
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DropdownTemplateComponent } from './dropdown-template.component';
+import { OverlayTemplateComponent } from './overlay-template.component';
 
 describe('DropdownTemplateComponent', () => {
-  let component: DropdownTemplateComponent;
-  let fixture: ComponentFixture<DropdownTemplateComponent>;
+  let component: OverlayTemplateComponent;
+  let fixture: ComponentFixture<OverlayTemplateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DropdownTemplateComponent ]
+      declarations: [ OverlayTemplateComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DropdownTemplateComponent);
+    fixture = TestBed.createComponent(OverlayTemplateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
