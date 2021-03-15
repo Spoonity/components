@@ -146,6 +146,11 @@
         </div>
     </div>
 
+    <div class="section sp-spacing-y--4">
+        <h2>Steps</h2>
+        <sp-steps [current]="currentStep" [steps]="steps" [type]="'navigation'" (onIndexChangeEvent)="onIndexChange($event)"></sp-steps>
+    </div>
+
     <!-- Text field Example -->
     <div class="section sp-spacing-y--4">
         <sp-text-field-example></sp-text-field-example>
@@ -156,7 +161,7 @@
         <sp-dropdown-example></sp-dropdown-example>
     </div>
 
-    <!-- Dropdown Example -->
+    <!-- Search Example -->
     <div class="section sp-spacing-y--4">
         <sp-search-example></sp-search-example>
     </div>
