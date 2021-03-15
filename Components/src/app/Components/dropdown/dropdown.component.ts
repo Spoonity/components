@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {FormFieldManager} from '../shared/form-field.manager';
-import {DropdownTemplateComponent} from './dropdown-template/dropdown-template.component';
+import {OverlayTemplateComponent} from '../shared/overlay-template/overlay-template.component';
 import {OptionComponent} from './option/option.component';
 import {DropdownService} from './dropdown.service';
 import {ActiveDescendantKeyManager} from '@angular/cdk/a11y';
@@ -35,8 +35,8 @@ export class DropdownComponent extends FormFieldManager implements AfterViewInit
   @ViewChild('input', {static: false})
   public input: ElementRef;
 
-  @ViewChild(DropdownTemplateComponent, {static: false})
-  public dropdown: DropdownTemplateComponent;
+  @ViewChild(OverlayTemplateComponent, {static: false})
+  public dropdown: OverlayTemplateComponent;
 
   @ContentChildren(OptionComponent)
   public options: QueryList<OptionComponent>;
@@ -117,7 +117,11 @@ export class DropdownComponent extends FormFieldManager implements AfterViewInit
     // set highlighted item only for single selection
     // -- highlight selected item or first item
     if (!this.selectMultiple) {
-      this.single_selected ? this.keyManager.setActiveItem(this.single_selectedOption) : this.keyManager.setFirstItemActive();
+      if (this.single_selected) {
+        this.keyManager.setActiveItem(this.single_selectedOption);
+      } else {
+        this.keyManager.setFirstItemActive();
+      }
     }
   }
 

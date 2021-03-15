@@ -1,0 +1,33 @@
+<div #searchReference class="sp-input-container search-container" [ngClass]="{'disabled-container': isDisabled}">
+    <div class="search-wrapper {{size}} " [ngClass]="{'item-focus': focus}">
+        <!-- search icon -->
+        <div class="search-icon left-icon">
+            <svg-icon name="search" [svgStyle]="{ 'width.px':24 }"></svg-icon>
+        </div>
+
+        <!-- selected items (chips) -->
+        <div class="selected-items sp-spacing-x--1" *ngIf="selectedItems.length">
+            <div class="selected-item" *ngFor="let s of selectedItems">
+                <sp-chip [text]="s.text"
+                         [icon]="s.icon" mode="closeable"
+                         (onCloseEvent)="onClose(s)"></sp-chip>
+            </div>
+        </div>
+        <input #input *ngIf="maximumSelection ? selectedItems.length <= maximumSelection : true"
+               (focus)="focus=true" (blur)="focus=false"
+               [ngClass]="{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}"
+               [(ngModel)]="value"
+               (ngModelChange)="changeAction($event)"
+               (keydown)="onKeyDown($event)"
+               placeholder="{{placeholder}}" autocomplete="off">
+    </div>
+
+    <sp-overlay-template [reference]="searchReference" #searchComp>
+        <div class="search-options-container sp-elevation--5">
+            <ng-content select="sp-search-option"></ng-content>
+        </div>
+    </sp-overlay-template>
+
+</div>
+
+

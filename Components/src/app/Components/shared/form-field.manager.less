@@ -12,60 +12,95 @@
 @padding-y-small: 6px;
 @padding-x-small: 10px;
 
+
+.form-field {
+  color: #0D0C0B;
+  font-size: @font-size;
+  height: inherit;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid @gray60 !important;
+  &.large {
+    padding: @padding-y-large @padding-x-large;
+    & + label {
+      top: @padding-y-large;
+    }
+  }
+  &.medium {
+    padding: @padding-y-medium @padding-x-medium;
+    & + label {
+      top: @padding-y-medium;
+    }
+  }
+  &.small {
+    padding: @padding-y-small @padding-x-small;
+    & + label {
+      top: @padding-y-small;
+    }
+  }
+  &.error, &.has-right-icon {
+    padding-right: 45px;
+  }
+  &.error {
+    border: 1px solid @error !important;
+    & ~ label {
+      color: @error !important;
+    }
+    &:focus, &:hover {
+      border: 1px solid @error !important;
+      caret-color: @error;
+    }
+  }
+  &.has-left-icon {
+    padding-left: 45px;
+    & + label {
+      left: 45px;
+    }
+  }
+  &:hover {
+    border: 1px solid #000 !important;
+  }
+  &:focus, &.item-focus {
+    border: 1px solid @primary100 !important;
+    caret-color: @primary100;
+    & + label {
+      color: @primary100;
+      font-size: 11px;
+      top: -8px;
+      left: 8px;
+      padding: 0 4px;
+      background-color: #fff;
+    }
+  }
+}
+
+.text-field-container {
+  input {
+    &::placeholder {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.1s ease-out, opacity 0.1s ease-out;
+      padding: 0 4px;
+    }
+    &:focus {
+      &::placeholder {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
+
 .sp-input-container {
-  max-width: 520px;
-  min-width: 220px;
   margin: 10px 0 30px 0;
   position: relative;
   input {
-    color: #0D0C0B;
-    font-size: @font-size;
-    max-width: 520px;
-    min-height: 24px;
-    height: inherit;
-    width: 100%;
-    border-radius: 4px;
-    border: 1px solid @gray60 !important;
     box-shadow: none;
     outline: none;
-    &.large {
-      padding: @padding-y-large @padding-x-large;
-      & + label {
-        top: @padding-y-large;
-      }
-    }
-    &.medium {
-      padding: @padding-y-medium @padding-x-medium;
-      & + label {
-        top: @padding-y-medium;
-      }
-    }
-    &.small {
-      padding: @padding-y-small @padding-x-small;
-      & + label {
-        top: @padding-y-small;
-      }
-    }
+    max-width: 520px;
+    min-height: 24px;
+    .form-field();
 
-    &.error, &.has-right-icon {
-      padding-right: 45px;
-    }
-    &.error {
-      border: 1px solid @error !important;
-      & ~ label {
-        color: @error !important;
-      }
-      &:focus, &:hover {
-        border: 1px solid @error !important;
-        caret-color: @error;
-      }
-    }
-    &.has-left-icon {
-      padding-left: 45px;
-      & + label {
-        left: 45px;
-      }
-    }
     &[disabled] {
       background-color: #ffffff !important;
       color: @gray40 !important;
@@ -78,42 +113,22 @@
         border: 1px solid @gray40 !important;
       }
     }
-    &::placeholder {
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0.1s ease-out, opacity 0.1s ease-out;
-      padding: 0 4px;
-    }
-    &:hover {
-      border: 1px solid #000 !important;
-    }
-    &:focus {
-      border: 1px solid @primary100 !important;
-      caret-color: @primary100;
-      &::placeholder {
-        visibility: visible;
-        opacity: 1;
-      }
-      & + label {
-        color: @primary100;
-      }
-    }
     &.dirty {
       & + label {
         color: @gray60;
       }
-    }
-    &.dirty:hover {
-      & + label {
-        color: #000;
+      &:hover {
+        & + label {
+          color: #000;
+        }
+      }
+      &:focus {
+        & + label {
+          color: @primary100;
+        }
       }
     }
-    &.dirty:focus {
-      & + label {
-        color: @primary100;
-      }
-    }
-    &:focus, &.dirty {
+    &.dirty {
       & + label {
         font-size: 11px;
         top: -8px;
@@ -134,7 +149,7 @@
   }
   .text-field-icon {
     position: absolute;
-    height: 26px;
+    height: 24px;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -190,6 +205,46 @@
           fill: @gray40;
         }
       }
+    }
+  }
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  .form-field();
+  input {
+    &, &:hover, &:focus {
+      border: none !important;
+    }
+  }
+  .search-icon {
+    height: 24px;
+  }
+  &.large {
+    .search-icon {
+      margin-left: @padding-x-large;
+      margin-right: @padding-x-large;
+    }
+  }
+  &.medium {
+    .search-icon {
+      margin-left: @padding-x-medium;
+      margin-right: @padding-x-medium;
+    }
+  }
+  &.small {
+    padding: 4px @padding-x-small;
+    .search-icon {
+      margin-left: @padding-x-small;
+      margin-right: @padding-x-small;
+    }
+  }
+  .selected-items {
+    display: flex;
+    flex-wrap: wrap;
+    .selected-item {
+      margin: 1px
     }
   }
 }

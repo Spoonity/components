@@ -1,11 +1,11 @@
 <div #dropReference class="sp-input-container" [ngClass]="{'disabled-container': isDisabled}">
 
-    <input #input [ngClass]="{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'has-right-icon': !!endIcon, 'disabled-state': isDisabled}"
+    <input #input [ngClass]="{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'disabled-state': isDisabled}"
            (click)="showDropdown()"
            [(ngModel)]="value"
            (ngModelChange)="changeAction($event)"
            (keydown)="onKeyDown($event)"
-           [class]="size"
+           class="{{size}} has-right-icon"
            [attr.disabled]="isDisabled" readonly autocomplete="off">
 
     <!-- label -->
@@ -32,11 +32,11 @@
         <svg-icon name="expand-more" [svgStyle]="{ 'width.px':24 }"></svg-icon>
     </div>
 
-    <sp-dropdown-template [reference]="dropReference" #dropdownComp>
+    <sp-overlay-template [reference]="dropReference" #dropdownComp>
         <div class="dropdown-options-container sp-elevation--5">
             <ng-content select="sp-option"></ng-content>
         </div>
-    </sp-dropdown-template>
+    </sp-overlay-template>
 
 </div>
 

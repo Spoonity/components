@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DropdownTemplateComponent } from './dropdown-template.component';
+import { SearchExampleComponent } from './search-example.component';
 
-describe('DropdownTemplateComponent', () => {
-  let component: DropdownTemplateComponent;
-  let fixture: ComponentFixture<DropdownTemplateComponent>;
+describe('SearchExampleComponent', () => {
+  let component: SearchExampleComponent;
+  let fixture: ComponentFixture<SearchExampleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DropdownTemplateComponent ]
+      declarations: [ SearchExampleComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DropdownTemplateComponent);
+    fixture = TestBed.createComponent(SearchExampleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
