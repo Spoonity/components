@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IBreadCrumbItem } from '../Component/breadcrumb/breadcrumb.component';
 import { ISteps } from '../Components/steps/steps.component';
 import { ButtonSize, ButtonType, TagType } from '../utils/enums';
 
@@ -30,6 +31,7 @@ export class MoleculesComponent implements OnInit {
   currentStep = 0;
   banners: IBanner[] = [];
   steps: ISteps[] = []
+  breadcrumbItems: IBreadCrumbItem[] = [];
 
   onClose(): void {
     console.log('tag was closed.');
@@ -44,6 +46,7 @@ export class MoleculesComponent implements OnInit {
   ngOnInit() {
     this.banners = this.getBanner();
     this.steps = this.getSteps();
+    this.breadcrumbItems = this.getBreadcrumbsItems();
   }
 
   getBanner(): IBanner[] {
@@ -62,6 +65,14 @@ export class MoleculesComponent implements OnInit {
       { title: 'Step 3', description: '' },
       { title: 'Step 4', description: '' },
       { title: 'Step 5', description: '' }
+    ];
+  }
+
+  getBreadcrumbsItems(): IBreadCrumbItem[] {
+    return [
+      { label: 'Page 1', route: '' },
+      { label: 'Page 2', route: '' },
+      { label: 'Page 3', route: '' }
     ];
   }
 

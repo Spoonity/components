@@ -31,6 +31,7 @@ import { SearchTemplateComponent } from './Components/search/search-template/sea
 import { SearchOptionComponent } from './Components/search/search-option/search-option.component';
 import { StepsComponent } from './Components/steps/steps.component';
 import { BackNavigationComponent } from './Component/back-navigation/back-navigation.component';
+import { BreadcrumbComponent } from './Component/breadcrumb/breadcrumb.component';
 
 registerLocaleData(en);
 
@@ -56,7 +57,8 @@ registerLocaleData(en);
     SearchExampleComponent,
     SearchTemplateComponent,
     SearchOptionComponent,
-    BackNavigationComponent
+    BackNavigationComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,
