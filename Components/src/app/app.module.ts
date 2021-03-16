@@ -30,6 +30,7 @@ import { SearchExampleComponent } from './molecules/search-example/search-exampl
 import { SearchTemplateComponent } from './Components/search/search-template/search-template.component';
 import { SearchOptionComponent } from './Components/search/search-option/search-option.component';
 import { StepsComponent } from './Components/steps/steps.component';
+import { BreadcrumbComponent } from './Component/breadcrumb/breadcrumb.component';
 
 registerLocaleData(en);
 
@@ -54,7 +55,8 @@ registerLocaleData(en);
     SearchComponent,
     SearchExampleComponent,
     SearchTemplateComponent,
-    SearchOptionComponent
+    SearchOptionComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,
