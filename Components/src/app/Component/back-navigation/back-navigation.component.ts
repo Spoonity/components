@@ -21,8 +21,9 @@ export class BackNavigationComponent implements OnInit {
   onBack(route): void {
     if (route) {
       this._router.navigate([route]);
+    }else{
+      this._location.back();
     }
-    this._location.back();
   }
 
 }
