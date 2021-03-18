@@ -125,6 +125,7 @@
                     <th>
                         Checkable
                     </th>
+
                     <td>
                         <sp-chip [text]="'Chip'" [mode]="'checkable'" [checked]="true" (onCheckEvent)="checkChange($event)"></sp-chip>
                     </td>
@@ -171,11 +172,19 @@
         <h2>Back Navigation</h2>
         <sp-back-navigation [title]="'Back'"></sp-back-navigation>
     </div>
-    <!-- Breadcrumb -->
 
-    <div class="section banner-section sp-spacing-y--4">
+    <!-- Breadcrumb -->
+    <div class="section sp-spacing-y--4">
         <h2>Breadcrumb</h2>
         <sp-breadcrumb [items]="breadcrumbItems"></sp-breadcrumb>
     </div>
 
+    <!-- Snackbar -->
+    <div class="section sp-spacing-y--4">
+        <h2>Snackbar</h2>
+        <sp-snackbar #snackbar></sp-snackbar>
+        <button nz-button [nzType]="'primary'" (click)="OnOpenSnackbar()">
+      Open Snackbar
+    </button>
+    </div>
 </div>

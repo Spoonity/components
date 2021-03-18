@@ -1,0 +1,17 @@
+<ng-template #template let-snackbar="data">
+    <div class="ant-notification-notice-content">
+        <div>
+            <div class="ant-notification-notice-message">
+                {{ snackbar.message }}
+            </div>
+            <div class="ant-notification-notice-description">
+                {{ snackbar.description }}
+            </div>
+            <span class="ant-notification-notice-btn">
+        <span *ngIf="snackbar.actionMessage" (click)="onAction(snackbar.actionEvent)">
+          {{ snackbar.actionMessage }}
+        </span>
+            </span>
+        </div>
+    </div>
+</ng-template>
