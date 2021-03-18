@@ -1,5 +1,4 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { NzNotificationService } from 'ng-zorro-antd';
 import { IBreadCrumbItem } from '../Component/breadcrumb/breadcrumb.component';
 import { ISnackbar, SnackbarComponent } from '../Component/snackbar/snackbar.component';
 import { ISteps } from '../Components/steps/steps.component';
@@ -18,7 +17,7 @@ interface IBanner {
 })
 export class MoleculesComponent implements OnInit {
 
-  constructor(private notification: NzNotificationService) { }
+  constructor() { }
 
   buttonType: ButtonType = ButtonType.primary;
   buttonSize: ButtonSize = ButtonSize.medium;
@@ -48,7 +47,7 @@ export class MoleculesComponent implements OnInit {
     console.log(e);
   }
 
-  OnopenSnackbar() {
+  OnOpenSnackbar() {
     let snackbar: ISnackbar = {
       message: 'Message',
       description: 'Description',
@@ -56,7 +55,6 @@ export class MoleculesComponent implements OnInit {
       actionEvent: () => {alert('callback')}
     };
     this.snackbar.createSnackbar(snackbar);
-    this.notification.error("qwe","asd");
   }
 
   onAction() {

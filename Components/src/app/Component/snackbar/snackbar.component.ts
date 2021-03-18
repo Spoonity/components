@@ -27,11 +27,9 @@ export class SnackbarComponent implements OnInit {
           background: '#0D0C0B',
           color: 'white'
         },
-        nzData: snackbar,
-        nzDuration: 9999999999
+        nzData: snackbar
       },
     );
-    this.notification.error("error", "error");
   }
 
 
