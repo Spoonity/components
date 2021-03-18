@@ -57,10 +57,6 @@ export class MoleculesComponent implements OnInit {
     this.snackbar.createSnackbar(snackbar);
   }
 
-  onAction() {
-    console.log("On action");
-  }
-
   ngOnInit() {
     this.banners = this.getBanner();
     this.steps = this.getSteps();
