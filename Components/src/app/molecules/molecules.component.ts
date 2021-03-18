@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { NzNotificationService } from 'ng-zorro-antd';
 import { IBreadCrumbItem } from '../Component/breadcrumb/breadcrumb.component';
+import { ISnackbar, SnackbarComponent } from '../Component/snackbar/snackbar.component';
 import { ISteps } from '../Components/steps/steps.component';
 import { ButtonSize, ButtonType, TagType } from '../utils/enums';
 
@@ -16,7 +18,7 @@ interface IBanner {
 })
 export class MoleculesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private notification: NzNotificationService) { }
 
   buttonType: ButtonType = ButtonType.primary;
   buttonSize: ButtonSize = ButtonSize.medium;
@@ -33,6 +35,11 @@ export class MoleculesComponent implements OnInit {
   steps: ISteps[] = []
   breadcrumbItems: IBreadCrumbItem[] = [];
 
+  openSnackbar = false;
+
+  @ViewChild('snackbar', { static: false }) snackbar?: SnackbarComponent;
+
+
   onClose(): void {
     console.log('tag was closed.');
   }
@@ -41,7 +48,20 @@ export class MoleculesComponent implements OnInit {
     console.log(e);
   }
 
+  OnopenSnackbar() {
+    let snackbar: ISnackbar = {
+      message: 'Message',
+      description: 'Description',
+      actionMessage: 'Action',
+      actionEvent: () => {alert('callback')}
+    };
+    this.snackbar.createSnackbar(snackbar);
+    this.notification.error("qwe","asd");
+  }
 
+  onAction() {
+    console.log("On action");
+  }
 
   ngOnInit() {
     this.banners = this.getBanner();
