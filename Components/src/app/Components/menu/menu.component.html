@@ -1,0 +1,27 @@
+<div #menuReference class="menu-wrapper" [ngClass]="{'show-menu': isShowing()}">
+    <sp-overlay-template [reference]="menuReference" #menuComp>
+        <div class="menu-container sp-elevation--5">
+
+            <!---- search ---->
+            <div *ngIf="search" class="search-container sp-spacing--1">
+                <input #searchEl
+                       placeholder="Search"
+                       [(ngModel)]="searchModel"
+                       (ngModelChange)="change()"
+                       (keydown)="onKeyDown($event)"/>
+            </div>
+
+            <!---- select all ---->
+            <div *ngIf="multiple && selectAllOption" class="menu-item sp-spacing--1 multiple-menu-item" (click)="toggleSelectAllAction()">
+                <div>
+                    <label nz-checkbox [(ngModel)]="selectAll" (ngModelChange)="toggleSelectAllAction(true)"></label>
+                </div>
+                <div class="label">Select All</div>
+            </div>
+
+            <!-- options list -->
+            <ng-content select="sp-menu-item"></ng-content>
+        </div>
+    </sp-overlay-template>
+</div>
+

@@ -1,8 +1,5 @@
-@gray40: #B1B1B1;
-@gray60: #909090;
-@gray70: #706F6E;
-@primary100: #FF9900;
-@error: #EF5350;
+@import "colors";
+@error: @red;
 
 @font-size: 14px;
 @padding-y-large: 12px;
@@ -61,10 +58,10 @@
     border: 1px solid #000 !important;
   }
   &:focus, &.item-focus {
-    border: 1px solid @primary100 !important;
-    caret-color: @primary100;
+    border: 1px solid @primary-color !important;
+    caret-color: @primary-color;
     & + label {
-      color: @primary100;
+      color: @primary-color;
       font-size: 11px;
       top: -8px;
       left: 8px;
@@ -124,7 +121,7 @@
       }
       &:focus {
         & + label {
-          color: @primary100;
+          color: @primary-color;
         }
       }
     }

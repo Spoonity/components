@@ -1,21 +1,9 @@
-.search-option-container {
-  display: block;
-  padding: 0 0.875rem;
-  height: 2.5rem;
-  line-height: 2.5rem;
-  color: #333;
-  background-color: #fff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  user-select: none;
-  cursor: pointer;
-  &:hover, &.active {
-    outline: none;
-    background-color: #eee;
+@import "../../shared/option-item";
 
-    @media screen and (-ms-high-contrast: active) {
-      background-color: #eee;
-    }
+.search-option-container {
+  .options-container();
+  &:hover, &.active {
+    .option-item-active();
   }
 }
+

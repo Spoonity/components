@@ -1,0 +1,192 @@
+<div class="menu-section">
+    <h2>MENU</h2>
+    <div class="sp-spacing-y--1">
+        <h3>Single Selection</h3>
+        <div class="menu-example">
+            <div>
+                <sp-button text="menu" [spMenuTrigger]="menu1"></sp-button>
+                <sp-menu #menu1>
+                    <sp-menu-item (click)="actionSelected('item 1 selected', 1)">sample 1</sp-menu-item>
+                    <sp-menu-item (click)="actionSelected('item 2 selected', 1)">sample 2</sp-menu-item>
+                    <sp-menu-item (click)="actionSelected('item 3 selected', 1)">sample 3</sp-menu-item>
+                </sp-menu>
+            </div>
+            <div class="sp-spacing--2 sp-elevation--1 menu-action">
+                <p><strong>action: </strong></p>
+                <p *ngIf="!actionText[1]"><em>select an item on the menu</em></p>
+                <p>{{actionText[1]}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sp-spacing-y--1">
+        <h3>Single Selection (with icon)</h3>
+        <div class="menu-example">
+            <div>
+                <sp-button text="menu" [spMenuTrigger]="menu2"></sp-button>
+                <sp-menu #menu2>
+                    <sp-menu-item startIcon="favorite" (click)="actionSelected('item 1 selected', 2)">sample 1</sp-menu-item>
+                    <sp-menu-item startIcon="favorite" (click)="actionSelected('item 2 selected', 2)">sample 2</sp-menu-item>
+                    <sp-menu-item startIcon="favorite" (click)="actionSelected('item 3 selected', 2)">sample 3</sp-menu-item>
+                </sp-menu>
+            </div>
+            <div class="sp-spacing--2 sp-elevation--1 menu-action">
+                <p><strong>action: </strong></p>
+                <p *ngIf="!actionText[2]"><em>select an item on the menu</em></p>
+                <p>{{actionText[2]}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sp-spacing-y--1">
+        <h3>Single Selection (with search)</h3>
+        <div class="menu-example">
+            <div>
+                <sp-button text="menu" [spMenuTrigger]="menu3"></sp-button>
+                <sp-menu #menu3 [search]="true" [(searchModel)]="searchModel1" (searchModelChange)="filter1()">
+                    <sp-menu-item *ngFor="let f of filteredMenuItems1"
+                                  (click)="actionSelected(f.text, 3)">{{f.text}}</sp-menu-item>
+                </sp-menu>
+            </div>
+            <div class="sp-spacing--2 sp-elevation--1 menu-action">
+                <p><strong>action: </strong></p>
+                <p *ngIf="!actionText[3]"><em>select an item on the menu</em></p>
+                <p>{{actionText[3]}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sp-spacing-y--1">
+        <h3>Single Selection (with search and icon)</h3>
+        <div class="menu-example">
+            <div>
+                <sp-button text="menu" [spMenuTrigger]="menu4"></sp-button>
+                <sp-menu #menu4 [search]="true" [(searchModel)]="searchModel2" (searchModelChange)="filter2()">
+                    <sp-menu-item *ngFor="let f of filteredMenuItems2"
+                                  (click)="actionSelected(f.text, 4)"
+                                  [startIcon]="f.icon">{{f.text}}</sp-menu-item>
+                </sp-menu>
+            </div>
+            <div class="sp-spacing--2 sp-elevation--1 menu-action">
+                <p><strong>action: </strong></p>
+                <p *ngIf="!actionText[4]"><em>select an item on the menu</em></p>
+                <p>{{actionText[4]}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sp-spacing-y--1">
+        <h3>Multiple Selection</h3>
+        <div class="menu-example">
+            <div>
+                <sp-button text="menu" [spMenuTrigger]="menu5"></sp-button>
+                <sp-menu #menu5 [multiple]="true" [(selectedItems)]="selectedItems1">
+                    <sp-menu-item itemId="{{f.id}}" *ngFor="let f of menuItems">{{f.text}}</sp-menu-item>
+                </sp-menu>
+            </div>
+            <div class="sp-spacing--2 sp-elevation--1 menu-action">
+                <p><strong>selected:</strong></p>
+                <ul *ngIf="selectedItems1 && selectedItems1.length">
+                    <ng-container *ngFor="let m of menuItems">
+                        <li *ngIf="this.selectedItems1.includes(m.id.toString())">{{m.text}}</li>
+                    </ng-container>
+                </ul>
+                <p *ngIf="!selectedItems1 || !selectedItems1.length"><em>select an item on the menu</em></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sp-spacing-y--1">
+        <h3>Multiple Selection (with start icon)</h3>
+        <div class="menu-example">
+            <div>
+                <sp-button text="menu" [spMenuTrigger]="menu6"></sp-button>
+                <sp-menu #menu6 [multiple]="true" [(selectedItems)]="selectedItems2">
+                    <sp-menu-item startIcon="favorite" itemId="{{f.id}}" *ngFor="let f of menuItems">{{f.text}}</sp-menu-item>
+                </sp-menu>
+            </div>
+            <div class="sp-spacing--2 sp-elevation--1 menu-action">
+                <p><strong>selected:</strong></p>
+                <ul *ngIf="selectedItems2 && selectedItems2.length">
+                    <ng-container *ngFor="let m of menuItems">
+                        <li *ngIf="this.selectedItems2.includes(m.id.toString())">{{m.text}}</li>
+                    </ng-container>
+                </ul>
+                <p *ngIf="!selectedItems2 || !selectedItems2.length"><em>select an item on the menu</em></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sp-spacing-y--1">
+        <h3>Multiple Selection (with search)</h3>
+        <div class="menu-example">
+            <div>
+                <sp-button text="menu" [spMenuTrigger]="menu7"></sp-button>
+                <sp-menu #menu7 [multiple]="true" [search]="true" [(selectedItems)]="selectedItems3" [(searchModel)]="searchModel3" (searchModelChange)="filter3()">
+                    <sp-menu-item startIcon="favorite" itemId="{{f.id}}" *ngFor="let f of filteredMenuItems3">{{f.text}}</sp-menu-item>
+                </sp-menu>
+            </div>
+            <div class="sp-spacing--2 sp-elevation--1 menu-action">
+                <p><strong>selected:</strong></p>
+                <ul *ngIf="selectedItems3 && selectedItems3.length">
+                    <ng-container *ngFor="let m of menuItems">
+                        <li *ngIf="this.selectedItems3.includes(m.id.toString())">{{m.text}}</li>
+                    </ng-container>
+                </ul>
+                <p *ngIf="!selectedItems3 || !selectedItems3.length"><em>select an item on the menu</em></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sp-spacing-y--1">
+        <h3>Multiple Selection (with search and start icon)</h3>
+        <div class="menu-example">
+            <div>
+                <sp-button text="menu" [spMenuTrigger]="menu8"></sp-button>
+                <sp-menu #menu8 [multiple]="true" [search]="true" [(selectedItems)]="selectedItems4" [(searchModel)]="searchModel4" (searchModelChange)="filter4()">
+                    <sp-menu-item *ngFor="let f of filteredMenuItems4"
+                                  startIcon="favorite"
+                                  itemId="{{f.id}}"
+                                  [checkboxModel]="selectedItems4 && selectedItems4.includes(f.id.toString())">{{f.text}}</sp-menu-item>
+                </sp-menu>
+            </div>
+            <div class="sp-spacing--2 sp-elevation--1 menu-action">
+                <p><strong>selected:</strong></p>
+                <ul *ngIf="selectedItems4 && selectedItems4.length">
+                    <ng-container *ngFor="let m of menuItems">
+                        <li *ngIf="this.selectedItems4.includes(m.id.toString())">{{m.text}}</li>
+                    </ng-container>
+                </ul>
+                <p *ngIf="!selectedItems4 || !selectedItems4.length"><em>select an item on the menu</em></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sp-spacing-y--1">
+        <h3>Multiple Selection (with search and select all)</h3>
+        <div class="menu-example">
+            <div>
+                <sp-button text="menu" [spMenuTrigger]="menu9"></sp-button>
+                <sp-menu #menu9 [multiple]="true" [search]="true"
+                         [(selectedItems)]="selectedItems5"
+                         [(searchModel)]="searchModel5"
+                         [selectAllOption]="true"
+                         (searchModelChange)="filter4()"
+                         (toggleSelectAll)="toggleSelectAll($event)">
+                    <sp-menu-item *ngFor="let f of filteredMenuItems5"
+                                  itemId="{{f.id}}"
+                                  [checkboxModel]="selectedItems5 && selectedItems5.includes(f.id.toString())">{{f.text}}</sp-menu-item>
+                </sp-menu>
+            </div>
+            <div class="sp-spacing--2 sp-elevation--1 menu-action">
+                <p><strong>selected:</strong></p>
+                <ul *ngIf="selectedItems5 && selectedItems5.length">
+                    <ng-container *ngFor="let m of menuItems">
+                        <li *ngIf="this.selectedItems5.includes(m.id.toString())">{{m.text}}</li>
+                    </ng-container>
+                </ul>
+                <p *ngIf="!selectedItems5 || !selectedItems5.length"><em>select an item on the menu</em></p>
+            </div>
+        </div>
+    </div>
+</div>

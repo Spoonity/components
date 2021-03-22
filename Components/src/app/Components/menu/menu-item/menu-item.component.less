@@ -1,0 +1,56 @@
+@import "../../shared/option-item";
+@import "../../shared/colors";
+
+.menu-item {
+  .options-container();
+  &.selected, &:hover {
+    .option-item-active();
+  }
+
+  &.selected {
+    font-weight: bold;
+  }
+
+  &:hover, &.active {
+    .option-item-active();
+  }
+
+  &:active {
+    .option-item-pressed();
+  }
+
+  &.multiple-menu-item {
+    &:active {
+      background-color: @primary20 !important;
+    }
+  }
+
+  &.selected-item {
+    background-color: @primary10;
+  }
+
+
+  &.disabled {
+    .option-item-disabled();
+  }
+
+  .menu-icon {
+    svg {
+      path {
+        fill: @gray70;
+      }
+    }
+  }
+  .label {
+    margin-left: 10px;
+  }
+}
+
+.menu-item, .menu-icon {
+  display: flex;
+  align-items: center;
+}
+
+.right-checkbox {
+  margin-left: auto;
+}
