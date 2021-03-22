@@ -33,6 +33,10 @@ import { StepsComponent } from './Components/steps/steps.component';
 import { BackNavigationComponent } from './Component/back-navigation/back-navigation.component';
 import { BreadcrumbComponent } from './Component/breadcrumb/breadcrumb.component';
 import { SnackbarComponent } from './Component/snackbar/snackbar.component';
+import { MenuExampleComponent } from './molecules/menu-example/menu-example.component';
+import { MenuComponent } from './Components/menu/menu.component';
+import { MenuTriggerDirective } from './Components/menu/menu-trigger.directive';
+import { MenuItemComponent } from './Components/menu/menu-item/menu-item.component';
 
 registerLocaleData(en);
 
@@ -60,7 +64,11 @@ registerLocaleData(en);
     SearchOptionComponent,
     BackNavigationComponent,
     BreadcrumbComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    MenuExampleComponent,
+    MenuComponent,
+    MenuTriggerDirective,
+    MenuItemComponent
   ],
   imports: [
     BrowserModule,
