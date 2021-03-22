@@ -1,0 +1,17 @@
+<h3>ACTIVITY BADGES</h3>
+<div>
+    <nz-tag nzStandalone nzColor="#42A5F5">ACTIVE</nz-tag>
+    <nz-tag nzStandalone nzColor="#706F6E">INACTIVE</nz-tag>
+</div>
+<div>
+    <h3>SMALL BADGES</h3>
+    <div class="badges">
+        <div nz-row>
+            <div nz-col nzSpan="12">
+                <span *ngFor="let color of colors">
+                  <nz-tag nzStandalone [nzColor]="color.color">{{color.name}} BADGE</nz-tag>
+              </span>
+            </div>
+        </div>
+    </div>
+</div>

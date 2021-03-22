@@ -30,13 +30,26 @@ import { SearchExampleComponent } from './molecules/search-example/search-exampl
 import { SearchTemplateComponent } from './Components/search/search-template/search-template.component';
 import { SearchOptionComponent } from './Components/search/search-option/search-option.component';
 import { StepsComponent } from './Components/steps/steps.component';
-import { BackNavigationComponent } from './Component/back-navigation/back-navigation.component';
-import { BreadcrumbComponent } from './Component/breadcrumb/breadcrumb.component';
-import { SnackbarComponent } from './Component/snackbar/snackbar.component';
 import { MenuExampleComponent } from './molecules/menu-example/menu-example.component';
 import { MenuComponent } from './Components/menu/menu.component';
 import { MenuTriggerDirective } from './Components/menu/menu-trigger.directive';
 import { MenuItemComponent } from './Components/menu/menu-item/menu-item.component';
+import { BackNavigationComponent } from './Components/back-navigation/back-navigation.component';
+import { BreadcrumbComponent } from './Components/breadcrumb/breadcrumb.component';
+import { SnackbarComponent } from './Components/snackbar/snackbar.component';
+import { AvatarComponent } from './Components/Atoms/avatar/avatar.component';
+import { BadgeComponent } from './Components/Atoms/badge/badge.component';
+import { DividerComponent } from './Components/Atoms/divider/divider.component';
+import { ProgressBarComponent } from './Components/Atoms/progress-bar/progress-bar.component';
+import { CheckboxComponent } from './Components/Atoms/checkbox/checkbox.component';
+import { RadioButtonComponent } from './Components/Atoms/radio-button/radio-button.component';
+import { SwitchComponent } from './Components/Atoms/switch/switch.component';
+import { SliderComponent } from './Components/Atoms/slider/slider.component';
+import { TabComponent } from './Components/Atoms/tab/tab.component';
+import { TooltipComponent } from './Components/Atoms/tooltip/tooltip.component';
+import { ElevationComponent } from './Components/Atoms/elevation/elevation.component';
+import { SpacingComponent } from './Components/Atoms/spacing/spacing.component';
+import { IconComponent } from './Components/Atoms/icon/icon.component';
 
 registerLocaleData(en);
 
@@ -68,7 +81,20 @@ registerLocaleData(en);
     MenuExampleComponent,
     MenuComponent,
     MenuTriggerDirective,
-    MenuItemComponent
+    MenuItemComponent,
+    AvatarComponent,
+    BadgeComponent,
+    DividerComponent,
+    ProgressBarComponent,
+    CheckboxComponent,
+    RadioButtonComponent,
+    SwitchComponent,
+    SliderComponent,
+    TabComponent,
+    TooltipComponent,
+    ElevationComponent,
+    SpacingComponent,
+    IconComponent
   ],
   imports: [
     BrowserModule,
