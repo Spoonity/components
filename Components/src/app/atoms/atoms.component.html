@@ -1,6 +1,6 @@
 <div class="inner-content">
 
-    <div class="section">
+    <!-- <div class="section">
 
         <h2>AVATARS</h2>
         <div>
@@ -156,5 +156,153 @@
                 </div>
             </div>
         </div>
+    </div> -->
+
+
+    <div class="section">
+        <h2>AVATAR</h2>
+        <div nz-space nzAlign="start" class="space-align-block">
+            <sp-avatar [size]="avatarS.large" text="A"></sp-avatar>
+            <sp-avatar [size]="avatarS.medium" text="A"></sp-avatar>
+            <sp-avatar [size]="avatarS.small" text="A"></sp-avatar>
+        </div>
     </div>
+
+    <div class="section">
+            <sp-badge></sp-badge>
+    </div>
+
+
+    <div class="section">
+        <sp-divider ></sp-divider>
+        <sp-divider [type]="dividerT.vertical"></sp-divider>
+
+    </div>
+
+    <div class="section">
+        <sp-icon></sp-icon>
+    </div>
+
+    
+    <div class="section">
+        <sp-progress-bar [percent]="50" [info]="false"></sp-progress-bar>
+        <sp-progress-bar [percent]="70" [info]="false" [type]="progressT.circle"></sp-progress-bar>
+    </div>
+
+    <div class="section">
+        <h2>SELECTION CONTROLS</h2>
+
+        <h2>CHECK BOXES</h2>
+        <nz-checkbox-wrapper style="width: 100%;" (nzOnChange)="log($event)">
+            <div nz-row>
+                <sp-checkbox value="A" [isOn]="true">A</sp-checkbox>
+                <sp-checkbox value="B" [isOn]="true">B</sp-checkbox>
+                <sp-checkbox value="c" [isOn]="true">C</sp-checkbox>
+                <sp-checkbox value="D">D</sp-checkbox>
+                <sp-checkbox value="E">E</sp-checkbox>
+                <sp-checkbox value="F">F</sp-checkbox>
+                <sp-checkbox value="G" [indeterminate]="true">G</sp-checkbox>
+                <sp-checkbox value="H" [indeterminate]="true">H</sp-checkbox>
+                <sp-checkbox value="I" [indeterminate]="true">I</sp-checkbox>
+
+            </div>
+        </nz-checkbox-wrapper>
+        
+        
+        <h2>RADIO BUTTONS</h2>
+            <sp-radio-button model="B"></sp-radio-button>
+            <br />
+            <sp-radio-button model="A"></sp-radio-button>
+
+        <h2>SWITCHES</h2>
+       
+        <sp-switch [on]="true"></sp-switch>
+        <sp-switch [on]="true"></sp-switch>
+        <sp-switch [on]="true"></sp-switch>
+        <sp-switch [on]="true"></sp-switch>
+        <br />
+        <sp-switch></sp-switch>
+        <sp-switch></sp-switch>
+        <sp-switch></sp-switch>
+        <sp-switch></sp-switch>
+    </div>
+
+    <div class="section">
+        <h2>SLIDERS</h2>
+        <sp-slider [max]=100 [step]="10" [start]="0"></sp-slider>
+        <sp-slider [max]=100 [step]="10" [start]="50"></sp-slider>
+        <sp-slider [max]=100 [step]="10" [start]="100"></sp-slider>
+        <sp-slider [max]=100 [step]="10" [start]="50" [disable]="true"></sp-slider>
+
+    </div>
+
+    <div class="section">
+        <sp-tab></sp-tab>
+    </div>
+
+    <div class="section">
+        <h2>TOOLTIPS</h2>
+        <sp-tooltip title="promt text" content="Tooltip will show when mouse enter."></sp-tooltip>
+    </div>
+
+    <div class="section">
+        <h2>ELEVATION</h2>
+        <div class="elevation">
+            <div class="elevation-container">
+                <p>01 dp</p>
+                <div class="sp-elevation--1 elevation-box"></div>
+            </div>
+            <div class="elevation-container">
+                <p>02 dp</p>
+                <div class="sp-elevation--2 elevation-box"></div>
+            </div>
+            <div class="elevation-container">
+                <p>06 dp</p>
+                <div class="sp-elevation--3 elevation-box"></div>
+            </div>
+            <div class="elevation-container">
+                <p>08 dp</p>
+                <div class="sp-elevation--4 elevation-box"></div>
+            </div>
+            <div class="elevation-container">
+                <p>12 dp</p>
+                <div class="sp-elevation--5 elevation-box"></div>
+            </div>
+            <div class="elevation-container">
+                <p>24 dp</p>
+                <div class="sp-elevation--6 elevation-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>SPACING</h2>
+        <div class="spacing">
+            <div *ngFor="let section of spacing" class="spacing-section">
+                <h3>{{ section.sectionName }}</h3>
+                <div class="spacing-container">
+                    <div *ngFor="let subsection of section.sections" class="spacing-example">
+                        <div class="spacing-wrapper sp-elevation--2 {{ section.sectionClassName }} {{subsection.className}}">
+                            <div class="spacing-box">
+                                <p class="spacing-label">{{ subsection.label }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 </div>
+
+
+
+
+    
+    
+
+    
+

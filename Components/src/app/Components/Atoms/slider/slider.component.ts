@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-slider',
+  selector: 'sp-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.less']
 })
@@ -12,4 +12,9 @@ export class SliderComponent implements OnInit {
   ngOnInit() {
   }
 
+  @Input() max: number;
+  @Input() disable: boolean;
+  @Input() step: number;
+  @Input() start: number;
+  
 }

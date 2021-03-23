@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AvatarSize } from 'src/app/utils/enums';
 
 @Component({
-  selector: 'app-avatar',
+  selector: 'sp-avatar',
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.less']
 })
@@ -11,5 +12,8 @@ export class AvatarComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  @Input() size: AvatarSize;
+  @Input() text: string;
 
 }

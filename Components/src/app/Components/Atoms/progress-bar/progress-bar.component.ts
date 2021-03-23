@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, Input } from '@angular/core';
+import { ProgressType } from 'src/app/utils/enums';
 
 @Component({
-  selector: 'app-progress-bar',
+  selector: 'sp-progress-bar',
   templateUrl: './progress-bar.component.html',
   styleUrls: ['./progress-bar.component.less']
 })
@@ -12,4 +14,7 @@ export class ProgressBarComponent implements OnInit {
   ngOnInit() {
   }
 
+  @Input() percent: number;
+  @Input() info: Boolean;
+  @Input() type: ProgressType = ProgressType.line;
 }

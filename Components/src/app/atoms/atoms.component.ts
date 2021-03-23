@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SvgIconRegistryService } from 'angular-svg-icon';
 import * as ic from '../utils/icons';
+import { AvatarSize, DividerType, ProgressType } from 'src/app/utils/enums';
 
 interface ISpacing {
   sectionName: string;
@@ -13,6 +14,13 @@ interface ISpacing {
   styleUrls: ['./atoms.component.less']
 })
 export class AtomsComponent implements OnInit {
+
+  avatarS = AvatarSize;
+
+  dividerT = DividerType;
+
+  progressT = ProgressType;
+
   icons = [];
 
   title = 'Components';

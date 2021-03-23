@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-checkbox',
+  selector: 'sp-checkbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.less']
 })
@@ -11,5 +11,11 @@ export class CheckboxComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  span = 8;
+
+  @Input() indeterminate: boolean;
+  @Input() isOn: boolean;
+  @Input() value: string;
 
 }

@@ -7,7 +7,7 @@
     <h3>SMALL BADGES</h3>
     <div class="badges">
         <div nz-row>
-            <div nz-col nzSpan="12">
+            <div nz-col [nzSpan]="count">
                 <span *ngFor="let color of colors">
                   <nz-tag nzStandalone [nzColor]="color.color">{{color.name}} BADGE</nz-tag>
               </span>

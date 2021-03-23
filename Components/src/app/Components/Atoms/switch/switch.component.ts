@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-switch',
+  selector: 'sp-switch',
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.less']
 })
@@ -11,5 +11,6 @@ export class SwitchComponent implements OnInit {
 
   ngOnInit() {
   }
+  @Input() on: boolean = false;
 
 }
