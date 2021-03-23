@@ -16,15 +16,9 @@ export class RadioButtonComponent implements OnInit {
       {radioName: 'D', disable: false},
   ]
   
-
   constructor() { }
 
-  ngOnInit() {
-    this.radioButtons.forEach(element => {
-      console.log(element)
-      
-    });
-  }
+  ngOnInit() {}
 
   @Input() model: string;
 

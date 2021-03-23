@@ -169,7 +169,22 @@
     </div>
 
     <div class="section">
-            <sp-badge></sp-badge>
+        <h3>ACTIVITY BADGES</h3>
+        <div>
+            <sp-badge color="#42A5F5" name="ACTIVE"></sp-badge>
+            <sp-badge color="#706F6E" name="INACTIVE"></sp-badge>
+        </div>
+
+        <h3>SMALL BADGES</h3>
+        <div class="badges">
+            <div nz-row>
+                <div nz-col [nzSpan]="12">
+                    <span *ngFor="let color of colors">
+                        <sp-badge [color]="color.color" [name]="color.name"></sp-badge>
+                  </span>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -180,10 +195,11 @@
     </div>
 
     <div class="section">
-        <sp-icon></sp-icon>
+        <span class="icons" *ngFor="let icon of icons">
+            <sp-icon [toolTipTittle]="icon.name" [name]="icon.name"></sp-icon>
+        </span>
     </div>
 
-    
     <div class="section">
         <sp-progress-bar [percent]="50" [info]="false"></sp-progress-bar>
         <sp-progress-bar [percent]="70" [info]="false" [type]="progressT.circle"></sp-progress-bar>
@@ -204,10 +220,8 @@
                 <sp-checkbox value="G" [indeterminate]="true">G</sp-checkbox>
                 <sp-checkbox value="H" [indeterminate]="true">H</sp-checkbox>
                 <sp-checkbox value="I" [indeterminate]="true">I</sp-checkbox>
-
             </div>
         </nz-checkbox-wrapper>
-        
         
         <h2>RADIO BUTTONS</h2>
             <sp-radio-button model="B"></sp-radio-button>
@@ -237,7 +251,8 @@
     </div>
 
     <div class="section">
-        <sp-tab></sp-tab>
+        <h2>TABS</h2>
+        <sp-tab [tabs]="tabs"></sp-tab>
     </div>
 
     <div class="section">
@@ -292,9 +307,6 @@
             </div>
         </div>
     </div>
-
-
-
 
 </div>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'sp-tab',
@@ -12,19 +12,21 @@ export class TabComponent implements OnInit {
   ngOnInit() {
   }
 
-  tabs = [
-    {
-      name: 'Tab 1',
-      disabled: false
-    },
-    {
-      name: 'Tab 2',
-      disabled: true
-    },
-    {
-      name: 'Tab 3',
-      disabled: false
-    }
-  ];
+  @Input() tabs: {};
+
+  // tabs = [
+  //   {
+  //     name: 'Tab 1',
+  //     disabled: false
+  //   },
+  //   {
+  //     name: 'Tab 2',
+  //     disabled: true
+  //   },
+  //   {
+  //     name: 'Tab 3',
+  //     disabled: false
+  //   }
+  // ];
 
 }

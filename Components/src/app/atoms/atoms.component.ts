@@ -26,19 +26,19 @@ export class AtomsComponent implements OnInit {
   title = 'Components';
 
   colors = [
-    { name: 'GRAY', color: '#706F6E' },
-    { name: 'RED', color: '#EF5350' },
-    { name: 'PINK', color: '#EC407A' },
-    { name: 'PURPLE', color: '#AB47BC' },
-    { name: 'DEEP PURPLE', color: '#7E57C2' },
-    { name: 'INDIGO', color: '#5C6BC0' },
-    { name: 'BLUE', color: '#42A5F5' },
-    { name: 'CYAN', color: '#26C6DA' },
-    { name: 'TEAL', color: '#26A69A' },
-    { name: 'GREEN', color: '#66BB6A' },
-    { name: 'LIGHT GREEN', color: '#9CCC65' },
-    { name: 'AMBER', color: '#FFB300' },
-    { name: 'DEEP ORANGE', color: '#FF7043' }
+    { name: 'GRAY BADGE', color: '#706F6E' },
+    { name: 'RED BADGE', color: '#EF5350' },
+    { name: 'PINK BADGE', color: '#EC407A' },
+    { name: 'PURPLE BADGE', color: '#AB47BC' },
+    { name: 'DEEP PURPLE BADGE', color: '#7E57C2' },
+    { name: 'INDIGO BADGE', color: '#5C6BC0' },
+    { name: 'BLUE BADGE', color: '#42A5F5' },
+    { name: 'CYAN BADGE', color: '#26C6DA' },
+    { name: 'TEAL BADGE', color: '#26A69A' },
+    { name: 'GREEN BADGE', color: '#66BB6A' },
+    { name: 'LIGHT GREEN BADGE', color: '#9CCC65' },
+    { name: 'AMBER BADGE', color: '#FFB300' },
+    { name: 'DEEP ORANGE BADGE', color: '#FF7043' }
   ];
 
   tabs = [

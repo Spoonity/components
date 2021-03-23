@@ -1,3 +1,2 @@
-<span class="icons" *ngFor="let icon of icons">
-  <span nz-tooltip nzTooltipTitle="{{icon.name}}"><svg-icon name="{{icon.name}}" [svgStyle]="{ 'width.px':20 }"></svg-icon></span>
-</span>
+
+  <span nz-tooltip [nzTooltipTitle]="toolTipTittle"><svg-icon [name]="name" [svgStyle]="{ 'width.px':20 }"></svg-icon></span>
