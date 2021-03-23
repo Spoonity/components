@@ -1,0 +1,10 @@
+<nz-radio-group 
+[ngModel]="model"
+>
+    <label
+    *ngFor="let btn of radioButtons" 
+    nz-radio 
+    [nzValue]="btn.radioName"
+    [nzDisabled]="btn.disable"
+    >{{btn.radioName}}</label>
+</nz-radio-group>

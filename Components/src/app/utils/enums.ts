@@ -22,3 +22,18 @@ export enum TagType {
   default = 'default',
   checkable = 'checkable'
 }
+
+export enum AvatarSize {
+  large = 48,
+  medium = 40,
+  small = 32
+}
+export enum DividerType{
+  vertical = 'vertical',
+  horizontal = 'horizontal'
+}
+
+export enum ProgressType{
+  line = 'line',
+  circle = 'circle'
+}

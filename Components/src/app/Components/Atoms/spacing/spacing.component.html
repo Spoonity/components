@@ -1,0 +1,14 @@
+<div class="spacing">
+    <div *ngFor="let section of spacing" class="spacing-section">
+        <h3>{{ section.sectionName }}</h3>
+        <div class="spacing-container">
+            <div *ngFor="let subsection of section.sections" class="spacing-example">
+                <div class="spacing-wrapper sp-elevation--2 {{ section.sectionClassName }} {{subsection.className}}">
+                    <div class="spacing-box">
+                        <p class="spacing-label">{{ subsection.label }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
