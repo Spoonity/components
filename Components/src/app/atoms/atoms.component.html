@@ -189,18 +189,21 @@
 
 
     <div class="section">
+        <h2>DIVIDERS</h2>
         <sp-divider ></sp-divider>
         <sp-divider [type]="dividerT.vertical"></sp-divider>
 
     </div>
 
     <div class="section">
+        <h2>ICONS</h2>
         <span class="icons" *ngFor="let icon of icons">
             <sp-icon [toolTipTittle]="icon.name" [name]="icon.name"></sp-icon>
         </span>
     </div>
 
     <div class="section">
+        <h2>PROGRESS BAR</h2>
         <sp-progress-bar [percent]="50" [info]="false"></sp-progress-bar>
         <sp-progress-bar [percent]="70" [info]="false" [type]="progressT.circle"></sp-progress-bar>
     </div>
