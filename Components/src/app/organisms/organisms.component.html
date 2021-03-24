@@ -1,5 +1,22 @@
 <div class="inner-content">
     <div class="section">
-        <!-- TODO -->
+        <h2>DATA VISUALIZATION</h2>
+        <div nz-row>
+            <h3>Big Numbers</h3>
+            <div nz-col nzSpan="12" class="data-visualization-container sp-spacing--1">
+                <h3>Standard</h3>
+                <sp-data-visualization [title]="'1234'" [description]="'label'">
+                    <span>
+                    body
+                </span>
+                </sp-data-visualization>
+            </div>
+            <div nz-col nzSpan="12" class="data-visualization-container sp-spacing--1">
+                <h3>Sparkline</h3>
+                <sp-data-visualization [title]="'1234'" [description]="'label'">
+                    <sp-chart class="sp-spacing--1" [data]="chartData" [labels]="chartLabels" [type]="type1"></sp-chart>
+                </sp-data-visualization>
+            </div>
+        </div>
     </div>
 </div>
