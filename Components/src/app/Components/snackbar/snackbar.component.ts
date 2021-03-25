@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Injectable, Input, OnChanges, OnInit, Output, SimpleChanges, TemplateRef, ViewChild } from '@angular/core';
-import { NzNotificationConfigLegacy, NzNotificationService } from 'ng-zorro-antd';
+import { Component, OnInit,TemplateRef, ViewChild } from '@angular/core';
+import { NzNotificationService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'sp-snackbar',
@@ -12,9 +12,8 @@ export class SnackbarComponent implements OnInit {
   @ViewChild(TemplateRef, { static: false }) template?: TemplateRef<{}>;
 
   constructor(private notification: NzNotificationService) {
-    let conf : NzNotificationConfigLegacy = {nzPlacement:'bottomRight'};
-     notification.config(conf);
-   }
+    notification.config({ nzPlacement: 'bottomLeft' });
+  }
 
   ngOnInit() {
   }
@@ -28,7 +27,7 @@ export class SnackbarComponent implements OnInit {
           color: 'white'
         },
         nzData: snackbar
-      },
+      }
     );
   }
 

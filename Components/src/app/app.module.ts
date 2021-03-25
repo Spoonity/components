@@ -50,6 +50,9 @@ import { TooltipComponent } from './Components/Atoms/tooltip/tooltip.component';
 import { ElevationComponent } from './Components/Atoms/elevation/elevation.component';
 import { SpacingComponent } from './Components/Atoms/spacing/spacing.component';
 import { IconComponent } from './Components/Atoms/icon/icon.component';
+import { DataVisualizationComponent } from './Components/Organisms/data-visualization/data-visualization.component';
+import { ChartComponent } from './Components/Organisms/chart/chart.component';
+import { ChartsModule,ThemeService} from 'ng2-charts';
 
 registerLocaleData(en);
 
@@ -94,11 +97,14 @@ registerLocaleData(en);
     TooltipComponent,
     ElevationComponent,
     SpacingComponent,
-    IconComponent
+    IconComponent,
+    DataVisualizationComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
     NgZorroAntdModule,
+    ChartsModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -108,7 +114,7 @@ registerLocaleData(en);
     PortalModule,
     OverlayModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [{ provide: NZ_I18N, useValue: en_US},ThemeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
