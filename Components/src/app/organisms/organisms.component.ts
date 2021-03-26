@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartType } from '../Components/Organisms/chart/chart.component';
+import { DialogsComponent } from '../Components/Organisms/dialogs/dialogs.component';
 
 @Component({
   selector: 'app-organisms',
@@ -13,10 +14,17 @@ export class OrganismsComponent implements OnInit {
   ];
 
   chartLabels = ['January', 'February', 'Mars', 'April'];
-  type1:ChartType = ChartType.line;
+  type1: ChartType = ChartType.line;
+
+  @ViewChild(DialogsComponent, { static: false }) dialog?: DialogsComponent;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  createModal(title: string, content: string) {
+    this.dialog.createModal(title, content, () => {alert('Action 1')}, () => {alert('Action 2')});
   }
 
 }
