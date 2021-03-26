@@ -1,18 +1,18 @@
 <ng-template #tplTitle>
     <span class="title">
-    {{ title }}
+    {{ dialog.title }}
   </span>
 </ng-template>
 <ng-template #tplContent>
     <span class="content">
-    {{ content }}
+    {{ dialog.content }}
   </span>
 </ng-template>
 <ng-template #tplFooter let-ref="modalRef">
-    <button nz-button nzType="secondary" (click)="modalRef.destroy(); action1()">
-    Action 1
+    <button nz-button nzType="secondary" (click)="modalRef.destroy(); dialog.action1()">
+    {{ dialog.action1Label }}
   </button>
-    <button nz-button nzType="primary" (click)="modalRef.destroy(); action2()">
-    Action 2
+    <button nz-button nzType="primary" (click)="modalRef.destroy(); dialog.action2()">
+    {{ dialog.action2Label }}
   </button>
 </ng-template>

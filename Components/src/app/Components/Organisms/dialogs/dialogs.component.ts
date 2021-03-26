@@ -8,10 +8,7 @@ import { NzModalRef, NzModalService } from 'ng-zorro-antd';
 })
 export class DialogsComponent implements OnInit {
 
-  title: string;
-  content: string;
-  action1: () => any;
-  action2: () => any;
+  dialog: IModal;
 
   modalRef: NzModalRef;
   @ViewChild('tplTitle', { static: false }) tplTitle?: TemplateRef<{}>;
@@ -20,11 +17,8 @@ export class DialogsComponent implements OnInit {
 
   constructor(private modal: NzModalService, private viewContainerRef: ViewContainerRef) { }
 
-  createModal(title: string, content: string, action1: () => any, action2: () => any) {
-    this.title = title;
-    this.content = content;
-    this.action1 = action1;
-    this.action2 = action2;
+  createModal(dialog: IModal) {
+    this.dialog = dialog;
     this.createTplModal(this.tplTitle, this.tplContent, this.tplFooter);
   }
 
@@ -41,4 +35,13 @@ export class DialogsComponent implements OnInit {
   ngOnInit() {
   }
 
+}
+
+export interface IModal {
+  title: string;
+  content: string;
+  action1: () => any;
+  action2: () => any;
+  action1Label: string;
+  action2Label: string;
 }
