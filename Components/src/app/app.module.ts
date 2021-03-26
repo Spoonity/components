@@ -53,6 +53,7 @@ import { IconComponent } from './Components/Atoms/icon/icon.component';
 import { DataVisualizationComponent } from './Components/Organisms/data-visualization/data-visualization.component';
 import { ChartComponent } from './Components/Organisms/chart/chart.component';
 import { ChartsModule,ThemeService} from 'ng2-charts';
+import { DialogsComponent } from './Components/Organisms/dialogs/dialogs.component';
 
 registerLocaleData(en);
 
@@ -99,7 +100,8 @@ registerLocaleData(en);
     SpacingComponent,
     IconComponent,
     DataVisualizationComponent,
-    ChartComponent
+    ChartComponent,
+    DialogsComponent
   ],
   imports: [
     BrowserModule,

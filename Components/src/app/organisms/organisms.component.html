@@ -7,8 +7,8 @@
                 <h3>Standard</h3>
                 <sp-data-visualization [title]="'1234'" [description]="'label'">
                     <span>
-                    body
-                </span>
+            body
+          </span>
                 </sp-data-visualization>
             </div>
             <div nz-col nzSpan="12" class="data-visualization-container sp-spacing--1">
@@ -18,5 +18,12 @@
                 </sp-data-visualization>
             </div>
         </div>
+    </div>
+    <div class="section">
+        <h2>DIALOGS</h2>
+        <sp-dialogs></sp-dialogs>
+        <button nz-button nzType="primary" (click)="createModal()">
+          <span>Open Dialog</span>
+        </button>
     </div>
 </div>
