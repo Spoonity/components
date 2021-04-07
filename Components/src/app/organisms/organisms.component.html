@@ -19,11 +19,355 @@
             </div>
         </div>
     </div>
+    <br>
     <div class="section">
         <h2>DIALOGS</h2>
         <sp-dialogs></sp-dialogs>
         <button nz-button nzType="primary" (click)="createModal()">
           <span>Open Dialog</span>
         </button>
+    </div>
+    <br>
+    <div class="section">
+        <h2>HEADER</h2>
+        <div>
+            <h3>Only Title</h3>
+            <div class="flex-column">
+                <div class="flex-row">
+                    <div class="label">
+                        <span>Default</span>
+                    </div>
+                    <div class="header">
+                        <div class="sub-header-1">
+                            <span class="title">Title</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div class="label">
+                        <span>With Back Button</span>
+                    </div>
+                    <div class="header">
+                        <div class="sub-header-1">
+                            <sp-back-navigation title="Back"></sp-back-navigation>
+                            <span class="title">Title</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div class="label">
+                        <span>With Breadcrumbs</span>
+                    </div>
+                    <div class="header">
+                        <div class="sub-header-1">
+                            <sp-breadcrumb [items]="breadcrumbItems"></sp-breadcrumb>
+                            <span class="title">Title</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Title + Action Button</h3>
+            <div class="flex-column">
+                <div class="flex-row">
+                    <div class="label">
+                        <span>Default</span>
+                    </div>
+                    <div class="header">
+                        <div class="sub-header-1">
+                            <span class="title">Title</span>
+                        </div>
+                        <div class="sub-header-2">
+                            <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize"></sp-button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div class="label">
+                        <span>With Back Button</span>
+                    </div>
+                    <div class="header">
+                        <div class="sub-header-1">
+                            <sp-back-navigation title="Back"></sp-back-navigation>
+                            <span class="title">Title</span>
+                        </div>
+                        <div class="sub-header-2">
+                            <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize"></sp-button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div class="label">
+                        <span>With Breadcrumbs</span>
+                    </div>
+                    <div class="header">
+                        <div class="sub-header-1">
+                            <sp-breadcrumb [items]="breadcrumbItems"></sp-breadcrumb>
+                            <span class="title">Title</span>
+                        </div>
+                        <div class="sub-header-2">
+                            <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize"></sp-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Title + Search + Action Button</h3>
+            <div class="flex-column">
+                <div class="flex-row">
+                    <div class="label">
+                        <span>Default</span>
+                    </div>
+                    <div class="header">
+                        <div class="sub-header-1">
+                            <span class="title">Title</span>
+                        </div>
+                        <div class="sub-header-2">
+                            <div class="search">
+                                <sp-search></sp-search>
+                            </div>
+                            <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize"></sp-button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div class="label">
+                        <span>With Back Button</span>
+                    </div>
+                    <div class="header">
+                        <div class="sub-header-1">
+                            <sp-back-navigation title="Back"></sp-back-navigation>
+                            <span class="title">Title</span>
+                        </div>
+                        <div class="sub-header-2">
+                            <div class="search">
+                                <sp-search></sp-search>
+                            </div>
+                            <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize"></sp-button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div class="label">
+                        <span>With Breadcrumbs</span>
+                    </div>
+                    <div class="header">
+                        <div class="sub-header-1">
+                            <sp-breadcrumb [items]="breadcrumbItems"></sp-breadcrumb>
+                            <span class="title">Title</span>
+                        </div>
+                        <div class="sub-header-2">
+                            <div class="search">
+                                <sp-search></sp-search>
+                            </div>
+                            <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize"></sp-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="section">
+        <h2>SIDEBAR</h2>
+        <div>
+            <h3>Sidebar Single Account</h3>
+            <sp-sidebar-example></sp-sidebar-example>
+            <h3>Sidebar Multiple Accounts</h3>
+            <sp-sidebar-example [multipleAccounts]=true></sp-sidebar-example>
+
+        </div>
+    </div>
+    <br>
+    <div class="section">
+        <h2>TABLE</h2>
+        <sp-table-example></sp-table-example>
+    </div>
+    <br>
+    <div class="section">
+        <h2>Upload</h2>
+        <sp-upload-example></sp-upload-example>
+        <button nz-button nzType="primary" (click)="createModalU()">
+          <span>Upload File</span>
+        </button>
+    </div>
+    <br>
+    <div class="section">
+        <h2>Cards</h2>
+        <br>
+        <div class="button-filters">
+            <div class="sp-spacing-x--1">
+                <sp-dropdown [(ngModel)]="cardType" size="small" label="cardType">
+                    <sp-option *ngFor="let enum of enumCardType | keyvalue" [value]="enum.value" [text]="enum.value"></sp-option>
+                </sp-dropdown>
+            </div>
+        </div>
+
+        <br>
+        <button nz-button nzType="primary" (click)="toggleCard()">
+            <span>Toggle Send State</span>
+        </button>
+        <br>
+        <br>
+        <h2>Campaigns</h2>
+        <h2>{{cardType}}</h2>
+        <br>    
+        <div class="card">
+            <div class="col1">
+                <div class="sms">
+                    <sp-icon class="icons" [toolTipTittle]="cardType" [name]="cardType"></sp-icon>
+                    <span class="shadow-text" *ngIf="cardType === 'sms'"><b>SMS</b></span>
+                    <span class="shadow-text" *ngIf="cardType === 'email'"><b>Email</b></span>
+                    <span class="shadow-text" *ngIf="cardType === 'smartphone'"><b>Smartphone</b></span>
+                </div>
+                <div class="campaign">
+                    <div class="sub-content1">
+                        <sp-badge class="badge" [color]="isSend ? '#66BB6A' : '#EF5350' " [name]="isSend ? 'SEND' : 'SENDING'"></sp-badge>
+                        <span class="shadow-text">Created: Date</span>
+                    </div>
+                    <span>Campaign Title</span>
+                    <div class="sub-content2">
+                        <sp-icon class="icons" [toolTipTittle]="people" [name]="people"></sp-icon>
+                        <span class="shadow-text">Target Group</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col2">
+                <div class="printer-container">
+                    <span class="shadow-text">Send</span>
+                    <div class="printer">
+                        <span>{{isSend ? '0' : '0'}}</span>
+                    </div>
+                </div>
+                <div class="sendIcon">
+                    <sp-icon class="icons" [toolTipTittle]="send" [name]="send"></sp-icon>
+                </div>
+                <div class="printer-container">
+                    <span class="shadow-text">Open</span>
+                    <div class="printer">
+                        <span>{{isSend ? '0%' : '--'}}</span>
+                    </div>
+                </div>
+                <div class="sendIcon">
+                    <sp-icon class="icons" [toolTipTittle]="send" [name]="send"></sp-icon>
+                </div>
+                <div class="printer-container">
+                    <span class="shadow-text">Visit</span>
+                    <div class="printer">
+                        <span>{{isSend ? '0' : '--'}}</span>
+                    </div>
+                </div>
+                <div class="sendIcon">
+                    <sp-icon class="icons" [toolTipTittle]="send" [name]="send"></sp-icon>
+                </div>
+                <div class="printer-container">
+                    <span class="shadow-text">Spend</span>
+                    <div class="printer">
+                        <span>{{isSend ? '$0,00' : '--'}}</span>
+                    </div>
+                </div>
+                <div class="moreVertIcon">
+                    <sp-icon class="icons" [toolTipTittle]="moreVert" [name]="moreVert"></sp-icon>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <h2>Customers</h2>
+        <br>
+        <br>
+        <div class="card" (mouseover)="isMouseOver=true" (mouseout)="isMouseOver=false"
+        >
+        <!-- [ngClass]="{'active' : isPressed}" -->
+            <div class="col1">
+                <div class="sms">
+                    <sp-avatar *ngIf="!isMouseOver" [text]="'CN'" [size]="avatarSize"></sp-avatar>
+                    <sp-checkbox *ngIf="isMouseOver"></sp-checkbox>
+                </div>
+                <div class="campaign">
+                    <div class="sub-content3">
+                        <span>Customer Name</span>
+                        <span class="shadow-text">Member Since: Date</span>
+                    </div>
+            
+                </div>
+            </div>
+            <div class="col2">
+                <div class="sub-content3">
+                    <div>
+                        <sp-icon class="icons" [toolTipTittle]="email" [name]="email"></sp-icon>
+                        <span class="shadow-text">Email</span>
+                    </div>
+                    <div class="sub-content4">
+                        <span>emailaddress@gmail.com</span>
+                    </div>
+                </div>
+                <div class="sub-content3">
+                    <div>
+                        <sp-icon class="icons" [toolTipTittle]="call" [name]="call"></sp-icon>
+                        <span class="shadow-text">Phone</span>
+                    </div>
+                    <div class="sub-content4">
+                        <span>(123) 456-7890</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <br>
+        <br>
+        <h2>EGift Management</h2>
+        <br>
+        
+        <div class="button-filters">
+            <div class="sp-spacing-x--1">
+                <sp-dropdown [(ngModel)]="deliverProcess" size="small" label="Deliver Process">
+                    <sp-option *ngFor="let enum of emunDeliverProcess | keyvalue" [value]="enum.value" [text]="enum.value"></sp-option>
+                </sp-dropdown>
+            </div>
+        </div>
+        <br>
+        
+        <div class="card">
+            <div class="col1">
+                <div class="sms">
+                    <sp-icon class="icons" [toolTipTittle]="redeem" [name]="redeem"></sp-icon>
+                </div>
+                <div class="campaign">
+                    <div class="sub-content1">
+                        <sp-badge class="badge" 
+                        
+                        [name]="deliverProcess" color="#66BB6A"></sp-badge>
+                        <span class="shadow-text">Created: Date</span>
+                    </div>
+                    <span><b>ID: 12345</b></span>
+                </div>
+            </div>
+            <div class="col2">
+                <div class="sub-content3">
+                    <div>
+                        <sp-icon class="icons" [toolTipTittle]="email" [name]="email"></sp-icon>
+                        <span class="shadow-text">Email</span>
+                    </div>
+                    <div class="sub-content4">
+                        <span>emailaddress@gmail.com</span>
+                    </div>
+                </div>
+                <div class="sub-content3">
+                    <div>
+                        <sp-icon class="icons" [toolTipTittle]="call" [name]="call"></sp-icon>
+                        <span class="shadow-text">Phone</span>
+                    </div>
+                    <div class="sub-content4">
+                        <span>(123) 456-7890</span>
+                    </div>
+            </div>
+            <div class="col3">
+                <sp-button [size]="buttonSize" [type]="btnType" [text]="'CANCEL'"></sp-button>
+                <sp-button [size]="buttonSize" [type]="btnType" [text]="'GO TO GUEST'"></sp-button>
+            </div>
+        </div>
     </div>
 </div>

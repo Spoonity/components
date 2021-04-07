@@ -15,7 +15,7 @@ export class CheckboxComponent implements OnInit {
   span = 8;
 
   @Input() indeterminate: boolean;
-  @Input() isOn: boolean;
+  @Input() check: boolean;
   @Input() value: string;
 
 }

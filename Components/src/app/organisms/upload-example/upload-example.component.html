@@ -1,0 +1,27 @@
+<ng-template #tplTitle>
+    <span class="title">
+    {{ upload.title }}
+    </span>
+</ng-template>
+<ng-template #tplContent>
+    <span class="content">
+    {{ upload.content }}
+  </span>
+  <br>
+  <br>
+  <div class="upload-box">
+          <sp-icon class="icons" [toolTipTittle]="uploadFile" [name]="uploadFile"></sp-icon>
+          <span>Drag and Drop here</span>
+          <span>or</span>
+          <span><b>BROWSE FILES</b></span>
+  </div>
+  <div class="under-upload-text">
+      <span>Accepted files</span>
+      <span>Maximum size</span>
+  </div>
+</ng-template>
+<ng-template #tplFooter let-ref="modalRef">
+    <button nz-button nzType="secondary" (click)="modalRef.destroy(); upload.action1()">
+    {{ upload.action1Label }}
+  </button>
+</ng-template>
