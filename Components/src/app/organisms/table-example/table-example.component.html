@@ -1,0 +1,41 @@
+<nz-table class="table" #basicTable [nzData]="dataSet">
+    <thead>
+      <tr>
+        <th  *ngFor="let title of titleRow">{{title}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{data.number}}</td>
+        <td>{{data.date}}</td>
+        <td>{{data.description}}</td>
+        <td>{{data.amount}}</td>
+        <td><sp-badge [name]="data.status ? 'PAID' : 'NOT PAID'" color="#66BB6A"></sp-badge></td>
+        <td>{{data.invoice}}</td>
+         
+      </tr>
+    </tbody>
+</nz-table>
+<br>
+
+<h3>Table with checkbox</h3>
+<nz-table class="table" #secondTable [nzData]="dataSet">
+    <thead>
+      <tr>
+        <th><sp-checkbox></sp-checkbox></th>
+        <th  *ngFor="let title of titleRow">{{title}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of secondTable.data">
+        <td><sp-checkbox></sp-checkbox></td>
+        <td>{{data.number}}</td>
+        <td>{{data.date}}</td>
+        <td>{{data.description}}</td>
+        <td>{{data.amount}}</td>
+        <td><sp-badge [name]="data.status ? 'PAID' : 'NOT PAID'" color="#66BB6A"></sp-badge></td>
+        <td>{{data.invoice}}</td>
+         
+      </tr>
+    </tbody>
+  </nz-table>

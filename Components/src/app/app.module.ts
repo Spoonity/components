@@ -54,6 +54,9 @@ import { DataVisualizationComponent } from './Components/Organisms/data-visualiz
 import { ChartComponent } from './Components/Organisms/chart/chart.component';
 import { ChartsModule,ThemeService} from 'ng2-charts';
 import { DialogsComponent } from './Components/Organisms/dialogs/dialogs.component';
+import { SidebarExampleComponent } from './organisms/sidebar-example/sidebar-example.component';
+import { TableExampleComponent } from './organisms/table-example/table-example.component';
+import { UploadExampleComponent } from './organisms/upload-example/upload-example.component';
 
 registerLocaleData(en);
 
@@ -101,7 +104,10 @@ registerLocaleData(en);
     IconComponent,
     DataVisualizationComponent,
     ChartComponent,
-    DialogsComponent
+    DialogsComponent,
+    SidebarExampleComponent,
+    TableExampleComponent,
+    UploadExampleComponent
   ],
   imports: [
     BrowserModule,
