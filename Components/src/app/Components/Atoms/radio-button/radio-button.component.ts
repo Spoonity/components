@@ -9,18 +9,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class RadioButtonComponent implements OnInit {
 
+  constructor() { }
+
   radioButtons =  [
       {radioName: 'A', disable: false},
       {radioName: 'B', disable: true},
       {radioName: 'C', disable: false},
       {radioName: 'D', disable: false},
-  ]
-  
-  constructor() { }
-
-  ngOnInit() {}
+  ];
 
   @Input() model: string;
+
+  ngOnInit() {}
 
 
 }

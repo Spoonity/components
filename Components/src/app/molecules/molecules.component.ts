@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { IBreadCrumbItem } from '../Components/breadcrumb/breadcrumb.component';
-import { ISnackbar, SnackbarComponent } from '../Components/snackbar/snackbar.component';
-import { ISteps } from '../Components/steps/steps.component';
+import { IBreadCrumbItem } from '../Components/Molecules/breadcrumb/breadcrumb.component';
+import { ISnackbar, SnackbarComponent } from '../Components/Molecules/snackbar/snackbar.component';
+import { ISteps } from '../Components/Molecules/steps/steps.component';
 import { ButtonSize, ButtonType, TagType } from '../utils/enums';
 
 interface IBanner {

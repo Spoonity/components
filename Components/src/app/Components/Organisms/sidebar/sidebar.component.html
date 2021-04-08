@@ -1,0 +1,50 @@
+<div class="container"
+[ngStyle]="{'width': MenuWidht}"
+>
+    <div class="user">
+        <sp-avatar [text]="user.title.charAt(0).toUpperCase()"></sp-avatar>
+        <div class="text" *ngIf="!isCollapse">
+            <span>{{user.name}}</span>
+            <span>{{user.company}}</span>
+        </div>
+        <sp-icon class="icons" [toolTipTittle]="expandMore" [name]="expandMore" *ngIf="multipleAccounts && !isCollapse" (click)="expandAccounts()"></sp-icon>
+        <!-- <div class="sp-elevation--3 elevation-box"></div> -->
+    </div>
+    <sp-divider></sp-divider>
+    <div class="menu" 
+    [ngStyle]="{'height': MenuHeight}"
+    >
+        <div *ngFor="let option of optionsData"
+        class="option"
+        [ngStyle]="{'width': OptionWidht}"
+        [ngClass]="{'active' : option.isActive}"
+        (click)="onActive(option)"
+        >
+            <sp-icon class="icons" [toolTipTittle]="option.icon.name" [name]="option.icon.name"></sp-icon>
+            <span *ngIf="!isCollapse">{{option.title}}</span>
+            <div class="orange-line" [ngStyle]="{'right': lineRight}" *ngIf="option.isActive"></div>
+        </div>
+    </div>
+    <sp-divider></sp-divider>
+    <div class="collapse" (click)='onCollapse()'>
+        <!-- <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [leftIcon]="keyboarTab"></sp-button> -->
+        <sp-icon class="icons" [toolTipTittle]="keyboarTab" [name]="keyboarTab"></sp-icon>
+        <span *ngIf="!isCollapse">Collapse</span>
+    </div>
+    <sp-divider></sp-divider>
+    <div class="user-email">
+        <div class="user">
+            <div class="text" 
+            *ngIf="!isCollapse"
+            >
+                <span>{{user.name}}</span>
+                <span class="small">{{user.email}}</span>
+            </div>
+            <sp-icon class="icons" [toolTipTittle]="expandLess" [name]="expandLess" *ngIf="!onToggleLogout" (click)="toggleLogout()"></sp-icon>
+            <sp-icon class="icons" [toolTipTittle]="accountBox" [name]="accountBox" *ngIf="onToggleLogout" (click)="toggleLogout()"></sp-icon>
+        </div>
+        <div class="flex-btn" *ngIf="onToggleLogout && !isCollapse">
+            <sp-button class="btn" [text]="'LOGOUT'" [type]="buttonType" [size]="buttonSize" [leftIcon]="logoutIcon"></sp-button>
+        </div>
+    </div>
+</div>

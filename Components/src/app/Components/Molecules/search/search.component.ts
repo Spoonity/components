@@ -8,8 +8,8 @@ import {
   QueryList,
   ViewChild
 } from '@angular/core';
-import {FormFieldManager} from '../shared/form-field.manager';
-import {OverlayTemplateComponent} from '../shared/overlay-template/overlay-template.component';
+import {FormFieldManager} from '../../shared/form-field.manager';
+import {OverlayTemplateComponent} from '../../shared/overlay-template/overlay-template.component';
 import {SearchService} from './search.service';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {SearchOptionComponent} from './search-option/search-option.component';
@@ -18,7 +18,7 @@ import {SearchOptionComponent} from './search-option/search-option.component';
 @Component({
   selector: 'sp-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.less', '../shared/form-field.manager.less'],
+  styleUrls: ['./search.component.less', '../../shared/form-field.manager.less'],
   providers: [
     SearchService,
     {
