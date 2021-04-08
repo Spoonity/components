@@ -60,23 +60,23 @@ export class CardComponent implements OnInit {
   call = appCallIcon.name;
   redeem = appRedeemIcon.name;
 
-  isSend: boolean = true;
+  isSend = true;
   isMouseOver: boolean;
-  isPressed:boolean = false;
+  isPressed = false;
 
   avatarSize: AvatarSize = AvatarSize.medium;
 
   btnType: ButtonType = ButtonType.secondary;
   buttonSize: ButtonSize = ButtonSize.medium;
 
-  cardType: string = 'sms';
+  cardType = 'sms';
 
   constructor() { }
 
   ngOnInit() {
     // this.cardType(this.cardData)
     // console.log(this.cardType(this.cardData))
-    this.isMouseOver = false
+    this.isMouseOver = false;
   }
 
   toggleCard() {
