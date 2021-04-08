@@ -1,4 +1,3 @@
-import { ButtonSize } from './../../../utils/enums';
 import { Component, Input, OnInit } from '@angular/core';
 import { appRedeemIcon } from 'src/app/svg/Action/redeem';
 import { appCallIcon } from 'src/app/svg/Communication/call';
@@ -8,7 +7,7 @@ import { appEastIcon } from 'src/app/svg/Navigation/east';
 import { appMoreVertIcon } from 'src/app/svg/Navigation/more_vert';
 import { appSmsIcon } from 'src/app/svg/Notification/sms';
 import { appPeopleIcon } from 'src/app/svg/Social/people';
-import { AvatarSize, ButtonType } from 'src/app/utils/enums';
+import { AvatarSize, ButtonSize, ButtonType } from 'src/app/utils/enums';
 
 export interface ICampaign {
   type: string;
@@ -74,9 +73,7 @@ export class CardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // this.cardType(this.cardData)
-    // console.log(this.cardType(this.cardData))
-    this.isMouseOver = false;
+  this.isMouseOver = false;
   }
 
   toggleCard() {

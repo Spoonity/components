@@ -33,7 +33,6 @@ export class SidebarComponent implements OnInit {
   constructor() {}
 
   avatarSize: AvatarSize = AvatarSize.medium;
-  // avatarText: string = this.user.title.charAt(0).toUpperCase();
 
   keyboarTab = appKeyboardTabIcon.name;
   expandLess = appExpandLessIcon.name;
