@@ -1,29 +1,39 @@
-import { appExpandMoreIcon } from './../../svg/Navigation/expand_more';
-import { appLogoutIcon } from './../../svg/Action/logout';
-import { appAccountBoxIcon } from './../../svg/Action/account_box';
-import { appExpandLessIcon } from './../../svg/Navigation/expand_less';
-import { appKeyboardTabIcon } from './../../svg/Hardware/keyboard_tab';
-import { appSendIcon } from './../../svg/Content/send';
-import { appSettingsIcon } from './../../svg/Action/settings';
-import { appRecentActorsIcon } from './../../svg/AV/recent_actors';
-import { appPlaceIcon } from './../../svg/Maps/place';
-import { appRedeemIcon } from './../../svg/Action/redeem';
-import { appPeopleIcon } from './../../svg/Social/people';
+import { appExpandMoreIcon } from '../../../svg/Navigation/expand_more';
+import { appLogoutIcon } from '../../../svg/Action/logout';
+import { appAccountBoxIcon } from '../../../svg/Action/account_box';
+import { appExpandLessIcon } from '../../../svg/Navigation/expand_less';
+import { appKeyboardTabIcon } from '../../../svg/Hardware/keyboard_tab';
+import { appSendIcon } from '../../../svg/Content/send';
+import { appSettingsIcon } from '../../../svg/Action/settings';
+import { appRecentActorsIcon } from '../../../svg/AV/recent_actors';
+import { appPlaceIcon } from '../../../svg/Maps/place';
+import { appRedeemIcon } from '../../../svg/Action/redeem';
+import { appPeopleIcon } from '../../../svg/Social/people';
 import { AvatarSize, ButtonSize, ButtonType } from 'src/app/utils/enums';
 import { Component, Input, OnInit } from '@angular/core';
-import { appHomeIcon } from './../../svg/Action/home';
+import { appHomeIcon } from '../../../svg/Action/home';
+
+export interface IUserData {
+  name: string;
+  email: string;
+  title: string;
+  company: string;
+}
 
 @Component({
-  selector: 'sp-sidebar-example',
-  templateUrl: './sidebar-example.component.html',
-  styleUrls: ['./sidebar-example.component.less']
+  selector: 'sp-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.less']
 })
-export class SidebarExampleComponent implements OnInit {
+export class SidebarComponent implements OnInit {
+  
+  @Input() user: IUserData = <IUserData>{};
+  @Input() multipleAccounts: boolean = false;
 
-  constructor() { }
-
+  constructor() {}
+  
   avatarSize: AvatarSize = AvatarSize.medium;
-  avatarText: string = "B";
+  // avatarText: string = this.user.title.charAt(0).toUpperCase();
   
   keyboarTab = appKeyboardTabIcon.name;
   expandLess = appExpandLessIcon.name;
@@ -41,9 +51,6 @@ export class SidebarExampleComponent implements OnInit {
   MenuHeight = '857px';
   OptionWidht = '240px';
   lineRight = '-20px';
-
-  @Input() multipleAccounts:boolean = false;
-
 
   optionsData = [
     {title: 'Home', icon: appHomeIcon, isActive: true},

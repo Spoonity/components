@@ -9,7 +9,7 @@ import {
   QueryList,
   ViewChild
 } from '@angular/core';
-import {OverlayTemplateComponent} from '../shared/overlay-template/overlay-template.component';
+import {OverlayTemplateComponent} from '../../shared/overlay-template/overlay-template.component';
 import {MenuItemComponent} from './menu-item/menu-item.component';
 import {MenuService} from './menu.service';
 

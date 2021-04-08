@@ -1,0 +1,135 @@
+<div [ngClass]="{'card' : cardData.type === 'campaign' || 'giftManagement', cardForCustomer : cardData.type === 'customer' }"
+(mouseover)="isMouseOver=true" (mouseout)="isMouseOver=false"
+>
+    <div class="col1">
+        <div class="campaign">
+            <div class="campaign" *ngIf="cardData.type === 'campaign'">
+                <sp-icon class="icons" [toolTipTittle]="cardData.plataform" [name]="cardData.plataform"></sp-icon>
+                <span class="shadow-text" *ngIf="cardType === 'sms'"><b>{{cardData.plataform | uppercase}}</b></span>
+                <!-- <span class="shadow-text" *ngIf="cardType === 'email'"><b>Email</b></span>
+                <span class="shadow-text" *ngIf="cardType === 'smartphone'"><b>Smartphone</b></span> -->
+            </div>
+            <div class="campaign" *ngIf="cardData.type === 'customer'">
+                <sp-avatar *ngIf="!isMouseOver" [text]="cardData.name | slice : 0 : 1" [size]="avatarSize"></sp-avatar>
+                <sp-checkbox *ngIf="isMouseOver"></sp-checkbox>
+            </div>
+            <div class="campaign" *ngIf="cardData.type === 'giftManagement'">
+                <sp-icon class="icons" [toolTipTittle]="redeem" [name]="redeem"></sp-icon>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content" *ngIf="cardData.type === 'campaign'">
+                <div class="sub-content1">
+                    <sp-badge class="badge" [color]="cardData.isSend ? '#66BB6A' : '#EF5350' " [name]="cardData.isSend ? 'SEND' : 'SENDING'"></sp-badge>
+                    <span class="shadow-text">Created: {{cardData.dateCreated}}</span>
+                </div>
+                <span>{{cardData.title}}</span>
+                <div class="sub-content2">
+                    <sp-icon class="icons" [toolTipTittle]="people" [name]="people"></sp-icon>
+                    <span class="shadow-text">{{cardData.targetGroup}}</span>
+                </div>
+            </div>
+            <div class="content" *ngIf="cardData.type === 'customer'">
+                <div class="sub-content3">
+                    <span>{{cardData.name}}</span>
+                    <span class="shadow-text">Member Since: {{cardData.dateCreated}}</span>
+                </div>
+            </div>
+            <div class="content" *ngIf="cardData.type === 'giftManagement'">
+                <div class="sub-content1">
+                    <sp-badge class="badge" [name]="cardData.deliverProcess | uppercase" color="#66BB6A"></sp-badge>
+                    <span class="shadow-text">Created: {{cardData.dateCreated}}</span>
+                </div>
+                <span><b>ID: {{cardData.id}}</b></span>
+            </div>
+        </div>
+    </div>
+    <div class="col2">
+        <div class="col2" *ngIf="cardData.type === 'campaign'">
+            <div class="printer-container">
+                <span class="shadow-text">Send</span>
+                <div class="printer">
+                    <span>{{cardData.sendCount === 0 ? '0' : cardData.sendCount}}</span>
+                </div>
+            </div>
+            <div class="sendIcon">
+                <sp-icon class="icons" [toolTipTittle]="send" [name]="send"></sp-icon>
+            </div>
+            <div class="printer-container">
+                <span class="shadow-text">Open</span>
+                <div class="printer">
+                    <span>{{cardData.openCount === 0 ? '--' : cardData.openCount + '%'}}</span>
+                </div>
+            </div>
+            <div class="sendIcon">
+                <sp-icon class="icons" [toolTipTittle]="send" [name]="send"></sp-icon>
+            </div>
+            <div class="printer-container">
+                <span class="shadow-text">Visit</span>
+                <div class="printer">
+                    <span>{{cardData.visitCount === 0 ? '--' : cardData.visitCount}}</span>
+                </div>
+            </div>
+            <div class="sendIcon">
+                <sp-icon class="icons" [toolTipTittle]="send" [name]="send"></sp-icon>
+            </div>
+            <div class="printer-container">
+                <span class="shadow-text">Spend</span>
+                <div class="printer">
+                    <span>{{cardData.spendCount === 0 ? '--' : '$'+ cardData.spendCount}}</span>
+                </div>
+            </div>
+            <div class="moreVertIcon">
+                <sp-icon class="icons" [toolTipTittle]="moreVert" [name]="moreVert"></sp-icon>
+            </div>
+        </div>
+
+
+        <div class="col2" *ngIf="cardData.type === 'customer'">
+            <div class="sub-content3">
+                <div>
+                    <sp-icon class="icons" [toolTipTittle]="email" [name]="email"></sp-icon>
+                    <span class="shadow-text">Email</span>
+                </div>
+                <div class="sub-content4">
+                    <span>{{cardData.email}}</span>
+                </div>
+            </div>
+            <div class="sub-content3">
+                <div>
+                    <sp-icon class="icons" [toolTipTittle]="call" [name]="call"></sp-icon>
+                    <span class="shadow-text">Phone</span>
+                </div>
+                <div class="sub-content4">
+                    <span>{{cardData.phone}}</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col2" *ngIf="cardData.type === 'giftManagement'">
+            <div class="sub-content3">
+                <div>
+                    <sp-icon class="icons" [toolTipTittle]="email" [name]="email"></sp-icon>
+                    <span class="shadow-text">Email</span>
+                </div>
+                <div class="sub-content4">
+                    <span>{{cardData.email}}</span>
+                </div>
+            </div>
+            <div class="sub-content3">
+                <div>
+                    <sp-icon class="icons" [toolTipTittle]="call" [name]="call"></sp-icon>
+                    <span class="shadow-text">Phone</span>
+                </div>
+                <div class="sub-content4">
+                    <span>{{cardData.phone}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col3" *ngIf="cardData.type === 'giftManagement'" >
+        <sp-button [size]="buttonSize" [type]="btnType" [text]="'CANCEL'"></sp-button>
+        <sp-button [size]="buttonSize" [type]="btnType" [text]="'GO TO GUEST'"></sp-button>
+    </div>
+</div>

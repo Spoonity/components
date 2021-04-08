@@ -1,11 +1,11 @@
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import {FormFieldManager} from '../shared/form-field.manager';
+import {FormFieldManager} from '../../shared/form-field.manager';
 
 @Component({
   selector: 'sp-text-field',
   templateUrl: './text-field.component.html',
-  styleUrls: ['../shared/form-field.manager.less'],
+  styleUrls: ['../../shared/form-field.manager.less'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
