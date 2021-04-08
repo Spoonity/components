@@ -1,4 +1,4 @@
-import { appUploadFileIcon } from './../../svg/File/upload_file';
+import { appUploadFileIcon } from '../../../svg/File/upload_file';
 import { Component, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd';
 
@@ -11,10 +11,10 @@ export interface IUpload {
 
 @Component({
   selector: 'sp-upload-example',
-  templateUrl: './upload-example.component.html',
-  styleUrls: ['./upload-example.component.less']
+  templateUrl: './upload.component.html',
+  styleUrls: ['./upload.component.less']
 })
-export class UploadExampleComponent implements OnInit {
+export class UploadComponent implements OnInit {
 
   upload: IUpload;
 

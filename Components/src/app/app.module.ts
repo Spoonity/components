@@ -13,11 +13,11 @@ import { MoleculesComponent } from './molecules/molecules.component';
 import { AtomsComponent } from './atoms/atoms.component';
 import { AppRoutingModule } from './app-routing.module';
 import { OrganismsComponent } from './organisms/organisms.component';
-import { ChipComponent } from './Components/chip/chip.component';
-import { ButtonComponent } from './Components/button/button.component';
-import { TextFieldComponent } from './Components/text-field/text-field.component';
+import { ChipComponent } from './Components/Molecules/chip/chip.component';
+import { ButtonComponent } from './Components/Molecules/button/button.component';
+import { TextFieldComponent } from './Components/Molecules/text-field/text-field.component';
 import { TextFieldExampleComponent } from './molecules/text-field-example/text-field-example.component';
-import { BannerComponent } from './Components/banner/banner.component';
+import { BannerComponent } from './Components/Molecules/banner/banner.component';
 import { DropdownExampleComponent } from './molecules/dropdown-example/dropdown-example.component';
 import { DropdownComponent } from './Components/dropdown/dropdown.component';
 import { OptionComponent } from './Components/dropdown/option/option.component';
@@ -29,14 +29,14 @@ import { SearchComponent } from './Components/search/search.component';
 import { SearchExampleComponent } from './molecules/search-example/search-example.component';
 import { SearchTemplateComponent } from './Components/search/search-template/search-template.component';
 import { SearchOptionComponent } from './Components/search/search-option/search-option.component';
-import { StepsComponent } from './Components/steps/steps.component';
+import { StepsComponent } from './Components/Molecules/steps/steps.component';
 import { MenuExampleComponent } from './molecules/menu-example/menu-example.component';
-import { MenuComponent } from './Components/menu/menu.component';
-import { MenuTriggerDirective } from './Components/menu/menu-trigger.directive';
-import { MenuItemComponent } from './Components/menu/menu-item/menu-item.component';
-import { BackNavigationComponent } from './Components/back-navigation/back-navigation.component';
-import { BreadcrumbComponent } from './Components/breadcrumb/breadcrumb.component';
-import { SnackbarComponent } from './Components/snackbar/snackbar.component';
+import { MenuComponent } from './Components/Molecules/menu/menu.component';
+import { MenuTriggerDirective } from './Components/Molecules/menu/menu-trigger.directive';
+import { MenuItemComponent } from './Components/Molecules/menu/menu-item/menu-item.component';
+import { BackNavigationComponent } from './Components/Molecules/back-navigation/back-navigation.component';
+import { BreadcrumbComponent } from './Components/Molecules/breadcrumb/breadcrumb.component';
+import { SnackbarComponent } from './Components/Molecules/snackbar/snackbar.component';
 import { AvatarComponent } from './Components/Atoms/avatar/avatar.component';
 import { BadgeComponent } from './Components/Atoms/badge/badge.component';
 import { DividerComponent } from './Components/Atoms/divider/divider.component';
@@ -54,9 +54,11 @@ import { DataVisualizationComponent } from './Components/Organisms/data-visualiz
 import { ChartComponent } from './Components/Organisms/chart/chart.component';
 import { ChartsModule,ThemeService} from 'ng2-charts';
 import { DialogsComponent } from './Components/Organisms/dialogs/dialogs.component';
-import { SidebarExampleComponent } from './organisms/sidebar-example/sidebar-example.component';
-import { TableExampleComponent } from './organisms/table-example/table-example.component';
-import { UploadExampleComponent } from './organisms/upload-example/upload-example.component';
+import { SidebarComponent } from './Components/Organisms/sidebar/sidebar.component';
+import { TableComponent } from './Components/Organisms/table/table.component';
+import { UploadComponent } from './Components/Organisms/upload/upload.component';
+import { TitleComponent } from './Components/Organisms/title/title.component';
+import { CardComponent } from './components/organisms/card/card.component';
 
 registerLocaleData(en);
 
@@ -105,9 +107,11 @@ registerLocaleData(en);
     DataVisualizationComponent,
     ChartComponent,
     DialogsComponent,
-    SidebarExampleComponent,
-    TableExampleComponent,
-    UploadExampleComponent
+    SidebarComponent,
+    TableComponent,
+    UploadComponent,
+    TitleComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

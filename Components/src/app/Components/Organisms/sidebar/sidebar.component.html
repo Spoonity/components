@@ -2,12 +2,12 @@
 [ngStyle]="{'width': MenuWidht}"
 >
     <div class="user">
-        <sp-avatar [text]="avatarText"></sp-avatar>
+        <sp-avatar [text]="user.title.charAt(0).toUpperCase()"></sp-avatar>
         <div class="text" *ngIf="!isCollapse">
-            <span>Brandins Breakfast</span>
-            <span>Bonanza</span>
+            <span>{{user.name}}</span>
+            <span>{{user.company}}</span>
         </div>
-        <sp-icon class="icons" [toolTipTittle]="expandMore" [name]="expandMore" *ngIf="!multipleAccounts" (click)="expandAccounts()"></sp-icon>
+        <sp-icon class="icons" [toolTipTittle]="expandMore" [name]="expandMore" *ngIf="multipleAccounts && !isCollapse" (click)="expandAccounts()"></sp-icon>
         <!-- <div class="sp-elevation--3 elevation-box"></div> -->
     </div>
     <sp-divider></sp-divider>
@@ -37,8 +37,8 @@
             <div class="text" 
             *ngIf="!isCollapse"
             >
-                <span>Alex Orekhvo</span>
-                <span class="small">alexorekhvo1986@gmail.com</span>
+                <span>{{user.name}}</span>
+                <span class="small">{{user.email}}</span>
             </div>
             <sp-icon class="icons" [toolTipTittle]="expandLess" [name]="expandLess" *ngIf="!onToggleLogout" (click)="toggleLogout()"></sp-icon>
             <sp-icon class="icons" [toolTipTittle]="accountBox" [name]="accountBox" *ngIf="onToggleLogout" (click)="toggleLogout()"></sp-icon>
