@@ -5,7 +5,7 @@ import { MenuItems } from './Components/Molecules/side-navigation/side-navigatio
 import { SideNavigationType } from './utils/enums';
 import * as ic from './utils/icons';
 @Component({
-  selector: 'sp-root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
