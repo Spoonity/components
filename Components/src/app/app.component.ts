@@ -5,7 +5,7 @@ import { MenuItems } from './Components/Molecules/side-navigation/side-navigatio
 import { SideNavigationType } from './utils/enums';
 import * as ic from './utils/icons';
 @Component({
-  selector: 'app-root',
+  selector: 'sp-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
@@ -17,15 +17,15 @@ export class AppComponent {
   }
 
   sideNavigationType = SideNavigationType;
-  atomsMenuItems : Array<MenuItems> = [
-    {icon:"",link:"",text:"Avatars"},
-    {icon:"",link:"",text:"Badges"},
-    {icon:"",link:"",text:"Divider"},
-    {icon:"",link:"",text:"Progress Bar"},
-    {icon:"",link:"",text:"Selection Controls"},
-    {icon:"",link:"",text:"Sliders"},
-    {icon:"",link:"",text:"Tabs"},
-    {icon:"",link:"",text:"Tooltips"}
+  atomsMenuItems: Array<MenuItems> = [
+    {icon: '', link: '', text: 'Avatars'},
+    {icon: '', link: '', text: 'Badges'},
+    {icon: '', link: '', text: 'Divider'},
+    {icon: '', link: '', text: 'Progress Bar'},
+    {icon: '', link: '', text: 'Selection Controls'},
+    {icon: '', link: '', text: 'Sliders'},
+    {icon: '', link: '', text: 'Tabs'},
+    {icon: '', link: '', text: 'Tooltips'}
   ];
 
 

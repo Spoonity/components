@@ -8,7 +8,7 @@ import { IUserData } from '../Components/Organisms/sidebar/sidebar.component';
 import { ICampaign, ICustomer, IGiftManagement } from '../Components/Organisms/card/card.component';
 
 @Component({
-  selector: 'app-organisms',
+  selector: 'sp-organisms',
   templateUrl: './organisms.component.html',
   styleUrls: ['./organisms.component.less']
 })
