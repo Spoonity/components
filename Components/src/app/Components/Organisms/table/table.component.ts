@@ -17,7 +17,7 @@ export interface IDataSet {
 export class TableComponent implements OnInit {
 
   @Input() checkboxOn: boolean;
-  @Input() rows:[];
+  @Input() rows: [];
   @Input() dataSet: IDataSet;
 
   constructor() { }
