@@ -37,19 +37,19 @@
                     <div class="label">
                         <span>Default</span>
                     </div>
-                <sp-title title="Menu"></sp-title>
+                    <sp-header title="Menu"></sp-header>
                 </div>
                 <div class="flex-row">
                     <div class="label">
                         <span>With Back Button</span>
                     </div>
-                    <sp-title title="Menu" backTitle="Back"></sp-title>
+                    <sp-header title="Menu" backTitle="Back"></sp-header>
                 </div>
                 <div class="flex-row">
                     <div class="label">
                         <span>With Breadcrumbs</span>
                     </div>
-                    <sp-title title="Menu" [breadcrumbs]="breadcrumbItems"></sp-title>
+                    <sp-header title="Menu" [breadcrumbs]="breadcrumbItems"></sp-header>
                 </div>
             </div>
         </div>
@@ -60,19 +60,19 @@
                     <div class="label">
                         <span>Default</span>
                     </div>
-                    <sp-title title="Menu" btnTitle="Options"></sp-title>
+                    <sp-header title="Menu" btnTitle="Options"></sp-header>
                 </div>
                 <div class="flex-row">
                     <div class="label">
                         <span>With Back Button</span>
                     </div>
-                    <sp-title title="Menu" backTitle="Back" btnTitle="Options"></sp-title>
+                    <sp-header title="Menu" backTitle="Back" btnTitle="Options"></sp-header>
                 </div>
                 <div class="flex-row">
                     <div class="label">
                         <span>With Breadcrumbs</span>
                     </div>
-                    <sp-title title="Menu" [breadcrumbs]="breadcrumbItems" btnTitle="Options"></sp-title>
+                    <sp-header title="Menu" [breadcrumbs]="breadcrumbItems" btnTitle="Options"></sp-header>
                 </div>
             </div>
         </div>
@@ -83,19 +83,19 @@
                     <div class="label">
                         <span>Default</span>
                     </div>
-                    <sp-title title="Menu" [search]="true" btnTitle="Options"></sp-title>
+                    <sp-header title="Menu" [search]="true" btnTitle="Options"></sp-header>
                 </div>
                 <div class="flex-row">
                     <div class="label">
                         <span>With Back Button</span>
                     </div>
-                    <sp-title title="Menu" backTitle="Back" [search]="true" btnTitle="Options"></sp-title>
+                    <sp-header title="Menu" backTitle="Back" [search]="true" btnTitle="Options"></sp-header>
                 </div>
                 <div class="flex-row">
                     <div class="label">
                         <span>With Breadcrumbs</span>
                     </div>
-                    <sp-title title="Menu" [breadcrumbs]="breadcrumbItems" [search]="true" btnTitle="Options"></sp-title>
+                    <sp-header title="Menu" [breadcrumbs]="breadcrumbItems" [search]="true" btnTitle="Options"></sp-header>
                 </div>
             </div>
         </div>
@@ -146,18 +146,18 @@
         <br>
         <h2>Campaigns</h2>
         <h2></h2>
-        <br>    
-        
+        <br>
+
         <sp-card *ngFor="let card of cards" [cardData]="card"></sp-card>
 
         <br>
         <h2>Customers</h2>
-        
-        
+
+
         <br>
         <h2>EGift Management</h2>
         <br>
-        
+
         <!-- <div class="button-filters">
             <div class="sp-spacing-x--1">
                 <sp-dropdown [(ngModel)]="deliverProcess" size="small" label="Deliver Process">
@@ -166,6 +166,6 @@
             </div>
         </div> -->
         <br>
-    
+
     </div>
 </div>

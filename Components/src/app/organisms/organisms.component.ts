@@ -1,22 +1,11 @@
 import { IDataSet } from './../Components/Organisms/table/table.component';
-import { appRedeemIcon } from './../svg/Action/redeem';
-import { AvatarSize } from 'src/app/utils/enums';
-import { appCallIcon } from './../svg/Communication/call';
-import { appSmartphoneIcon } from './../svg/Hardware/smartphone';
-import { appEmailIcon } from './../svg/Communication/email';
-import { appMoreVertIcon } from './../svg/Navigation/more_vert';
-import { appEastIcon } from './../svg/Navigation/east';
-import { appPeopleIcon } from './../svg/Social/people';
-import { appSmsIcon } from './../svg/Notification/sms';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IBreadCrumbItem } from '../Components/Molecules/breadcrumb/breadcrumb.component';
 import { ChartType } from '../Components/Organisms/chart/chart.component';
 import { DialogsComponent, IModal } from '../Components/Organisms/dialogs/dialogs.component';
-import { ButtonSize, ButtonType } from '../utils/enums';
 import { UploadComponent, IUpload } from '../Components/Organisms/upload/upload.component';
 import { IUserData } from '../Components/Organisms/sidebar/sidebar.component';
-import { ICampaign, ICustomer, IGiftManagement } from '../components/organisms/card/card.component';
-import { getMaxListeners } from 'process';
+import { ICampaign, ICustomer, IGiftManagement } from '../Components/Organisms/card/card.component';
 
 @Component({
   selector: 'app-organisms',
@@ -35,50 +24,17 @@ export class OrganismsComponent implements OnInit {
   @ViewChild(DialogsComponent, { static: false }) dialog?: DialogsComponent;
   @ViewChild(UploadComponent, { static: false }) upload?: UploadComponent;
 
-  // sms = appSmsIcon.name;
-  // people = appPeopleIcon.name;
-  // send = appEastIcon.name;
-  // moreVert = appMoreVertIcon.name;
-  // email = appEmailIcon.name;
-  // smartphone = appSmartphoneIcon.name;
-  // call = appCallIcon.name;
-  // redeem = appRedeemIcon.name;
-
-  // isSend: boolean = true;
-  // isMouseOver: boolean = false;
-  // isPressed:boolean = false;
-
   constructor() { }
 
   breadcrumbItems: IBreadCrumbItem[] = [];
 
-  userData: IUserData = <IUserData>{};
+  userData: IUserData =  {} as IUserData;
 
   dataSet: IDataSet[] = [];
 
   cards: (ICampaign | ICustomer | IGiftManagement)[];
 
   dataRows: any;
-
-  // avatarSize: AvatarSize = AvatarSize.medium;
-
-  // btnType: ButtonType = ButtonType.secondary;
-
-  // cardType: string = 'sms';
-
-  // enumCardType = [
-  //   'sms',
-  //   'email',
-  //   'smartphone'
-  // ]
-
-  // deliverProcess: string = 'PENDING';
-
-  // emunDeliverProcess = [
-  //   'PENDING',
-  //   'ENROUTE',
-  //   'DELIVERED'
-  // ]
 
   ngOnInit() {
     this.breadcrumbItems = this.getBreadcrumbsItems();
@@ -118,9 +74,9 @@ export class OrganismsComponent implements OnInit {
             email: 'alexmann@gmail.com',
             phone: '(123) 456-7890'
           }
-        ]
+        ];
   }
-  
+
   getDataRows() {
     return [
     'Name',
@@ -129,7 +85,7 @@ export class OrganismsComponent implements OnInit {
     'Amount',
     'Status',
     'Invoice'
-  ]
+  ];
   }
   getDataSet(): IDataSet[] {
     return [
@@ -165,7 +121,7 @@ export class OrganismsComponent implements OnInit {
         status: true,
         invoice: 'PDF'
       }
-    ]
+    ];
   }
 
   getUserData(): IUserData {
@@ -174,7 +130,7 @@ export class OrganismsComponent implements OnInit {
       email: 'alexorekhvo@19986@gmail.com',
       title: 'Brandins Breakfast',
       company: 'Bonanza'
-    }
+    };
   }
 
   getBreadcrumbsItems(): IBreadCrumbItem[] {
@@ -188,11 +144,11 @@ export class OrganismsComponent implements OnInit {
     dialog = {
       title: 'Dialog Header',
       content: 'Gravida condimentum amet mauris justo, non non, feugiat aliquam vitae. Massa nec neque elementum id vulputate neque dui commodo a.',
-      action1: () => { alert('Action 1') },
-      action2: () => { alert('Action 1') },
+      action1: () => { alert('Action 1'); },
+      action2: () => { alert('Action 1'); },
       action1Label: 'Action 1',
       action2Label: 'Action 2'
-    }
+    };
     this.dialog.createModal(dialog);
   }
 
@@ -200,18 +156,11 @@ export class OrganismsComponent implements OnInit {
     upload = {
       title: 'Upload',
       content: 'Gravida condimentum amet mauris justo, non non, feugiat aliquam vitae. Massa nec neque elementum id vulputate neque dui commodo a.',
-      action1: () => { alert('Closing') },
+      action1: () => { alert('Closing'); },
       action1Label: 'Close',
-    }
+    };
     this.upload.createModalUpload(upload);
   }
 
-  // toggleCard() {
-  //   if (this.isSend) {
-  //     this.isSend = false;
-  //   } else {
-  //     this.isSend = true;
-  //   }
-  // }
 }
 
