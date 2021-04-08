@@ -3,11 +3,11 @@ import { ButtonSize, ButtonType } from 'src/app/utils/enums';
 import { IBreadCrumbItem } from '../../Molecules/breadcrumb/breadcrumb.component';
 
 @Component({
-  selector: 'sp-title',
-  templateUrl: './title.component.html',
-  styleUrls: ['./title.component.less']
+  selector: 'sp-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.less']
 })
-export class TitleComponent implements OnInit {
+export class HeaderComponent implements OnInit {
 
 
   @Input() title: string;
@@ -15,7 +15,7 @@ export class TitleComponent implements OnInit {
   @Input() breadcrumbs: string;
   @Input() btnTitle: string;
   @Input() search: boolean;
-  
+
   constructor() { }
 
 
@@ -24,6 +24,6 @@ export class TitleComponent implements OnInit {
 
   ngOnInit() {}
 
-  
+
 
 }

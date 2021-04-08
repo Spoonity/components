@@ -8,8 +8,8 @@ import {
   ViewChild
 } from '@angular/core';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
-import {FormFieldManager} from '../shared/form-field.manager';
-import {OverlayTemplateComponent} from '../shared/overlay-template/overlay-template.component';
+import {FormFieldManager} from '../../shared/form-field.manager';
+import {OverlayTemplateComponent} from '../../shared/overlay-template/overlay-template.component';
 import {OptionComponent} from './option/option.component';
 import {DropdownService} from './dropdown.service';
 import {ActiveDescendantKeyManager} from '@angular/cdk/a11y';
@@ -17,7 +17,7 @@ import {ActiveDescendantKeyManager} from '@angular/cdk/a11y';
 @Component({
   selector: 'sp-dropdown',
   templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.less', '../shared/form-field.manager.less'],
+  styleUrls: ['./dropdown.component.less', '../../shared/form-field.manager.less'],
   providers: [
     DropdownService,
     {

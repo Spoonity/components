@@ -19,16 +19,16 @@ import { TextFieldComponent } from './Components/Molecules/text-field/text-field
 import { TextFieldExampleComponent } from './molecules/text-field-example/text-field-example.component';
 import { BannerComponent } from './Components/Molecules/banner/banner.component';
 import { DropdownExampleComponent } from './molecules/dropdown-example/dropdown-example.component';
-import { DropdownComponent } from './Components/dropdown/dropdown.component';
-import { OptionComponent } from './Components/dropdown/option/option.component';
+import { DropdownComponent } from './Components/Molecules/dropdown/dropdown.component';
+import { OptionComponent } from './Components/Molecules/dropdown/option/option.component';
 import { PortalModule } from '@angular/cdk/portal';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { OverlayTemplateComponent } from './Components/shared/overlay-template/overlay-template.component';
-import { SideNavigationComponent } from './Components/side-navigation/side-navigation.component';
-import { SearchComponent } from './Components/search/search.component';
+import { SideNavigationComponent } from './Components/Molecules/side-navigation/side-navigation.component';
+import { SearchComponent } from './Components/Molecules/search/search.component';
 import { SearchExampleComponent } from './molecules/search-example/search-example.component';
-import { SearchTemplateComponent } from './Components/search/search-template/search-template.component';
-import { SearchOptionComponent } from './Components/search/search-option/search-option.component';
+import { SearchTemplateComponent } from './Components/Molecules/search/search-template/search-template.component';
+import { SearchOptionComponent } from './Components/Molecules/search/search-option/search-option.component';
 import { StepsComponent } from './Components/Molecules/steps/steps.component';
 import { MenuExampleComponent } from './molecules/menu-example/menu-example.component';
 import { MenuComponent } from './Components/Molecules/menu/menu.component';
@@ -57,8 +57,8 @@ import { DialogsComponent } from './Components/Organisms/dialogs/dialogs.compone
 import { SidebarComponent } from './Components/Organisms/sidebar/sidebar.component';
 import { TableComponent } from './Components/Organisms/table/table.component';
 import { UploadComponent } from './Components/Organisms/upload/upload.component';
-import { TitleComponent } from './Components/Organisms/title/title.component';
-import { CardComponent } from './components/organisms/card/card.component';
+import { HeaderComponent } from './Components/Organisms/header/header.component';
+import { CardComponent } from './Components/Organisms/card/card.component';
 
 registerLocaleData(en);
 
@@ -110,7 +110,7 @@ registerLocaleData(en);
     SidebarComponent,
     TableComponent,
     UploadComponent,
-    TitleComponent,
+    HeaderComponent,
     CardComponent
   ],
   imports: [

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SvgIconRegistryService } from 'angular-svg-icon';
-import { MenuItems } from './Components/side-navigation/side-navigation.component';
+import { MenuItems } from './Components/Molecules/side-navigation/side-navigation.component';
+
 import { SideNavigationType } from './utils/enums';
 import * as ic from './utils/icons';
 @Component({

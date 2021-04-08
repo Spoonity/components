@@ -15,7 +15,7 @@ export class RadioButtonComponent implements OnInit {
       {radioName: 'C', disable: false},
       {radioName: 'D', disable: false},
   ]
-  
+
   constructor() { }
 
   ngOnInit() {}
