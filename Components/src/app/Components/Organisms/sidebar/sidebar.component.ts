@@ -26,15 +26,15 @@ export interface IUserData {
   styleUrls: ['./sidebar.component.less']
 })
 export class SidebarComponent implements OnInit {
-  
-  @Input() user: IUserData = <IUserData>{};
-  @Input() multipleAccounts: boolean = false;
+
+  @Input() user: IUserData =  {} as IUserData;
+  @Input() multipleAccounts = false;
 
   constructor() {}
-  
+
   avatarSize: AvatarSize = AvatarSize.medium;
   // avatarText: string = this.user.title.charAt(0).toUpperCase();
-  
+
   keyboarTab = appKeyboardTabIcon.name;
   expandLess = appExpandLessIcon.name;
   accountBox = appAccountBoxIcon.name;
@@ -43,9 +43,9 @@ export class SidebarComponent implements OnInit {
 
   buttonType: ButtonType = ButtonType.secondary;
   buttonSize: ButtonSize = ButtonSize.medium;
-  
-  isCollapse: boolean = false;
-  onToggleLogout: boolean = false;
+
+  isCollapse = false;
+  onToggleLogout = false;
 
   MenuWidht = '280px';
   MenuHeight = '857px';
@@ -60,18 +60,18 @@ export class SidebarComponent implements OnInit {
     {title: 'Users', icon: appRecentActorsIcon, isActive: false},
     {title: 'Setup', icon: appSettingsIcon, isActive: false},
     {title: 'Campaigns', icon: appSendIcon, isActive: false}
-  ]
+  ];
 
   ngOnInit() {}
 
   onCollapse() {
-    if (this.isCollapse){
-      this.isCollapse = false
+    if (this.isCollapse) {
+      this.isCollapse = false;
       this.MenuWidht = '280px';
       this.OptionWidht = '240px';
       this.lineRight = '-20px';
 
-    } else if (!this.isCollapse && this.onToggleLogout){
+    } else if (!this.isCollapse && this.onToggleLogout) {
       this.isCollapse = true;
       this.MenuWidht = '88px';
       this.OptionWidht = '46px';
@@ -89,7 +89,7 @@ export class SidebarComponent implements OnInit {
 
   onActive(option: any) {
     this.optionsData.forEach((e: any) => {
-      if(e.title === option.title){
+      if (e.title === option.title) {
         option.isActive = true;
       } else {
         e.isActive = false;
@@ -98,7 +98,7 @@ export class SidebarComponent implements OnInit {
   }
 
   toggleLogout() {
-    if(this.onToggleLogout && !this.isCollapse){
+    if (this.onToggleLogout && !this.isCollapse) {
       this.onToggleLogout = false;
       this.MenuHeight = '857px';
     } else {
@@ -108,7 +108,7 @@ export class SidebarComponent implements OnInit {
   }
 
   expandAccounts() {
-    
+
   }
-  
+
 }
