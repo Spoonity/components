@@ -30,7 +30,7 @@ export class OptionComponent implements OnInit {
   public checkboxModel: boolean;
 
   /* parent component reference */
-  private select: DropdownComponent;
+  select: DropdownComponent;
 
 
   /* click event listener */

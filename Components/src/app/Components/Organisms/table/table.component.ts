@@ -18,13 +18,14 @@ export class TableComponent implements OnInit {
 
   @Input() checkboxOn: boolean;
   @Input() rows: [];
-  @Input() dataSet: IDataSet;
+  @Input() dataSet: IDataSet[];
+
+  totalData: number;
 
   constructor() { }
 
-  titleRow = ['Name', 'Date', 'Description', 'Amount', 'Status', 'Invoice'];
-
   ngOnInit() {
+    this.totalData = this.dataSet.length;
   }
 
 }

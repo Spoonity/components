@@ -1,9 +1,12 @@
 
-<nz-table class="table" #secondTable [nzData]="dataSet">
+<nz-table class="table"
+ #secondTable 
+ [nzData]="dataSet"
+ >
     <thead>
       <tr>
         <th *ngIf="checkboxOn"><sp-checkbox></sp-checkbox></th>
-        <th  *ngFor="let title of titleRow">{{title}}</th>
+        <th  *ngFor="let title of rows"><b>{{title}}</b></th>
       </tr>
     </thead>
     <tbody>

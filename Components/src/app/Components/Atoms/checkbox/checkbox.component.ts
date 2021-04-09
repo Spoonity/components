@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'sp-checkbox',
@@ -17,5 +17,11 @@ export class CheckboxComponent implements OnInit {
   @Input() indeterminate: boolean;
   @Input() check: boolean;
   @Input() value: string;
+
+  @Output() onChangeEvent = new EventEmitter<any>();
+
+  onChange(e: any) {
+    this.onChangeEvent.emit(e);
+  }
 
 }

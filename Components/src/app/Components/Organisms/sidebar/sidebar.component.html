@@ -1,14 +1,25 @@
 <div class="container"
 [ngStyle]="{'width': MenuWidht}"
 >
+    
     <div class="user">
-        <sp-avatar [text]="user.title.charAt(0).toUpperCase()"></sp-avatar>
+        <sp-avatar [text]="userDisplay.name.charAt(0).toUpperCase()"></sp-avatar>
         <div class="text" *ngIf="!isCollapse">
-            <span>{{user.name}}</span>
-            <span>{{user.company}}</span>
+            <span>{{userDisplay.name}}</span>
+            <span>{{userDisplay.company}}</span>
         </div>
-        <sp-icon class="icons" [toolTipTittle]="expandMore" [name]="expandMore" *ngIf="multipleAccounts && !isCollapse" (click)="expandAccounts()"></sp-icon>
-        <!-- <div class="sp-elevation--3 elevation-box"></div> -->
+        <sp-icon class="icons" [toolTipTittle]="expandMore" [name]="expandMore" *ngIf="multipleAccounts && !isCollapse" (click)="expandAccounts()" [color]="iconColor"></sp-icon>
+        <div *ngIf="multipleAccountsSelection && !isCollapse" class="multiAccount sp-elevation--3 elevation-box">
+            <sp-text-field [placeholder]="'Filter by name'" [(ngModel)]="inputFilter" (ngModelChange)="filter()"></sp-text-field>
+            {{inputFilter}}
+            <div class="userMultiAccount" *ngFor="let account of AccountsDisplay" (click)="switchAccount(account)">
+                <sp-avatar [text]="account.title.charAt(0).toUpperCase()"></sp-avatar>
+                <div class="text-multiple-accounts" *ngIf="!isCollapse">
+                    <span>{{account.name}}</span>
+                    <span>{{account.company}}</span>
+                </div>
+            </div>
+        </div>
     </div>
     <sp-divider></sp-divider>
     <div class="menu" 
@@ -20,7 +31,7 @@
         [ngClass]="{'active' : option.isActive}"
         (click)="onActive(option)"
         >
-            <sp-icon class="icons" [toolTipTittle]="option.icon.name" [name]="option.icon.name"></sp-icon>
+            <sp-icon class="icons" [toolTipTittle]="option.icon.name" [name]="option.icon.name" [color]="iconColor"></sp-icon>
             <span *ngIf="!isCollapse">{{option.title}}</span>
             <div class="orange-line" [ngStyle]="{'right': lineRight}" *ngIf="option.isActive"></div>
         </div>
@@ -28,7 +39,7 @@
     <sp-divider></sp-divider>
     <div class="collapse" (click)='onCollapse()'>
         <!-- <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [leftIcon]="keyboarTab"></sp-button> -->
-        <sp-icon class="icons" [toolTipTittle]="keyboarTab" [name]="keyboarTab"></sp-icon>
+        <sp-icon class="icons" [toolTipTittle]="keyboarTab" [name]="keyboarTab" [color]="iconColor"></sp-icon>
         <span *ngIf="!isCollapse">Collapse</span>
     </div>
     <sp-divider></sp-divider>
@@ -37,14 +48,14 @@
             <div class="text" 
             *ngIf="!isCollapse"
             >
-                <span>{{user.name}}</span>
-                <span class="small">{{user.email}}</span>
+                <span>{{userDisplay.name}}</span>
+                <span class="small">{{userDisplay.email}}</span>
             </div>
-            <sp-icon class="icons" [toolTipTittle]="expandLess" [name]="expandLess" *ngIf="!onToggleLogout" (click)="toggleLogout()"></sp-icon>
-            <sp-icon class="icons" [toolTipTittle]="accountBox" [name]="accountBox" *ngIf="onToggleLogout" (click)="toggleLogout()"></sp-icon>
+            <sp-icon class="icons" [toolTipTittle]="expandLess" [name]="expandLess" *ngIf="!onToggleLogout" (click)="toggleLogout()" [color]="iconColor"></sp-icon>
+            <sp-icon class="icons" [toolTipTittle]="accountBox" [name]="accountBox" *ngIf="onToggleLogout" (click)="toggleLogout()" [color]="iconColor"></sp-icon>
         </div>
         <div class="flex-btn" *ngIf="onToggleLogout && !isCollapse">
-            <sp-button class="btn" [text]="'LOGOUT'" [type]="buttonType" [size]="buttonSize" [leftIcon]="logoutIcon"></sp-button>
+            <sp-button class="btn" [text]="'LOGOUT'" [type]="buttonType" [size]="buttonSize" [leftIcon]="logoutIcon" (click)="sidebarData.logout()"></sp-button>
         </div>
     </div>
 </div>

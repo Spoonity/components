@@ -8,6 +8,6 @@
         <div class="search">
             <sp-search *ngIf="search"></sp-search>
         </div>
-        <sp-button *ngIf="btnTitle" [text]="btnTitle" [type]="buttonType" [size]="buttonSize"></sp-button>
+        <sp-button *ngIf="btnTitle" [text]="btnTitle" [type]="buttonType" [size]="buttonSize" (click)="action()"></sp-button>
     </div>
 </div>
