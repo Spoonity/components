@@ -6,6 +6,7 @@
     font-style: normal;
     font-size: 16px;
     line-height: 24px;
+    z-index: 1;
 }
 
 .icons {
@@ -19,24 +20,57 @@
     flex-direction: row;
     align-items: center;
     padding: 20px;
-    .text {
-        display: flex;
-        flex-direction: column;
-        .small {
-            font-weight: normal;
-            font-size: 12px;
-            line-height: 16px;
-            color: #B1B1B1;
-        }
+    
+}
+
+.elevation-box {
+    position: absolute;
+    width: 280px;
+    left: 24px;
+    top: 64px;
+    background-color: white;
+    z-index: 2;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    .small {
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 16px;
+        color: #B1B1B1;
     }
-    .elevation-box {
-        position: absolute;
-        width: 280px;
-        height: 224px;
-        left: 24px;
-        top: 64px;
-        background-color: white;
+}
+
+.text-multiple-accounts {
+    &:extend(.text);
+    color: black;
+
+}
+
+.multiAccount {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-around;
+}
+
+.userMultiAccount {
+    &:extend(.user);
+    margin: 10px 0 0 0;
+    border-radius: 4px;
+    padding: 12px 6px 12px 6px;
+}
+.userMultiAccount:hover {
+    background-color: #2E2D2C;
+    span {
+        color: #FFF;
     }
+}
+
+.textFiel {
+    width: 80%;
 }
 
 .menu {
@@ -87,4 +121,6 @@
     justify-content: center;
 }
 
-
+sp-icon span svg-icon svg path{
+    fill: #D2D2D2;
+  }

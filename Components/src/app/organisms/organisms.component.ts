@@ -1,3 +1,5 @@
+import { ISidebar } from './../Components/Organisms/sidebar/sidebar.component';
+import { ICardType } from './../utils/enums';
 import { IDataSet } from './../Components/Organisms/table/table.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IBreadCrumbItem } from '../Components/Molecules/breadcrumb/breadcrumb.component';
@@ -8,7 +10,7 @@ import { IUserData } from '../Components/Organisms/sidebar/sidebar.component';
 import { ICampaign, ICustomer, IGiftManagement } from '../Components/Organisms/card/card.component';
 
 @Component({
-  selector: 'sp-organisms',
+  selector: 'app-organisms',
   templateUrl: './organisms.component.html',
   styleUrls: ['./organisms.component.less']
 })
@@ -28,22 +30,69 @@ export class OrganismsComponent implements OnInit {
 
   breadcrumbItems: IBreadCrumbItem[] = [];
 
-  userData: IUserData =  {} as IUserData;
+  userData: IUserData = <IUserData>{};
+
+  sideData: ISidebar = <ISidebar>{};
+  sideDataMultiAccount: ISidebar = <ISidebar>{};
 
   dataSet: IDataSet[] = [];
 
-  cards: (ICampaign | ICustomer | IGiftManagement)[];
+  campaigns: ICampaign[];
+  customers: ICustomer[];
+  giftManagements: IGiftManagement[];
 
   dataRows: any;
+
+  headerAction: () => void = ()  => {
+    alert("action in header");
+  };
+  optionAction: () => void = () => {
+    alert("options");
+  };
+  cancelAction: () => void = () => {
+    alert("Cancel");
+  };
+  goToGuestAction: () => void = () => {
+    alert("Going to guest");
+  };
 
   ngOnInit() {
     this.breadcrumbItems = this.getBreadcrumbsItems();
     this.userData = this.getUserData();
+    this.sideData = this.getSideData();
+    this.sideDataMultiAccount = this.getSideDataMultiAccount();
     this.dataSet = this.getDataSet();
     this.dataRows = this.getDataRows();
-    this.cards = this.getCardData();
+    this.campaigns = this.getCampaigns();
+    this.customers = this.getCustomers();
+    this.giftManagements = this.getGiftManagements(); 
   }
-  getCardData(): (ICampaign | ICustomer | IGiftManagement)[] {
+  getGiftManagements(): IGiftManagement[] {
+    return [
+      {
+        type: 'giftManagement',
+        id: '12126',
+        name: 'Andres Mann',
+        dateCreated: '01/11/20',
+        deliverProcess: 'pending',
+        email: 'alexmann@gmail.com',
+        phone: '(123) 456-7890'
+      }
+    ]
+  }
+  getCustomers(): ICustomer[] {
+    return [
+      {
+        type: 'customer',
+        name: 'Andres Mann',
+        dateCreated: '01/11/20',
+        isSelect: false,
+        email: 'alexmann@gmail.com',
+        phone: '(123) 456-7890'
+      }
+    ]
+  }
+  getCampaigns(): ICampaign[] {
     return [
           {
             type: 'campaign',
@@ -56,27 +105,10 @@ export class OrganismsComponent implements OnInit {
             openCount: 6,
             visitCount: 4,
             spendCount: 40
-          },
-          {
-            type: 'customer',
-            name: 'Andres Mann',
-            dateCreated: '01/11/20',
-            isSelect: true,
-            email: 'alexmann@gmail.com',
-            phone: '(123) 456-7890'
-          },
-          {
-            type: 'giftManagement',
-            id: '12126',
-            name: 'Andres Mann',
-            dateCreated: '01/11/20',
-            deliverProcess: 'pending',
-            email: 'alexmann@gmail.com',
-            phone: '(123) 456-7890'
           }
-        ];
+    ]
   }
-
+  
   getDataRows() {
     return [
     'Name',
@@ -85,7 +117,7 @@ export class OrganismsComponent implements OnInit {
     'Amount',
     'Status',
     'Invoice'
-  ];
+    ]
   }
   getDataSet(): IDataSet[] {
     return [
@@ -121,16 +153,60 @@ export class OrganismsComponent implements OnInit {
         status: true,
         invoice: 'PDF'
       }
-    ];
+    ]
   }
 
   getUserData(): IUserData {
     return {
       name: 'Alex Orekhvo',
-      email: 'alexorekhvo@19986@gmail.com',
+      id: '12126',
+      email: 'alexorekhvo1998@gmail.com',
       title: 'Brandins Breakfast',
       company: 'Bonanza'
-    };
+    }
+  }
+
+  getSideData(): ISidebar {
+    return {
+      users: [
+        {
+          name: 'Alex Orekhvo',
+          id: '12126',
+          email: 'alexorekhvo1998@gmail.com',
+          title: 'Brandins Breakfast',
+          company: 'Bonanza'
+        }
+      ],
+      logout: () => {alert("Logout")}
+    }
+  }
+  getSideDataMultiAccount(): ISidebar {
+    return {
+      users: [
+        {
+          name: 'Alex Orekhvo',
+          id: '12126',
+          email: 'alexorekhvo1998@gmail.com',
+          title: 'Brandins Breakfast',
+          company: 'Bonanza'
+        },
+        {
+          name: 'Emilia Mann',
+          id: '20201',
+          email: 'emiliamann@gmail.com',
+          title: 'Brandins Dinner',
+          company: 'Partner'
+        },
+        {
+          name: 'Bruno Martinez',
+          id: '30302',
+          email: 'brunomartinez@gmail.com',
+          title: 'Brandins Lunch',
+          company: 'Partner'
+        }
+      ],
+      logout: () => {alert("Logout")}
+    }
   }
 
   getBreadcrumbsItems(): IBreadCrumbItem[] {
@@ -140,27 +216,28 @@ export class OrganismsComponent implements OnInit {
     ];
   }
 
-  createModal(dialog: IModal) {
-    dialog = {
+  createModal() {
+    let dialog = {
       title: 'Dialog Header',
       content: 'Gravida condimentum amet mauris justo, non non, feugiat aliquam vitae. Massa nec neque elementum id vulputate neque dui commodo a.',
-      action1: () => { alert('Action 1'); },
-      action2: () => { alert('Action 1'); },
+      action1: () => { alert('Action 1') },
+      action2: () => { alert('Action 1') },
       action1Label: 'Action 1',
       action2Label: 'Action 2'
-    };
+    }
     this.dialog.createModal(dialog);
   }
 
-  createModalU(upload: IUpload) {
-    upload = {
+  createModalU() {
+    let upload = {
       title: 'Upload',
       content: 'Gravida condimentum amet mauris justo, non non, feugiat aliquam vitae. Massa nec neque elementum id vulputate neque dui commodo a.',
-      action1: () => { alert('Closing'); },
+      action1: () => { alert('Closing') },
       action1Label: 'Close',
-    };
+    }
     this.upload.createModalUpload(upload);
   }
+
 
 }
 

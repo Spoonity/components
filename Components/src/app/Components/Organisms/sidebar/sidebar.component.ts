@@ -12,12 +12,19 @@ import { appPeopleIcon } from '../../../svg/Social/people';
 import { AvatarSize, ButtonSize, ButtonType } from 'src/app/utils/enums';
 import { Component, Input, OnInit } from '@angular/core';
 import { appHomeIcon } from '../../../svg/Action/home';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 export interface IUserData {
   name: string;
+  id: string;
   email: string;
   title: string;
   company: string;
+}
+
+export interface ISidebar {
+  users: IUserData[];
+  logout: () => any;
 }
 
 @Component({
@@ -27,8 +34,13 @@ export interface IUserData {
 })
 export class SidebarComponent implements OnInit {
 
-  @Input() user: IUserData =  {} as IUserData;
-  @Input() multipleAccounts = false;
+  @Input() sidebarData: ISidebar = {} as ISidebar;
+
+  userDisplay: IUserData = {} as IUserData;
+  otherAccounts: IUserData[] = [] as IUserData[];
+  AccountsDisplay: IUserData[] = this.otherAccounts;
+
+  multipleAccounts = false;
 
   constructor() {}
 
@@ -43,8 +55,13 @@ export class SidebarComponent implements OnInit {
   buttonType: ButtonType = ButtonType.secondary;
   buttonSize: ButtonSize = ButtonSize.medium;
 
+  inputFilter: string;
+
+  iconColor = '#FFF';
+
   isCollapse = false;
   onToggleLogout = false;
+  multipleAccountsSelection = false;
 
   MenuWidht = '280px';
   MenuHeight = '857px';
@@ -61,7 +78,12 @@ export class SidebarComponent implements OnInit {
     {title: 'Campaigns', icon: appSendIcon, isActive: false}
   ];
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.sidebarData.users.length > 1) { this.multipleAccounts = true; }
+    this.sidebarData.users.forEach((user: IUserData) => {
+      this.sidebarData.users.indexOf(user) === 0 ? this.userDisplay = user : this.otherAccounts.push(user);
+    });
+  }
 
   onCollapse() {
     if (this.isCollapse) {
@@ -83,6 +105,7 @@ export class SidebarComponent implements OnInit {
       this.MenuWidht = '88px';
       this.OptionWidht = '46px';
       this.lineRight = '-22px';
+      this.multipleAccountsSelection = false;
     }
   }
 
@@ -107,7 +130,27 @@ export class SidebarComponent implements OnInit {
   }
 
   expandAccounts() {
+    if (this.multipleAccountsSelection) {
+      this.multipleAccountsSelection = false;
+    } else {
+      this.multipleAccountsSelection = true;
+    }
+  }
 
+  switchAccount(account: IUserData) {
+    this.userDisplay = {} as IUserData;
+    this.otherAccounts = [];
+    this.sidebarData.users.forEach((user: IUserData) => {
+      user.id === account.id ? this.userDisplay = user : this.otherAccounts.push(user);
+    });
+  }
+
+  filter() {
+    this.AccountsDisplay = [];
+    this.otherAccounts.filter((user: IUserData) => {
+      const test = user.name.toLocaleLowerCase().includes(this.inputFilter.toLocaleLowerCase());
+      if (test) { this.AccountsDisplay.push(user); }
+    });
   }
 
 }

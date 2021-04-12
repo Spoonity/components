@@ -9,21 +9,18 @@ import { IBreadCrumbItem } from '../../Molecules/breadcrumb/breadcrumb.component
 })
 export class HeaderComponent implements OnInit {
 
-
   @Input() title: string;
   @Input() backTitle: string;
   @Input() breadcrumbs: string;
   @Input() btnTitle: string;
   @Input() search: boolean;
+  @Input() action: () => {};
 
   constructor() { }
-
 
   buttonType: ButtonType = ButtonType.primary;
   buttonSize: ButtonSize = ButtonSize.medium;
 
   ngOnInit() {}
-
-
-
+  
 }

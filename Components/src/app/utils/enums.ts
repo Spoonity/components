@@ -28,12 +28,18 @@ export enum AvatarSize {
   medium = 40,
   small = 32
 }
-export enum DividerType{
+export enum DividerType {
   vertical = 'vertical',
   horizontal = 'horizontal'
 }
 
-export enum ProgressType{
+export enum ProgressType {
   line = 'line',
   circle = 'circle'
+}
+
+export enum ICardType {
+  sms = 'sms',
+  customer = 'customer',
+  gift = 'giftManagement'
 }

@@ -48,7 +48,13 @@ export interface IGiftManagement {
 })
 export class CardComponent implements OnInit {
 
-  @Input() cardData: ICampaign | ICustomer | IGiftManagement;
+  @Input() campaign: ICampaign;
+  @Input() customer: ICustomer;
+  @Input() giftManagement: IGiftManagement;
+
+  @Input() option: () => {};
+  @Input() cancel: () => {};
+  @Input() goToGuest: () => {};
 
   sms = appSmsIcon.name;
   people = appPeopleIcon.name;
@@ -61,14 +67,15 @@ export class CardComponent implements OnInit {
 
   isSend = true;
   isMouseOver: boolean;
-  isPressed = false;
 
-  avatarSize: AvatarSize = AvatarSize.medium;
+  backgroundColor: string = '#FFEBEE';
+  color: string = '#EF5350';
+
+  avatarSize: AvatarSize = AvatarSize.large;
 
   btnType: ButtonType = ButtonType.secondary;
   buttonSize: ButtonSize = ButtonSize.medium;
 
-  cardType = 'sms';
 
   constructor() { }
 
@@ -83,11 +90,5 @@ export class CardComponent implements OnInit {
       this.isSend = true;
     }
   }
-
-  // cardType(card: ICampaign | ICustomer | IGiftManagement) {
-  //   if (card.type === 'campaign') return card.type;
-  //   if (card.type === 'customer') return card.type;
-  //   if (card.type === 'giftManagement') return card.type;
-  // }
-
+    
 }

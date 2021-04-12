@@ -1,6 +1,7 @@
 import { appUploadFileIcon } from '../../../svg/File/upload_file';
 import { Component, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 export interface IUpload {
   title: string;
@@ -25,7 +26,10 @@ export class UploadComponent implements OnInit {
   @ViewChild('tplContent', { static: false }) tplContent?: TemplateRef<{}>;
   @ViewChild('tplFooter', { static: false }) tplFooter?: TemplateRef<{}>;
 
-  constructor(private modal: NzModalService, private viewContainerRef: ViewContainerRef) { }
+  constructor(
+    private modal: NzModalService,
+    private viewContainerRef: ViewContainerRef,
+    private msg: NzMessageService) { }
 
   createModalUpload(upload: IUpload) {
     this.upload = upload;
@@ -43,6 +47,15 @@ export class UploadComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  handleChange({ file, fileList }: any): void {
+    const status = file.status;
+    if (status === 'done') {
+      this.msg.success(`${file.name} file uploaded successfully.`);
+    } else if (status === 'error') {
+      this.msg.error(`${file.name} file upload failed.`);
+    }
   }
 
 }

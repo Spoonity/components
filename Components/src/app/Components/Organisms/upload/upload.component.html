@@ -9,16 +9,27 @@
   </span>
   <br>
   <br>
-  <div class="upload-box">
-          <sp-icon class="icons" [toolTipTittle]="uploadFile" [name]="uploadFile"></sp-icon>
-          <span>Drag and Drop here</span>
-          <span>or</span>
-          <span><b>BROWSE FILES</b></span>
-  </div>
-  <div class="under-upload-text">
-      <span>Accepted files</span>
-      <span>Maximum size</span>
-  </div>
+    <nz-upload
+    nzType="drag"
+    [nzMultiple]="true"
+    nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+    (nzChange)="handleChange($event)"
+    class="upload-box"
+  >
+    <div class="upload-content">
+      <sp-icon class="icons" [toolTipTittle]="uploadFile" [name]="uploadFile"></sp-icon>
+      <span>Drag and Drop here</span>
+      <span>or</span>
+      <span><b>BROWSE FILES</b></span>
+
+    </div>
+    </nz-upload>
+
+    <div class="under-upload-text">
+    <span>Accepted files</span>
+    <span>Maximum size</span>
+    </div>
+    
 </ng-template>
 <ng-template #tplFooter let-ref="modalRef">
     <button nz-button nzType="secondary" (click)="modalRef.destroy(); upload.action1()">
