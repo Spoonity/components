@@ -35,13 +35,13 @@ export interface ISidebar {
 export class SidebarComponent implements OnInit {
 
   @Input() sidebarData: ISidebar = {} as ISidebar;
-  
+
   userDisplay: IUserData = {} as IUserData;
   otherAccounts: IUserData[] = [] as IUserData[];
   AccountsDisplay: IUserData[] = this.otherAccounts;
 
   multipleAccounts = false;
-  
+
   constructor() {}
 
   avatarSize: AvatarSize = AvatarSize.medium;
@@ -59,9 +59,9 @@ export class SidebarComponent implements OnInit {
 
   iconColor = '#FFF';
 
-  isCollapse: boolean = false;
-  onToggleLogout: boolean = false;
-  multipleAccountsSelection: boolean = false;
+  isCollapse = false;
+  onToggleLogout = false;
+  multipleAccountsSelection = false;
 
   MenuWidht = '280px';
   MenuHeight = '857px';
@@ -79,7 +79,7 @@ export class SidebarComponent implements OnInit {
   ];
 
   ngOnInit() {
-    if (this.sidebarData.users.length > 1) this.multipleAccounts = true;
+    if (this.sidebarData.users.length > 1) { this.multipleAccounts = true; }
     this.sidebarData.users.forEach((user: IUserData) => {
       this.sidebarData.users.indexOf(user) === 0 ? this.userDisplay = user : this.otherAccounts.push(user);
     });
@@ -99,7 +99,7 @@ export class SidebarComponent implements OnInit {
       this.lineRight = '-22px';
       this.onToggleLogout = false;
       this.MenuHeight = '857px';
-      
+
     } else {
       this.isCollapse = true;
       this.MenuWidht = '88px';
@@ -130,7 +130,7 @@ export class SidebarComponent implements OnInit {
   }
 
   expandAccounts() {
-    if (this.multipleAccountsSelection){
+    if (this.multipleAccountsSelection) {
       this.multipleAccountsSelection = false;
     } else {
       this.multipleAccountsSelection = true;
@@ -148,9 +148,8 @@ export class SidebarComponent implements OnInit {
   filter() {
     this.AccountsDisplay = [];
     this.otherAccounts.filter((user: IUserData) => {
-      let prueba = user.name.toLocaleLowerCase().includes(this.inputFilter.toLocaleLowerCase());
-      if (prueba) this.AccountsDisplay.push(user);
-      console.log(user, prueba, this.inputFilter);
+      const test = user.name.toLocaleLowerCase().includes(this.inputFilter.toLocaleLowerCase());
+      if (test) { this.AccountsDisplay.push(user); }
     });
   }
 

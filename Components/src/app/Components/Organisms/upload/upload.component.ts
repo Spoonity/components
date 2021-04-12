@@ -51,9 +51,6 @@ export class UploadComponent implements OnInit {
 
   handleChange({ file, fileList }: any): void {
     const status = file.status;
-    if (status !== 'uploading') {
-      console.log(file, fileList);
-    }
     if (status === 'done') {
       this.msg.success(`${file.name} file uploaded successfully.`);
     } else if (status === 'error') {
