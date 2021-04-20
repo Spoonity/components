@@ -1,0 +1,17 @@
+import { appArrowBackIcon } from './arrow_back';
+import { appArrowDownwardIcon } from './arrow_downward';
+import { appArrowForwardIcon } from './arrow_forward';
+import { appArrowUpwardIcon } from './arrow_upward';
+import { appCancelBlackIcon } from './cancel-black';
+import { appCheckIcon } from './check';
+import { appChevronLeftIcon } from './chevron_left';
+import { appChevronRightIcon } from './chevron_right';
+import { appClearIcon } from './clear';
+import { appEastIcon } from './east';
+import { appExpandLessIcon } from './expand_less';
+import { appExpandMoreIcon } from './expand_more';
+import { appFirstPageIcon } from './first_page';
+import { appLastPageIcon } from './last_page';
+import { appMoreVertIcon } from './more_vert';
+import { appRefreshIcon } from './refresh';
+export const navigationIcons = [appArrowBackIcon, appArrowDownwardIcon, appArrowForwardIcon, appArrowUpwardIcon, appCancelBlackIcon, appCheckIcon, appChevronLeftIcon, appChevronRightIcon, appClearIcon, appEastIcon, appExpandLessIcon, appExpandMoreIcon, appFirstPageIcon, appLastPageIcon, appMoreVertIcon, appRefreshIcon];

@@ -8,7 +8,8 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "generate-icons": "svg-generator"
+        "generate-icons": "svg-generator",
+        "build-lib": "ng-packagr -p sp-components/package.json"
     },
     "private": true,
     "dependencies": {
@@ -26,6 +27,7 @@
         "ng-zorro-antd": "^8.5.2",
         "ng2-charts": "^2.4.2",
         "rxjs": "~6.4.0",
+        "sp-components": "file:sp-components",
         "svg-to-ts": "^6.0.0",
         "tslib": "^1.10.0",
         "zone.js": "~0.9.1"
@@ -48,8 +50,10 @@
         "karma-coverage-istanbul-reporter": "~2.0.1",
         "karma-jasmine": "~2.0.1",
         "karma-jasmine-html-reporter": "^1.4.0",
+        "ng-packagr": "^11.2.4",
         "protractor": "~5.4.0",
         "ts-node": "~7.0.0",
+        "tsickle": "^0.39.1",
         "tslint": "~5.15.0",
         "typescript": "~3.5.3"
     },

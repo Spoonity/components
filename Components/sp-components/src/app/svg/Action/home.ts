@@ -1,0 +1,4 @@
+export const appHomeIcon = {
+    data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.8 3.9l-6 4.5c-.5.38-.8.97-.8 1.6v9c0 1.1.9 2 2 2h4v-7h4v7h4c1.1 0 2-.9 2-2v-9c0-.63-.3-1.22-.8-1.6l-6-4.5a2.01 2.01 0 00-2.4 0z" fill="#0D0C0B"/></svg>`,
+    name: 'home'
+};

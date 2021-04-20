@@ -1,13 +1,11 @@
-import { ISidebar } from './../Components/Organisms/sidebar/sidebar.component';
-import { ICardType } from './../utils/enums';
-import { IDataSet } from './../Components/Organisms/table/table.component';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IBreadCrumbItem } from '../Components/Molecules/breadcrumb/breadcrumb.component';
-import { ChartType } from '../Components/Organisms/chart/chart.component';
-import { DialogsComponent, IModal } from '../Components/Organisms/dialogs/dialogs.component';
-import { UploadComponent, IUpload } from '../Components/Organisms/upload/upload.component';
-import { IUserData } from '../Components/Organisms/sidebar/sidebar.component';
-import { ICampaign, ICustomer, IGiftManagement } from '../Components/Organisms/card/card.component';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { IBreadCrumbItem } from "sp-components/src/app/Components/Molecules/breadcrumb/breadcrumb.component";
+import { ICampaign, ICustomer, IGiftManagement } from "sp-components/src/app/Components/Organisms/card/card.component";
+import { ChartType } from "sp-components/src/app/Components/Organisms/chart/chart.component";
+import { DialogsComponent } from "sp-components/src/app/Components/Organisms/dialogs/dialogs.component";
+import { IUserData, ISidebar } from "sp-components/src/app/Components/Organisms/sidebar/sidebar.component";
+import { IDataSet } from "sp-components/src/app/Components/Organisms/table/table.component";
+import { UploadComponent } from "sp-components/src/app/Components/Organisms/upload/upload.component";
 
 @Component({
   selector: 'app-organisms',
