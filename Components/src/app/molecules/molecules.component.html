@@ -5,13 +5,15 @@
         <div class="button-filters">
             <div class="sp-spacing-x--1">
                 <sp-dropdown [(ngModel)]="buttonType" size="small" label="Button Type">
-                    <sp-option *ngFor="let enum of enumButtonType | keyvalue" [value]="enum.value" [text]="enum.key"></sp-option>
+                    <sp-option *ngFor="let enum of enumButtonType | keyvalue" [value]="enum.value" [text]="enum.key">
+                    </sp-option>
                 </sp-dropdown>
             </div>
 
             <div class="sp-spacing-x--1">
                 <sp-dropdown [(ngModel)]="buttonSize" size="small" label="Button Size">
-                    <sp-option *ngFor="let enum of enumButtonSize | keyvalue" [value]="enum.value" [text]="enum.key"></sp-option>
+                    <sp-option *ngFor="let enum of enumButtonSize | keyvalue" [value]="enum.value" [text]="enum.key">
+                    </sp-option>
                 </sp-dropdown>
             </div>
         </div>
@@ -35,7 +37,8 @@
                         <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize"></sp-button>
                     </th>
                     <th>
-                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [disabled]="'true'"></sp-button>
+                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [disabled]="'true'">
+                        </sp-button>
                     </th>
                 </tr>
                 <tr>
@@ -43,10 +46,12 @@
                         With Icon Left
                     </th>
                     <td>
-                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [leftIcon]="'favorite'"></sp-button>
+                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [leftIcon]="'favorite'">
+                        </sp-button>
                     </td>
                     <td>
-                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [leftIcon]="'favorite'" [disabled]="'true'"></sp-button>
+                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [leftIcon]="'favorite'"
+                            [disabled]="'true'"></sp-button>
                     </td>
                 </tr>
                 <tr>
@@ -54,10 +59,12 @@
                         With Icon Right
                     </th>
                     <td>
-                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'"></sp-button>
+                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'">
+                        </sp-button>
                     </td>
                     <td>
-                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'" [disabled]="'true'"></sp-button>
+                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'"
+                            [disabled]="'true'"></sp-button>
                     </td>
                 </tr>
                 <tr>
@@ -68,7 +75,8 @@
                         <sp-button [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'"></sp-button>
                     </td>
                     <td>
-                        <sp-button [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'" [disabled]="'true'"></sp-button>
+                        <sp-button [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'" [disabled]="'true'">
+                        </sp-button>
                     </td>
                 </tr>
             </table>
@@ -115,10 +123,12 @@
                         Closeable
                     </th>
                     <td>
-                        <sp-chip [text]="'Chip'" [icon]="'favorite'" [mode]="'closeable'" (onCloseEvent)="onClose()"></sp-chip>
+                        <sp-chip [text]="'Chip'" [icon]="'favorite'" [mode]="'closeable'" (onCloseEvent)="onClose()">
+                        </sp-chip>
                     </td>
                     <td>
-                        <sp-chip [text]="'Chip'" [icon]="'favorite'" [mode]="'closeable'" (onCloseEvent)="onClose()" [disabled]="true"></sp-chip>
+                        <sp-chip [text]="'Chip'" [icon]="'favorite'" [mode]="'closeable'" (onCloseEvent)="onClose()"
+                            [disabled]="true"></sp-chip>
                     </td>
                 </tr>
                 <tr>
@@ -127,10 +137,12 @@
                     </th>
 
                     <td>
-                        <sp-chip [text]="'Chip'" [mode]="'checkable'" [checked]="true" (onCheckEvent)="checkChange($event)"></sp-chip>
+                        <sp-chip [text]="'Chip'" [mode]="'checkable'" [checked]="true"
+                            (onCheckEvent)="checkChange($event)"></sp-chip>
                     </td>
                     <td>
-                        <sp-chip [text]="'Chip'" [mode]="'checkable'" [checked]="true" (onCheckEvent)="checkChange($event)" [disabled]="true"></sp-chip>
+                        <sp-chip [text]="'Chip'" [mode]="'checkable'" [checked]="true"
+                            (onCheckEvent)="checkChange($event)" [disabled]="true"></sp-chip>
                     </td>
                 </tr>
             </table>
@@ -149,7 +161,8 @@
 
     <div class="section sp-spacing-y--4">
         <h2>Steps</h2>
-        <sp-steps [current]="currentStep" [steps]="steps" [type]="'navigation'" (onIndexChangeEvent)="onIndexChange($event)"></sp-steps>
+        <sp-steps [current]="currentStep" [steps]="steps" [type]="'navigation'"
+            (onIndexChangeEvent)="onIndexChange($event)"></sp-steps>
     </div>
 
     <!-- Text field Example -->
@@ -183,9 +196,7 @@
     <div class="section sp-spacing-y--4">
         <h2>Snackbar</h2>
         <sp-snackbar #snackbar></sp-snackbar>
-        <!-- <button nz-button [nzType]="'primary'" (click)="OnOpenSnackbar()">
-      Open Snackbar
-    </button> -->
+        <sp-button type="primary" text='Open Snackbar' (click)="OnOpenSnackbar()"></sp-button>
     </div>
 
     <!-- Menu -->

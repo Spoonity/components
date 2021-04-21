@@ -1,26 +1,18 @@
 <nz-layout class="layout">
-    <nz-sider nzCollapsible nzBreakpoint="lg" [nzWidth]="280" [nzCollapsedWidth]="88" [nzTheme]="'light'">
-        <div class="logo">
-            <img src="../assets/spoonity_logo.png" height="32" />
+    <nz-header>
+        <div>
+            <h1 class="center" nz-typography>UI Components</h1>
         </div>
-        <ul nz-menu nzMode="inline">
-            <sp-side-navigation [type]="sideNavigationType.subMenu" [text]="'Atoms'" [icon]="'check-box-outline-blank'" [routerLink]="['/atoms']" [items]="atomsMenuItems">
-            </sp-side-navigation>
-            <sp-side-navigation [type]="sideNavigationType.subMenu" [text]="'Molecules'" [icon]="'check-box-outline-blank'" [routerLink]="['/molecules']">
-            </sp-side-navigation>
-            <sp-side-navigation [type]="sideNavigationType.subMenu" [text]="'Organisms'" [icon]="'check-box-outline-blank'" [routerLink]="['/organisms']">
-            </sp-side-navigation>
-        </ul>
-    </nz-sider>
+    </nz-header>
     <nz-layout>
-        <nz-header>
-            <div>
-                <h1 class="center" nz-typography>UI Components</h1>
-            </div>
-        </nz-header>
+        <nz-sider style="flex: 0 0 280px;max-width: 280px;">
+            <sp-sidebar [sidebarData]="sideData" [optionsData]="optionsData"></sp-sidebar>
+        </nz-sider>
         <nz-content>
             <router-outlet></router-outlet>
         </nz-content>
-        <nz-footer>Angular UI Components - implemented by Spoonity</nz-footer>
     </nz-layout>
+    <nz-footer>
+        Angular UI Components - implemented by Spoonity
+    </nz-footer>
 </nz-layout>

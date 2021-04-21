@@ -105,9 +105,9 @@
         <h2>SIDEBAR</h2>
         <div>
             <h3>Sidebar Single Account</h3>
-            <sp-sidebar [sidebarData]="sideData"></sp-sidebar>
+            <sp-sidebar [sidebarData]="sideData" [optionsData]="optionsData"></sp-sidebar>
             <h3>Sidebar Multiple Accounts</h3>
-            <sp-sidebar [sidebarData]="sideDataMultiAccount"></sp-sidebar>
+            <sp-sidebar [sidebarData]="sideDataMultiAccount" [optionsData]="optionsData"></sp-sidebar>
 
         </div>
     </div>
@@ -122,7 +122,7 @@
     <br>
     <div class="section">
         <h2>Upload</h2>
-        <sp-upload-example></sp-upload-example>
+        <sp-upload></sp-upload>
         <button nz-button nzType="primary" (click)="createModalU()">
           <span>Upload File</span>
         </button>

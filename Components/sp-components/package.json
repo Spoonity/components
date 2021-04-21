@@ -2,16 +2,60 @@
     "name": "sp-components",
     "version": "0.0.1",
     "peerDependencies": {
-        "@angular/core": ">=10.0.0"
+        "@angular/core": "~11.0.0",
+        "ng-zorro-antd": "^11.4.0",
+        "angular-svg-icon": "^11.2.0",
+        "ng2-charts": "^2.4.2",
+        "chart.js": "^2.9.4"
     },
     "ngPackage": {
         "lib": {
             "entryFile": "public_api.ts",
-        "umdModuleIds": {
-            "ng-zorro-antd": "ng-zorro-antd",
-            "angular-svg-icon": "angular-svg-icon",
-            "ng2-charts": "ng2-charts"
-          }
+            "umdModuleIds": {
+                "ng-zorro-antd": "ng-zorro-antd",
+                "angular-svg-icon": "angular-svg-icon",
+                "ng2-charts": "ng2-charts",
+                "ng-zorro-antd/affix": "affix",
+                "ng-zorro-antd/alert": "alert",
+                "ng-zorro-antd/auto-complete": "auto-complete",
+                "ng-zorro-antd/avatar": "avatar",
+                "ng-zorro-antd/back-top": "back-top",
+                "ng-zorro-antd/badge": "badge",
+                "ng-zorro-antd/breadcrumb": "breadcrumb",
+                "ng-zorro-antd/button": "button",
+                "ng-zorro-antd/calendar": "calendar",
+                "ng-zorro-antd/card": "card",
+                "ng-zorro-antd/carousel": "carousel",
+                "ng-zorro-antd/checkbox": "checkbox",
+                "ng-zorro-antd/collapse": "collapse",
+                "ng-zorro-antd/comment": "comment",
+                "ng-zorro-antd/date-picker": "date-picker",
+                "ng-zorro-antd/divider": "divider",
+                "ng-zorro-antd/dropdown": "dropdown",
+                "ng-zorro-antd/grid": "grid",
+                "ng-zorro-antd/icon": "icon",
+                "ng-zorro-antd/input": "input",
+                "ng-zorro-antd/input-number": "input-number",
+                "ng-zorro-antd/layout": "layout",
+                "ng-zorro-antd/menu": "menu",
+                "ng-zorro-antd/message": "message",
+                "ng-zorro-antd/modal": "modal",
+                "ng-zorro-antd/notification": "notification",
+                "ng-zorro-antd/page-header": "page-header",
+                "ng-zorro-antd/pagination": "pagination",
+                "ng-zorro-antd/progress": "progress",
+                "ng-zorro-antd/radio": "radio",
+                "ng-zorro-antd/select": "select",
+                "ng-zorro-antd/slider": "slider",
+                "ng-zorro-antd/steps": "steps",
+                "ng-zorro-antd/switch": "switch",
+                "ng-zorro-antd/tabs": "tabs",
+                "ng-zorro-antd/tag": "tag",
+                "ng-zorro-antd/tooltip": "tooltip",
+                "ng-zorro-antd/upload": "upload",
+                "ng-zorro-antd/i18n": "i18n",
+                "ng-zorro-antd/table" : "table"
+            }
         },
         "dest": "dist"
     }

@@ -6,6 +6,13 @@ import { DialogsComponent } from "sp-components/src/app/Components/Organisms/dia
 import { IUserData, ISidebar } from "sp-components/src/app/Components/Organisms/sidebar/sidebar.component";
 import { IDataSet } from "sp-components/src/app/Components/Organisms/table/table.component";
 import { UploadComponent } from "sp-components/src/app/Components/Organisms/upload/upload.component";
+import { appHomeIcon } from "../svg/Action/home";
+import { appRedeemIcon } from "../svg/Action/redeem";
+import { appSettingsIcon } from "../svg/Action/settings";
+import { appRecentActorsIcon } from "../svg/AV/recent_actors";
+import { appSendIcon } from "../svg/Content/send";
+import { appPlaceIcon } from "../svg/Maps/place";
+import { appPeopleIcon } from "../svg/Social/people";
 
 @Component({
   selector: 'app-organisms',
@@ -40,6 +47,16 @@ export class OrganismsComponent implements OnInit {
   giftManagements: IGiftManagement[];
 
   dataRows: any;
+
+  optionsData = [
+      { title: 'Home', icon: appHomeIcon, isActive: true },
+      { title: 'Customers', icon: appPeopleIcon, isActive: false },
+      { title: 'EGift Management', icon: appRedeemIcon, isActive: false },
+      { title: 'Locations', icon: appPlaceIcon, isActive: false },
+      { title: 'Users', icon: appRecentActorsIcon, isActive: false },
+      { title: 'Setup', icon: appSettingsIcon, isActive: false },
+      { title: 'Campaigns', icon: appSendIcon, isActive: false }
+    ];
 
   headerAction: () => void = ()  => {
     alert("action in header");

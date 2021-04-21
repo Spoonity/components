@@ -11,7 +11,7 @@ export interface IUpload {
 }
 
 @Component({
-  selector: 'sp-upload-example',
+  selector: 'sp-upload',
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.less']
 })

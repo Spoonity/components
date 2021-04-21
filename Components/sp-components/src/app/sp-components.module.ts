@@ -52,7 +52,6 @@ import { CardComponent } from './Components/Organisms/card/card.component';
 import { RouterModule } from '@angular/router';
 import { SpComponentsComponent } from './sp-component/sp-components.component';
 import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
-import { MenuService } from 'ng-zorro-antd/menu';
 
 registerLocaleData(en);
 

@@ -3,16 +3,9 @@ import { appLogoutIcon } from '../../../svg/Action/logout';
 import { appAccountBoxIcon } from '../../../svg/Action/account_box';
 import { appExpandLessIcon } from '../../../svg/Navigation/expand_less';
 import { appKeyboardTabIcon } from '../../../svg/Hardware/keyboard_tab';
-import { appSendIcon } from '../../../svg/Content/send';
-import { appSettingsIcon } from '../../../svg/Action/settings';
-import { appRecentActorsIcon } from '../../../svg/AV/recent_actors';
-import { appPlaceIcon } from '../../../svg/Maps/place';
-import { appRedeemIcon } from '../../../svg/Action/redeem';
-import { appPeopleIcon } from '../../../svg/Social/people';
 import { AvatarSize, ButtonSize, ButtonType } from '../../../utils/enums';
 import { Component, Input, OnInit } from '@angular/core';
-import { appHomeIcon } from '../../../svg/Action/home';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Router } from '@angular/router';
 
 export interface IUserData {
   name: string;
@@ -27,6 +20,13 @@ export interface ISidebar {
   logout: () => any;
 }
 
+export interface IMenuItems {
+  title: string;
+  icon: any;
+  link: string,
+  isActive: boolean;
+}
+
 @Component({
   selector: 'sp-sidebar',
   templateUrl: './sidebar.component.html',
@@ -35,14 +35,15 @@ export interface ISidebar {
 export class SidebarComponent implements OnInit {
 
   @Input() sidebarData: ISidebar = {} as ISidebar;
+  @Input() optionsData: IMenuItems[];
 
-  userDisplay: IUserData = {} as IUserData;
+    userDisplay: IUserData = {} as IUserData;
   otherAccounts: IUserData[] = [] as IUserData[];
   AccountsDisplay: IUserData[] = this.otherAccounts;
 
   multipleAccounts = false;
 
-  constructor() {}
+  constructor(private _router : Router) { }
 
   avatarSize: AvatarSize = AvatarSize.medium;
 
@@ -68,21 +69,12 @@ export class SidebarComponent implements OnInit {
   OptionWidht = '240px';
   lineRight = '-20px';
 
-  optionsData = [
-    {title: 'Home', icon: appHomeIcon, isActive: true},
-    {title: 'Customers', icon: appPeopleIcon, isActive: false},
-    {title: 'EGift Management', icon: appRedeemIcon, isActive: false},
-    {title: 'Locations', icon: appPlaceIcon, isActive: false},
-    {title: 'Users', icon: appRecentActorsIcon, isActive: false},
-    {title: 'Setup', icon: appSettingsIcon, isActive: false},
-    {title: 'Campaigns', icon: appSendIcon, isActive: false}
-  ];
-
   ngOnInit() {
     if (this.sidebarData.users.length > 1) { this.multipleAccounts = true; }
     this.sidebarData.users.forEach((user: IUserData) => {
       this.sidebarData.users.indexOf(user) === 0 ? this.userDisplay = user : this.otherAccounts.push(user);
     });
+
   }
 
   onCollapse() {
@@ -109,7 +101,7 @@ export class SidebarComponent implements OnInit {
     }
   }
 
-  onActive(option: any) {
+  onActive(option: IMenuItems) {
     this.optionsData.forEach((e: any) => {
       if (e.title === option.title) {
         option.isActive = true;
@@ -117,6 +109,7 @@ export class SidebarComponent implements OnInit {
         e.isActive = false;
       }
     });
+    this._router.navigate([option.link]);
   }
 
   toggleLogout() {
