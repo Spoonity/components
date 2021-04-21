@@ -24,7 +24,7 @@
     "@ngneat/svg-icon": "^2.3.0",
     "angular-svg-icon": "^11.2.0",
     "chart.js": "^2.9.4",
-    "ng-zorro-antd": "^8.5.2",
+    "ng-zorro-antd": "^11.4.0",
     "ng2-charts": "^2.4.2",
     "rxjs": "~6.6.7",
     "sp-components": "file:sp-components",
