@@ -37,7 +37,7 @@ export class MoleculesComponent implements OnInit {
 
   openSnackbar = false;
 
-  @ViewChild('snackbar', { static: false }) snackbar?: SnackbarComponent;
+  @ViewChild('snackbar') snackbar?: SnackbarComponent;
 
 
   onClose(): void {

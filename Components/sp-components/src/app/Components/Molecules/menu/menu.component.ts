@@ -44,11 +44,11 @@ export class MenuComponent implements OnInit {
   @Output() selectedItemsChange: EventEmitter<any> = new EventEmitter<any>();
 
   /* search input element */
-  @ViewChild('searchEl', {static: false})
+  @ViewChild('searchEl')
   public searchEl: ElementRef;
 
   /* overlay template component */
-  @ViewChild(OverlayTemplateComponent, {static: false})
+  @ViewChild(OverlayTemplateComponent)
   public menu: OverlayTemplateComponent;
 
   /* menu items component */

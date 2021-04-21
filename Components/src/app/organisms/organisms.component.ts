@@ -21,8 +21,8 @@ export class OrganismsComponent implements OnInit {
   chartLabels = ['January', 'February', 'Mars', 'April'];
   type1: ChartType = ChartType.line;
 
-  @ViewChild(DialogsComponent, { static: false }) dialog?: DialogsComponent;
-  @ViewChild(UploadComponent, { static: false }) upload?: UploadComponent;
+  @ViewChild(DialogsComponent) dialog?: DialogsComponent;
+  @ViewChild(UploadComponent) upload?: UploadComponent;
 
   constructor() { }
 

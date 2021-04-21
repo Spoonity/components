@@ -1,6 +1,7 @@
-import {Input} from '@angular/core';
+import { Input, Directive } from '@angular/core';
 import {ControlValueAccessor} from '@angular/forms';
 
+@Directive()
 export abstract class FormFieldManager implements ControlValueAccessor {
   /* size specification (large or medium) -- default to medium if not provided */
   @Input() size: 'medium' | 'large' = 'medium';

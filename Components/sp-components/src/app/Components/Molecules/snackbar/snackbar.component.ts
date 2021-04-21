@@ -9,7 +9,7 @@ import { NzNotificationService } from 'ng-zorro-antd';
 
 export class SnackbarComponent implements OnInit {
 
-  @ViewChild(TemplateRef, { static: false }) template?: TemplateRef<{}>;
+  @ViewChild(TemplateRef) template?: TemplateRef<{}>;
 
   constructor(private notification: NzNotificationService) {
     notification.config({ nzPlacement: 'bottomLeft' });

@@ -32,10 +32,10 @@ export class DropdownComponent extends FormFieldManager implements AfterViewInit
   @Input() selectMultiple: boolean;
 
 
-  @ViewChild('input', {static: false})
+  @ViewChild('input')
   public input: ElementRef;
 
-  @ViewChild(OverlayTemplateComponent, {static: false})
+  @ViewChild(OverlayTemplateComponent)
   public dropdown: OverlayTemplateComponent;
 
   @ContentChildren(OptionComponent)

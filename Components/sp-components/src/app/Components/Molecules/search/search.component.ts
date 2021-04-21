@@ -49,7 +49,7 @@ export class SearchComponent extends FormFieldManager implements AfterViewInit {
   @Output() itemRemoved: EventEmitter<any> = new EventEmitter<any>();
 
   /* overlay template component */
-  @ViewChild(OverlayTemplateComponent, {static: false})
+  @ViewChild(OverlayTemplateComponent)
   public search: OverlayTemplateComponent;
 
   /* children component for options */

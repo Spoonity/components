@@ -11,9 +11,9 @@ export class DialogsComponent implements OnInit {
   dialog: IModal;
 
   modalRef: NzModalRef;
-  @ViewChild('tplTitle', { static: false }) tplTitle?: TemplateRef<{}>;
-  @ViewChild('tplContent', { static: false }) tplContent?: TemplateRef<{}>;
-  @ViewChild('tplFooter', { static: false }) tplFooter?: TemplateRef<{}>;
+  @ViewChild('tplTitle') tplTitle?: TemplateRef<{}>;
+  @ViewChild('tplContent') tplContent?: TemplateRef<{}>;
+  @ViewChild('tplFooter') tplFooter?: TemplateRef<{}>;
 
   constructor(private modal: NzModalService, private viewContainerRef: ViewContainerRef) { }
 
