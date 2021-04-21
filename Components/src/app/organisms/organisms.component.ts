@@ -1,13 +1,18 @@
-import { ISidebar } from './../Components/Organisms/sidebar/sidebar.component';
-import { ICardType } from './../utils/enums';
-import { IDataSet } from './../Components/Organisms/table/table.component';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IBreadCrumbItem } from '../Components/Molecules/breadcrumb/breadcrumb.component';
-import { ChartType } from '../Components/Organisms/chart/chart.component';
-import { DialogsComponent, IModal } from '../Components/Organisms/dialogs/dialogs.component';
-import { UploadComponent, IUpload } from '../Components/Organisms/upload/upload.component';
-import { IUserData } from '../Components/Organisms/sidebar/sidebar.component';
-import { ICampaign, ICustomer, IGiftManagement } from '../Components/Organisms/card/card.component';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { IBreadCrumbItem } from "sp-components/src/app/Components/Molecules/breadcrumb/breadcrumb.component";
+import { ICampaign, ICustomer, IGiftManagement } from "sp-components/src/app/Components/Organisms/card/card.component";
+import { ChartType } from "sp-components/src/app/Components/Organisms/chart/chart.component";
+import { DialogsComponent } from "sp-components/src/app/Components/Organisms/dialogs/dialogs.component";
+import { IUserData, ISidebar } from "sp-components/src/app/Components/Organisms/sidebar/sidebar.component";
+import { IDataSet } from "sp-components/src/app/Components/Organisms/table/table.component";
+import { UploadComponent } from "sp-components/src/app/Components/Organisms/upload/upload.component";
+import { appHomeIcon } from "../svg/Action/home";
+import { appRedeemIcon } from "../svg/Action/redeem";
+import { appSettingsIcon } from "../svg/Action/settings";
+import { appRecentActorsIcon } from "../svg/AV/recent_actors";
+import { appSendIcon } from "../svg/Content/send";
+import { appPlaceIcon } from "../svg/Maps/place";
+import { appPeopleIcon } from "../svg/Social/people";
 
 @Component({
   selector: 'app-organisms',
@@ -23,8 +28,8 @@ export class OrganismsComponent implements OnInit {
   chartLabels = ['January', 'February', 'Mars', 'April'];
   type1: ChartType = ChartType.line;
 
-  @ViewChild(DialogsComponent, { static: false }) dialog?: DialogsComponent;
-  @ViewChild(UploadComponent, { static: false }) upload?: UploadComponent;
+  @ViewChild(DialogsComponent) dialog?: DialogsComponent;
+  @ViewChild(UploadComponent) upload?: UploadComponent;
 
   constructor() { }
 
@@ -42,6 +47,16 @@ export class OrganismsComponent implements OnInit {
   giftManagements: IGiftManagement[];
 
   dataRows: any;
+
+  optionsData = [
+      { title: 'Home', icon: appHomeIcon, isActive: true },
+      { title: 'Customers', icon: appPeopleIcon, isActive: false },
+      { title: 'EGift Management', icon: appRedeemIcon, isActive: false },
+      { title: 'Locations', icon: appPlaceIcon, isActive: false },
+      { title: 'Users', icon: appRecentActorsIcon, isActive: false },
+      { title: 'Setup', icon: appSettingsIcon, isActive: false },
+      { title: 'Campaigns', icon: appSendIcon, isActive: false }
+    ];
 
   headerAction: () => void = ()  => {
     alert("action in header");

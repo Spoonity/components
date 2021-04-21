@@ -18,10 +18,10 @@
         <h3>SMALL BADGES</h3>
         <div class="badges">
             <div nz-row>
-                <div nz-col [nzSpan]="12">
+                <div>
                     <span *ngFor="let color of colors">
                         <sp-badge [color]="color.color" [name]="color.name"></sp-badge>
-                  </span>
+                    </span>
                 </div>
             </div>
         </div>
@@ -50,19 +50,17 @@
         <h2>SELECTION CONTROLS</h2>
 
         <h2>CHECK BOXES</h2>
-        <nz-checkbox-wrapper style="width: 100%;">
-            <div nz-row>
-                <sp-checkbox value="A" [check]="true">A</sp-checkbox>
-                <sp-checkbox value="B" [check]="true">B</sp-checkbox>
-                <sp-checkbox value="c" [check]="true">C</sp-checkbox>
-                <sp-checkbox value="D">D</sp-checkbox>
-                <sp-checkbox value="E">E</sp-checkbox>
-                <sp-checkbox value="F">F</sp-checkbox>
-                <sp-checkbox value="G" [indeterminate]="true">G</sp-checkbox>
-                <sp-checkbox value="H" [indeterminate]="true">H</sp-checkbox>
-                <sp-checkbox value="I" [indeterminate]="true">I</sp-checkbox>
-            </div>
-        </nz-checkbox-wrapper>
+        <div nz-row>
+            <sp-checkbox value="A" [check]="true">A</sp-checkbox>
+            <sp-checkbox value="B" [check]="true">B</sp-checkbox>
+            <sp-checkbox value="C" [check]="true">C</sp-checkbox>
+            <sp-checkbox value="D">D</sp-checkbox>
+            <sp-checkbox value="E">E</sp-checkbox>
+            <sp-checkbox value="F">F</sp-checkbox>
+            <sp-checkbox value="G" [indeterminate]="true">G</sp-checkbox>
+            <sp-checkbox value="H" [indeterminate]="true">H</sp-checkbox>
+            <sp-checkbox value="I" [indeterminate]="true">I</sp-checkbox>
+        </div>
 
         <h2>RADIO BUTTONS</h2>
         <sp-radio-button model="B"></sp-radio-button>
@@ -138,7 +136,8 @@
                 <h3>{{ section.sectionName }}</h3>
                 <div class="spacing-container">
                     <div *ngFor="let subsection of section.sections" class="spacing-example">
-                        <div class="spacing-wrapper sp-elevation--2 {{ section.sectionClassName }} {{subsection.className}}">
+                        <div
+                            class="spacing-wrapper sp-elevation--2 {{ section.sectionClassName }} {{subsection.className}}">
                             <div class="spacing-box">
                                 <p class="spacing-label">{{ subsection.label }}</p>
                             </div>

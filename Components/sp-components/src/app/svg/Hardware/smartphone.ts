@@ -1,0 +1,4 @@
+export const appSmartphoneIcon = {
+    data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 17H7V6h10v12z" fill="#0D0C0B"/></svg>`,
+    name: 'smartphone'
+};

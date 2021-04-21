@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { SvgIconRegistryService } from 'angular-svg-icon';
-import { MenuItems } from './Components/Molecules/side-navigation/side-navigation.component';
+import { MenuItems } from 'sp-components/src/app/Components/Molecules/side-navigation/side-navigation.component';
+import { ISidebar } from 'sp-components/src/app/Components/Organisms/sidebar/sidebar.component';
+import { appHomeIcon } from './svg/Action/home';
+import { appRedeemIcon } from './svg/Action/redeem';
+import { appPeopleIcon } from './svg/Social/people';
+
 
 import { SideNavigationType } from './utils/enums';
 import * as ic from './utils/icons';
@@ -13,21 +18,43 @@ export class AppComponent {
 
   constructor(private iconReg: SvgIconRegistryService) {
     this.registerIcons();
-
+    this.sideData = this.getSideData();
   }
 
   sideNavigationType = SideNavigationType;
   atomsMenuItems: Array<MenuItems> = [
-    {icon: '', link: '', text: 'Avatars'},
-    {icon: '', link: '', text: 'Badges'},
-    {icon: '', link: '', text: 'Divider'},
-    {icon: '', link: '', text: 'Progress Bar'},
-    {icon: '', link: '', text: 'Selection Controls'},
-    {icon: '', link: '', text: 'Sliders'},
-    {icon: '', link: '', text: 'Tabs'},
-    {icon: '', link: '', text: 'Tooltips'}
+    { icon: '', link: '', text: 'Avatars' },
+    { icon: '', link: '', text: 'Badges' },
+    { icon: '', link: '', text: 'Divider' },
+    { icon: '', link: '', text: 'Progress Bar' },
+    { icon: '', link: '', text: 'Selection Controls' },
+    { icon: '', link: '', text: 'Sliders' },
+    { icon: '', link: '', text: 'Tabs' },
+    { icon: '', link: '', text: 'Tooltips' }
   ];
 
+  optionsData = [
+    { title: 'Atoms', icon: appHomeIcon, link: '/atoms', isActive: true },
+    { title: 'Molecules', icon: appPeopleIcon, link: '/molecules', isActive: false },
+    { title: 'Organisms', icon: appRedeemIcon, link: '/organisms', isActive: false }
+  ];
+
+  sideData: ISidebar = <ISidebar>{};
+
+  getSideData(): ISidebar {
+    return {
+      users: [
+        {
+          name: 'Gabriel Rodriguez',
+          id: '1234',
+          email: 'gabriel@spoonity.com',
+          title: 'Spoonity',
+          company: 'Spoonity'
+        }
+      ],
+      logout: () => { alert("Logout") }
+    }
+  }
 
   registerIcons() {
     // Action Icons

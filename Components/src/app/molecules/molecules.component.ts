@@ -1,7 +1,8 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { IBreadCrumbItem } from '../Components/Molecules/breadcrumb/breadcrumb.component';
-import { ISnackbar, SnackbarComponent } from '../Components/Molecules/snackbar/snackbar.component';
-import { ISteps } from '../Components/Molecules/steps/steps.component';
+import { IBreadCrumbItem } from 'sp-components/src/app/Components/Molecules/breadcrumb/breadcrumb.component';
+import { SnackbarComponent, ISnackbar } from 'sp-components/src/app/Components/Molecules/snackbar/snackbar.component';
+import { ISteps } from 'sp-components/src/app/Components/Molecules/steps/steps.component';
+
 import { ButtonSize, ButtonType, TagType } from '../utils/enums';
 
 interface IBanner {
@@ -36,7 +37,7 @@ export class MoleculesComponent implements OnInit {
 
   openSnackbar = false;
 
-  @ViewChild('snackbar', { static: false }) snackbar?: SnackbarComponent;
+  @ViewChild('snackbar') snackbar?: SnackbarComponent;
 
 
   onClose(): void {

@@ -1,0 +1,13 @@
+export { actionIcons } from '../svg/Action';
+export { alertIcons } from '../svg/Alert';
+export { avIcons } from '../svg/AV';
+export { communicationIcons } from '../svg/Communication';
+export { contentIcons } from '../svg/Content';
+export { fileIcons } from '../svg/File';
+export { hardwareIcons } from '../svg/Hardware';
+export { imageIcons } from '../svg/Image';
+export { mapsIcons } from '../svg/Maps';
+export { navigationIcons } from '../svg/Navigation';
+export { notificationIcons } from '../svg/Notification';
+export { socialIcons } from '../svg/Social';
+export { toggleIcons } from '../svg/Toggle';
