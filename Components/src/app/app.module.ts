@@ -12,11 +12,13 @@ import { SpComponentsModule } from "sp-components/public_api";
 import { AtomsComponent } from './atoms/atoms.component';
 import { OrganismsComponent } from './organisms/organisms.component';
 import { MoleculesComponent } from './molecules/molecules.component';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
+
 import { TextFieldExampleComponent } from './molecules/text-field-example/text-field-example.component';
 import { MenuExampleComponent } from './molecules/menu-example/menu-example.component';
 import { SearchExampleComponent } from './molecules/search-example/search-example.component';
 import { DropdownExampleComponent } from './molecules/dropdown-example/dropdown-example.component';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { MenuService, NzSubmenuService, } from 'ng-zorro-antd/menu';
 
 
 registerLocaleData(en);
@@ -39,11 +41,11 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NgZorroAntdModule,
+    NzLayoutModule,
     SpComponentsModule
 
   ],
-  providers: [],
+  providers: [MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

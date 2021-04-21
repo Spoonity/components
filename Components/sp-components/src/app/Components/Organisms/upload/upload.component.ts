@@ -1,6 +1,6 @@
 import { appUploadFileIcon } from '../../../svg/File/upload_file';
 import { Component, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
-import { NzModalRef, NzModalService } from 'ng-zorro-antd';
+import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 export interface IUpload {

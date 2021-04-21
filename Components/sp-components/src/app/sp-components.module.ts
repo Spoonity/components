@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
+import { NZMODULES } from './NgZorroComponents';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,7 +42,7 @@ import { SpacingComponent } from './Components/Atoms/spacing/spacing.component';
 import { IconComponent } from './Components/Atoms/icon/icon.component';
 import { DataVisualizationComponent } from './Components/Organisms/data-visualization/data-visualization.component';
 import { ChartComponent } from './Components/Organisms/chart/chart.component';
-import { ChartsModule, ThemeService} from 'ng2-charts';
+import { ChartsModule, ThemeService } from 'ng2-charts';
 import { DialogsComponent } from './Components/Organisms/dialogs/dialogs.component';
 import { SidebarComponent } from './Components/Organisms/sidebar/sidebar.component';
 import { TableComponent } from './Components/Organisms/table/table.component';
@@ -52,6 +51,8 @@ import { HeaderComponent } from './Components/Organisms/header/header.component'
 import { CardComponent } from './Components/Organisms/card/card.component';
 import { RouterModule } from '@angular/router';
 import { SpComponentsComponent } from './sp-component/sp-components.component';
+import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
+import { MenuService } from 'ng-zorro-antd/menu';
 
 registerLocaleData(en);
 
@@ -67,7 +68,7 @@ registerLocaleData(en);
     DropdownComponent,
     OptionComponent,
     OverlayTemplateComponent,
-    SideNavigationComponent,
+    SidebarComponent,
     SearchComponent,
     SearchTemplateComponent,
     SearchOptionComponent,
@@ -93,13 +94,13 @@ registerLocaleData(en);
     DataVisualizationComponent,
     ChartComponent,
     DialogsComponent,
-    SidebarComponent,
     TableComponent,
     UploadComponent,
     HeaderComponent,
     CardComponent
   ],
   exports: [
+    SpComponentsComponent,
     ChipComponent,
     ButtonComponent,
     TextFieldComponent,
@@ -109,7 +110,7 @@ registerLocaleData(en);
     DropdownComponent,
     OptionComponent,
     OverlayTemplateComponent,
-    SideNavigationComponent,
+    SidebarComponent,
     SearchComponent,
     SearchTemplateComponent,
     SearchOptionComponent,
@@ -135,7 +136,6 @@ registerLocaleData(en);
     DataVisualizationComponent,
     ChartComponent,
     DialogsComponent,
-    SidebarComponent,
     TableComponent,
     UploadComponent,
     HeaderComponent,
@@ -143,7 +143,6 @@ registerLocaleData(en);
   ],
   imports: [
     BrowserModule,
-    NgZorroAntdModule,
     ChartsModule,
     FormsModule,
     HttpClientModule,
@@ -153,8 +152,9 @@ registerLocaleData(en);
     ReactiveFormsModule,
     PortalModule,
     OverlayModule,
+    ...NZMODULES,
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US}, ThemeService],
+   providers: [{ provide: NZ_I18N, useValue: en_US}, ThemeService],
 
 })
 export class SpComponentsModule { }
