@@ -82,9 +82,8 @@ export abstract class FormFieldManager implements ControlValueAccessor {
     if (typeof this.value === 'string' || this.value instanceof String) {
       this.isDirty =  this.value.trim() !== '';
     } else {
-      this.isDirty = false;
+      this.isDirty = this.value != null;
     }
-
   }
 }
 
