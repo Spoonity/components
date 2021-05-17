@@ -1,11 +1,11 @@
 @import "../node_modules/ng-zorro-antd/ng-zorro-antd.less";
-@import '~@angular/cdk/overlay-prebuilt.css';
+@import "../node_modules/@angular/cdk/overlay-prebuilt.css";
 @import (css)
   url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;800;900");
-  @import (css)
+@import (css)
   url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;800;900");
 
-  // The prefix to use on all css classes from ant.
+// The prefix to use on all css classes from ant.
 @ant-prefix: ant;
 
 // An override for the html selector for theme prefixes
@@ -28,7 +28,7 @@
 @gray30: #d2d2d2;
 @gray40: #b1b1b1;
 @gray60: #909090;
-@gray70: #706F6E;
+@gray70: #706f6e;
 @gray80: #4f4e4d;
 @gray100: #0d0c0b;
 @red: #ef5350;
@@ -221,9 +221,17 @@
 
 @btn-group-border: @primary-5;
 
+.anticon{
+  vertical-align: inherit;
+}
+
 .ant-btn > .anticon + span,
 .ant-btn > span + .anticon {
-  margin-left: 2px;
+  margin-left: 0;
+}
+
+.ant-btn > .anticon > svg {
+  vertical-align: initial;
 }
 
 .ant-btn-link:hover,
@@ -334,7 +342,7 @@
 
 // Layout
 @layout-body-background: #f0f2f5;
-@layout-header-background: #0D0C0B;
+@layout-header-background: #001529;
 @layout-footer-background: @layout-body-background;
 @layout-header-height: 64px;
 @layout-header-padding: 0 50px;
@@ -547,7 +555,7 @@
 @tag-default-color: @text-color;
 @tag-font-size: @font-size-sm;
 
-nz-tag {
+sp-badge nz-tag {
   border-radius: 16px !important;
   height: 24px !important;
   line-height: 30px !important;
@@ -575,14 +583,29 @@ nz-tag {
   }
 }
 
+sp-chip nz-tag {
+  border-radius: 16px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  font-size: 14px;
+  padding: 7px;
+  .anticon {
+    transform: translateY(-2px);
+  }
+}
+
 .ant-tag-checkable-checked {
-  background-color: @primary-1;
+  background-color: #fff3e0;
   color: @gray100;
 }
 
 .ant-tag-checkable {
   background-color: @gray10;
   border-color: @gray10;
+}
+
+.ant-tag-checkable-checked {
+  background-color: #fff9e6;
 }
 
 .ant-tag-checkable-checked svg-icon svg path {
@@ -750,7 +773,7 @@ nz-tag {
 @page-header-padding-breadcrumb: 12px;
 @page-header-back-color: #000;
 
-.ant-page-header-heading-title{
+.ant-page-header-heading-title {
   font-weight: 400;
   font-size: 14px;
 }
@@ -766,7 +789,7 @@ nz-tag {
 @breadcrumb-separator-color: @text-color-secondary;
 @breadcrumb-separator-margin: 0 @padding-xs;
 
-.ant-breadcrumb{
+.ant-breadcrumb {
   font-weight: 400;
 }
 
@@ -1181,6 +1204,19 @@ svg-icon svg {
   font-weight: 700;
 }
 
+.ant-steps-navigation.ant-steps-vertical > .ant-steps-item:after {
+  display: none;
+}
+
+.ant-steps-navigation.ant-steps-vertical > .ant-steps-item {
+  text-align: left;
+}
+.ant-steps-navigation.ant-steps-vertical
+  > .ant-steps-item
+  > .ant-steps-item-container {
+  padding-left: 30px;
+}
+
 // finish
 .ant-steps-item-finish .ant-steps-item-icon {
   background-color: #fff;
@@ -1221,6 +1257,10 @@ svg-icon svg {
 
 .ant-steps-navigation .ant-steps-item::after {
   margin-top: -6px;
+}
+
+.ant-steps-navigation .ant-steps-vertical > .ant-steps-item::after {
+  display: none;
 }
 
 .ant-steps-navigation .ant-steps-item {
@@ -1286,11 +1326,12 @@ svg-icon svg {
 
 // Modals
 
-.ant-modal-header, .ant-modal-footer{
+.ant-modal-header,
+.ant-modal-footer {
   border: none;
 }
 
-.ant-modal-header{
+.ant-modal-header {
   padding: 24px;
 }
 
@@ -1307,12 +1348,32 @@ svg-icon svg {
 }
 
 .ant-modal-content {
-  .sp-elevation--6
+  .sp-elevation--6;
 }
 
 .ant-table-thead > tr > th {
   background: none;
 }
-.ant-table-tbody > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected) > td {
+.ant-table-tbody
+  > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)
+  > td {
   background: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nunito", sans-serif !important;
+  font-weight: 700;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif !important;
+}
+
+.font-80 {
+  color: @gray80;
 }
