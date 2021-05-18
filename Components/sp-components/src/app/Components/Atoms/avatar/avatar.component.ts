@@ -18,7 +18,7 @@ export class AvatarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.styles = { 'background-color': this.backgroundColor, 'color': this.color };
+    this.styles = {'background-color': this.backgroundColor, 'color' : this.color};
   }
 
 }

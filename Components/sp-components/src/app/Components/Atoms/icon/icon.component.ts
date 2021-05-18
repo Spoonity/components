@@ -8,17 +8,16 @@ import * as ic from '../../../utils/icons';
 })
 export class IconComponent implements OnInit {
 
-  constructor() {}
-
-  ngOnInit() {}
-
   @Input() toolTipTittle: string;
   @Input() name: string;
-  @Input() color: string = "#0D0C0B";
+  @Input() color = '#0D0C0B';
 
   svgIconSettings = {
      'width' : '20px',
-     'fill' : this.color,
-     'padding-top': '5px'
+     'fill' : this.color
     }
+
+  constructor() {}
+
+  ngOnInit() {}
 }

@@ -47,7 +47,6 @@ export interface IGiftManagement {
   styleUrls: ['./card.component.less']
 })
 export class CardComponent implements OnInit {
-
   @Input() campaign: ICampaign;
   @Input() customer: ICustomer;
   @Input() giftManagement: IGiftManagement;
@@ -68,19 +67,19 @@ export class CardComponent implements OnInit {
   isSend = true;
   isMouseOver: boolean;
 
-  backgroundColor: string = '#FFEBEE';
-  color: string = '#EF5350';
+  white = '#FFEBEE';
+  red = '#EF5350';
+  green = '#66BB6A';
 
   avatarSize: AvatarSize = AvatarSize.large;
 
   btnType: ButtonType = ButtonType.secondary;
   buttonSize: ButtonSize = ButtonSize.medium;
 
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-  this.isMouseOver = false;
+    this.isMouseOver = false;
   }
 
   toggleCard() {
@@ -90,5 +89,4 @@ export class CardComponent implements OnInit {
       this.isSend = true;
     }
   }
-    
 }

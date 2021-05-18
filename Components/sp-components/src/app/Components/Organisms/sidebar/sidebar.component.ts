@@ -28,7 +28,7 @@ export interface IMenuItems {
 }
 
 @Component({
-  selector: 'sp-sidebar',
+  selector: 'spt-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.less']
 })
@@ -37,13 +37,11 @@ export class SidebarComponent implements OnInit {
   @Input() sidebarData: ISidebar = {} as ISidebar;
   @Input() optionsData: IMenuItems[];
 
-    userDisplay: IUserData = {} as IUserData;
+  userDisplay: IUserData = {} as IUserData;
   otherAccounts: IUserData[] = [] as IUserData[];
   AccountsDisplay: IUserData[] = this.otherAccounts;
 
   multipleAccounts = false;
-
-  constructor(private _router : Router) { }
 
   avatarSize: AvatarSize = AvatarSize.medium;
 
@@ -68,6 +66,8 @@ export class SidebarComponent implements OnInit {
   MenuHeight = '857px';
   OptionWidht = '240px';
   lineRight = '-20px';
+
+  constructor(private _router: Router) { }
 
   ngOnInit() {
     if (this.sidebarData.users.length > 1) { this.multipleAccounts = true; }

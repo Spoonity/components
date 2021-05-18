@@ -1,126 +1,124 @@
 .container {
-    height: 1080px;
-    background-color: #0D0C0B;
-    color: #D2D2D2;
-    font-family: Nunito Sans;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 24px;
-    z-index: 1;
+  height: 1080px;
+  background-color: #0d0c0b;
+  color: #d2d2d2;
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  z-index: 1;
 }
 
 .icons {
-    padding-top: 4px;
-    margin: 10px;
-  }
+  padding-top: 4px;
+  margin: 10px;
+}
 
 .user {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 20px;
-    
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
 }
 
 .elevation-box {
-    position: absolute;
-    width: 280px;
-    left: 24px;
-    top: 64px;
-    background-color: white;
-    z-index: 2;
+  position: absolute;
+  width: 280px;
+  left: 24px;
+  top: 64px;
+  background-color: white;
+  z-index: 2;
 }
 
 .text {
-    display: flex;
-    flex-direction: column;
-    .small {
-        font-weight: normal;
-        font-size: 12px;
-        line-height: 16px;
-        color: #B1B1B1;
-    }
+  display: flex;
+  flex-direction: column;
+  .small {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: #b1b1b1;
+  }
 }
 
 .text-multiple-accounts {
-    &:extend(.text);
-    color: black;
-
+  &:extend(.text);
+  color: black;
 }
 
 .multiAccount {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: space-around;
 }
 
 .userMultiAccount {
-    &:extend(.user);
-    margin: 10px 0 0 0;
-    border-radius: 4px;
-    padding: 12px 6px 12px 6px;
+  &:extend(.user);
+  margin: 10px 0 0 0;
+  border-radius: 4px;
+  padding: 12px 6px 12px 6px;
 }
 .userMultiAccount:hover {
-    background-color: #2E2D2C;
-    span {
-        color: #FFF;
-    }
+  background-color: #2e2d2c;
+  span {
+    color: #fff;
+  }
 }
 
 .textFiel {
-    width: 80%;
+  width: 80%;
 }
 
 .menu {
-    padding: 20px;
-    .option {
-        position: relative;
-        display: flex;
-        align-items: center;
-        width: 240px;
-        height: 48px;
-        padding: 12px 6px 12px 6;
-        border-radius: 4px;
-        margin: 16px 0 16px 0;
-    }
-    .option:hover {
-        background-color: #2E2D2C;
-        color: #FF9900;
-    }
-
-    .orange-line {
-        position: absolute;
-        right: -20px;
-        background-color:  #FF9900;
-        width: 4px;
-        height: 40px;
-        border-radius: 30px 0 0 30px
-    }
-}
-.collapse {
-    padding: 20px;
+  padding: 20px;
+  .option {
+    position: relative;
     display: flex;
     align-items: center;
     width: 240px;
     height: 48px;
+    padding: 12px 6px 12px 6;
+    border-radius: 4px;
+    margin: 16px 0 16px 0;
+  }
+  .option:hover {
+    background-color: #2e2d2c;
+    color: #ff9900;
+  }
+
+  .orange-line {
+    position: absolute;
+    right: -20px;
+    background-color: #ff9900;
+    width: 4px;
+    height: 40px;
+    border-radius: 30px 0 0 30px;
+  }
+}
+.collapse {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  width: 240px;
+  height: 48px;
 }
 
 .active {
-    background-color: #2E2D2C;
+  background-color: #2e2d2c;
 }
 
 .user-email {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .flex-btn {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-sp-icon span svg-icon svg path{
-    fill: #D2D2D2;
-  }
+sp-icon span svg-icon svg path {
+  fill: #d2d2d2;
+}

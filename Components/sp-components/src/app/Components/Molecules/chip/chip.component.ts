@@ -8,11 +8,6 @@ import { TagType } from '../../../utils/enums';
 })
 export class ChipComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
   @Input() text: string;
   @Input() icon: string;
   @Input() mode: string = TagType.default;
@@ -20,6 +15,14 @@ export class ChipComponent implements OnInit {
   @Input() disabled: boolean;
   @Output() onCloseEvent = new EventEmitter<any>();
   @Output() onCheckEvent = new EventEmitter<any>();
+
+  style: { 'width.px': number; 'height.px': number; };
+
+  constructor() { }
+
+  ngOnInit() {
+    this.style = { 'width.px': 20, 'height.px': 20 }
+  }
 
   onClose() {
     this.onCloseEvent.emit(true);
@@ -29,11 +32,5 @@ export class ChipComponent implements OnInit {
     this.checked = e;
     this.onCheckEvent.emit(e);
   }
-
-
-
-
-
-
 
 }

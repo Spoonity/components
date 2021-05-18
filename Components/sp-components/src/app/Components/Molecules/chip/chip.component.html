@@ -1,4 +1,15 @@
-<nz-tag [nzMode]="mode" [nzChecked]="checked" (nzOnClose)="onClose()" (nzCheckedChange)="checkChange($event)" [attr.disabled]="disabled">
-    <svg-icon *ngIf="icon || checked" nz-icon [name]="checked ? 'check' : icon" [svgStyle]="{ 'width.px':20, 'height.px':20 }"></svg-icon>
-    <span class="sp-spacing-x--1">{{text}}</span>
+<nz-tag
+  [nzMode]="mode"
+  [nzChecked]="checked"
+  (nzOnClose)="onClose()"
+  (nzCheckedChange)="checkChange($event)"
+  [attr.disabled]="disabled"
+>
+  <svg-icon
+    *ngIf="icon || checked"
+    nz-icon
+    [name]="checked ? 'check' : icon"
+    [svgStyle]="styles"
+  ></svg-icon>
+  <span class="sp-spacing-x--1">{{ text }}</span>
 </nz-tag>
