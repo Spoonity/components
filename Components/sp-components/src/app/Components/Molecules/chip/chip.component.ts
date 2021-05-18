@@ -16,12 +16,12 @@ export class ChipComponent implements OnInit {
   @Output() onCloseEvent = new EventEmitter<any>();
   @Output() onCheckEvent = new EventEmitter<any>();
 
-  style: { 'width.px': number; 'height.px': number; };
+  styles: { 'width.px': number; 'height.px': number; };
 
   constructor() { }
 
   ngOnInit() {
-    this.style = { 'width.px': 20, 'height.px': 20 }
+    this.styles = { 'width.px': 20, 'height.px': 20 }
   }
 
   onClose() {
