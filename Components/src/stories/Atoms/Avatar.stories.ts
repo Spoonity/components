@@ -1,7 +1,9 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
-import { AvatarComponent } from '../../../sp-components/src/app/Components/Atoms/avatar/avatar.component';
-import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { moduleMetadata } from '@storybook/angular';
+import { Story, Meta } from '@storybook/angular/types-6-0';
+import { SpComponentsModule } from 'sp-components/public_api';
+import { AvatarComponent } from 'sp-components/src/app/Components/Atoms/avatar/avatar.component';
+
 
 export default {
   title: 'Atoms/Avatar',
@@ -9,11 +11,11 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  // decorators: [
-  //   moduleMetadata({
-  //     imports: [NzAvatarModule],
-  //   }),
-  // ],
+  decorators: [
+    moduleMetadata({
+      imports: [SpComponentsModule],
+    }),
+  ],
 } as Meta;
 
 const Template: Story<AvatarComponent> = (args: AvatarComponent) => ({
