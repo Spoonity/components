@@ -1,9 +1,16 @@
+import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { ElevationComponent } from '../../../sp-components/src/app/Components/Atoms/elevation/elevation.component';
+import { SpComponentsModule } from 'sp-components/public_api';
 
 export default {
   title: 'Atoms/Elevation',
-  component: ElevationComponent
+  component: ElevationComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [SpComponentsModule],
+    }),
+  ],
 } as Meta;
 
 const Template: Story<ElevationComponent> = (args: ElevationComponent) => ({

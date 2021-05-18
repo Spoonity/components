@@ -1,9 +1,16 @@
+import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { BannerComponent } from '../../../sp-components/src/app/Components/Molecules/banner/banner.component';
+import { SpComponentsModule } from 'sp-components/public_api';
 
 export default {
   title: 'Molecules/Banner',
-  component: BannerComponent
+  component: BannerComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [SpComponentsModule],
+    }),
+  ],
 } as Meta;
 
 const Template: Story<BannerComponent> = (args: BannerComponent) => ({
@@ -19,5 +26,5 @@ const banners = [
 
 export const Default = Template.bind({});
 Default.args = {
-  BannerList: banners,
+  bannerList: banners,
 };

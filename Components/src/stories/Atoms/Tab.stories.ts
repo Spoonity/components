@@ -1,9 +1,16 @@
+import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { TabComponent } from '../../../sp-components/src/app/Components/Atoms/tab/tab.component';
+import { SpComponentsModule } from 'sp-components/public_api';
 
 export default {
   title: 'Atoms/Tabs',
-  component: TabComponent
+  component: TabComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [SpComponentsModule],
+    }),
+  ],
 } as Meta;
 
 const Template: Story<TabComponent> = (args: TabComponent) => ({
@@ -27,6 +34,6 @@ const tabs = [
 
 export const On = Template.bind({});
 On.args = {
-    tabs: tabs
+    tabs
 };
 

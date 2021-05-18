@@ -1,10 +1,17 @@
+import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { TagType } from 'sp-components/src/app/utils/enums';
 import { ChipComponent } from '../../../sp-components/src/app/Components/Molecules/chip/chip.component';
+import { SpComponentsModule } from 'sp-components/public_api';
 
 export default {
   title: 'Molecules/Chip',
-  component: ChipComponent
+  component: ChipComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [SpComponentsModule],
+    }),
+  ],
 } as Meta;
 
 const Template: Story<ChipComponent> = (args: ChipComponent) => ({
@@ -61,7 +68,7 @@ Disable.args = {
   text: 'Example',
   icon: '',
   mode: TagType.default,
-  checked: true,
-  disabled: false,
+  checked: false,
+  disabled: true,
 };
 

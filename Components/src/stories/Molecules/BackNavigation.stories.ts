@@ -1,9 +1,16 @@
+import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { BackNavigationComponent } from '../../../sp-components/src/app/Components/Molecules/back-navigation/back-navigation.component';
+import { SpComponentsModule } from 'sp-components/public_api';
 
 export default {
   title: 'Molecules/BackNavigation',
-  component: BackNavigationComponent
+  component: BackNavigationComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [SpComponentsModule],
+    }),
+  ],
 } as Meta;
 
 const Template: Story<BackNavigationComponent> = (args: BackNavigationComponent) => ({
@@ -13,5 +20,5 @@ const Template: Story<BackNavigationComponent> = (args: BackNavigationComponent)
 export const Default = Template.bind({});
 Default.args = {
   title: 'Back',
-  subTitle: 'This is a subtitle',
+  subTitle: 'This is a subtitle'
 };

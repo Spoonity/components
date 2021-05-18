@@ -1,9 +1,16 @@
+import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { RadioButtonComponent } from '../../../sp-components/src/app/Components/Atoms/radio-button/radio-button.component';
+import { SpComponentsModule } from 'sp-components/public_api';
 
 export default {
   title: 'Atoms/RadioButton',
-  component: RadioButtonComponent
+  component: RadioButtonComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [SpComponentsModule],
+    }),
+  ],
 } as Meta;
 
 const Template: Story<RadioButtonComponent> = (args: RadioButtonComponent) => ({

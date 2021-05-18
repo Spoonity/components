@@ -1,9 +1,16 @@
+import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { BreadcrumbComponent } from '../../../sp-components/src/app/Components/Molecules/breadcrumb/breadcrumb.component';
+import { SpComponentsModule } from 'sp-components/public_api';
 
 export default {
   title: 'Molecules/Breadcrumbs',
-  component: BreadcrumbComponent
+  component: BreadcrumbComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [SpComponentsModule],
+    }),
+  ],
 } as Meta;
 
 const Template: Story<BreadcrumbComponent> = (args: BreadcrumbComponent) => ({

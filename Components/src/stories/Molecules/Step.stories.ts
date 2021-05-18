@@ -1,9 +1,16 @@
+import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { StepsComponent } from '../../../sp-components/src/app/Components/Molecules/steps/steps.component';
+import { SpComponentsModule } from 'sp-components/public_api';
 
 export default {
   title: 'Molecules/Steps',
-  component: StepsComponent
+  component: StepsComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [SpComponentsModule],
+    }),
+  ],
 } as Meta;
 
 const Template: Story<StepsComponent> = (args: StepsComponent) => ({

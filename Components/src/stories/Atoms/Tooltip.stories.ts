@@ -1,9 +1,16 @@
+import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { TooltipComponent } from '../../../sp-components/src/app/Components/Atoms/tooltip/tooltip.component';
+import { SpComponentsModule } from 'sp-components/public_api';
 
 export default {
   title: 'Atoms/Tooltip',
-  component: TooltipComponent
+  component: TooltipComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [SpComponentsModule],
+    }),
+  ],
 } as Meta;
 
 const Template: Story<TooltipComponent> = (args: TooltipComponent) => ({
@@ -12,6 +19,6 @@ const Template: Story<TooltipComponent> = (args: TooltipComponent) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-    title: '',
-    content: ''
+    title: 'And this is a tooltip',
+    content: 'This is sonme text'
 };

@@ -1,9 +1,16 @@
+import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { CheckboxComponent } from '../../../sp-components/src/app/Components/Atoms/checkbox/checkbox.component';
+import { SpComponentsModule } from 'sp-components/public_api';
 
 export default {
   title: 'Atoms/Checkbox',
-  component: CheckboxComponent
+  component: CheckboxComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [SpComponentsModule],
+    }),
+  ],
 } as Meta;
 
 const Template: Story<CheckboxComponent> = (args: CheckboxComponent) => ({

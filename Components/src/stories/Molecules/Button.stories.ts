@@ -1,10 +1,17 @@
+import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { ButtonSize, ButtonType } from 'sp-components/src/app/utils/enums';
 import { ButtonComponent } from '../../../sp-components/src/app/Components/Molecules/button/button.component';
+import { SpComponentsModule } from 'sp-components/public_api';
 
 export default {
   title: 'Molecules/Button',
-  component: ButtonComponent
+  component: ButtonComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [SpComponentsModule],
+    }),
+  ],
 } as Meta;
 
 const Template: Story<ButtonComponent> = (args: ButtonComponent) => ({

@@ -105,9 +105,9 @@
         <h2>SIDEBAR</h2>
         <div>
             <h3>Sidebar Single Account</h3>
-            <sp-sidebar [sidebarData]="sideData" [optionsData]="optionsData"></sp-sidebar>
+            <spt-sidebar [sidebarData]="sideData" [optionsData]="optionsData"></spt-sidebar>
             <h3>Sidebar Multiple Accounts</h3>
-            <sp-sidebar [sidebarData]="sideDataMultiAccount" [optionsData]="optionsData"></sp-sidebar>
+            <spt-sidebar [sidebarData]="sideDataMultiAccount" [optionsData]="optionsData"></spt-sidebar>
 
         </div>
     </div>
@@ -147,14 +147,14 @@
             <br>
             <sp-card [campaign]="card" [option]="optionAction"></sp-card>
         </div>
-        
+
         <h2>Customer</h2>
         <div *ngFor="let card of customers">
             <br>
             <h2>{{card.type | uppercase}}</h2>
             <sp-card [customer]="card"></sp-card>
         </div>
-        <h2>Gift Management</h2> 
+        <h2>Gift Management</h2>
         <div *ngFor="let card of giftManagements">
             <br>
             <h2>{{card.type | uppercase}}</h2>
