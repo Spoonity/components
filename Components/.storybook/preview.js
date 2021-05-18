@@ -1,7 +1,9 @@
 
 import { setCompodocJson } from "@storybook/addon-docs/angular";
 import docJson from "../documentation.json";
+import { NZMODULES } from '../sp-components/src/app/ngZorroComponents'
 setCompodocJson(docJson);
+
 
 
 export const parameters = {

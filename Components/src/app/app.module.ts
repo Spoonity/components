@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { AppRoutingModule } from './app-routing.module';
-import { SpComponentsModule } from "sp-components/public_api";
+import { SpComponentsModule } from 'sp-components/public_api';
 import { AtomsComponent } from './atoms/atoms.component';
 import { OrganismsComponent } from './organisms/organisms.component';
 import { MoleculesComponent } from './molecules/molecules.component';

@@ -12,5 +12,5 @@ const Template: Story<SpacingComponent> = (args: SpacingComponent) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-    
+
 };

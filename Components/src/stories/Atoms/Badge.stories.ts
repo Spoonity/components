@@ -16,5 +16,5 @@ const Template: Story<BadgeComponent> = (args: BadgeComponent) => ({
 export const Color = Template.bind({});
 Color.args = {
     name: 'Badge',
-    color: '#ff0000',
+    color: '#42A5F5',
 };
