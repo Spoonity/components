@@ -12,6 +12,14 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-chip [text]="text" [icon]="icon" [mode]="mode" [checked]="checked" (onCloseEvent)="onClose()"
+        [disabled]="disabled"></sp-chip>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<ChipComponent> = (args: ChipComponent) => ({

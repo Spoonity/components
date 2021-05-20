@@ -14,6 +14,13 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-badge [color]="coler" [name]="name"></sp-badge>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<BadgeComponent> = (args: BadgeComponent) => ({

@@ -10,12 +10,27 @@ export default {
   component: AvatarComponent,
   argTypes: {
     backgroundColor: { control: 'color' },
+    argTypes: {
+      size: {
+        control: {
+          type: 'radio',
+          options: [AvatarSize.large, AvatarSize.medium, AvatarSize.small]
+        }
+      }
+    },
   },
   decorators: [
     moduleMetadata({
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-avatar [size]="size" [text]="text"></sp-avatar>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<AvatarComponent> = (args: AvatarComponent) => ({

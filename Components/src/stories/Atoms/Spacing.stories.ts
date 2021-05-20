@@ -11,6 +11,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        // code: ``
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<SpacingComponent> = (args: SpacingComponent) => ({

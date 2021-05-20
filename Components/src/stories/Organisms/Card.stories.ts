@@ -11,6 +11,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-card [campaign]="card" [customer]="card" [giftManagement]="card" [cancel]="cancelAction" [goToGuest]="goToGuestAction"></sp-card>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<CardComponent> = (args: CardComponent) => ({
@@ -58,7 +65,7 @@ Campaign.args = {
 
   // option: () => {
   //   alert("options");
-  // },
+  // }
 };
 
 export const Customer = Template.bind({});
@@ -74,7 +81,6 @@ GiftManagement.args = {
   campaign: null,
   customer: null,
   giftManagement: giftManagementsData,
-
   // cancel: () => {
   //   alert("Cancel");
   // },

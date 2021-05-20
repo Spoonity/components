@@ -11,6 +11,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: ` <sp-date-picker [(ngModel)]="date" label="date" size="large"></sp-date-picker>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<DatePickerComponent> = (args: DatePickerComponent) => ({

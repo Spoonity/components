@@ -11,6 +11,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-tab [tabs]="tabs"></sp-tab>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<TabComponent> = (args: TabComponent) => ({

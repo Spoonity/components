@@ -67,7 +67,7 @@ export class SidebarComponent implements OnInit {
   OptionWidht = '240px';
   lineRight = '-20px';
 
-  constructor(private _router: Router) { }
+  constructor() { }
 
   ngOnInit() {
     if (this.sidebarData.users.length > 1) { this.multipleAccounts = true; }
@@ -109,7 +109,6 @@ export class SidebarComponent implements OnInit {
         e.isActive = false;
       }
     });
-    this._router.navigate([option.link]);
   }
 
   toggleLogout() {

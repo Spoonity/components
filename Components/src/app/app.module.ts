@@ -20,6 +20,12 @@ import { DropdownExampleComponent } from './molecules/dropdown-example/dropdown-
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { MenuService, NzSubmenuService, } from 'ng-zorro-antd/menu';
 import { DatePickerExampleComponent } from './molecules/date-picker-example/date-picker-example.component';
+import { DialogsExampleComponent } from './organisms/dialogs-example/dialogs-example.component';
+import { UploadExampleComponent } from './organisms/upload-example/upload-example.component';
+import { SnackBarExampleComponent } from './molecules/snack-bar-example/snack-bar-example.component';
+import { MenuStoryExampleComponent } from './molecules/menu-story-example/menu-story-example.component';
+import { SearchStoryExampleComponent } from './molecules/search-story-example/search-story-example.component';
+import { TextFieldStoryExampleComponent } from './molecules/text-field-story-example/text-field-story-example.component';
 
 registerLocaleData(en);
 
@@ -33,7 +39,13 @@ registerLocaleData(en);
     MenuExampleComponent,
     SearchExampleComponent,
     DropdownExampleComponent,
-    DatePickerExampleComponent
+    DatePickerExampleComponent,
+    DialogsExampleComponent,
+    UploadExampleComponent,
+    SnackBarExampleComponent,
+    MenuStoryExampleComponent,
+    SearchStoryExampleComponent,
+    TextFieldStoryExampleComponent,
   ],
   imports: [
     BrowserModule,

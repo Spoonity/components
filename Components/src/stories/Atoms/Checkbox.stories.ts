@@ -11,6 +11,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-checkbox [value]="value" [indeterminate]="indeterminate" [check]="check">A</sp-checkbox>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<CheckboxComponent> = (args: CheckboxComponent) => ({

@@ -11,6 +11,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-progress-bar [percent]="percent" [info]="info" [type]="type"></sp-progress-bar>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<ProgressBarComponent> = (args: ProgressBarComponent) => ({

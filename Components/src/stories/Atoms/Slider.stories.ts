@@ -11,6 +11,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-slider [max]="max" [step]="step" [start]="start" [disable]="disable"></sp-slider>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<SliderComponent> = (args: SliderComponent) => ({

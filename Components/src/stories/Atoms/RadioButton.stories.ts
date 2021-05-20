@@ -11,6 +11,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-radio-button [model]="model"></sp-radio-button>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<RadioButtonComponent> = (args: RadioButtonComponent) => ({

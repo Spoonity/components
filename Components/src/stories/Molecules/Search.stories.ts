@@ -1,38 +1,63 @@
 import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
-import { BannerComponent } from '../../../sp-components/src/app/Components/Molecules/banner/banner.component';
+import { SearchComponent } from '../../../sp-components/src/app/Components/Molecules/search/search.component';
+import { SearchStoryExampleComponent } from '../../../src/app/molecules/search-story-example/search-story-example.component';
 import { SpComponentsModule } from 'sp-components/public_api';
 
 export default {
   title: 'Molecules/Search',
-  component: BannerComponent,
+  component: SearchStoryExampleComponent,
   decorators: [
     moduleMetadata({
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `
+        <sp-search [size]="size"
+                placeholder="Search fruits or vegetables"
+                [(ngModel)]="SearchModel"
+                [selectedItems]="SelectedItems"
+                (filter)="filter(filterSize)"
+                (itemSelected)="ItemSelected($event)"
+                (itemRemoved)="ItemRemoved($event)">
+          <sp-search-option [value]="f" *ngFor="let f of FilteredList">
+              <span>{{f.name}} - </span>
+              <span class="light"><em>{{f.type}} </em></span>
+              <span class="light">(color: {{f.color}})</span>
+          </sp-search-option>
+        </sp-search>`
+      }
+    }
+  }
 } as Meta;
 
-const Template: Story<BannerComponent> = (args: BannerComponent) => ({
+const Template: Story<SearchStoryExampleComponent> = (args: SearchStoryExampleComponent) => ({
   props: args,
 });
 
-const items = [
-  {id: 0, name: 'banana', color: 'yellow', type: 'fruit'},
-  {id: 1, name: 'apple', color: 'red', type: 'fruit'},
-  {id: 2, name: 'orange', color: 'orange', type: 'fruit'},
-  {id: 3, name: 'strawberry', color: 'pink', type: 'fruit'},
-  {id: 4, name: 'blueberry', color: 'blue', type: 'fruit'},
-  {id: 5, name: 'kale', color: 'green', type: 'vegetable'},
-  {id: 6, name: 'carrot', color: 'orange', type: 'vegetable'},
-  {id: 7, name: 'broccoli', color: 'green', type: 'vegetable'},
-  {id: 8, name: 'spinach', color: 'green', type: 'vegetable'},
-  {id: 9, name: 'asparagus', color: 'green', type: 'vegetable'},
-];
+export const Large = Template.bind({});
+Large.args = {
+ size: 'large',
+ filterSize: 'large'
+};
 
-export const Default = Template.bind({});
-Default.args = {
-  placeholder: 'Search fruits or vegetables',
-  selectedItems:  items,
-  maximumSelection: null
+export const Medium = Template.bind({});
+Medium.args = {
+ size: 'medium',
+ filterSize: 'medium'
+};
+
+export const Small = Template.bind({});
+Small.args = {
+ size: 'small',
+ filterSize: 'small'
+};
+
+export const NoDropdown = Template.bind({});
+NoDropdown.args = {
+ size: 'medium',
+ filterSize: 'noDropdown'
 };

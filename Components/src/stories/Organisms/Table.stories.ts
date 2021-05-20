@@ -11,6 +11,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-table [rows]="rows" [dataSet]="dataSet" [checkboxOn]="checkboxOn"></sp-table>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<TableComponent> = (args: TableComponent) => ({

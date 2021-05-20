@@ -9,21 +9,13 @@ import { Router } from '@angular/router';
 })
 export class BackNavigationComponent implements OnInit {
 
-  constructor(private _location: Location, private _router: Router) { }
+  constructor() { }
 
   @Input() title: string;
   @Input() subTitle: string;
   @Input() route: string;
 
   ngOnInit() {
-  }
-
-  onBack(route): void {
-    if (route) {
-      this._router.navigate([route]);
-    }else{
-      this._location.back();
-    }
   }
 
 }

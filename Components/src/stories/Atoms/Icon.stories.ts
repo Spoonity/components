@@ -15,6 +15,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-icon [toolTipTittle]="name" [name]="name"></sp-icon>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<IconComponent> = (args: IconComponent) => ({
@@ -25,7 +32,5 @@ const smsIcon = appSmsIcon.name;
 
 export const Default = Template.bind({});
 Default.args = {
-    toolTipTittle: smsIcon,
-    name: smsIcon,
-    color: '#0D0C0B'
+  name: smsIcon,
 };

@@ -12,6 +12,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-divider [type]="type"></sp-divider>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<DividerComponent> = (args: DividerComponent) => ({

@@ -1,0 +1,11 @@
+<div>
+    <sp-button text="menu" [spMenuTrigger]="menu"></sp-button>
+    <sp-menu #menu [multiple]="multiple" [search]="search"
+        [(selectedItems)]="selectedItems"
+        [(searchModel)]="searchModel"
+        [selectAllOption]="selectAllOption"
+        (searchModelChange)="filter()"
+        (toggleSelectAll)="toggleSelectAll($event)">
+        <sp-menu-item [startIcon]="iconName" *ngFor="let f of filteredMenuItems" (click)="actionSelected(f.text, 3)">{{f.text}}</sp-menu-item>
+    </sp-menu>
+</div>

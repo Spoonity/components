@@ -11,6 +11,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-chart [data]="data" [labels]="labels" [type]="type"></sp-chart>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<ChartComponent> = (args: ChartComponent) => ({
@@ -27,7 +34,6 @@ const type1: ChartType = ChartType.line;
 
 export const Default = Template.bind({});
 Default.args = {
-  options: {},
   data: chartData,
   labels: chartLabels,
   type: type1,

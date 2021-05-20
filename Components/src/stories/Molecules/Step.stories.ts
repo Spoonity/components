@@ -11,6 +11,14 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-steps [current]="current" [steps]="steps" [type]="'type'"
+        (onIndexChangeEvent)="onIndexChange($event)" [direction]="direction"></sp-steps>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<StepsComponent> = (args: StepsComponent) => ({

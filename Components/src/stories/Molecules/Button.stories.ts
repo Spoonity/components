@@ -12,6 +12,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-button [type]="type" [text]="text" [size]="size" [leftIcon]="leftIcon" [rightIcon]="rightIcon" [disabled]="disabled"></sp-button>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<ButtonComponent> = (args: ButtonComponent) => ({

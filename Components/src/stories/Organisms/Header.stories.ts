@@ -11,16 +11,29 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `
+        <sp-header title="title" [backTitle]="backTitle" [breadcrumbs]="breadcrumbs" [search]="search" [btnTitle]="btnTitle"></sp-header>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
   props: args,
 });
 
+const breadcrumbsData = [
+  { label: 'Item', route: '' },
+  { label: 'Menu', route: '' }
+];
+
 export const Default = Template.bind({});
 Default.args = {
-  title: 'Content',
-  backTitle: '',
+  title: 'Menu',
+  backTitle: null,
   breadcrumbs: null,
   btnTitle: null,
   search: false,
@@ -28,7 +41,7 @@ Default.args = {
 
 export const WithBack = Template.bind({});
 WithBack.args = {
-  title: 'Content',
+  title: 'Menu',
   backTitle: 'Back',
   breadcrumbs: null,
   btnTitle: null,
@@ -37,15 +50,15 @@ WithBack.args = {
 
 export const WithBreadcrumb = Template.bind({});
 WithBreadcrumb.args = {
-  title: 'Content',
+  title: 'Menu',
   backTitle: null,
-  breadcrumbs: 'Title',
+  breadcrumbs: breadcrumbsData,
   btnTitle: null,
   search: false,
 };
 export const DefaultPlusButton = Template.bind({});
 DefaultPlusButton.args = {
-  title: 'Content',
+  title: 'Menu',
   backTitle: null,
   breadcrumbs: null,
   btnTitle: 'Button',
@@ -54,7 +67,7 @@ DefaultPlusButton.args = {
 
 export const WithBackPlusButton = Template.bind({});
 WithBackPlusButton.args = {
-  title: 'Content',
+  title: 'Menu',
   backTitle: 'Back',
   breadcrumbs: null,
   btnTitle: 'Button',
@@ -63,16 +76,16 @@ WithBackPlusButton.args = {
 
 export const WithBreadcrumbPlusButton = Template.bind({});
 WithBreadcrumbPlusButton.args = {
-  title: 'Content',
+  title: 'Menu',
   backTitle: null,
-  breadcrumbs: 'Title',
+  breadcrumbs: breadcrumbsData,
   btnTitle: 'Button',
   search: false,
 };
 
 export const DefaultPlusButtonPlusSearch = Template.bind({});
 DefaultPlusButtonPlusSearch.args = {
-  title: 'Content',
+  title: 'Menu',
   backTitle: null,
   breadcrumbs: null,
   btnTitle: 'Button',
@@ -81,7 +94,7 @@ DefaultPlusButtonPlusSearch.args = {
 
 export const WithBackPlusButtonPlusSearch = Template.bind({});
 WithBackPlusButtonPlusSearch.args = {
-  title: 'Content',
+  title: 'Menu',
   backTitle: 'Back',
   breadcrumbs: null,
   btnTitle: 'Button',
@@ -90,9 +103,9 @@ WithBackPlusButtonPlusSearch.args = {
 
 export const WithBreadcrumbPlusButtonPlusSearch = Template.bind({});
 WithBreadcrumbPlusButtonPlusSearch.args = {
-  title: 'Content',
+  title: 'Menu',
   backTitle: null,
-  breadcrumbs: 'Title',
+  breadcrumbs: breadcrumbsData,
   btnTitle: 'Button',
   search: true,
 };

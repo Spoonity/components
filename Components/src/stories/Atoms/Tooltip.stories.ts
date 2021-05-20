@@ -11,6 +11,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-tooltip [title]="title" [content]="content"></sp-tooltip>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<TooltipComponent> = (args: TooltipComponent) => ({

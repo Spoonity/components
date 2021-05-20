@@ -11,6 +11,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-back-navigation [title]="title" [subTitle]="subTitle"></sp-back-navigation>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<BackNavigationComponent> = (args: BackNavigationComponent) => ({
@@ -20,5 +27,5 @@ const Template: Story<BackNavigationComponent> = (args: BackNavigationComponent)
 export const Default = Template.bind({});
 Default.args = {
   title: 'Back',
-  subTitle: 'This is a subtitle'
+  subTitle: ''
 };

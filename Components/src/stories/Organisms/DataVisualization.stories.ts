@@ -12,6 +12,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-data-visualization [title]="title" [description]="description">`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<DataVisualizationComponent> = (args: DataVisualizationComponent) => ({

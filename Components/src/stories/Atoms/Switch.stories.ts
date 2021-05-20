@@ -11,6 +11,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-switch [on]="on"></sp-switch>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<SwitchComponent> = (args: SwitchComponent) => ({

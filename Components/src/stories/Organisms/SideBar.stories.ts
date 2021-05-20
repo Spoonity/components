@@ -18,6 +18,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<spt-sidebar [sidebarData]="sideData" [optionsData]="optionsData"></spt-sidebar>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<SidebarComponent> = (args: SidebarComponent) => ({
@@ -25,36 +32,44 @@ const Template: Story<SidebarComponent> = (args: SidebarComponent) => ({
 });
 
 const user = {
-  name: 'Alex Orekhvo',
-  id: '12126',
-  email: 'alexorekhvo1998@gmail.com',
-  title: 'Brandins Breakfast',
-  company: 'Bonanza'
+  users: [
+    {
+      name: 'Alex Orekhvo',
+      id: '12126',
+      email: 'alexorekhvo1998@gmail.com',
+      title: 'Brandins Breakfast',
+      company: 'Bonanza'
+    }
+  ],
+  logout: () => {alert("Logout")}
 };
 
-const users = [
-  {
-    name: 'Alex Orekhvo',
-    id: '12126',
-    email: 'alexorekhvo1998@gmail.com',
-    title: 'Brandins Breakfast',
-    company: 'Bonanza'
-  },
-  {
-    name: 'Emilia Mann',
-    id: '20201',
-    email: 'emiliamann@gmail.com',
-    title: 'Brandins Dinner',
-    company: 'Partner'
-  },
-  {
-    name: 'Bruno Martinez',
-    id: '30302',
-    email: 'brunomartinez@gmail.com',
-    title: 'Brandins Lunch',
-    company: 'Partner'
-  }
-];
+const users = {
+  users: [
+    {
+      name: 'Alex Orekhvo',
+      id: '12126',
+      email: 'alexorekhvo1998@gmail.com',
+      title: 'Brandins Breakfast',
+      company: 'Bonanza'
+    },
+    {
+      name: 'Emilia Mann',
+      id: '20201',
+      email: 'emiliamann@gmail.com',
+      title: 'Brandins Dinner',
+      company: 'Partner'
+    },
+    {
+      name: 'Bruno Martinez',
+      id: '30302',
+      email: 'brunomartinez@gmail.com',
+      title: 'Brandins Lunch',
+      company: 'Partner'
+    }
+  ],
+  logout: () => {alert("Logout")}
+};
 
 const options = [
   { title: 'Home', icon: appHomeIcon, isActive: true },

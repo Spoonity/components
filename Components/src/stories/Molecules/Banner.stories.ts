@@ -11,6 +11,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-banner [bannerList]="banners"></sp-banner>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<BannerComponent> = (args: BannerComponent) => ({

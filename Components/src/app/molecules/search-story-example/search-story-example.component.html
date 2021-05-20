@@ -1,0 +1,32 @@
+<div class="sp-spacing-x--1">
+    <sp-search [size]="size"
+               placeholder="Search fruits or vegetables"
+               [(ngModel)]="SearchModel"
+               [selectedItems]="SelectedItems"
+               (filter)="filter(filterSize)"
+               (itemSelected)="ItemSelected($event)"
+               (itemRemoved)="ItemRemoved($event)">
+        <sp-search-option [value]="f" *ngFor="let f of FilteredList">
+            <span>{{f.name}} - </span>
+            <span class="light"><em>{{f.type}} </em></span>
+            <span class="light">(color: {{f.color}})</span>
+        </sp-search-option>
+    </sp-search>
+</div>
+<div *ngIf="filterSize === 'noDropdown'"  class="sp-spacing-y--1">
+    <h4>Search Results:</h4>
+    <p *ngIf="getNoDropdownList().length === 0" class="light"><em>No Items to show</em></p>
+
+    <div *ngFor="let f of getNoDropdownList()" class="sp-spacing--1" style="border-bottom: 1px solid #eee">
+        <span>{{f.name}} - </span>
+        <span class="light"><em>{{f.type}} </em></span>
+        <span class="light">(color: {{f.color}})</span>
+    </div>
+
+    <ng-template #noDropdownItem>
+        <li class="sp-spacing-y--1" style="border-bottom: 1px solid #eee">
+
+        </li>
+    </ng-template>
+</div>
+

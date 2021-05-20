@@ -11,6 +11,13 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-breadcrumb [items]="items"></sp-breadcrumb>`
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<BreadcrumbComponent> = (args: BreadcrumbComponent) => ({
