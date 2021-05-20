@@ -27,10 +27,14 @@ const Template: Story<SideNavigationComponent> = (args: SideNavigationComponent)
 
 export const Default = Template.bind({});
 Default.args = {
-  icon: '',
+  icon: 'sms',
   text: 'Example',
   disabled: false,
-  items: [],
-  type: SideNavigationType,
+  items: [
+    {icon: 'sms', text: 'test1', link: ''},
+    {icon: 'sms', text: 'test2', link: ''},
+    {icon: 'sms', text: 'test3', link: ''}
+  ],
+  type: SideNavigationType.menu,
 
 };
