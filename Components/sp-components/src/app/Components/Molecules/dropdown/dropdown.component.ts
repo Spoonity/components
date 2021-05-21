@@ -15,7 +15,7 @@ import {DropdownService} from './dropdown.service';
 import {ActiveDescendantKeyManager} from '@angular/cdk/a11y';
 
 @Component({
-  selector: 'sp-dropdown',
+  selector: 'spt-dropdown',
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.less', '../../shared/form-field.manager.less'],
   providers: [

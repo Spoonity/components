@@ -3,7 +3,7 @@ import {FormFieldManager} from '../../shared/form-field.manager';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
-  selector: 'sp-date-picker',
+  selector: 'spt-date-picker',
   templateUrl: './date-picker.component.html',
   styleUrls: ['../../shared/form-field.manager.less'],
   providers: [

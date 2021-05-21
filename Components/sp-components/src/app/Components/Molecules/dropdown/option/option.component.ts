@@ -3,7 +3,7 @@ import {DropdownService} from '../dropdown.service';
 import {DropdownComponent} from '../dropdown.component';
 
 @Component({
-  selector: 'sp-option',
+  selector: 'spt-option',
   templateUrl: './option.component.html',
   styleUrls: ['./option.component.less']
 })

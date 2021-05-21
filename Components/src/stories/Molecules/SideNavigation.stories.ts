@@ -3,6 +3,7 @@ import { Story, Meta } from '@storybook/angular/types-6-0';
 import { SideNavigationType } from 'sp-components/src/app/utils/enums';
 import { SideNavigationComponent } from '../../../sp-components/src/app/Components/Molecules/side-navigation/side-navigation.component';
 import { SpComponentsModule } from 'sp-components/public_api';
+import { Component } from '@angular/core';
 
 export default {
   title: 'Molecules/SideNavigation',
@@ -30,11 +31,11 @@ Default.args = {
   icon: 'sms',
   text: 'Example',
   disabled: false,
-  items: [
-    {icon: 'sms', text: 'test1', link: ''},
-    {icon: 'sms', text: 'test2', link: ''},
-    {icon: 'sms', text: 'test3', link: ''}
-  ],
-  type: SideNavigationType.menu,
+  // items: [
+  //   {icon: 'sms', text: 'test1', link: ''},
+  //   {icon: 'sms', text: 'test2', link: ''},
+  //   {icon: 'sms', text: 'test3', link: ''}
+  // ],
+  // type: SideNavigationType.menu,
 
 };

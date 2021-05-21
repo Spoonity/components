@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'sp-back-navigation',
+  selector: 'spt-back-navigation',
   templateUrl: './back-navigation.component.html',
   styleUrls: ['./back-navigation.component.less']
 })

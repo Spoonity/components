@@ -10,7 +10,7 @@ export interface IDataSet {
 }
 
 @Component({
-  selector: 'sp-table',
+  selector: 'spt-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.less']
 })

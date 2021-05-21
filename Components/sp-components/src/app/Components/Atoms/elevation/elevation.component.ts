@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sp-elevation',
+  selector: 'spt-elevation',
   templateUrl: './elevation.component.html',
   styleUrls: ['./elevation.component.less']
 })

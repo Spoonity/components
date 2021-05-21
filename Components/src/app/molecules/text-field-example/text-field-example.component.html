@@ -2,80 +2,80 @@
     <h2>TEXT FIELDS</h2>
 
     <form [formGroup]="sampleForm">
-        <div class="input-large sp-spacing-y--2">
+        <div class="input-large spt-spacing-y--2">
             <h3>Large</h3>
 
             <!-- no icon -->
             <p>No Icon</p>
-            <div class="sp-spacing-y--1 text-field-row">
-                <div class="sp-spacing-x--1">
-                    <sp-text-field size="large"
+            <div class="spt-spacing-y--1 text-field-row">
+                <div class="spt-spacing-x--1">
+                    <spt-text-field size="large"
                                    label="No Icon"
                                    [max]="30">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field formControlName="largeField1"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field formControlName="largeField1"
                                    size="large"
                                    label="No Icon"
                                    placeholder="placeholder"
                                    [max]="30"
                                    [hint]="'initialized with formControl'">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field size="large"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field size="large"
                                    label="No Icon"
                                    [error]="'example error message'"
                                    [max]="30">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-text-field formControlName="largeFieldDisabled"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field formControlName="largeFieldDisabled"
                                    size="large"
                                    label="No Icon"
                                    [hint]="'disabled using formControl'">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
             </div>
 
             <!-- start icon -->
             <p>Start Icon</p>
-            <div class="sp-spacing-y--1 text-field-row">
-                <div class="sp-spacing-x--1">
-                    <sp-text-field size="large"
+            <div class="spt-spacing-y--1 text-field-row">
+                <div class="spt-spacing-x--1">
+                    <spt-text-field size="large"
                                    label="Start Icon"
                                    startIcon="favorite"
                                    placeholder="placeholder"
                                    [max]="30">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field formControlName="largeField2"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field formControlName="largeField2"
                                    size="large"
                                    label="Start Icon"
                                    startIcon="favorite"
                                    placeholder="placeholder"
                                    [max]="30"
                                    [hint]="'initialized with formControl'">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field size="large"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field size="large"
                                    label="Start Icon"
                                    startIcon="favorite"
                                    placeholder="placeholder"
                                    [error]="'example error message'"
                                    [max]="30">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field formControlName="largeFieldDisabled2"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field formControlName="largeFieldDisabled2"
                                    size="large"
                                    label="Start Icon"
                                    startIcon="favorite"
@@ -83,69 +83,69 @@
                                    hint="disabled"
                                    [max]="30"
                                    [isDisabled]="true">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
             </div>
 
             <!-- end icon -->
             <p>End Icon</p>
-            <div class="sp-spacing-y--1 text-field-row">
-                <div class="sp-spacing-x--1">
-                    <sp-text-field size="large"
+            <div class="spt-spacing-y--1 text-field-row">
+                <div class="spt-spacing-x--1">
+                    <spt-text-field size="large"
                                    [label]="'End Icon'"
                                    endIcon="favorite"
                                    placeholder="placeholder"
                                    [max]="30">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field formControlName="largeField3"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field formControlName="largeField3"
                                    size="large"
                                    [label]="'End Icon'"
                                    endIcon="favorite"
                                    placeholder="placeholder"
                                    [max]="30"
                                    [hint]="'initialized with formControl'">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field size="large"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field size="large"
                                    [label]="'End Icon'"
                                    endIcon="favorite"
                                    placeholder="placeholder"
                                    [error]="'example error message'"
                                    [max]="30">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field size="large"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field size="large"
                                    label="Start Icon"
                                    endIcon="favorite"
                                    placeholder="placeholder"
                                    hint="disabled"
                                    [max]="30" [isDisabled]="true">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
             </div>
 
             <!-- start & end icon -->
             <p>Start and End Icon</p>
-            <div class="sp-spacing-y--1 text-field-row">
-                <div class="sp-spacing-x--1">
-                    <sp-text-field size="large"
+            <div class="spt-spacing-y--1 text-field-row">
+                <div class="spt-spacing-x--1">
+                    <spt-text-field size="large"
                                    label="Two Icons"
                                    startIcon="favorite"
                                    endIcon="favorite"
                                    placeholder="placeholder"
                                    [max]="30">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field [(ngModel)]="model1"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field [(ngModel)]="model1"
                                    [ngModelOptions]="{standalone: true}"
                                    size="large"
                                    label="Two Icons"
@@ -154,22 +154,22 @@
                                    placeholder="placeholder"
                                    [max]="30"
                                    hint="initialized with ngModel">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field size="large"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field size="large"
                                    label="Two Icons"
                                    startIcon="favorite"
                                    endIcon="favorite"
                                    placeholder="placeholder"
                                    [error]="'example error message'"
                                    [max]="30">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field size="large"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field size="large"
                                    label="Two Icons"
                                    startIcon="favorite"
                                    endIcon="favorite"
@@ -177,145 +177,145 @@
                                    [max]="30"
                                    hint="disabled"
                                    [isDisabled]="true">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
             </div>
         </div>
 
-        <div class="input-large sp-spacing-y--2">
+        <div class="input-large spt-spacing-y--2">
             <h3>Medium (default)</h3>
 
             <!-- no icon -->
             <p>No Icon</p>
-            <div class="sp-spacing-y--1 text-field-row">
-                <div class="sp-spacing-x--1">
-                    <sp-text-field label="No Icon"
+            <div class="spt-spacing-y--1 text-field-row">
+                <div class="spt-spacing-x--1">
+                    <spt-text-field label="No Icon"
                                    [max]="30">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field formControlName="mediumField1"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field formControlName="mediumField1"
                                    label="No Icon"
                                    placeholder="placeholder"
                                    [max]="30"
                                    [hint]="'initialized with formControl'">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field label="No Icon"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field label="No Icon"
                                    placeholder="placeholder"
                                    [max]="30"
                                    [error]="'example error message'">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field label="No Icon"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field label="No Icon"
                                    [max]="30"
                                    hint="disabled"
                                    [isDisabled]="true">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
             </div>
 
             <!-- start icon -->
             <p>Start Icon</p>
-            <div class="sp-spacing-y--1 text-field-row">
-                <div class="sp-spacing-x--1">
-                    <sp-text-field label="Start Icon"
+            <div class="spt-spacing-y--1 text-field-row">
+                <div class="spt-spacing-x--1">
+                    <spt-text-field label="Start Icon"
                                    startIcon="favorite"
                                    placeholder="placeholder"
                                    [max]="30">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field formControlName="mediumField2"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field formControlName="mediumField2"
                                    label="Start Icon"
                                    startIcon="favorite"
                                    placeholder="placeholder"
                                    [max]="30"
                                    [hint]="'initialized with formControl'">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field label="Start Icon"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field label="Start Icon"
                                    startIcon="favorite"
                                    placeholder="placeholder"
                                    [error]="'example error message'"
                                    [max]="30">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field label="Start Icon"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field label="Start Icon"
                                    startIcon="favorite"
                                    placeholder="placeholder"
                                    [max]="30"
                                    hint="disabled"
                                    [isDisabled]="true">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
             </div>
 
             <!-- end icon -->
             <p>End Icon</p>
-            <div class="sp-spacing-y--1 text-field-row">
-                <div class="sp-spacing-x--1">
-                    <sp-text-field [label]="'End Icon'"
+            <div class="spt-spacing-y--1 text-field-row">
+                <div class="spt-spacing-x--1">
+                    <spt-text-field [label]="'End Icon'"
                                    endIcon="favorite"
                                    placeholder="placeholder"
                                    [max]="30">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field formControlName="mediumField3"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field formControlName="mediumField3"
                                    [label]="'End Icon'"
                                    endIcon="favorite"
                                    placeholder="placeholder"
                                    [max]="30"
                                    [hint]="'initialized with formControl'">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field [label]="'End Icon'"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field [label]="'End Icon'"
                                    endIcon="favorite"
                                    placeholder="placeholder"
                                    [error]="'example error message'"
                                    [max]="30">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field [label]="'End Icon'"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field [label]="'End Icon'"
                                    endIcon="favorite"
                                    placeholder="placeholder"
                                    [max]="30"
                                    hint="disabled"
                                    [isDisabled]="true">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
             </div>
 
             <!-- start & end icon -->
             <p>Start and End Icon</p>
-            <div class="sp-spacing-y--1 text-field-row">
-                <div class="sp-spacing-x--1">
-                    <sp-text-field label="Two Icons"
+            <div class="spt-spacing-y--1 text-field-row">
+                <div class="spt-spacing-x--1">
+                    <spt-text-field label="Two Icons"
                                    startIcon="favorite"
                                    endIcon="favorite"
                                    placeholder="placeholder"
                                    [max]="30">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field [(ngModel)]="model2"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field [(ngModel)]="model2"
                                    [ngModelOptions]="{standalone: true}"
                                    label="Two Icons"
                                    startIcon="favorite"
@@ -323,11 +323,11 @@
                                    placeholder="placeholder"
                                    [max]="30"
                                    hint="initialized with ngModel">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field
+                <div class="spt-spacing-x--1">
+                    <spt-text-field
                             [(ngModel)]="model1"
                             [ngModelOptions]="{standalone: true}"
                             label="Two Icons"
@@ -336,62 +336,62 @@
                             placeholder="placeholder"
                             [error]="'example error message'"
                             [max]="30">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-text-field label="Two Icons"
+                <div class="spt-spacing-x--1">
+                    <spt-text-field label="Two Icons"
                                    startIcon="favorite"
                                    endIcon="favorite"
                                    placeholder="placeholder"
                                    [max]="30"
                                    hint="disabled"
                                    [isDisabled]="true">
-                    </sp-text-field>
+                    </spt-text-field>
                 </div>
             </div>
         </div>
     </form>
 
     <form [formGroup]="sampleForm2">
-        <div class="input-large sp-spacing-y--2">
+        <div class="input-large spt-spacing-y--2">
             <h3>Sample Form</h3>
             <p>A combination of Reactive form and Template driven form</p>
 
-            <div class="sp-spacing-x--1">
-                <sp-text-field formControlName="field1" label="formControl 1"></sp-text-field>
+            <div class="spt-spacing-x--1">
+                <spt-text-field formControlName="field1" label="formControl 1"></spt-text-field>
             </div>
-            <div class="sp-spacing-x--1">
-                <sp-text-field formControlName="field2" label="formControl 2"></sp-text-field>
+            <div class="spt-spacing-x--1">
+                <spt-text-field formControlName="field2" label="formControl 2"></spt-text-field>
             </div>
-            <div class="sp-spacing-x--1">
-                <sp-text-field [(ngModel)]="model3" [ngModelOptions]="{standalone: true}" label="ngModel 1"></sp-text-field>
+            <div class="spt-spacing-x--1">
+                <spt-text-field [(ngModel)]="model3" [ngModelOptions]="{standalone: true}" label="ngModel 1"></spt-text-field>
             </div>
-            <div class="sp-spacing-x--1">
-                <sp-text-field [(ngModel)]="model4" [ngModelOptions]="{standalone: true}" label="ngModel 1">></sp-text-field>
+            <div class="spt-spacing-x--1">
+                <spt-text-field [(ngModel)]="model4" [ngModelOptions]="{standalone: true}" label="ngModel 1">></spt-text-field>
             </div>
         </div>
 
-        <div class="sp-spacing-y--2 sp-spacing-x--1">
-            <sp-button [text]="'Save'" [type]="buttonType" [size]="buttonSize" (click)="saveTextField()"></sp-button>
+        <div class="spt-spacing-y--2 spt-spacing-x--1">
+            <spt-button [text]="'Save'" [type]="buttonType" [size]="buttonSize" (click)="saveTextField()"></spt-button>
         </div>
     </form>
 
-    <div *ngIf="showValues" class="sp-spacing-y--1 sp-spacing-x--1">
-        <div class="sp-spacing-y--1 sp-spacing-x--1 text-fields-preview sp-elevation--2">
-            <div class="sp-spacing-y--2">
+    <div *ngIf="showValues" class="spt-spacing-y--1 spt-spacing-x--1">
+        <div class="spt-spacing-y--1 spt-spacing-x--1 text-fields-preview spt-elevation--2">
+            <div class="spt-spacing-y--2">
                 <table>
-                    <tr><td class="sp-spacing-x--1"><strong>formControl 1: </strong></td>
-                        <td class="sp-spacing-x--1">{{savedValues1.field1 || '---'}}</td></tr>
+                    <tr><td class="spt-spacing-x--1"><strong>formControl 1: </strong></td>
+                        <td class="spt-spacing-x--1">{{savedValues1.field1 || '---'}}</td></tr>
 
-                    <tr><td class="sp-spacing-x--1"><strong>formControl 2: </strong></td>
-                        <td class="sp-spacing-x--1">{{savedValues1.field2 || '---'}}</td></tr>
+                    <tr><td class="spt-spacing-x--1"><strong>formControl 2: </strong></td>
+                        <td class="spt-spacing-x--1">{{savedValues1.field2 || '---'}}</td></tr>
 
-                    <tr><td class="sp-spacing-x--1"><strong>model1: </strong></td>
-                        <td class="sp-spacing-x--1">{{savedValues2.model1 || '---'}}</td></tr>
+                    <tr><td class="spt-spacing-x--1"><strong>model1: </strong></td>
+                        <td class="spt-spacing-x--1">{{savedValues2.model1 || '---'}}</td></tr>
 
-                    <tr><td class="sp-spacing-x--1"><strong>model2: </strong></td>
-                        <td class="sp-spacing-x--1">{{savedValues2.model2 || '---'}}</td></tr>
+                    <tr><td class="spt-spacing-x--1"><strong>model2: </strong></td>
+                        <td class="spt-spacing-x--1">{{savedValues2.model2 || '---'}}</td></tr>
 
                 </table>
             </div>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'sp-search-example',
+  selector: 'spt-search-example',
   templateUrl: './search-example.component.html',
   styleUrls: ['./search-example.component.less']
 })

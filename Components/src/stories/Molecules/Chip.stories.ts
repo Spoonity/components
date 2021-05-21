@@ -56,7 +56,7 @@ Checkable.args = {
 export const WithIcon = Template.bind({});
 WithIcon.args = {
   text: 'Example',
-  icon: '',
+  icon: 'favorite',
   mode: TagType.default,
   checked: false,
   disabled: false,
@@ -65,7 +65,7 @@ WithIcon.args = {
 export const Checked = Template.bind({});
 Checked.args = {
   text: 'Example',
-  icon: '',
+  icon: 'favorite',
   mode: TagType.default,
   checked: true,
   disabled: false,
@@ -74,7 +74,7 @@ Checked.args = {
 export const Disable = Template.bind({});
 Disable.args = {
   text: 'Example',
-  icon: '',
+  icon: 'favorite',
   mode: TagType.default,
   checked: false,
   disabled: true,

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sp-tab',
+  selector: 'spt-tab',
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.less']
 })
@@ -12,7 +12,7 @@ export class TabComponent implements OnInit {
   ngOnInit() {
   }
 
-  @Input() tabs: {};
+  @Input() tabs: {name: string, disabled: boolean}[];
 
   // tabs = [
   //   {

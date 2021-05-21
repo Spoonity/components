@@ -3,7 +3,7 @@ import { ButtonSize, ButtonType } from '../../../utils/enums';
 import { IBreadCrumbItem } from '../../Molecules/breadcrumb/breadcrumb.component';
 
 @Component({
-  selector: 'sp-header',
+  selector: 'spt-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.less']
 })
@@ -22,5 +22,5 @@ export class HeaderComponent implements OnInit {
   buttonSize: ButtonSize = ButtonSize.medium;
 
   ngOnInit() {}
-  
+
 }

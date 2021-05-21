@@ -2,17 +2,17 @@
     <div class="section">
         <h2>AVATAR</h2>
         <div nz-space nzAlign="start" class="space-align-block">
-            <sp-avatar [size]="avatarS.large" text="A"></sp-avatar>
-            <sp-avatar [size]="avatarS.medium" text="A"></sp-avatar>
-            <sp-avatar [size]="avatarS.small" text="A"></sp-avatar>
+            <spt-avatar [size]="avatarS.large" text="A"></spt-avatar>
+            <spt-avatar [size]="avatarS.medium" text="A"></spt-avatar>
+            <spt-avatar [size]="avatarS.small" text="A"></spt-avatar>
         </div>
     </div>
 
     <div class="section">
         <h3>ACTIVITY BADGES</h3>
         <div>
-            <sp-badge color="#42A5F5" name="ACTIVE"></sp-badge>
-            <sp-badge color="#706F6E" name="INACTIVE"></sp-badge>
+            <spt-badge color="#42A5F5" name="ACTIVE"></spt-badge>
+            <spt-badge color="#706F6E" name="INACTIVE"></spt-badge>
         </div>
 
         <h3>SMALL BADGES</h3>
@@ -20,7 +20,7 @@
             <div nz-row>
                 <div>
                     <span *ngFor="let color of colors">
-                        <sp-badge [color]="color.color" [name]="color.name"></sp-badge>
+                        <spt-badge [color]="color.color" [name]="color.name"></spt-badge>
                     </span>
                 </div>
             </div>
@@ -29,21 +29,21 @@
 
     <div class="section">
         <h2>DIVIDERS</h2>
-        <sp-divider></sp-divider>
-        <sp-divider [type]="dividerT.vertical"></sp-divider>
+        <spt-divider></spt-divider>
+        <spt-divider [type]="dividerT.vertical"></spt-divider>
     </div>
 
     <div class="section">
         <h2>ICONS</h2>
         <span class="icons" *ngFor="let icon of icons">
-            <sp-icon [toolTipTittle]="icon.name" [name]="icon.name"></sp-icon>
+            <spt-icon [toolTipTittle]="icon.name" [name]="icon.name"></spt-icon>
         </span>
     </div>
 
     <div class="section">
         <h2>PROGRESS BAR</h2>
-        <sp-progress-bar [percent]="50" [info]="false"></sp-progress-bar>
-        <sp-progress-bar [percent]="70" [info]="false" [type]="progressT.circle"></sp-progress-bar>
+        <spt-progress-bar [percent]="50" [info]="false"></spt-progress-bar>
+        <spt-progress-bar [percent]="70" [info]="false" [type]="progressT.circle"></spt-progress-bar>
     </div>
 
     <div class="section">
@@ -51,52 +51,52 @@
 
         <h2>CHECK BOXES</h2>
         <div nz-row>
-            <sp-checkbox value="A" [check]="true">A</sp-checkbox>
-            <sp-checkbox value="B" [check]="true">B</sp-checkbox>
-            <sp-checkbox value="C" [check]="true">C</sp-checkbox>
-            <sp-checkbox value="D">D</sp-checkbox>
-            <sp-checkbox value="E">E</sp-checkbox>
-            <sp-checkbox value="F">F</sp-checkbox>
-            <sp-checkbox value="G" [indeterminate]="true">G</sp-checkbox>
-            <sp-checkbox value="H" [indeterminate]="true">H</sp-checkbox>
-            <sp-checkbox value="I" [indeterminate]="true">I</sp-checkbox>
+            <spt-checkbox value="A" [check]="true">A</spt-checkbox>
+            <spt-checkbox value="B" [check]="true">B</spt-checkbox>
+            <spt-checkbox value="C" [check]="true">C</spt-checkbox>
+            <spt-checkbox value="D">D</spt-checkbox>
+            <spt-checkbox value="E">E</spt-checkbox>
+            <spt-checkbox value="F">F</spt-checkbox>
+            <spt-checkbox value="G" [indeterminate]="true">G</spt-checkbox>
+            <spt-checkbox value="H" [indeterminate]="true">H</spt-checkbox>
+            <spt-checkbox value="I" [indeterminate]="true">I</spt-checkbox>
         </div>
 
         <h2>RADIO BUTTONS</h2>
-        <sp-radio-button model="B"></sp-radio-button>
+        <spt-radio-button model="B"></spt-radio-button>
         <br />
-        <sp-radio-button model="A"></sp-radio-button>
+        <spt-radio-button model="A"></spt-radio-button>
 
         <h2>SWITCHES</h2>
 
-        <sp-switch [on]="true"></sp-switch>
-        <sp-switch [on]="true"></sp-switch>
-        <sp-switch [on]="true"></sp-switch>
-        <sp-switch [on]="true"></sp-switch>
+        <spt-switch [on]="true"></spt-switch>
+        <spt-switch [on]="true"></spt-switch>
+        <spt-switch [on]="true"></spt-switch>
+        <spt-switch [on]="true"></spt-switch>
         <br />
-        <sp-switch></sp-switch>
-        <sp-switch></sp-switch>
-        <sp-switch></sp-switch>
-        <sp-switch></sp-switch>
+        <spt-switch></spt-switch>
+        <spt-switch></spt-switch>
+        <spt-switch></spt-switch>
+        <spt-switch></spt-switch>
     </div>
 
     <div class="section">
         <h2>SLIDERS</h2>
-        <sp-slider [max]=100 [step]="10" [start]="0"></sp-slider>
-        <sp-slider [max]=100 [step]="10" [start]="50"></sp-slider>
-        <sp-slider [max]=100 [step]="10" [start]="100"></sp-slider>
-        <sp-slider [max]=100 [step]="10" [start]="50" [disable]="true"></sp-slider>
+        <spt-slider [max]=100 [step]="10" [start]="0"></spt-slider>
+        <spt-slider [max]=100 [step]="10" [start]="50"></spt-slider>
+        <spt-slider [max]=100 [step]="10" [start]="100"></spt-slider>
+        <spt-slider [max]=100 [step]="10" [start]="50" [disable]="true"></spt-slider>
 
     </div>
 
     <div class="section">
         <h2>TABS</h2>
-        <sp-tab [tabs]="tabs"></sp-tab>
+        <spt-tab [tabs]="tabs"></spt-tab>
     </div>
 
     <div class="section">
         <h2>TOOLTIPS</h2>
-        <sp-tooltip title="promt text" content="Tooltip will show when mouse enter."></sp-tooltip>
+        <spt-tooltip title="promt text" content="Tooltip will show when mouse enter."></spt-tooltip>
     </div>
 
     <div class="section">
@@ -104,27 +104,27 @@
         <div class="elevation">
             <div class="elevation-container">
                 <p>01 dp</p>
-                <div class="sp-elevation--1 elevation-box"></div>
+                <div class="spt-elevation--1 elevation-box"></div>
             </div>
             <div class="elevation-container">
                 <p>02 dp</p>
-                <div class="sp-elevation--2 elevation-box"></div>
+                <div class="spt-elevation--2 elevation-box"></div>
             </div>
             <div class="elevation-container">
                 <p>06 dp</p>
-                <div class="sp-elevation--3 elevation-box"></div>
+                <div class="spt-elevation--3 elevation-box"></div>
             </div>
             <div class="elevation-container">
                 <p>08 dp</p>
-                <div class="sp-elevation--4 elevation-box"></div>
+                <div class="spt-elevation--4 elevation-box"></div>
             </div>
             <div class="elevation-container">
                 <p>12 dp</p>
-                <div class="sp-elevation--5 elevation-box"></div>
+                <div class="spt-elevation--5 elevation-box"></div>
             </div>
             <div class="elevation-container">
                 <p>24 dp</p>
-                <div class="sp-elevation--6 elevation-box"></div>
+                <div class="spt-elevation--6 elevation-box"></div>
             </div>
         </div>
     </div>
@@ -137,7 +137,7 @@
                 <div class="spacing-container">
                     <div *ngFor="let subsection of section.sections" class="spacing-example">
                         <div
-                            class="spacing-wrapper sp-elevation--2 {{ section.sectionClassName }} {{subsection.className}}">
+                            class="spacing-wrapper spt-elevation--2 {{ section.sectionClassName }} {{subsection.className}}">
                             <div class="spacing-box">
                                 <p class="spacing-label">{{ subsection.label }}</p>
                             </div>

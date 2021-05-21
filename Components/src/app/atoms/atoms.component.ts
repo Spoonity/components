@@ -61,26 +61,26 @@ export class AtomsComponent implements OnInit {
       sectionName: '8px',
       sectionClassName: 'spacing--8',
       sections: [
-        { label: '8px (around)', className: 'sp-spacing--1' },
-        { label: '8px (vertical)', className: 'sp-spacing-y--1' },
-        { label: '8px (horizontal)', className: 'sp-spacing-x--1' },
-        { label: '8px (top)', className: 'sp-spacing-y-top--1' },
-        { label: '8px (bottom)', className: 'sp-spacing-y-bottom--1' },
-        { label: '8px (left)', className: 'sp-spacing-y-left--1' },
-        { label: '8px (right)', className: 'sp-spacing-y-right--1' },
+        { label: '8px (around)', className: 'spt-spacing--1' },
+        { label: '8px (vertical)', className: 'spt-spacing-y--1' },
+        { label: '8px (horizontal)', className: 'spt-spacing-x--1' },
+        { label: '8px (top)', className: 'spt-spacing-y-top--1' },
+        { label: '8px (bottom)', className: 'spt-spacing-y-bottom--1' },
+        { label: '8px (left)', className: 'spt-spacing-y-left--1' },
+        { label: '8px (right)', className: 'spt-spacing-y-right--1' },
       ]
     },
     {
       sectionName: '16px',
       sectionClassName: 'spacing--16',
       sections: [
-        { label: '16px (around)', className: 'sp-spacing--2' },
-        { label: '16px (top)', className: 'sp-spacing-y-top--2' },
-        { label: '8px (vertical)', className: 'sp-spacing-y--2' },
-        { label: '8px (horizontal)', className: 'sp-spacing-x--2' },
-        { label: '16px (bottom)', className: 'sp-spacing-y-bottom--2' },
-        { label: '16px (left)', className: 'sp-spacing-y-left--2' },
-        { label: '16px (right)', className: 'sp-spacing-y-right--2' },
+        { label: '16px (around)', className: 'spt-spacing--2' },
+        { label: '16px (top)', className: 'spt-spacing-y-top--2' },
+        { label: '8px (vertical)', className: 'spt-spacing-y--2' },
+        { label: '8px (horizontal)', className: 'spt-spacing-x--2' },
+        { label: '16px (bottom)', className: 'spt-spacing-y-bottom--2' },
+        { label: '16px (left)', className: 'spt-spacing-y-left--2' },
+        { label: '16px (right)', className: 'spt-spacing-y-right--2' },
       ]
     }
   ];
@@ -108,13 +108,13 @@ export class AtomsComponent implements OnInit {
     const spacing: ISpacing[] = [];
     const offsetArr = [1, 2, 3, 6, 8, 10, 14];
     const sections = [
-      { label: '(around)', className: 'sp-spacing' },
-      { label: '(vertical)', className: 'sp-spacing-y'},
-      { label: '(horizontal)', className: 'sp-spacing-x' },
-      { label: '(top)', className: 'sp-spacing-y-top' },
-      { label: '(bottom)', className: 'sp-spacing-y-bottom' },
-      { label: '(left)', className: 'sp-spacing-y-left' },
-      { label: '(right)', className: 'sp-spacing-y-right' },
+      { label: '(around)', className: 'spt-spacing' },
+      { label: '(vertical)', className: 'spt-spacing-y'},
+      { label: '(horizontal)', className: 'spt-spacing-x' },
+      { label: '(top)', className: 'spt-spacing-y-top' },
+      { label: '(bottom)', className: 'spt-spacing-y-bottom' },
+      { label: '(left)', className: 'spt-spacing-y-left' },
+      { label: '(right)', className: 'spt-spacing-y-right' },
     ];
 
     offsetArr.forEach((offset: number, i: number) => {

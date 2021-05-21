@@ -2,6 +2,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { ProgressBarComponent } from '../../../sp-components/src/app/Components/Atoms/progress-bar/progress-bar.component';
 import { SpComponentsModule } from 'sp-components/public_api';
+import { ProgressType } from 'sp-components/src/app/utils/enums';
 
 export default {
   title: 'Atoms/ProgressBar',
@@ -28,17 +29,17 @@ export const Line = Template.bind({});
 Line.args = {
     percent: 50,
     info: false,
-    type: 'line'
+    type: ProgressType.line
 };
 export const Circle = Template.bind({});
 Circle.args = {
     percent: 50,
     info: false,
-    type: 'circle'
+    type: ProgressType.circle
 };
 export const Info = Template.bind({});
 Info.args = {
     percent: 50,
     info: true,
-    type: 'line'
+    type: ProgressType.line
 };

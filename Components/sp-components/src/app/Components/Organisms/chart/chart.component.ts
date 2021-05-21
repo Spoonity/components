@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'sp-chart',
+  selector: 'spt-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.less']
 })

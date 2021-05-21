@@ -42,7 +42,7 @@ export interface IGiftManagement {
 }
 
 @Component({
-  selector: 'sp-card',
+  selector: 'spt-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.less']
 })

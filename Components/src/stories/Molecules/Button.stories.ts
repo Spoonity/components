@@ -88,7 +88,7 @@ export const LeftIcon = Template.bind({});
 LeftIcon.args = {
   type: ButtonType.primary,
   size: ButtonSize.small,
-  leftIcon: '',
+  leftIcon: 'sms',
   rightIcon: null,
   text: 'Button',
   disabled: false,
@@ -98,7 +98,7 @@ RightIcon.args = {
   type: ButtonType.primary,
   size: ButtonSize.small,
   leftIcon: null,
-  rightIcon: '',
+  rightIcon: 'sms',
   text: 'Button',
   disabled: false,
 };

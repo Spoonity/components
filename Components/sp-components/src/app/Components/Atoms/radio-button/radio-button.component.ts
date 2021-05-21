@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 
 @Component({
-  selector: 'sp-radio-button',
+  selector: 'spt-radio-button',
   templateUrl: './radio-button.component.html',
   styleUrls: ['./radio-button.component.less']
 })

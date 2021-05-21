@@ -80,7 +80,7 @@ export class OrganismsComponent implements OnInit {
     this.dataRows = this.getDataRows();
     this.campaigns = this.getCampaigns();
     this.customers = this.getCustomers();
-    this.giftManagements = this.getGiftManagements(); 
+    this.giftManagements = this.getGiftManagements();
   }
   getGiftManagements(): IGiftManagement[] {
     return [
@@ -123,7 +123,7 @@ export class OrganismsComponent implements OnInit {
           }
     ]
   }
-  
+
   getDataRows() {
     return [
     'Name',

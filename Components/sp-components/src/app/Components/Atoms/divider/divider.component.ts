@@ -2,7 +2,7 @@ import { DividerType } from './../../../utils/enums';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sp-divider',
+  selector: 'spt-divider',
   templateUrl: './divider.component.html',
   styleUrls: ['./divider.component.less']
 })

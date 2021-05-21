@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sp-data-visualization',
+  selector: 'spt-data-visualization',
   templateUrl: './data-visualization.component.html',
   styleUrls: ['./data-visualization.component.less']
 })

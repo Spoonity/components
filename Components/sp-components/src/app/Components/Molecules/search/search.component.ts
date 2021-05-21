@@ -16,7 +16,7 @@ import {SearchOptionComponent} from './search-option/search-option.component';
 
 
 @Component({
-  selector: 'sp-search',
+  selector: 'spt-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.less', '../../shared/form-field.manager.less'],
   providers: [

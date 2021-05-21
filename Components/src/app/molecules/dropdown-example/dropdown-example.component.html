@@ -2,239 +2,239 @@
     <h2>DROPDOWN</h2>
     <form [formGroup]="sampleForm">
         <!----- LARGE ----->
-        <div class="input-large sp-spacing-y--2">
+        <div class="input-large spt-spacing-y--2">
             <h3>Large (single selection)</h3>
 
             <!-- no icon -->
 
             <p>No Icon</p>
-            <div class="sp-spacing-y--1 dropdown-row">
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="no icon" size="large">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+            <div class="spt-spacing-y--1 dropdown-row">
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="no icon" size="large">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown formControlName="largeField1" label="no icon" size="large"
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown formControlName="largeField1" label="no icon" size="large"
                                  hint="initialized with formControl">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="no icon" size="large" error="error message">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="no icon" size="large" error="error message">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="no icon" size="large" [isDisabled]="true">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="no icon" size="large" [isDisabled]="true">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
             </div>
 
             <!-- start icon -->
 
             <p>Start Icon</p>
-            <div class="sp-spacing-y--1 dropdown-row">
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="start icon" size="large" startIcon="favorite">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+            <div class="spt-spacing-y--1 dropdown-row">
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="start icon" size="large" startIcon="favorite">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown formControlName="largeField2" label="start icon" size="large" startIcon="favorite"
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown formControlName="largeField2" label="start icon" size="large" startIcon="favorite"
                                  hint="initialized with formControl">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="start icon" size="large" startIcon="favorite" error="error message">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="start icon" size="large" startIcon="favorite" error="error message">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="start icon" size="large" startIcon="favorite" [isDisabled]="true" >
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="start icon" size="large" startIcon="favorite" [isDisabled]="true" >
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
             </div>
         </div>
 
 
         <!----- MEDIUM ----->
-        <div class="input-large sp-spacing-y--2">
+        <div class="input-large spt-spacing-y--2">
             <h3>Medium (single selection)</h3>
 
             <!-- no icon -->
 
             <p>No Icon</p>
-            <div class="sp-spacing-y--1 dropdown-row">
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="no icon">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+            <div class="spt-spacing-y--1 dropdown-row">
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="no icon">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown formControlName="mediumField1" label="no icon"
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown formControlName="mediumField1" label="no icon"
                                  hint="initialized with formControl">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="no icon" error="error message">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="no icon" error="error message">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="no icon" [isDisabled]="true">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="no icon" [isDisabled]="true">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
             </div>
 
             <!-- start icon -->
 
             <p>Start Icon</p>
-            <div class="sp-spacing-y--1 dropdown-row">
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="start icon" startIcon="favorite">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+            <div class="spt-spacing-y--1 dropdown-row">
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="start icon" startIcon="favorite">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown formControlName="mediumField2" label="start icon" startIcon="favorite"
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown formControlName="mediumField2" label="start icon" startIcon="favorite"
                                  hint="initialized with formControl">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="start icon" startIcon="favorite" error="error message">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="start icon" startIcon="favorite" error="error message">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="start icon" startIcon="favorite" [isDisabled]="true" >
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="start icon" startIcon="favorite" [isDisabled]="true" >
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
             </div>
         </div>
 
         <!----- Small ----->
-        <div class="input-large sp-spacing-y--2">
+        <div class="input-large spt-spacing-y--2">
             <h3>SMALL (single selection)</h3>
 
             <!-- no icon -->
 
             <p>No Icon</p>
-            <div class="sp-spacing-y--1 dropdown-row">
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown size="small" label="no icon">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+            <div class="spt-spacing-y--1 dropdown-row">
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown size="small" label="no icon">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown size="small" formControlName="smallField1" label="no icon"
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown size="small" formControlName="smallField1" label="no icon"
                                  hint="initialized with formControl">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown size="small" label="no icon" error="error message">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown size="small" label="no icon" error="error message">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown size="small" label="no icon" [isDisabled]="true">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown size="small" label="no icon" [isDisabled]="true">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
             </div>
 
             <!-- start icon -->
 
             <p>Start Icon</p>
-            <div class="sp-spacing-y--1 dropdown-row">
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="start icon" startIcon="favorite">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+            <div class="spt-spacing-y--1 dropdown-row">
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="start icon" startIcon="favorite">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown [(ngModel)]="model1" [ngModelOptions]="{standalone: true}" label="start icon" startIcon="favorite"
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown [(ngModel)]="model1" [ngModelOptions]="{standalone: true}" label="start icon" startIcon="favorite"
                                  hint="initialized with ngModel">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="start icon" startIcon="favorite" error="error message">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="start icon" startIcon="favorite" error="error message">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="start icon (disabled)" startIcon="favorite" [isDisabled]="true" >
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="start icon (disabled)" startIcon="favorite" [isDisabled]="true" >
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
             </div>
         </div>
 
 
         <!----- LARGE (MULTIPLE) ------>
-        <div class="input-large sp-spacing-y--2">
+        <div class="input-large spt-spacing-y--2">
             <h3>Large (multiple selection)</h3>
 
-            <div class="sp-spacing-y--1 dropdown-row">
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="no icon" size="large" [selectMultiple]="true">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+            <div class="spt-spacing-y--1 dropdown-row">
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="no icon" size="large" [selectMultiple]="true">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown formControlName="largeMultiple" label="large (multiple)" size="large" [selectMultiple]="true">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown formControlName="largeMultiple" label="large (multiple)" size="large" [selectMultiple]="true">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
             </div>
         </div>
 
 
         <!----- MEDIUM (MULTIPLE) ------>
-        <div class="input-large sp-spacing-y--2">
+        <div class="input-large spt-spacing-y--2">
             <h3>Medium (multiple selection)</h3>
 
-            <div class="sp-spacing-y--1 dropdown-row">
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="no icon" [selectMultiple]="true">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+            <div class="spt-spacing-y--1 dropdown-row">
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="no icon" [selectMultiple]="true">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown formControlName="mediumMultiple" label="medium (multiple)" [selectMultiple]="true">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown formControlName="mediumMultiple" label="medium (multiple)" [selectMultiple]="true">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
             </div>
         </div>
 
 
         <!----- SMALL (MULTIPLE) ------>
-        <div class="input-large sp-spacing-y--2">
+        <div class="input-large spt-spacing-y--2">
             <h3>Small (multiple selection)</h3>
 
-            <div class="sp-spacing-y--1 dropdown-row">
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown label="no icon" size="small" [selectMultiple]="true">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+            <div class="spt-spacing-y--1 dropdown-row">
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown label="no icon" size="small" [selectMultiple]="true">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
 
-                <div class="sp-spacing-x--1">
-                    <sp-dropdown formControlName="smallMultiple" label="small (multiple)" size="small" [selectMultiple]="true">
-                        <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                    </sp-dropdown>
+                <div class="spt-spacing-x--1">
+                    <spt-dropdown formControlName="smallMultiple" label="small (multiple)" size="small" [selectMultiple]="true">
+                        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    </spt-dropdown>
                 </div>
             </div>
         </div>
@@ -243,72 +243,72 @@
 
     <!----- SAMPLE FORM ----->
     <form [formGroup]="sampleForm2">
-        <div class="input-large sp-spacing-y--2">
+        <div class="input-large spt-spacing-y--2">
             <h3>Sample Form</h3>
             <p>A combination of Reactive form and Template driven form</p>
 
-            <div class="sp-spacing--1">
-                <sp-dropdown label="formControl 1 (single)" formControlName="field1" hint="initialized with formControl">
-                    <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                </sp-dropdown>
+            <div class="spt-spacing--1">
+                <spt-dropdown label="formControl 1 (single)" formControlName="field1" hint="initialized with formControl">
+                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                </spt-dropdown>
             </div>
-            <div class="sp-spacing--1">
-                <sp-dropdown label="formControl 2 (single)" formControlName="field2" hint="initialized with formControl">
-                    <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                </sp-dropdown>
+            <div class="spt-spacing--1">
+                <spt-dropdown label="formControl 2 (single)" formControlName="field2" hint="initialized with formControl">
+                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                </spt-dropdown>
             </div>
-            <div class="sp-spacing--1">
-                <sp-dropdown label="ngModel 1 (single)" [(ngModel)]="model2" [ngModelOptions]="{standalone: true}" hint="initialized with ngModel">
-                    <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                </sp-dropdown>
-            </div>
-
-            <div class="sp-spacing--1">
-                <sp-dropdown label="formControl 3 (multiple)" formControlName="field3" hint="initialized with formControl" [selectMultiple]="true">
-                    <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                </sp-dropdown>
+            <div class="spt-spacing--1">
+                <spt-dropdown label="ngModel 1 (single)" [(ngModel)]="model2" [ngModelOptions]="{standalone: true}" hint="initialized with ngModel">
+                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                </spt-dropdown>
             </div>
 
-            <div class="sp-spacing--1">
-                <sp-dropdown label="formControl 4 (multiple)" formControlName="field4" [selectMultiple]="true">
-                    <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                </sp-dropdown>
+            <div class="spt-spacing--1">
+                <spt-dropdown label="formControl 3 (multiple)" formControlName="field3" hint="initialized with formControl" [selectMultiple]="true">
+                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                </spt-dropdown>
             </div>
 
-            <div class="sp-spacing--1">
-                <sp-dropdown label="ngModel 2 (multiple)" [(ngModel)]="model3" [ngModelOptions]="{standalone: true}" [selectMultiple]="true">
-                    <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-                </sp-dropdown>
+            <div class="spt-spacing--1">
+                <spt-dropdown label="formControl 4 (multiple)" formControlName="field4" [selectMultiple]="true">
+                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                </spt-dropdown>
+            </div>
+
+            <div class="spt-spacing--1">
+                <spt-dropdown label="ngModel 2 (multiple)" [(ngModel)]="model3" [ngModelOptions]="{standalone: true}" [selectMultiple]="true">
+                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                </spt-dropdown>
             </div>
 
         </div>
 
-        <div class="sp-spacing-y--2 sp-spacing-x--1">
-            <sp-button [text]="'Save'" [type]="buttonType" [size]="buttonSize" (click)="saveTextField()"></sp-button>
+        <div class="spt-spacing-y--2 spt-spacing-x--1">
+            <spt-button [text]="'Save'" [type]="buttonType" [size]="buttonSize" (click)="saveTextField()"></spt-button>
         </div>
     </form>
 
-    <div *ngIf="showValues" class="sp-spacing-y--1 sp-spacing-x--1">
-        <div class="sp-spacing-y--1 sp-spacing-x--1 dropdown-preview sp-elevation--2">
-            <div class="sp-spacing-y--2">
+    <div *ngIf="showValues" class="spt-spacing-y--1 spt-spacing-x--1">
+        <div class="spt-spacing-y--1 spt-spacing-x--1 dropdown-preview spt-elevation--2">
+            <div class="spt-spacing-y--2">
                 <table>
-                    <tr><td class="sp-spacing-x--1"><strong>formControl 1: </strong></td>
-                        <td class="sp-spacing-x--1">{{savedValues1.field1 || '---'}}</td></tr>
+                    <tr><td class="spt-spacing-x--1"><strong>formControl 1: </strong></td>
+                        <td class="spt-spacing-x--1">{{savedValues1.field1 || '---'}}</td></tr>
 
-                    <tr><td class="sp-spacing-x--1"><strong>formControl 2: </strong></td>
-                        <td class="sp-spacing-x--1">{{savedValues1.field2 || '---'}}</td></tr>
+                    <tr><td class="spt-spacing-x--1"><strong>formControl 2: </strong></td>
+                        <td class="spt-spacing-x--1">{{savedValues1.field2 || '---'}}</td></tr>
 
-                    <tr><td class="sp-spacing-x--1"><strong>ngModel 1: </strong></td>
-                        <td class="sp-spacing-x--1">{{savedValues2.model1 || '---'}}</td></tr>
+                    <tr><td class="spt-spacing-x--1"><strong>ngModel 1: </strong></td>
+                        <td class="spt-spacing-x--1">{{savedValues2.model1 || '---'}}</td></tr>
 
-                    <tr><td class="sp-spacing-x--1"><strong>formControl 3: </strong></td>
-                        <td class="sp-spacing-x--1">{{savedValues1.field3 || '---'}}</td></tr>
+                    <tr><td class="spt-spacing-x--1"><strong>formControl 3: </strong></td>
+                        <td class="spt-spacing-x--1">{{savedValues1.field3 || '---'}}</td></tr>
 
-                    <tr><td class="sp-spacing-x--1"><strong>formControl 4: </strong></td>
-                        <td class="sp-spacing-x--1">{{savedValues1.field4 || '---'}}</td></tr>
+                    <tr><td class="spt-spacing-x--1"><strong>formControl 4: </strong></td>
+                        <td class="spt-spacing-x--1">{{savedValues1.field4 || '---'}}</td></tr>
 
-                    <tr><td class="sp-spacing-x--1"><strong>ngModel 2: </strong></td>
-                        <td class="sp-spacing-x--1">{{savedValues2.model2 || '---'}}</td></tr>
+                    <tr><td class="spt-spacing-x--1"><strong>ngModel 2: </strong></td>
+                        <td class="spt-spacing-x--1">{{savedValues2.model2 || '---'}}</td></tr>
                 </table>
             </div>
         </div>
