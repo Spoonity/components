@@ -1,7 +1,7 @@
 import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { IconComponent } from '../../../sp-components/src/app/Components/Atoms/icon/icon.component';
-import { SpComponentsComponent, SpComponentsModule } from 'sp-components/public_api';
+import { SpComponentsModule } from 'sp-components/public_api';
 import { appSmsIcon } from 'sp-components/src/app/svg/Notification/sms';
 import { SvgIconRegistryService } from 'angular-svg-icon';
 
