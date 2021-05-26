@@ -2,16 +2,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TagType } from '../../../utils/enums';
 
 @Component({
-  selector: 'sp-chip',
+  selector: 'spt-chip',
   templateUrl: './chip.component.html',
   styleUrls: ['./chip.component.less']
 })
 export class ChipComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   @Input() text: string;
   @Input() icon: string;
@@ -21,6 +16,14 @@ export class ChipComponent implements OnInit {
   @Output() onCloseEvent = new EventEmitter<any>();
   @Output() onCheckEvent = new EventEmitter<any>();
 
+  styles: { 'width.px': number; 'height.px': number; };
+
+  constructor() { }
+
+  ngOnInit() {
+    this.styles = { 'width.px': 20, 'height.px': 20 }
+  }
+
   onClose() {
     this.onCloseEvent.emit(true);
   }
@@ -29,11 +32,5 @@ export class ChipComponent implements OnInit {
     this.checked = e;
     this.onCheckEvent.emit(e);
   }
-
-
-
-
-
-
 
 }

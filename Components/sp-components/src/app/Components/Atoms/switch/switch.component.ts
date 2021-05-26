@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sp-switch',
+  selector: 'spt-switch',
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.less']
 })

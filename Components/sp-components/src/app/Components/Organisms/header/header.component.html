@@ -1,13 +1,22 @@
 <div class="header">
-    <div class="sub-header-1">
-        <sp-back-navigation *ngIf="backTitle" [title]="backTitle"></sp-back-navigation>
-        <sp-breadcrumb *ngIf="breadcrumbs" [items]="breadcrumbs"></sp-breadcrumb>
-        <span class="title">{{title}}</span>
+  <div class="sub-header-1">
+    <spt-back-navigation
+      *ngIf="backTitle"
+      [title]="backTitle"
+    ></spt-back-navigation>
+    <spt-breadcrumb *ngIf="breadcrumbs" [items]="breadcrumbs"></spt-breadcrumb>
+    <span class="title">{{ title }}</span>
+  </div>
+  <div class="sub-header-2">
+    <div class="search">
+      <spt-search *ngIf="search"></spt-search>
     </div>
-    <div class="sub-header-2">
-        <div class="search">
-            <sp-search *ngIf="search"></sp-search>
-        </div>
-        <sp-button *ngIf="btnTitle" [text]="btnTitle" [type]="buttonType" [size]="buttonSize" (click)="action()"></sp-button>
-    </div>
+    <spt-button
+      *ngIf="btnTitle"
+      [text]="btnTitle"
+      [type]="buttonType"
+      [size]="buttonSize"
+      (click)="action()"
+    ></spt-button>
+  </div>
 </div>

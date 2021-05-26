@@ -1,9 +1,9 @@
 <div #menuReference class="menu-wrapper" [ngClass]="{'show-menu': isShowing()}">
-    <sp-overlay-template [reference]="menuReference" #menuComp>
-        <div class="menu-container sp-elevation--5">
+    <spt-overlay-template [reference]="menuReference" #menuComp>
+        <div class="menu-container spt-elevation--5">
 
             <!---- search ---->
-            <div *ngIf="search" class="search-container sp-spacing--1">
+            <div *ngIf="search" class="search-container spt-spacing--1">
                 <input #searchEl
                        placeholder="Search"
                        [(ngModel)]="searchModel"
@@ -12,7 +12,7 @@
             </div>
 
             <!---- select all ---->
-            <div *ngIf="multiple && selectAllOption" class="menu-item sp-spacing--1 multiple-menu-item" (click)="toggleSelectAllAction()">
+            <div *ngIf="multiple && selectAllOption" class="menu-item spt-spacing--1 multiple-menu-item" (click)="toggleSelectAllAction()">
                 <div>
                     <label nz-checkbox [(ngModel)]="selectAll" (ngModelChange)="toggleSelectAllAction(true)"></label>
                 </div>
@@ -20,8 +20,8 @@
             </div>
 
             <!-- options list -->
-            <ng-content select="sp-menu-item"></ng-content>
+            <ng-content select="spt-menu-item"></ng-content>
         </div>
-    </sp-overlay-template>
+    </spt-overlay-template>
 </div>
 

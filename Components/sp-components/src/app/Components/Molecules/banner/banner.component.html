@@ -1,5 +1,5 @@
-<div *ngFor="let banner of bannerList" class="sp-spacing-y--1">
-    <div class="sp-elevation--6 banner-component banner-{{banner.type}}" [ngClass]="{'banner-hide': close[banner.id]}">
+<div *ngFor="let banner of bannerList" class="spt-spacing-y--1">
+    <div class="spt-elevation--6 banner-component banner-{{banner.type}}" [ngClass]="{'banner-hide': close[banner.id]}">
         <div class="banner-icon">
             <svg-icon name="{{icon[banner.type]}}" [svgStyle]="{ 'width.px':24 }"></svg-icon>
         </div>

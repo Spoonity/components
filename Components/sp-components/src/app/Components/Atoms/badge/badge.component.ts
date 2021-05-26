@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sp-badge',
+  selector: 'spt-badge',
   templateUrl: './badge.component.html',
   styleUrls: ['./badge.component.less']
 })

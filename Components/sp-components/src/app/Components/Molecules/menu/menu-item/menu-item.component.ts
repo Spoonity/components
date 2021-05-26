@@ -4,7 +4,7 @@ import {MenuService} from '../menu.service';
 import {error} from 'util';
 
 @Component({
-  selector: 'sp-menu-item',
+  selector: 'spt-menu-item',
   templateUrl: './menu-item.component.html',
   styleUrls: ['./menu-item.component.less']
 })
@@ -47,7 +47,7 @@ export class MenuItemComponent implements OnInit {
     // verify input
     if (this.menu.multiple) {
       if (this.itemId == null) {
-        throw new Error('sp-menu-item: missing attribute: itemId for multiple selection');
+        throw new Error('spt-menu-item: missing attribute: itemId for multiple selection');
       }
     }
   }

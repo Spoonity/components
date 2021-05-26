@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NZMODULES } from './NgZorroComponents';
+import { NZMODULES } from './ngZorroComponents';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -52,12 +52,13 @@ import { CardComponent } from './Components/Organisms/card/card.component';
 import { RouterModule } from '@angular/router';
 import { SpComponentsComponent } from './sp-component/sp-components.component';
 import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
+import { DatePickerComponent } from './Components/Molecules/date-picker/date-picker.component';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    SpComponentsComponent,
+    // SpComponentsComponent,
     ChipComponent,
     ButtonComponent,
     TextFieldComponent,
@@ -96,10 +97,11 @@ registerLocaleData(en);
     TableComponent,
     UploadComponent,
     HeaderComponent,
-    CardComponent
+    CardComponent,
+    DatePickerComponent
   ],
   exports: [
-    SpComponentsComponent,
+    // SpComponentsComponent,
     ChipComponent,
     ButtonComponent,
     TextFieldComponent,
@@ -138,7 +140,8 @@ registerLocaleData(en);
     TableComponent,
     UploadComponent,
     HeaderComponent,
-    CardComponent
+    CardComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,

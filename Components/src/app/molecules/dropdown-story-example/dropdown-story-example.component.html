@@ -1,0 +1,11 @@
+<div class="spt-spacing-x--1">
+    <spt-dropdown
+        [label]="label"
+        [size]="size"
+        [error]="error"
+        [isDisabled]="isDisabled"
+        [startIcon]="startIcon"
+        [selectMultiple]="selectMultiple">
+        <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+    </spt-dropdown>
+</div>

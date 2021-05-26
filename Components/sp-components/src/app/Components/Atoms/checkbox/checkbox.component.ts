@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'sp-checkbox',
+  selector: 'spt-checkbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.less']
 })

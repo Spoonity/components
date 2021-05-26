@@ -1,99 +1,99 @@
 <div class="dropdown-example">
     <h2>SEARCH</h2>
     <!----- LARGE ----->
-    <div class="input-large sp-spacing-y--2">
+    <div class="input-large spt-spacing-y--2">
         <h3>Large</h3>
 
-        <div class="sp-spacing-y--1 dropdown-row">
-            <div class="sp-spacing-x--1">
-                <sp-search size="large"
+        <div class="spt-spacing-y--1 dropdown-row">
+            <div class="spt-spacing-x--1">
+                <spt-search size="large"
                            placeholder="Search fruits or vegetables"
                            [(ngModel)]="largeSearchModel"
                            [selectedItems]="largeSelectedItems"
                            (filter)="filter('large')"
                            (itemSelected)="largeItemSelected($event)"
                            (itemRemoved)="largeItemRemoved($event)">
-                    <sp-search-option [value]="f" *ngFor="let f of largeFilteredList">
+                    <spt-search-option [value]="f" *ngFor="let f of largeFilteredList">
                         <span>{{f.name}} - </span>
                         <span class="light"><em>{{f.type}} </em></span>
                         <span class="light">(color: {{f.color}})</span>
-                    </sp-search-option>
-                </sp-search>
+                    </spt-search-option>
+                </spt-search>
             </div>
         </div>
     </div>
 
 
     <!----- MEDIUM ----->
-    <div class="input-large sp-spacing-y--2">
+    <div class="input-large spt-spacing-y--2">
         <h3>Medium</h3>
 
-        <div class="sp-spacing-y--1 dropdown-row">
-            <div class="sp-spacing-x--1">
-                <sp-search placeholder="Search fruits or vegetables"
+        <div class="spt-spacing-y--1 dropdown-row">
+            <div class="spt-spacing-x--1">
+                <spt-search placeholder="Search fruits or vegetables"
                            [(ngModel)]="mediumSearchModel"
                            [selectedItems]="mediumSelectedItems"
                            (filter)="filter('medium')"
                            (itemSelected)="mediumItemSelected($event)"
                            (itemRemoved)="mediumItemRemoved($event)">
-                    <sp-search-option [value]="f" *ngFor="let f of mediumFilteredList">
+                    <spt-search-option [value]="f" *ngFor="let f of mediumFilteredList">
                         <span>{{f.name}} - </span>
                         <span class="light"><em>{{f.type}} </em></span>
                         <span class="light">(color: {{f.color}})</span>
-                    </sp-search-option>
-                </sp-search>
+                    </spt-search-option>
+                </spt-search>
             </div>
         </div>
     </div>
 
     <!----- SMALL ----->
-    <div class="input-large sp-spacing-y--2">
+    <div class="input-large spt-spacing-y--2">
         <h3>Small</h3>
 
-        <div class="sp-spacing-y--1 dropdown-row">
-            <div class="sp-spacing-x--1">
-                <sp-search placeholder="Search fruits or vegetables"
+        <div class="spt-spacing-y--1 dropdown-row">
+            <div class="spt-spacing-x--1">
+                <spt-search placeholder="Search fruits or vegetables"
                            size="small"
                            [(ngModel)]="smallSearchModel"
                            [selectedItems]="smallSelectedItems"
                            (filter)="filter('small')"
                            (itemSelected)="smallItemSelected($event)"
                            (itemRemoved)="smallItemRemoved($event)">
-                    <sp-search-option [value]="f" *ngFor="let f of smallFilteredList">
+                    <spt-search-option [value]="f" *ngFor="let f of smallFilteredList">
                         <span>{{f.name}} - </span>
                         <span class="light"><em>{{f.type}} </em></span>
                         <span class="light">(color: {{f.color}})</span>
-                    </sp-search-option>
-                </sp-search>
+                    </spt-search-option>
+                </spt-search>
             </div>
         </div>
     </div>
 
     <!----- NO DROPDOWN ----->
-    <div class="input-large sp-spacing-y--2">
+    <div class="input-large spt-spacing-y--2">
         <h3>Example without showing dropdown</h3>
 
-        <div class="sp-spacing-y--1 dropdown-row">
-            <div class="sp-spacing-x--1">
-                <sp-search placeholder="Search fruits or vegetables"
+        <div class="spt-spacing-y--1 dropdown-row">
+            <div class="spt-spacing-x--1">
+                <spt-search placeholder="Search fruits or vegetables"
                            size="small"
                            [(ngModel)]="noDropdownSearchModel"
                            [maximumSelection]="0"
                            (filter)="filter('noDropdown')">
-                </sp-search>
+                </spt-search>
             </div>
-            <div class="sp-spacing-y--1">
+            <div class="spt-spacing-y--1">
                 <h4>Search Results:</h4>
                 <p *ngIf="getNoDropdownList().length === 0" class="light"><em>No Items to show</em></p>
 
-                <div *ngFor="let f of getNoDropdownList()" class="sp-spacing--1" style="border-bottom: 1px solid #eee">
+                <div *ngFor="let f of getNoDropdownList()" class="spt-spacing--1" style="border-bottom: 1px solid #eee">
                     <span>{{f.name}} - </span>
                     <span class="light"><em>{{f.type}} </em></span>
                     <span class="light">(color: {{f.color}})</span>
                 </div>
 
                 <ng-template #noDropdownItem>
-                    <li class="sp-spacing-y--1" style="border-bottom: 1px solid #eee">
+                    <li class="spt-spacing-y--1" style="border-bottom: 1px solid #eee">
 
                     </li>
                 </ng-template>

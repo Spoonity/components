@@ -1,7 +1,7 @@
 <!-- Menu Item -->
 <ng-container *ngIf="type == 'menuItem'">
-    <li nz-menu-item class="side-navigation-component">
-        <span>
+  <li nz-menu-item class="side-navigation-component">
+    <span>
       <svg-icon
         *ngIf="icon"
         nz-icon
@@ -9,25 +9,27 @@
         [name]="icon"
       ></svg-icon
     ></span>
-        <span class="text">{{ text }}</span>
-    </li>
+    <span class="text">{{ text }}</span>
+  </li>
 </ng-container>
 
 <!-- Sub Menu -->
 <ng-container *ngIf="type == 'subMenu'">
-    <li [nzTitle]="text" nzOpen nz-submenu>
-        <span title><span>
+  <li [nzTitle]="text" nzOpen nz-submenu>
+    <span title
+      ><span>
         <svg-icon
           *ngIf="icon"
           nz-icon
           [svgStyle]="{ 'height.px': 20 }"
           [name]="icon"
         ></svg-icon></span
-      ><span>{{ text }}</span></span>
-        <ul>
-            <ng-container *ngFor="let item of items">
-                <li nz-menu-item>
-                    <span>
+      ><span>{{ text }}</span></span
+    >
+    <ul>
+      <ng-container *ngFor="let item of items">
+        <li nz-menu-item>
+          <span>
             <svg-icon
               *ngIf="item.icon"
               nz-icon
@@ -35,14 +37,14 @@
               [name]="item.icon"
             ></svg-icon
           ></span>
-                    <span class="text">{{ item.text }}</span>
-                </li>
-            </ng-container>
-        </ul>
-    </li>
+          <span class="text">{{ item.text }}</span>
+        </li>
+      </ng-container>
+    </ul>
+  </li>
 </ng-container>
 
 <!-- Menu -->
 <ng-container *ngIf="type == 'menu'">
-    <ul nz-menu></ul>
+  <ul nz-menu></ul>
 </ng-container>

@@ -33,7 +33,7 @@
                             }
                         ],
                         "styles": [
-                            "src/styles.less"
+                            "sp-components/src/app/sp-component/styles/main.less"
                         ],
                         "scripts": []
                     },
@@ -96,7 +96,7 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "src/styles.less"
+                            "sp-components/src/app/sp-component/styles/main.less"
                         ],
                         "scripts": []
                     }

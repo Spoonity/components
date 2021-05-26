@@ -3,7 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {ButtonSize, ButtonType} from '../../utils/enums';
 
 @Component({
-  selector: 'sp-dropdown-example',
+  selector: 'spt-dropdown-example',
   templateUrl: './dropdown-example.component.html',
   styleUrls: ['./dropdown-example.component.less']
 })

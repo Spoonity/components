@@ -12,7 +12,7 @@ interface IBanner {
 }
 
 @Component({
-  selector: 'sp-molecules',
+  selector: 'spt-molecules',
   templateUrl: './molecules.component.html',
   styleUrls: ['./molecules.component.less']
 })

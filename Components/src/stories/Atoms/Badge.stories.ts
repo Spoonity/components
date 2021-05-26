@@ -1,0 +1,34 @@
+import { moduleMetadata } from '@storybook/angular';
+import { Story, Meta } from '@storybook/angular/types-6-0';
+import { BadgeComponent } from '../../../sp-components/src/app/Components/Atoms/badge/badge.component';
+import { SpComponentsModule } from 'sp-components/public_api';
+
+export default {
+  title: 'Atoms/Badge',
+  component: BadgeComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [SpComponentsModule],
+    }),
+  ],
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<sp-badge [color]="coler" [name]="name"></sp-badge>`
+      }
+    }
+  }
+} as Meta;
+
+const Template: Story<BadgeComponent> = (args: BadgeComponent) => ({
+  props: args,
+});
+
+export const Color = Template.bind({});
+Color.args = {
+    name: 'Badge',
+    color: '#42A5F5',
+};

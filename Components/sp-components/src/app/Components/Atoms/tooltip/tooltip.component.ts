@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sp-tooltip',
+  selector: 'spt-tooltip',
   templateUrl: './tooltip.component.html',
   styleUrls: ['./tooltip.component.less']
 })

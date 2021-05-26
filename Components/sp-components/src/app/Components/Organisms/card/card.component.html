@@ -1,136 +1,205 @@
-<div [ngClass]="{ 'card' : campaign || giftManagement, 'cardForCustomer' : customer }"
-(mouseover)="isMouseOver=true" (mouseout)="isMouseOver=false"
-[ngStyle]="{'background-color': customer?.isSelect ? '#F3F3F3' : ''}"
+<div
+  [ngClass]="{ card: campaign || giftManagement, cardForCustomer: customer }"
+  (mouseover)="isMouseOver = true"
+  (mouseout)="isMouseOver = false"
+  [ngStyle]="{ 'background-color': customer?.isSelect ? '#F3F3F3' : '' }"
 >
-    <div class="col1">
-        <div class="campaign">
-            <div class="campaign" *ngIf="campaign">
-                <sp-icon class="icons" [toolTipTittle]="campaign.plataform" [name]="campaign.plataform"></sp-icon>
-                <span class="shadow-text" *ngIf="campaign.plataform === 'sms'"><b>{{campaign.plataform | uppercase}}</b></span>
-                <!-- <span class="shadow-text" *ngIf="cardType === 'email'"><b>Email</b></span>
-                <span class="shadow-text" *ngIf="cardType === 'smartphone'"><b>Smartphone</b></span> -->
-            </div>
-            <div class="campaign" *ngIf="customer" [ngStyle]="{'background-color': !isMouseOver ? backgroundColor : ''}">
-                <sp-avatar [hidden]="isMouseOver" [text]="customer.name | slice : 0 : 1" [size]="avatarSize" [backgroundColor]="backgroundColor" [color]="color"></sp-avatar>
-                <sp-checkbox [hidden]="!isMouseOver" [check]="customer.isSelect" (onChangeEvent)="customer.isSelect=$event"></sp-checkbox>
-            </div>
-            <div class="campaign" *ngIf="giftManagement">
-                <sp-icon class="icons" [toolTipTittle]="redeem" [name]="redeem"></sp-icon>
-            </div>
-        </div>
-        <div class="content" >
-            <div class="content" *ngIf="campaign">
-                <div class="sub-content1">
-                    <sp-badge class="badge" [color]="campaign.isSend ? '#66BB6A' : '#EF5350' " [name]="campaign.isSend ? 'SEND' : 'SENDING'"></sp-badge>
-                    <span class="shadow-text">Created: {{campaign.dateCreated}}</span>
-                </div>
-                <span>{{campaign.title}}</span>
-                <div class="sub-content2">
-                    <sp-icon class="icons" [toolTipTittle]="people" [name]="people"></sp-icon>
-                    <span class="shadow-text">{{campaign.targetGroup}}</span>
-                </div>
-            </div>
-            <div class="content" *ngIf="customer">
-                <div class="sub-content3">
-                    <span>{{customer.name}}</span>
-                    <span class="shadow-text">Member Since: {{customer.dateCreated}}</span>
-                </div>
-            </div>
-            <div class="content" *ngIf="giftManagement">
-                <div class="sub-content1">
-                    <sp-badge class="badge" [name]="giftManagement.deliverProcess | uppercase" color="#66BB6A"></sp-badge>
-                    <span class="shadow-text">Created: {{giftManagement.dateCreated}}</span>
-                </div>
-                <span><b>ID: {{giftManagement.id}}</b></span>
-            </div>
-        </div>
+  <div class="col1">
+    <div class="campaign">
+      <div class="campaign" *ngIf="campaign">
+        <spt-icon
+          class="icons"
+          [toolTipTittle]="campaign.plataform"
+          [name]="campaign.plataform"
+        ></spt-icon>
+        <span class="shadow-text" *ngIf="campaign.plataform === 'sms'"
+          ><b>{{ campaign.plataform | uppercase }}</b></span
+        >
+      </div>
+      <div
+        class="campaign"
+        *ngIf="customer"
+        [ngStyle]="{ 'background-color': !isMouseOver ? white : '' }"
+      >
+        <spt-avatar
+          [hidden]="isMouseOver"
+          [text]="customer.name | slice: 0:1"
+          [size]="avatarSize"
+          [backgroundColor]="white"
+          [color]="red"
+        ></spt-avatar>
+        <spt-checkbox
+          [hidden]="!isMouseOver"
+          [check]="customer.isSelect"
+          (onChangeEvent)="customer.isSelect = $event"
+        ></spt-checkbox>
+      </div>
+      <div class="campaign" *ngIf="giftManagement">
+        <spt-icon
+          class="icons"
+          [toolTipTittle]="redeem"
+          [name]="redeem"
+        ></spt-icon>
+      </div>
     </div>
-    <div class="col2">
-        <div class="col2" *ngIf="campaign">
-            <div class="printer-container">
-                <span class="shadow-text">Send</span>
-                <div class="printer">
-                    <span>{{campaign.sendCount === 0 ? '0' : campaign.sendCount}}</span>
-                </div>
-            </div>
-            <div class="sendIcon">
-                <sp-icon class="icons" [toolTipTittle]="send" [name]="send"></sp-icon>
-            </div>
-            <div class="printer-container">
-                <span class="shadow-text">Open</span>
-                <div class="printer">
-                    <span>{{campaign.openCount === 0 ? '--' : campaign.openCount + '%'}}</span>
-                </div>
-            </div>
-            <div class="sendIcon">
-                <sp-icon class="icons" [toolTipTittle]="send" [name]="send"></sp-icon>
-            </div>
-            <div class="printer-container">
-                <span class="shadow-text">Visit</span>
-                <div class="printer">
-                    <span>{{campaign.visitCount === 0 ? '--' : campaign.visitCount}}</span>
-                </div>
-            </div>
-            <div class="sendIcon">
-                <sp-icon class="icons" [toolTipTittle]="send" [name]="send"></sp-icon>
-            </div>
-            <div class="printer-container">
-                <span class="shadow-text">Spend</span>
-                <div class="printer">
-                    <span>{{campaign.spendCount === 0 ? '--' : '$'+ campaign.spendCount}}</span>
-                </div>
-            </div>
-            <div class="moreVertIcon">
-                <sp-icon class="icons" [toolTipTittle]="moreVert" [name]="moreVert" (click)="option()"></sp-icon>
-            </div>
+    <div class="content">
+      <div class="content" *ngIf="campaign">
+        <div class="sub-content1">
+          <spt-badge
+            class="badge"
+            [color]="campaign.isSend ? green : red"
+            [name]="campaign.isSend ? 'SEND' : 'SENDING'"
+          ></spt-badge>
+          <span class="shadow-text">Created: {{ campaign.dateCreated }}</span>
         </div>
-
-
-        <div class="col2" *ngIf="customer">
-            <div class="sub-content3">
-                <div>
-                    <sp-icon class="icons" [toolTipTittle]="email" [name]="email"></sp-icon>
-                    <span class="shadow-text">Email</span>
-                </div>
-                <div class="sub-content4">
-                    <span>{{customer.email}}</span>
-                </div>
-            </div>
-            <div class="sub-content3">
-                <div>
-                    <sp-icon class="icons" [toolTipTittle]="call" [name]="call"></sp-icon>
-                    <span class="shadow-text">Phone</span>
-                </div>
-                <div class="sub-content4">
-                    <span>{{customer.phone}}</span>
-                </div>
-            </div>
+        <span>{{ campaign.title }}</span>
+        <div class="sub-content2">
+          <spt-icon
+            class="icons"
+            [toolTipTittle]="people"
+            [name]="people"
+          ></spt-icon>
+          <span class="shadow-text">{{ campaign.targetGroup }}</span>
         </div>
-
-
-        <div class="col2" *ngIf="giftManagement">
-            <div class="sub-content3">
-                <div>
-                    <sp-icon class="icons" [toolTipTittle]="email" [name]="email"></sp-icon>
-                    <span class="shadow-text">Email</span>
-                </div>
-                <div class="sub-content4">
-                    <span>{{giftManagement.email}}</span>
-                </div>
-            </div>
-            <div class="sub-content3">
-                <div>
-                    <sp-icon class="icons" [toolTipTittle]="call" [name]="call"></sp-icon>
-                    <span class="shadow-text">Phone</span>
-                </div>
-                <div class="sub-content4">
-                    <span>{{giftManagement.phone}}</span>
-                </div>
-            </div>
+      </div>
+      <div class="content" *ngIf="customer">
+        <div class="sub-content3">
+          <span>{{ customer.name }}</span>
+          <span class="shadow-text"
+            >Member Since: {{ customer.dateCreated }}</span
+          >
         </div>
+      </div>
+      <div class="content" *ngIf="giftManagement">
+        <div class="sub-content1">
+          <spt-badge
+            class="badge"
+            [name]="giftManagement.deliverProcess | uppercase"
+            color="#66BB6A"
+          ></spt-badge>
+          <span class="shadow-text"
+            >Created: {{ giftManagement.dateCreated }}</span
+          >
+        </div>
+        <span
+          ><b>ID: {{ giftManagement.id }}</b></span
+        >
+      </div>
     </div>
-    <div class="col3" *ngIf="giftManagement">
-        <sp-button [size]="buttonSize" [type]="btnType" [text]="'CANCEL'" (click)="cancel()"></sp-button>
-        <sp-button [size]="buttonSize" [type]="btnType" [text]="'GO TO GUEST'" (click)="goToGuest()"></sp-button>
+  </div>
+  <div class="col2">
+    <div class="col2" *ngIf="campaign">
+      <div class="printer-container">
+        <span class="shadow-text">Send</span>
+        <div class="printer">
+          <span>{{ campaign.sendCount === 0 ? "0" : campaign.sendCount }}</span>
+        </div>
+      </div>
+      <div class="sendIcon">
+        <spt-icon class="icons" [toolTipTittle]="send" [name]="send"></spt-icon>
+      </div>
+      <div class="printer-container">
+        <span class="shadow-text">Open</span>
+        <div class="printer">
+          <span>{{
+            campaign.openCount === 0 ? "--" : campaign.openCount + "%"
+          }}</span>
+        </div>
+      </div>
+      <div class="sendIcon">
+        <spt-icon class="icons" [toolTipTittle]="send" [name]="send"></spt-icon>
+      </div>
+      <div class="printer-container">
+        <span class="shadow-text">Visit</span>
+        <div class="printer">
+          <span>{{
+            campaign.visitCount === 0 ? "--" : campaign.visitCount
+          }}</span>
+        </div>
+      </div>
+      <div class="sendIcon">
+        <spt-icon class="icons" [toolTipTittle]="send" [name]="send"></spt-icon>
+      </div>
+      <div class="printer-container">
+        <span class="shadow-text">Spend</span>
+        <div class="printer">
+          <span>{{
+            campaign.spendCount === 0 ? "--" : "$" + campaign.spendCount
+          }}</span>
+        </div>
+      </div>
+      <div class="moreVertIcon">
+        <spt-icon
+          class="icons"
+          [toolTipTittle]="moreVert"
+          [name]="moreVert"
+          (click)="option()"
+        ></spt-icon>
+      </div>
     </div>
+
+    <div class="col2" *ngIf="customer">
+      <div class="sub-content3">
+        <div>
+          <spt-icon
+            class="icons"
+            [toolTipTittle]="email"
+            [name]="email"
+          ></spt-icon>
+          <span class="shadow-text">Email</span>
+        </div>
+        <div class="sub-content4">
+          <span>{{ customer.email }}</span>
+        </div>
+      </div>
+      <div class="sub-content3">
+        <div>
+          <spt-icon class="icons" [toolTipTittle]="call" [name]="call"></spt-icon>
+          <span class="shadow-text">Phone</span>
+        </div>
+        <div class="sub-content4">
+          <span>{{ customer.phone }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col2" *ngIf="giftManagement">
+      <div class="sub-content3">
+        <div>
+          <spt-icon
+            class="icons"
+            [toolTipTittle]="email"
+            [name]="email"
+          ></spt-icon>
+          <span class="shadow-text">Email</span>
+        </div>
+        <div class="sub-content4">
+          <span>{{ giftManagement.email }}</span>
+        </div>
+      </div>
+      <div class="sub-content3">
+        <div>
+          <spt-icon class="icons" [toolTipTittle]="call" [name]="call"></spt-icon>
+          <span class="shadow-text">Phone</span>
+        </div>
+        <div class="sub-content4">
+          <span>{{ giftManagement.phone }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col3" *ngIf="giftManagement">
+    <spt-button
+      [size]="buttonSize"
+      [type]="btnType"
+      [text]="'CANCEL'"
+      (click)="cancel()"
+    ></spt-button>
+    <spt-button
+      [size]="buttonSize"
+      [type]="btnType"
+      [text]="'GO TO GUEST'"
+      (click)="goToGuest()"
+    ></spt-button>
+  </div>
 </div>
