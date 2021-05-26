@@ -1,5 +1,5 @@
 {
-    "name": "sp-components",
+    "name": "@spoonity/sp-components",
     "version": "0.0.1",
     "peerDependencies": {
         "@angular/core": "~11.0.0",

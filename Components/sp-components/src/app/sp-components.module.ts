@@ -58,7 +58,7 @@ registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    // SpComponentsComponent,
+    SpComponentsComponent,
     ChipComponent,
     ButtonComponent,
     TextFieldComponent,
@@ -101,7 +101,7 @@ registerLocaleData(en);
     DatePickerComponent
   ],
   exports: [
-    // SpComponentsComponent,
+    SpComponentsComponent,
     ChipComponent,
     ButtonComponent,
     TextFieldComponent,

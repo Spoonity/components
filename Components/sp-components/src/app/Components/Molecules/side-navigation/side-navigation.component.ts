@@ -13,8 +13,8 @@ export class SideNavigationComponent implements OnInit {
   @Input() icon: string;
   @Input() text: string;
   @Input() disabled: boolean;
-  // @Input() items = new Array<MenuItems>();
-  // @Input() type: SideNavigationType;
+  @Input() items = new Array<MenuItems>();
+  @Input() type: SideNavigationType;
 
 
   constructor() { }
