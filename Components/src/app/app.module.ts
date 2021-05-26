@@ -26,6 +26,7 @@ import { SnackBarExampleComponent } from './molecules/snack-bar-example/snack-ba
 import { MenuStoryExampleComponent } from './molecules/menu-story-example/menu-story-example.component';
 import { SearchStoryExampleComponent } from './molecules/search-story-example/search-story-example.component';
 import { TextFieldStoryExampleComponent } from './molecules/text-field-story-example/text-field-story-example.component';
+import { DropdownStoryExampleComponent } from './molecules/dropdown-story-example/dropdown-story-example.component';
 
 registerLocaleData(en);
 
@@ -40,6 +41,7 @@ registerLocaleData(en);
     SearchExampleComponent,
     DropdownExampleComponent,
     DatePickerExampleComponent,
+    DropdownStoryExampleComponent,
     DialogsExampleComponent,
     UploadExampleComponent,
     SnackBarExampleComponent,

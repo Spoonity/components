@@ -3,7 +3,7 @@ import {SearchComponent} from '../search.component';
 import {SearchService} from '../search.service';
 
 @Component({
-  selector: 'sp-search-option',
+  selector: 'spt-search-option',
   templateUrl: './search-option.component.html',
   styleUrls: ['./search-option.component.less']
 })

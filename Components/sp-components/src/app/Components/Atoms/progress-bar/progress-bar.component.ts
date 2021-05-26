@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ProgressType } from '../../../utils/enums';
 
 @Component({
-  selector: 'sp-progress-bar',
+  selector: 'spt-progress-bar',
   templateUrl: './progress-bar.component.html',
   styleUrls: ['./progress-bar.component.less']
 })

@@ -14,7 +14,7 @@ import {MenuItemComponent} from './menu-item/menu-item.component';
 import {MenuService} from './menu.service';
 
 @Component({
-  selector: 'sp-menu',
+  selector: 'spt-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.less'],
   providers: [MenuService]

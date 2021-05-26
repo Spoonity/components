@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MenuStoryExampleComponent implements OnInit {
 
-  menuItems = [
+  items = [
     {id: 0, text: 'A - option 1', icon: 'favorite'},
     {id: 1, text: 'B - option 2', icon: 'favorite'},
     {id: 2, text: 'C - option 3', icon: 'favorite'},
@@ -20,6 +20,7 @@ export class MenuStoryExampleComponent implements OnInit {
   @Input() search = false;
   @Input() selectAllOption = false;
   @Input() iconName: string = null;
+  @Input() menuItems = this.items;
 
   actionText: {[key: string]: any} = {};
 
@@ -45,14 +46,14 @@ export class MenuStoryExampleComponent implements OnInit {
     const _selected = this._addSelectedItems(_filtered, this.selectedItems);
     this.filteredMenuItems = _filtered.concat(_selected);
   }
-  
+
 
     private _addSelectedItems(filteredItems: any[], selectedItems: string[]) {
       return Array.from(
         this.menuItems.filter(s => selectedItems.includes(s.id.toString()) && !filteredItems.includes(s.id.toString()))
       );
     }
-  
+
     private _filter(model: string) {
       if (model === '' || model == null) {
         return Array.from(this.menuItems);

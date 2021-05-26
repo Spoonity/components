@@ -2,7 +2,7 @@ import { Component, Input, OnInit, TemplateRef, ViewChild, ViewContainerRef } fr
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 
 @Component({
-  selector: 'sp-dialogs',
+  selector: 'spt-dialogs',
   templateUrl: './dialogs.component.html',
   styleUrls: ['./dialogs.component.less']
 })

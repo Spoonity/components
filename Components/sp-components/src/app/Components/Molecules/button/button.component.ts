@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ButtonSize, ButtonType } from '../../../utils/enums';
 
 @Component({
-  selector: 'sp-button',
+  selector: 'spt-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.less']
 })

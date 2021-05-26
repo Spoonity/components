@@ -2,8 +2,8 @@
 
 import { create } from '@storybook/theming';
 
-export default create({
+export const theme = create({
   base: 'light',
   brandTitle: 'Spoonity',
-  brandImage: '../src/assets/spoonity_logo.png',
+  brandImage: 'assets/spoonity_logo_small.png',
 });

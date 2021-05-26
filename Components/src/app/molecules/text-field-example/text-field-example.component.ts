@@ -3,7 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import { ButtonSize, ButtonType } from '../../utils/enums';
 
 @Component({
-  selector: 'sp-text-field-example',
+  selector: 'spt-text-field-example',
   templateUrl: './text-field-example.component.html',
   styleUrls: ['./text-field-example.component.less']
 })

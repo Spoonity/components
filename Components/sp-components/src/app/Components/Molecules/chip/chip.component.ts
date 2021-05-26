@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TagType } from '../../../utils/enums';
 
 @Component({
-  selector: 'sp-chip',
+  selector: 'spt-chip',
   templateUrl: './chip.component.html',
   styleUrls: ['./chip.component.less']
 })

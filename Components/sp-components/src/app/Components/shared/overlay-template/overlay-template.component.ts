@@ -3,7 +3,7 @@ import { CdkPortal } from '@angular/cdk/portal';
 import {Overlay, OverlayConfig, OverlayRef} from '@angular/cdk/overlay';
 
 @Component({
-  selector: 'sp-overlay-template',
+  selector: 'spt-overlay-template',
   templateUrl: './overlay-template.component.html'
 })
 export class OverlayTemplateComponent implements OnInit {

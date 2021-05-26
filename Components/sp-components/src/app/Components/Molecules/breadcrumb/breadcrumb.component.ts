@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sp-breadcrumb',
+  selector: 'spt-breadcrumb',
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.less']
 })
@@ -9,7 +9,7 @@ export class BreadcrumbComponent implements OnInit {
 
   constructor() { }
 
-  @Input() items: [{ label: '', route: '' }];
+  @Input() items: { label: string, route: string }[];
 
   ngOnInit() {
   }

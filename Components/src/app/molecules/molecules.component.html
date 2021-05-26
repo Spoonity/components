@@ -3,18 +3,18 @@
         <h2>BUTTONS</h2>
 
         <div class="button-filters">
-            <div class="sp-spacing-x--1">
-                <sp-dropdown [(ngModel)]="buttonType" size="small" label="Button Type">
-                    <sp-option *ngFor="let enum of enumButtonType | keyvalue" [value]="enum.value" [text]="enum.key">
-                    </sp-option>
-                </sp-dropdown>
+            <div class="spt-spacing-x--1">
+                <spt-dropdown [(ngModel)]="buttonType" size="small" label="Button Type">
+                    <spt-option *ngFor="let enum of enumButtonType | keyvalue" [value]="enum.value" [text]="enum.key">
+                    </spt-option>
+                </spt-dropdown>
             </div>
 
-            <div class="sp-spacing-x--1">
-                <sp-dropdown [(ngModel)]="buttonSize" size="small" label="Button Size">
-                    <sp-option *ngFor="let enum of enumButtonSize | keyvalue" [value]="enum.value" [text]="enum.key">
-                    </sp-option>
-                </sp-dropdown>
+            <div class="spt-spacing-x--1">
+                <spt-dropdown [(ngModel)]="buttonSize" size="small" label="Button Size">
+                    <spt-option *ngFor="let enum of enumButtonSize | keyvalue" [value]="enum.value" [text]="enum.key">
+                    </spt-option>
+                </spt-dropdown>
             </div>
         </div>
 
@@ -34,11 +34,11 @@
                         No Icon
                     </th>
                     <th>
-                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize"></sp-button>
+                        <spt-button [text]="'Button'" [type]="buttonType" [size]="buttonSize"></spt-button>
                     </th>
                     <th>
-                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [disabled]="'true'">
-                        </sp-button>
+                        <spt-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [disabled]="'true'">
+                        </spt-button>
                     </th>
                 </tr>
                 <tr>
@@ -46,12 +46,12 @@
                         With Icon Left
                     </th>
                     <td>
-                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [leftIcon]="'favorite'">
-                        </sp-button>
+                        <spt-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [leftIcon]="'favorite'">
+                        </spt-button>
                     </td>
                     <td>
-                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [leftIcon]="'favorite'"
-                            [disabled]="'true'"></sp-button>
+                        <spt-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [leftIcon]="'favorite'"
+                            [disabled]="'true'"></spt-button>
                     </td>
                 </tr>
                 <tr>
@@ -59,12 +59,12 @@
                         With Icon Right
                     </th>
                     <td>
-                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'">
-                        </sp-button>
+                        <spt-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'">
+                        </spt-button>
                     </td>
                     <td>
-                        <sp-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'"
-                            [disabled]="'true'"></sp-button>
+                        <spt-button [text]="'Button'" [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'"
+                            [disabled]="'true'"></spt-button>
                     </td>
                 </tr>
                 <tr>
@@ -72,11 +72,11 @@
                         Only Icon
                     </th>
                     <td>
-                        <sp-button [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'"></sp-button>
+                        <spt-button [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'"></spt-button>
                     </td>
                     <td>
-                        <sp-button [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'" [disabled]="'true'">
-                        </sp-button>
+                        <spt-button [type]="buttonType" [size]="buttonSize" [rightIcon]="'favorite'" [disabled]="'true'">
+                        </spt-button>
                     </td>
                 </tr>
             </table>
@@ -101,10 +101,10 @@
                         No Icon
                     </th>
                     <th>
-                        <sp-chip [text]="'Chip'"></sp-chip>
+                        <spt-chip [text]="'Chip'"></spt-chip>
                     </th>
                     <th>
-                        <sp-chip [text]="'Chip'" [disabled]="true"></sp-chip>
+                        <spt-chip [text]="'Chip'" [disabled]="true"></spt-chip>
                     </th>
                 </tr>
                 <tr>
@@ -112,10 +112,10 @@
                         With Icon
                     </th>
                     <td>
-                        <sp-chip [text]="'Chip'" [icon]="'favorite'"></sp-chip>
+                        <spt-chip [text]="'Chip'" [icon]="'favorite'"></spt-chip>
                     </td>
                     <td>
-                        <sp-chip [text]="'Chip'" [icon]="'favorite'" [disabled]="true"></sp-chip>
+                        <spt-chip [text]="'Chip'" [icon]="'favorite'" [disabled]="true"></spt-chip>
                     </td>
                 </tr>
                 <tr>
@@ -123,12 +123,12 @@
                         Closeable
                     </th>
                     <td>
-                        <sp-chip [text]="'Chip'" [icon]="'favorite'" [mode]="'closeable'" (onCloseEvent)="onClose()">
-                        </sp-chip>
+                        <spt-chip [text]="'Chip'" [icon]="'favorite'" [mode]="'closeable'" (onCloseEvent)="onClose()">
+                        </spt-chip>
                     </td>
                     <td>
-                        <sp-chip [text]="'Chip'" [icon]="'favorite'" [mode]="'closeable'" (onCloseEvent)="onClose()"
-                            [disabled]="true"></sp-chip>
+                        <spt-chip [text]="'Chip'" [icon]="'favorite'" [mode]="'closeable'" (onCloseEvent)="onClose()"
+                            [disabled]="true"></spt-chip>
                     </td>
                 </tr>
                 <tr>
@@ -137,12 +137,12 @@
                     </th>
 
                     <td>
-                        <sp-chip [text]="'Chip'" [mode]="'checkable'" [checked]="true"
-                            (onCheckEvent)="checkChange($event)"></sp-chip>
+                        <spt-chip [text]="'Chip'" [mode]="'checkable'" [checked]="true"
+                            (onCheckEvent)="checkChange($event)"></spt-chip>
                     </td>
                     <td>
-                        <sp-chip [text]="'Chip'" [mode]="'checkable'" [checked]="true"
-                            (onCheckEvent)="checkChange($event)" [disabled]="true"></sp-chip>
+                        <spt-chip [text]="'Chip'" [mode]="'checkable'" [checked]="true"
+                            (onCheckEvent)="checkChange($event)" [disabled]="true"></spt-chip>
                     </td>
                 </tr>
             </table>
@@ -151,62 +151,62 @@
 
     <!-- BANNER -->
 
-    <div class="section banner-section sp-spacing-y--4">
+    <div class="section banner-section spt-spacing-y--4">
         <h2>BANNER</h2>
         <p class="banner-reset" (click)="resetBanner()">Reset</p>
         <div class="banner-container" *ngIf="banners.length > 0">
-            <sp-banner [bannerList]="banners"></sp-banner>
+            <spt-banner [bannerList]="banners"></spt-banner>
         </div>
     </div>
 
-    <div class="section sp-spacing-y--4">
+    <div class="section spt-spacing-y--4">
         <h2>Steps</h2>
-        <sp-steps [current]="currentStep" [steps]="steps" [type]="'navigation'"
-            (onIndexChangeEvent)="onIndexChange($event)"></sp-steps>
+        <spt-steps [current]="currentStep" [steps]="steps" [type]="'navigation'"
+            (onIndexChangeEvent)="onIndexChange($event)"></spt-steps>
     </div>
 
     <!-- Text field Example -->
-    <div class="section sp-spacing-y--4">
-        <sp-text-field-example></sp-text-field-example>
+    <div class="section spt-spacing-y--4">
+        <spt-text-field-example></spt-text-field-example>
     </div>
 
     <!-- Dropdown Example -->
-    <div class="section sp-spacing-y--4">
-        <sp-dropdown-example></sp-dropdown-example>
+    <div class="section spt-spacing-y--4">
+        <spt-dropdown-example></spt-dropdown-example>
     </div>
 
     <!-- Search Example -->
-    <div class="section sp-spacing-y--4">
-        <sp-search-example></sp-search-example>
+    <div class="section spt-spacing-y--4">
+        <spt-search-example></spt-search-example>
     </div>
 
     <!-- Date Picker Example -->
-    <div class="section sp-spacing-y--4">
-        <sp-date-picker-example></sp-date-picker-example>
+    <div class="section spt-spacing-y--4">
+        <spt-date-picker-example></spt-date-picker-example>
     </div>
 
     <!-- Back Navigation -->
-    <div class="section sp-spacing-y--4">
+    <div class="section spt-spacing-y--4">
         <h2>Back Navigation</h2>
-        <sp-back-navigation title="Back" subTitle="This is a subtitle"></sp-back-navigation>
+        <spt-back-navigation title="Back" subTitle="This is a subtitle"></spt-back-navigation>
     </div>
 
     <!-- Breadcrumb -->
-    <div class="section sp-spacing-y--4">
+    <div class="section spt-spacing-y--4">
         <h2>Breadcrumb</h2>
-        <sp-breadcrumb [items]="breadcrumbItems"></sp-breadcrumb>
+        <spt-breadcrumb [items]="breadcrumbItems"></spt-breadcrumb>
     </div>
 
     <!-- Snackbar -->
-    <div class="section sp-spacing-y--4">
+    <div class="section spt-spacing-y--4">
         <h2>Snackbar</h2>
-        <sp-snackbar #snackbar></sp-snackbar>
-        <sp-button type="primary" text='Open Snackbar' (click)="OnOpenSnackbar()"></sp-button>
+        <spt-snackbar #snackbar></spt-snackbar>
+        <spt-button type="primary" text='Open Snackbar' (click)="OnOpenSnackbar()"></spt-button>
     </div>
 
     <!-- Menu -->
-    <div class="section sp-spacing-y--4">
-        <sp-menu-example></sp-menu-example>
+    <div class="section spt-spacing-y--4">
+        <spt-menu-example></spt-menu-example>
     </div>
 
 </div>

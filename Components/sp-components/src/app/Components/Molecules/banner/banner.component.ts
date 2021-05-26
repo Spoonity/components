@@ -7,7 +7,7 @@ interface IBanner {
 }
 
 @Component({
-  selector: 'sp-banner',
+  selector: 'spt-banner',
   templateUrl: 'banner.component.html',
   styleUrls: ['banner.component.less']
 })

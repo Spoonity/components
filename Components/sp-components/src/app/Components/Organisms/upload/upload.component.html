@@ -17,7 +17,7 @@
     class="upload-box"
   >
     <div class="upload-content">
-      <sp-icon class="icons" [toolTipTittle]="uploadFile" [name]="uploadFile"></sp-icon>
+      <spt-icon class="icons" [toolTipTittle]="uploadFile" [name]="uploadFile"></spt-icon>
       <span>Drag and Drop here</span>
       <span>or</span>
       <span><b>BROWSE FILES</b></span>
@@ -29,7 +29,7 @@
     <span>Accepted files</span>
     <span>Maximum size</span>
     </div>
-    
+
 </ng-template>
 <ng-template #tplFooter let-ref="modalRef">
     <button nz-button nzType="secondary" (click)="modalRef.destroy(); upload.action1()">

@@ -1,6 +1,7 @@
 import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { SearchComponent } from '../../../sp-components/src/app/Components/Molecules/search/search.component';
+import { FormsModule } from '@angular/forms';
 import { SearchStoryExampleComponent } from '../../../src/app/molecules/search-story-example/search-story-example.component';
 import { SpComponentsModule } from 'sp-components/public_api';
 
@@ -9,7 +10,7 @@ export default {
   component: SearchStoryExampleComponent,
   decorators: [
     moduleMetadata({
-      imports: [SpComponentsModule],
+      imports: [SpComponentsModule, FormsModule],
     }),
   ],
   parameters: {

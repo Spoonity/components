@@ -3,26 +3,26 @@
         <h2>DATA VISUALIZATION</h2>
         <div nz-row>
             <h3>Big Numbers</h3>
-            <div nz-col nzSpan="12" class="data-visualization-container sp-spacing--1">
+            <div nz-col nzSpan="12" class="data-visualization-container spt-spacing--1">
                 <h3>Standard</h3>
-                <sp-data-visualization [title]="'1234'" [description]="'label'">
+                <spt-data-visualization [title]="'1234'" [description]="'label'">
                     <span>
             body
           </span>
-                </sp-data-visualization>
+                </spt-data-visualization>
             </div>
-            <div nz-col nzSpan="12" class="data-visualization-container sp-spacing--1">
+            <div nz-col nzSpan="12" class="data-visualization-container spt-spacing--1">
                 <h3>Sparkline</h3>
-                <sp-data-visualization [title]="'1234'" [description]="'label'">
-                    <sp-chart class="sp-spacing--1" [data]="chartData" [labels]="chartLabels" [type]="type1"></sp-chart>
-                </sp-data-visualization>
+                <spt-data-visualization [title]="'1234'" [description]="'label'">
+                    <spt-chart class="spt-spacing--1" [data]="chartData" [labels]="chartLabels" [type]="type1"></spt-chart>
+                </spt-data-visualization>
             </div>
         </div>
     </div>
     <br>
     <div class="section">
         <h2>DIALOGS</h2>
-        <sp-dialogs></sp-dialogs>
+        <spt-dialogs></spt-dialogs>
         <button nz-button nzType="primary" (click)="createModal()">
           <span>Open Dialog</span>
         </button>
@@ -37,19 +37,19 @@
                     <div class="label">
                         <span>Default</span>
                     </div>
-                    <sp-header title="Menu"></sp-header>
+                    <spt-header title="Menu"></spt-header>
                 </div>
                 <div class="flex-row">
                     <div class="label">
                         <span>With Back Button</span>
                     </div>
-                    <sp-header title="Menu" backTitle="Back"></sp-header>
+                    <spt-header title="Menu" backTitle="Back"></spt-header>
                 </div>
                 <div class="flex-row">
                     <div class="label">
                         <span>With Breadcrumbs</span>
                     </div>
-                    <sp-header title="Menu" [breadcrumbs]="breadcrumbItems"></sp-header>
+                    <spt-header title="Menu" [breadcrumbs]="breadcrumbItems"></spt-header>
                 </div>
             </div>
         </div>
@@ -60,19 +60,19 @@
                     <div class="label">
                         <span>Default</span>
                     </div>
-                    <sp-header title="Menu" btnTitle="Options" [action]="headerAction"></sp-header>
+                    <spt-header title="Menu" btnTitle="Options" [action]="headerAction"></spt-header>
                 </div>
                 <div class="flex-row">
                     <div class="label">
                         <span>With Back Button</span>
                     </div>
-                    <sp-header title="Menu" backTitle="Back" btnTitle="Options" [action]="headerAction"></sp-header>
+                    <spt-header title="Menu" backTitle="Back" btnTitle="Options" [action]="headerAction"></spt-header>
                 </div>
                 <div class="flex-row">
                     <div class="label">
                         <span>With Breadcrumbs</span>
                     </div>
-                    <sp-header title="Menu" [breadcrumbs]="breadcrumbItems" btnTitle="Options" [action]="headerAction"></sp-header>
+                    <spt-header title="Menu" [breadcrumbs]="breadcrumbItems" btnTitle="Options" [action]="headerAction"></spt-header>
                 </div>
             </div>
         </div>
@@ -83,19 +83,19 @@
                     <div class="label">
                         <span>Default</span>
                     </div>
-                    <sp-header title="Menu" [search]="true" btnTitle="Options" [action]="headerAction"></sp-header>
+                    <spt-header title="Menu" [search]="true" btnTitle="Options" [action]="headerAction"></spt-header>
                 </div>
                 <div class="flex-row">
                     <div class="label">
                         <span>With Back Button</span>
                     </div>
-                    <sp-header title="Menu" backTitle="Back" [search]="true" btnTitle="Options" [action]="headerAction"></sp-header>
+                    <spt-header title="Menu" backTitle="Back" [search]="true" btnTitle="Options" [action]="headerAction"></spt-header>
                 </div>
                 <div class="flex-row">
                     <div class="label">
                         <span>With Breadcrumbs</span>
                     </div>
-                    <sp-header title="Menu" [breadcrumbs]="breadcrumbItems" [search]="true" btnTitle="Options" [action]="headerAction"></sp-header>
+                    <spt-header title="Menu" [breadcrumbs]="breadcrumbItems" [search]="true" btnTitle="Options" [action]="headerAction"></spt-header>
                 </div>
             </div>
         </div>
@@ -114,15 +114,15 @@
     <br>
     <div class="section">
         <h2>TABLE</h2>
-        <sp-table [rows]="dataRows" [dataSet]="dataSet"></sp-table>
+        <spt-table [rows]="dataRows" [dataSet]="dataSet"></spt-table>
         <br>
         <h3>Table with checkbox</h3>
-        <sp-table [rows]="dataRows" [dataSet]="dataSet" [checkboxOn]="true"></sp-table>
+        <spt-table [rows]="dataRows" [dataSet]="dataSet" [checkboxOn]="true"></spt-table>
     </div>
     <br>
     <div class="section">
         <h2>Upload</h2>
-        <sp-upload></sp-upload>
+        <spt-upload></spt-upload>
         <button nz-button nzType="primary" (click)="createModalU()">
           <span>Upload File</span>
         </button>
@@ -131,10 +131,10 @@
     <div class="section">
         <h2>Cards</h2>
         <!-- <div class="button-filters">
-            <div class="sp-spacing-x--1">
-                <sp-dropdown [(ngModel)]="cardType" size="small" label="cardType">
-                    <sp-option *ngFor="let enum of enumCardType | keyvalue" [value]="enum.value" [text]="enum.value"></sp-option>
-                </sp-dropdown>
+            <div class="spt-spacing-x--1">
+                <spt-dropdown [(ngModel)]="cardType" size="small" label="cardType">
+                    <spt-option *ngFor="let enum of enumCardType | keyvalue" [value]="enum.value" [text]="enum.value"></spt-option>
+                </spt-dropdown>
             </div>
         </div> -->
 
@@ -145,26 +145,26 @@
         <h2>Campaign</h2>
         <div *ngFor="let card of campaigns">
             <br>
-            <sp-card [campaign]="card" [option]="optionAction"></sp-card>
+            <spt-card [campaign]="card" [option]="optionAction"></spt-card>
         </div>
 
         <h2>Customer</h2>
         <div *ngFor="let card of customers">
             <br>
             <h2>{{card.type | uppercase}}</h2>
-            <sp-card [customer]="card"></sp-card>
+            <spt-card [customer]="card"></spt-card>
         </div>
         <h2>Gift Management</h2>
         <div *ngFor="let card of giftManagements">
             <br>
             <h2>{{card.type | uppercase}}</h2>
-            <sp-card [giftManagement]="card" [cancel]="cancelAction" [goToGuest]="goToGuestAction"></sp-card>
+            <spt-card [giftManagement]="card" [cancel]="cancelAction" [goToGuest]="goToGuestAction"></spt-card>
         </div>
         <!-- <div class="button-filters">
-            <div class="sp-spacing-x--1">
-                <sp-dropdown [(ngModel)]="deliverProcess" size="small" label="Deliver Process">
-                    <sp-option *ngFor="let enum of emunDeliverProcess | keyvalue" [value]="enum.value" [text]="enum.value"></sp-option>
-                </sp-dropdown>
+            <div class="spt-spacing-x--1">
+                <spt-dropdown [(ngModel)]="deliverProcess" size="small" label="Deliver Process">
+                    <spt-option *ngFor="let enum of emunDeliverProcess | keyvalue" [value]="enum.value" [text]="enum.value"></spt-option>
+                </spt-dropdown>
             </div>
         </div> -->
     </div>

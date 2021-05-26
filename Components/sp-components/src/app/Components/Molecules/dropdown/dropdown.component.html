@@ -1,4 +1,4 @@
-<div #dropReference class="sp-input-container" [ngClass]="{'disabled-container': isDisabled}">
+<div #dropReference class="spt-input-container" [ngClass]="{'disabled-container': isDisabled}">
 
     <input #input [ngClass]="{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'disabled-state': isDisabled}"
            (click)="showDropdown()"
@@ -32,11 +32,11 @@
         <svg-icon name="expand-more" [svgStyle]="{ 'width.px':24 }"></svg-icon>
     </div>
 
-    <sp-overlay-template [reference]="dropReference" #dropdownComp>
-        <div class="dropdown-options-container sp-elevation--5">
-            <ng-content select="sp-option"></ng-content>
+    <spt-overlay-template [reference]="dropReference" #dropdownComp>
+        <div class="dropdown-options-container spt-elevation--5">
+            <ng-content select="spt-option"></ng-content>
         </div>
-    </sp-overlay-template>
+    </spt-overlay-template>
 
 </div>
 

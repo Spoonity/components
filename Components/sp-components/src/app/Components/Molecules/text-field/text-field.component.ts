@@ -3,7 +3,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {FormFieldManager} from '../../shared/form-field.manager';
 
 @Component({
-  selector: 'sp-text-field',
+  selector: 'spt-text-field',
   templateUrl: './text-field.component.html',
   styleUrls: ['../../shared/form-field.manager.less'],
   providers: [

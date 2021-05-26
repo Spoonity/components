@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import * as ic from '../../../utils/icons';
 
 @Component({
-  selector: 'sp-icon',
+  selector: 'spt-icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.less']
 })
