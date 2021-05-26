@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SideNavigationType } from '../../../utils/enums';
 
-
-
 @Component({
   selector: 'spt-side-navigation',
   templateUrl: './side-navigation.component.html',
@@ -15,7 +13,6 @@ export class SideNavigationComponent implements OnInit {
   @Input() disabled: boolean;
   @Input() items = new Array<MenuItems>();
   @Input() type: SideNavigationType;
-
 
   constructor() { }
 

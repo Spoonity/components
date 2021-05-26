@@ -78,5 +78,5 @@ export const NZMODULES = [
     NzTagModule,
     NzToolTipModule,
     NzUploadModule,
-    NzMessageModule
+    NzMessageModule,
 ];
