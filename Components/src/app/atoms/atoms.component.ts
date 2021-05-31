@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SvgIconRegistryService } from 'angular-svg-icon';
-import * as ic from '../utils/icons';
-import { AvatarSize, DividerType, ProgressType } from 'src/app/utils/enums';
+import * as ic from 'sp-components/src/app/utils/icons';
+import { AvatarSize, DividerType, ProgressType } from 'sp-components/src/app/utils/enums';
 
 interface ISpacing {
   sectionName: string;

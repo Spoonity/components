@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import * as ic from '../../../utils/icons';
 
 @Component({
   selector: 'spt-icon',

@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AtomsComponent } from './atoms/atoms.component';
 import { MoleculesComponent } from './molecules/molecules.component';
 import { OrganismsComponent } from './organisms/organisms.component';
-import { SideNavigationType } from './utils/enums';
+import { SideNavigationType } from 'sp-components/src/app/utils/enums';
 
 const routes: Routes = [
   { path: '', redirectTo: '/atoms', pathMatch: 'full' },

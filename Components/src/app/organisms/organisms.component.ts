@@ -6,13 +6,14 @@ import { DialogsComponent } from "sp-components/src/app/Components/Organisms/dia
 import { IUserData, ISidebar } from "sp-components/src/app/Components/Organisms/sidebar/sidebar.component";
 import { IDataSet } from "sp-components/src/app/Components/Organisms/table/table.component";
 import { UploadComponent } from "sp-components/src/app/Components/Organisms/upload/upload.component";
-import { appHomeIcon } from "../svg/Action/home";
-import { appRedeemIcon } from "../svg/Action/redeem";
-import { appSettingsIcon } from "../svg/Action/settings";
-import { appRecentActorsIcon } from "../svg/AV/recent_actors";
-import { appSendIcon } from "../svg/Content/send";
-import { appPlaceIcon } from "../svg/Maps/place";
-import { appPeopleIcon } from "../svg/Social/people";
+import { appHomeIcon } from "sp-components/src/app/svg/Action/home";
+import { appRedeemIcon } from "sp-components/src/app/svg/Action/redeem";
+import { appSettingsIcon } from "sp-components/src/app/svg/Action/settings";
+import { appRecentActorsIcon } from "sp-components/src/app/svg/AV/recent_actors";
+import { appSendIcon } from "sp-components/src/app/svg/Content/send";
+import { appPlaceIcon } from "sp-components/src/app/svg/Maps/place";
+import { appPeopleIcon } from "sp-components/src/app/svg/Social/people";
+
 
 @Component({
   selector: 'app-organisms',

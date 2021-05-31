@@ -1,2 +1,3 @@
-import { appPeopleIcon } from './people';
+import { appPeopleIcon } from "./people";
+
 export const socialIcons = [appPeopleIcon];

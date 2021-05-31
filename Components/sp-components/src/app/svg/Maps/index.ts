@@ -1,2 +1,3 @@
-import { appPlaceIcon } from './place';
+import { appPlaceIcon } from "./place";
+
 export const mapsIcons = [appPlaceIcon];

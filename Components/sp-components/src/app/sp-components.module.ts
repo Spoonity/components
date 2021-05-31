@@ -1,10 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NZMODULES } from './ngZorroComponents';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { registerLocaleData } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ChipComponent } from './Components/Molecules/chip/chip.component';
@@ -144,11 +142,10 @@ registerLocaleData(en);
     DatePickerComponent
   ],
   imports: [
-    BrowserModule,
+    CommonModule,
     ChartsModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     RouterModule,
     AngularSvgIconModule.forRoot(),
     ReactiveFormsModule,

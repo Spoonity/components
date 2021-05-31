@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import { ButtonSize, ButtonType } from '../../utils/enums';
+import { ButtonType, ButtonSize } from 'sp-components/src/app/utils/enums';
 
 @Component({
   selector: 'spt-text-field-example',

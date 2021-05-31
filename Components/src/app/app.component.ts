@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import { SvgIconRegistryService } from 'angular-svg-icon';
 import { MenuItems } from 'sp-components/src/app/Components/Molecules/side-navigation/side-navigation.component';
 import { ISidebar } from 'sp-components/src/app/Components/Organisms/sidebar/sidebar.component';
-import { appHomeIcon } from './svg/Action/home';
-import { appRedeemIcon } from './svg/Action/redeem';
-import { appPeopleIcon } from './svg/Social/people';
+import { appHomeIcon } from 'sp-components/src/app/svg/Action/home';
+import { appRedeemIcon } from 'sp-components/src/app/svg/Action/redeem';
+import { appPeopleIcon } from 'sp-components/src/app/svg/Social/people';
+import { SideNavigationType } from 'sp-components/src/app/utils/enums';
+import * as ic from 'sp-components/src/app/utils/icons';
 
-
-import { SideNavigationType } from './utils/enums';
-import * as ic from './utils/icons';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -1,7 +1,6 @@
-
 import { setCompodocJson } from "@storybook/addon-docs/angular";
 import docJson from "../documentation.json";
-import '../sp-components/src/app/sp-component/styles/main.less'
+import '../styles/main.less'
 import { theme } from './theme';
 setCompodocJson(docJson);
 import { SpComponentsComponent } from 'sp-components/public_api';

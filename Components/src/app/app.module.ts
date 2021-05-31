@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -50,7 +49,6 @@ registerLocaleData(en);
     TextFieldStoryExampleComponent,
   ],
   imports: [
-    BrowserModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,

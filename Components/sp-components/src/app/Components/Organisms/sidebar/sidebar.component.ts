@@ -5,7 +5,6 @@ import { appExpandLessIcon } from '../../../svg/Navigation/expand_less';
 import { appKeyboardTabIcon } from '../../../svg/Hardware/keyboard_tab';
 import { AvatarSize, ButtonSize, ButtonType } from '../../../utils/enums';
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 export interface IUserData {
   name: string;

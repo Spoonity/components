@@ -5,7 +5,6 @@ import * as ic from '../utils/icons';
 @Component({
   selector: 'sp-components',
   template: '',
-  //styleUrls: ['styles.less'],
   encapsulation: ViewEncapsulation.None
 })
 export class SpComponentsComponent implements OnInit {
