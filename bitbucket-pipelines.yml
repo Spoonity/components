@@ -1,0 +1,11 @@
+image: node:10.15.3
+
+pipelines:
+  pull-requests:
+    angular-library-v2:
+      - step:
+          name: deploy
+          script:
+            - cd Components
+            - npm install
+            - npm run deploy
