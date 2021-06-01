@@ -1104,7 +1104,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "nz-header {\r\n  background: #fff;\r\n  padding: 10px;\r\n}\r\n\r\nnz-content {\r\n  margin: 24px 16px 0;\r\n\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.layout {\r\n  min-height: 100vh;\r\n}\r\n\r\n.logo {\r\n  padding: 5px;\r\n  margin: 16px;\r\n}\r\n\r\n.ant-layout {\r\n  overflow: auto !important;\r\n}\r\n\r\n.section {\r\n  padding-top: 10px;\r\n  padding-bottom: 10px;\r\n}\r\n",
+                    "data": "nz-header {\r\n  background: #fff;\r\n  padding: 10px;\r\n}\r\n\r\nnz-content {\r\n  margin: 24px 16px 0;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.layout {\r\n  min-height: 100vh;\r\n}\r\n\r\n.logo {\r\n  padding: 5px;\r\n  margin: 16px;\r\n}\r\n\r\n.ant-layout {\r\n  overflow: auto !important;\r\n}\r\n\r\n.section {\r\n  padding-top: 10px;\r\n  padding-bottom: 10px;\r\n}\r\n\r\n.sider {\r\n  flex: initial !important;\r\n  max-width: none !important;\r\n  min-width: auto !important;\r\n  width: auto !important;\r\n}\r\n",
                     "styleUrl": "./app.component.less"
                 }
             ],
@@ -1129,7 +1129,7 @@
                     }
                 ]
             },
-            "templateData": "<nz-layout class=\"layout\">\r\n    <nz-header>\r\n        <div>\r\n            <h1 class=\"center\" nz-typography>UI Components</h1>\r\n        </div>\r\n    </nz-header>\r\n    <nz-layout>\r\n        <nz-sider style=\"flex: 0 0 280px;max-width: 280px;\">\r\n            <spt-sidebar [sidebarData]=\"sideData\" [optionsData]=\"optionsData\"></spt-sidebar>\r\n        </nz-sider>\r\n        <nz-content>\r\n            <router-outlet></router-outlet>\r\n        </nz-content>\r\n    </nz-layout>\r\n    <nz-footer>\r\n        Angular UI Components - implemented by Spoonity\r\n    </nz-footer>\r\n</nz-layout>"
+            "templateData": "<nz-layout class=\"layout\">\r\n    <nz-header>\r\n        <div>\r\n            <h1 class=\"center\" nz-typography>UI Components</h1>\r\n        </div>\r\n    </nz-header>\r\n    <nz-layout>\r\n        <nz-sider class=\"sider\">\r\n            <spt-sidebar [sidebarData]=\"sideData\" [optionsData]=\"optionsData\"></spt-sidebar>\r\n        </nz-sider>\r\n        <nz-content>\r\n            <router-outlet></router-outlet>\r\n        </nz-content>\r\n    </nz-layout>\r\n    <nz-footer>\r\n        Angular UI Components - implemented by Spoonity\r\n    </nz-footer>\r\n</nz-layout>"
         },
         {
             "name": "AtomsComponent",
@@ -1476,7 +1476,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".badges {\r\n    display: flex;\r\n}\r\n\r\nnz-tag{\r\n  padding: 8px 12px;\r\n}\r\n\r\n.ant-tag {\r\n    line-height: 24px !important;\r\n  }\r\n",
+                    "data": ".badges {\r\n    display: flex;\r\n}\r\n\r\nnz-tag{\r\n  padding: 4px 12px;\r\n}\r\n\r\n.ant-tag {\r\n    line-height: 24px !important;\r\n  }\r\n",
                     "styleUrl": "./badge.component.less"
                 }
             ],
@@ -1744,7 +1744,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ".leftIcon{\r\n    margin-left: 10px;\r\n}\r\n\r\n.rightIcon{\r\n    margin-right: 10px;\r\n}",
                     "styleUrl": "./button.component.less"
                 }
             ],
@@ -1758,7 +1758,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<button nz-button [nzType]=\"type\" [nzSize]=\"size\" [disabled]=\"disabled\">\r\n  <svg-icon *ngIf=\"leftIcon\" nz-icon [name]=\"leftIcon\"></svg-icon>{{text}}\r\n  <svg-icon *ngIf=\"rightIcon\" nz-icon [name]=\"rightIcon\"></svg-icon>\r\n</button>\r\n"
+            "templateData": "<button nz-button [nzType]=\"type\" [nzSize]=\"size\" [disabled]=\"disabled\">\r\n  <spt-icon *ngIf=\"leftIcon\" [name]=\"leftIcon\"></spt-icon>\r\n  <span *ngIf=\"text\" [ngClass]=\"{leftIcon: leftIcon,rightIcon: rightIcon}\">{{ text }}</span>\r\n  <spt-icon *ngIf=\"rightIcon\" [name]=\"rightIcon\"></spt-icon>\r\n</button>\r\n"
         },
         {
             "name": "CardComponent",
@@ -2471,7 +2471,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"colors.less\";\r\n@error: @red;\r\n\r\n@font-size: 14px;\r\n@padding-y-large: 12px;\r\n@padding-x-large: 10px;\r\n@padding-y-medium: 8px;\r\n@padding-x-medium: 10px;\r\n@padding-y-small: 6px;\r\n@padding-x-small: 10px;\r\n\r\n\r\n.form-field {\r\n  color: #0D0C0B;\r\n  font-size: @font-size;\r\n  height: inherit;\r\n  width: 100%;\r\n  border-radius: 4px;\r\n  border: 1px solid @gray60 !important;\r\n  &.large {\r\n    padding: @padding-y-large @padding-x-large;\r\n    & + label {\r\n      top: @padding-y-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    padding: @padding-y-medium @padding-x-medium;\r\n    & + label {\r\n      top: @padding-y-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: @padding-y-small @padding-x-small;\r\n    & + label {\r\n      top: @padding-y-small;\r\n    }\r\n  }\r\n  &.error, &.has-right-icon {\r\n    padding-right: 45px;\r\n  }\r\n  &.error {\r\n    border: 1px solid @error !important;\r\n    & ~ label {\r\n      color: @error !important;\r\n    }\r\n    &:focus, &:hover {\r\n      border: 1px solid @error !important;\r\n      caret-color: @error;\r\n    }\r\n  }\r\n  &.has-left-icon {\r\n    padding-left: 45px;\r\n    & + label {\r\n      left: 45px;\r\n    }\r\n  }\r\n  &:hover {\r\n    border: 1px solid #000 !important;\r\n  }\r\n  &:focus, &.item-focus {\r\n    border: 1px solid @primary-color !important;\r\n    caret-color: @primary-color;\r\n    & + label {\r\n      color: @primary-color;\r\n      font-size: 11px;\r\n      top: -8px;\r\n      left: 8px;\r\n      padding: 0 4px;\r\n      background-color: #fff;\r\n    }\r\n  }\r\n}\r\n\r\n.text-field-container {\r\n  input {\r\n    &::placeholder {\r\n      visibility: hidden;\r\n      opacity: 0;\r\n      transition: visibility 0.1s ease-out, opacity 0.1s ease-out;\r\n      padding: 0 4px;\r\n    }\r\n    &:focus {\r\n      &::placeholder {\r\n        visibility: visible;\r\n        opacity: 1;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.sp-input-container {\r\n  margin: 0;\r\n  position: relative;\r\n  input {\r\n    box-shadow: none;\r\n    outline: none;\r\n    // max-width: 520px;\r\n    min-height: 24px;\r\n    .form-field();\r\n\r\n    &[disabled] {\r\n      background-color: #ffffff !important;\r\n      color: @gray40 !important;\r\n      border: 1px solid @gray40 !important;\r\n      cursor: not-allowed;\r\n      & ~ label {\r\n        color: @gray40 !important;\r\n      }\r\n      &:hover {\r\n        border: 1px solid @gray40 !important;\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        color: @gray60;\r\n      }\r\n      &:hover {\r\n        & + label {\r\n          color: #000;\r\n        }\r\n      }\r\n      &:focus {\r\n        & + label {\r\n          color: @primary-color;\r\n        }\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        font-size: 11px;\r\n        top: -8px;\r\n        left: 8px;\r\n        padding: 0 4px;\r\n        background-color: #fff;\r\n      }\r\n    }\r\n    & + label {\r\n      position: absolute;\r\n      left: 12px;\r\n      font-size: @font-size;\r\n      color: @gray60;\r\n      background-color: rgba(255,255,255,0);\r\n      pointer-events: none;\r\n      transition: all 0.2s ease, background-color 0.2s ease-in;\r\n    }\r\n  }\r\n  .text-field-icon {\r\n    position: absolute;\r\n    height: 24px;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n  }\r\n  .error-icon, .right-icon {\r\n    right: 12px;\r\n  }\r\n  .left-icon {\r\n    left: 12px;\r\n  }\r\n\r\n  .left-icon, .right-icon {\r\n    svg {\r\n      path {\r\n        fill: @gray70;\r\n      }\r\n    }\r\n  }\r\n  .error-icon {\r\n    svg {\r\n      path {\r\n        fill: @error;\r\n      }\r\n    }\r\n  }\r\n  label {\r\n    &.text-field-bottom-label {\r\n      font-size: 12px;\r\n      margin-top: 10px;\r\n      position: absolute;\r\n      bottom: -20px;\r\n    }\r\n    &.error-label, &.hint-label {\r\n      left: 12px;\r\n    }\r\n    &.length-label {\r\n      right: 12px;\r\n    }\r\n    &.error-label {\r\n      color: @error;\r\n    }\r\n    &.hint-label, &.length-label {\r\n      color: #4F4E4D;\r\n    }\r\n  }\r\n  &.disabled-container {\r\n    .text-field-bottom-label {\r\n      color: @gray40 !important;\r\n    }\r\n\r\n    .text-field-icon {\r\n      svg {\r\n        path {\r\n          fill: @gray40;\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.search-wrapper {\r\n  display: flex;\r\n  align-items: center;\r\n  .form-field();\r\n  input {\r\n    &, &:hover, &:focus {\r\n      border: none !important;\r\n    }\r\n  }\r\n  .search-icon {\r\n    height: 24px;\r\n  }\r\n  &.large {\r\n    .search-icon {\r\n      margin-left: @padding-x-large;\r\n      margin-right: @padding-x-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    .search-icon {\r\n      margin-left: @padding-x-medium;\r\n      margin-right: @padding-x-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: 4px @padding-x-small;\r\n    .search-icon {\r\n      margin-left: @padding-x-small;\r\n      margin-right: @padding-x-small;\r\n    }\r\n  }\r\n  .selected-items {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    .selected-item {\r\n      margin: 1px\r\n    }\r\n  }\r\n}\r\n",
+                    "data": "@import \"colors.less\";\r\n@error: @red;\r\n\r\n@font-size: 14px;\r\n@padding-y-large: 12px;\r\n@padding-x-large: 10px;\r\n@padding-y-medium: 8px;\r\n@padding-x-medium: 10px;\r\n@padding-y-small: 6px;\r\n@padding-x-small: 10px;\r\n\r\n\r\n.form-field {\r\n  color: #0D0C0B;\r\n  font-size: @font-size;\r\n  height: inherit;\r\n  width: 100%;\r\n  border-radius: 4px;\r\n  border: 1px solid @gray60 !important;\r\n  &.large {\r\n    padding: @padding-y-large @padding-x-large;\r\n    & + label {\r\n      top: @padding-y-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    padding: @padding-y-medium @padding-x-medium;\r\n    & + label {\r\n      top: @padding-y-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: @padding-y-small @padding-x-small;\r\n    & + label {\r\n      top: @padding-y-small;\r\n    }\r\n  }\r\n  &.error, &.has-right-icon {\r\n    padding-right: 45px;\r\n  }\r\n  &.error {\r\n    border: 1px solid @error !important;\r\n    & ~ label {\r\n      color: @error !important;\r\n    }\r\n    &:focus, &:hover {\r\n      border: 1px solid @error !important;\r\n      caret-color: @error;\r\n    }\r\n  }\r\n  &.has-left-icon {\r\n    padding-left: 45px;\r\n    & + label {\r\n      left: 45px;\r\n    }\r\n  }\r\n  &:hover {\r\n    border: 1px solid #000 !important;\r\n  }\r\n  &:focus, &.item-focus {\r\n    border: 1px solid @primary-color !important;\r\n    caret-color: @primary-color;\r\n    & + label {\r\n      color: @primary-color;\r\n      font-size: 11px;\r\n      top: -8px;\r\n      left: 8px;\r\n      padding: 0 4px;\r\n      background-color: #fff;\r\n    }\r\n  }\r\n}\r\n\r\n.text-field-container {\r\n  input {\r\n    &::placeholder {\r\n      visibility: hidden;\r\n      opacity: 0;\r\n      transition: visibility 0.1s ease-out, opacity 0.1s ease-out;\r\n      padding: 0 4px;\r\n    }\r\n    &:focus {\r\n      &::placeholder {\r\n        visibility: visible;\r\n        opacity: 1;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.spt-input-container {\r\n  margin: 0;\r\n  position: relative;\r\n  input {\r\n    box-shadow: none;\r\n    outline: none;\r\n    // max-width: 520px;\r\n    min-height: 24px;\r\n    .form-field();\r\n\r\n    &[disabled] {\r\n      background-color: #ffffff !important;\r\n      color: @gray40 !important;\r\n      border: 1px solid @gray40 !important;\r\n      cursor: not-allowed;\r\n      & ~ label {\r\n        color: @gray40 !important;\r\n      }\r\n      &:hover {\r\n        border: 1px solid @gray40 !important;\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        color: @gray60;\r\n      }\r\n      &:hover {\r\n        & + label {\r\n          color: #000;\r\n        }\r\n      }\r\n      &:focus {\r\n        & + label {\r\n          color: @primary-color;\r\n        }\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        font-size: 11px;\r\n        top: -8px;\r\n        left: 8px;\r\n        padding: 0 4px;\r\n        background-color: #fff;\r\n      }\r\n    }\r\n    & + label {\r\n      position: absolute;\r\n      left: 12px;\r\n      font-size: @font-size;\r\n      color: @gray60;\r\n      background-color: rgba(255,255,255,0);\r\n      pointer-events: none;\r\n      transition: all 0.2s ease, background-color 0.2s ease-in;\r\n    }\r\n  }\r\n  .text-field-icon {\r\n    position: absolute;\r\n    height: 24px;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n  }\r\n  .error-icon, .right-icon {\r\n    right: 12px;\r\n  }\r\n  .left-icon {\r\n    left: 12px;\r\n  }\r\n\r\n  .left-icon, .right-icon {\r\n    svg {\r\n      path {\r\n        fill: @gray70;\r\n      }\r\n    }\r\n  }\r\n  .error-icon {\r\n    svg {\r\n      path {\r\n        fill: @error;\r\n      }\r\n    }\r\n  }\r\n  label {\r\n    &.text-field-bottom-label {\r\n      font-size: 12px;\r\n      margin-top: 10px;\r\n      position: absolute;\r\n      bottom: -20px;\r\n    }\r\n    &.error-label, &.hint-label {\r\n      left: 12px;\r\n    }\r\n    &.length-label {\r\n      right: 12px;\r\n    }\r\n    &.error-label {\r\n      color: @error;\r\n    }\r\n    &.hint-label, &.length-label {\r\n      color: #4F4E4D;\r\n    }\r\n  }\r\n  &.disabled-container {\r\n    .text-field-bottom-label {\r\n      color: @gray40 !important;\r\n    }\r\n\r\n    .text-field-icon {\r\n      svg {\r\n        path {\r\n          fill: @gray40;\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.search-wrapper {\r\n  display: flex;\r\n  align-items: center;\r\n  .form-field();\r\n  input {\r\n    &, &:hover, &:focus {\r\n      border: none !important;\r\n    }\r\n  }\r\n  .search-icon {\r\n    height: 24px;\r\n  }\r\n  &.large {\r\n    .search-icon {\r\n      margin-left: @padding-x-large;\r\n      margin-right: @padding-x-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    .search-icon {\r\n      margin-left: @padding-x-medium;\r\n      margin-right: @padding-x-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: 4px @padding-x-small;\r\n    .search-icon {\r\n      margin-left: @padding-x-small;\r\n      margin-right: @padding-x-small;\r\n    }\r\n  }\r\n  .selected-items {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    .selected-item {\r\n      margin: 1px\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "../../shared/form-field.manager.less"
                 }
             ],
@@ -3206,7 +3206,7 @@
                     "styleUrl": "./dropdown.component.less"
                 },
                 {
-                    "data": "@import \"colors.less\";\r\n@error: @red;\r\n\r\n@font-size: 14px;\r\n@padding-y-large: 12px;\r\n@padding-x-large: 10px;\r\n@padding-y-medium: 8px;\r\n@padding-x-medium: 10px;\r\n@padding-y-small: 6px;\r\n@padding-x-small: 10px;\r\n\r\n\r\n.form-field {\r\n  color: #0D0C0B;\r\n  font-size: @font-size;\r\n  height: inherit;\r\n  width: 100%;\r\n  border-radius: 4px;\r\n  border: 1px solid @gray60 !important;\r\n  &.large {\r\n    padding: @padding-y-large @padding-x-large;\r\n    & + label {\r\n      top: @padding-y-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    padding: @padding-y-medium @padding-x-medium;\r\n    & + label {\r\n      top: @padding-y-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: @padding-y-small @padding-x-small;\r\n    & + label {\r\n      top: @padding-y-small;\r\n    }\r\n  }\r\n  &.error, &.has-right-icon {\r\n    padding-right: 45px;\r\n  }\r\n  &.error {\r\n    border: 1px solid @error !important;\r\n    & ~ label {\r\n      color: @error !important;\r\n    }\r\n    &:focus, &:hover {\r\n      border: 1px solid @error !important;\r\n      caret-color: @error;\r\n    }\r\n  }\r\n  &.has-left-icon {\r\n    padding-left: 45px;\r\n    & + label {\r\n      left: 45px;\r\n    }\r\n  }\r\n  &:hover {\r\n    border: 1px solid #000 !important;\r\n  }\r\n  &:focus, &.item-focus {\r\n    border: 1px solid @primary-color !important;\r\n    caret-color: @primary-color;\r\n    & + label {\r\n      color: @primary-color;\r\n      font-size: 11px;\r\n      top: -8px;\r\n      left: 8px;\r\n      padding: 0 4px;\r\n      background-color: #fff;\r\n    }\r\n  }\r\n}\r\n\r\n.text-field-container {\r\n  input {\r\n    &::placeholder {\r\n      visibility: hidden;\r\n      opacity: 0;\r\n      transition: visibility 0.1s ease-out, opacity 0.1s ease-out;\r\n      padding: 0 4px;\r\n    }\r\n    &:focus {\r\n      &::placeholder {\r\n        visibility: visible;\r\n        opacity: 1;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.sp-input-container {\r\n  margin: 0;\r\n  position: relative;\r\n  input {\r\n    box-shadow: none;\r\n    outline: none;\r\n    // max-width: 520px;\r\n    min-height: 24px;\r\n    .form-field();\r\n\r\n    &[disabled] {\r\n      background-color: #ffffff !important;\r\n      color: @gray40 !important;\r\n      border: 1px solid @gray40 !important;\r\n      cursor: not-allowed;\r\n      & ~ label {\r\n        color: @gray40 !important;\r\n      }\r\n      &:hover {\r\n        border: 1px solid @gray40 !important;\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        color: @gray60;\r\n      }\r\n      &:hover {\r\n        & + label {\r\n          color: #000;\r\n        }\r\n      }\r\n      &:focus {\r\n        & + label {\r\n          color: @primary-color;\r\n        }\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        font-size: 11px;\r\n        top: -8px;\r\n        left: 8px;\r\n        padding: 0 4px;\r\n        background-color: #fff;\r\n      }\r\n    }\r\n    & + label {\r\n      position: absolute;\r\n      left: 12px;\r\n      font-size: @font-size;\r\n      color: @gray60;\r\n      background-color: rgba(255,255,255,0);\r\n      pointer-events: none;\r\n      transition: all 0.2s ease, background-color 0.2s ease-in;\r\n    }\r\n  }\r\n  .text-field-icon {\r\n    position: absolute;\r\n    height: 24px;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n  }\r\n  .error-icon, .right-icon {\r\n    right: 12px;\r\n  }\r\n  .left-icon {\r\n    left: 12px;\r\n  }\r\n\r\n  .left-icon, .right-icon {\r\n    svg {\r\n      path {\r\n        fill: @gray70;\r\n      }\r\n    }\r\n  }\r\n  .error-icon {\r\n    svg {\r\n      path {\r\n        fill: @error;\r\n      }\r\n    }\r\n  }\r\n  label {\r\n    &.text-field-bottom-label {\r\n      font-size: 12px;\r\n      margin-top: 10px;\r\n      position: absolute;\r\n      bottom: -20px;\r\n    }\r\n    &.error-label, &.hint-label {\r\n      left: 12px;\r\n    }\r\n    &.length-label {\r\n      right: 12px;\r\n    }\r\n    &.error-label {\r\n      color: @error;\r\n    }\r\n    &.hint-label, &.length-label {\r\n      color: #4F4E4D;\r\n    }\r\n  }\r\n  &.disabled-container {\r\n    .text-field-bottom-label {\r\n      color: @gray40 !important;\r\n    }\r\n\r\n    .text-field-icon {\r\n      svg {\r\n        path {\r\n          fill: @gray40;\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.search-wrapper {\r\n  display: flex;\r\n  align-items: center;\r\n  .form-field();\r\n  input {\r\n    &, &:hover, &:focus {\r\n      border: none !important;\r\n    }\r\n  }\r\n  .search-icon {\r\n    height: 24px;\r\n  }\r\n  &.large {\r\n    .search-icon {\r\n      margin-left: @padding-x-large;\r\n      margin-right: @padding-x-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    .search-icon {\r\n      margin-left: @padding-x-medium;\r\n      margin-right: @padding-x-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: 4px @padding-x-small;\r\n    .search-icon {\r\n      margin-left: @padding-x-small;\r\n      margin-right: @padding-x-small;\r\n    }\r\n  }\r\n  .selected-items {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    .selected-item {\r\n      margin: 1px\r\n    }\r\n  }\r\n}\r\n",
+                    "data": "@import \"colors.less\";\r\n@error: @red;\r\n\r\n@font-size: 14px;\r\n@padding-y-large: 12px;\r\n@padding-x-large: 10px;\r\n@padding-y-medium: 8px;\r\n@padding-x-medium: 10px;\r\n@padding-y-small: 6px;\r\n@padding-x-small: 10px;\r\n\r\n\r\n.form-field {\r\n  color: #0D0C0B;\r\n  font-size: @font-size;\r\n  height: inherit;\r\n  width: 100%;\r\n  border-radius: 4px;\r\n  border: 1px solid @gray60 !important;\r\n  &.large {\r\n    padding: @padding-y-large @padding-x-large;\r\n    & + label {\r\n      top: @padding-y-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    padding: @padding-y-medium @padding-x-medium;\r\n    & + label {\r\n      top: @padding-y-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: @padding-y-small @padding-x-small;\r\n    & + label {\r\n      top: @padding-y-small;\r\n    }\r\n  }\r\n  &.error, &.has-right-icon {\r\n    padding-right: 45px;\r\n  }\r\n  &.error {\r\n    border: 1px solid @error !important;\r\n    & ~ label {\r\n      color: @error !important;\r\n    }\r\n    &:focus, &:hover {\r\n      border: 1px solid @error !important;\r\n      caret-color: @error;\r\n    }\r\n  }\r\n  &.has-left-icon {\r\n    padding-left: 45px;\r\n    & + label {\r\n      left: 45px;\r\n    }\r\n  }\r\n  &:hover {\r\n    border: 1px solid #000 !important;\r\n  }\r\n  &:focus, &.item-focus {\r\n    border: 1px solid @primary-color !important;\r\n    caret-color: @primary-color;\r\n    & + label {\r\n      color: @primary-color;\r\n      font-size: 11px;\r\n      top: -8px;\r\n      left: 8px;\r\n      padding: 0 4px;\r\n      background-color: #fff;\r\n    }\r\n  }\r\n}\r\n\r\n.text-field-container {\r\n  input {\r\n    &::placeholder {\r\n      visibility: hidden;\r\n      opacity: 0;\r\n      transition: visibility 0.1s ease-out, opacity 0.1s ease-out;\r\n      padding: 0 4px;\r\n    }\r\n    &:focus {\r\n      &::placeholder {\r\n        visibility: visible;\r\n        opacity: 1;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.spt-input-container {\r\n  margin: 0;\r\n  position: relative;\r\n  input {\r\n    box-shadow: none;\r\n    outline: none;\r\n    // max-width: 520px;\r\n    min-height: 24px;\r\n    .form-field();\r\n\r\n    &[disabled] {\r\n      background-color: #ffffff !important;\r\n      color: @gray40 !important;\r\n      border: 1px solid @gray40 !important;\r\n      cursor: not-allowed;\r\n      & ~ label {\r\n        color: @gray40 !important;\r\n      }\r\n      &:hover {\r\n        border: 1px solid @gray40 !important;\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        color: @gray60;\r\n      }\r\n      &:hover {\r\n        & + label {\r\n          color: #000;\r\n        }\r\n      }\r\n      &:focus {\r\n        & + label {\r\n          color: @primary-color;\r\n        }\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        font-size: 11px;\r\n        top: -8px;\r\n        left: 8px;\r\n        padding: 0 4px;\r\n        background-color: #fff;\r\n      }\r\n    }\r\n    & + label {\r\n      position: absolute;\r\n      left: 12px;\r\n      font-size: @font-size;\r\n      color: @gray60;\r\n      background-color: rgba(255,255,255,0);\r\n      pointer-events: none;\r\n      transition: all 0.2s ease, background-color 0.2s ease-in;\r\n    }\r\n  }\r\n  .text-field-icon {\r\n    position: absolute;\r\n    height: 24px;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n  }\r\n  .error-icon, .right-icon {\r\n    right: 12px;\r\n  }\r\n  .left-icon {\r\n    left: 12px;\r\n  }\r\n\r\n  .left-icon, .right-icon {\r\n    svg {\r\n      path {\r\n        fill: @gray70;\r\n      }\r\n    }\r\n  }\r\n  .error-icon {\r\n    svg {\r\n      path {\r\n        fill: @error;\r\n      }\r\n    }\r\n  }\r\n  label {\r\n    &.text-field-bottom-label {\r\n      font-size: 12px;\r\n      margin-top: 10px;\r\n      position: absolute;\r\n      bottom: -20px;\r\n    }\r\n    &.error-label, &.hint-label {\r\n      left: 12px;\r\n    }\r\n    &.length-label {\r\n      right: 12px;\r\n    }\r\n    &.error-label {\r\n      color: @error;\r\n    }\r\n    &.hint-label, &.length-label {\r\n      color: #4F4E4D;\r\n    }\r\n  }\r\n  &.disabled-container {\r\n    .text-field-bottom-label {\r\n      color: @gray40 !important;\r\n    }\r\n\r\n    .text-field-icon {\r\n      svg {\r\n        path {\r\n          fill: @gray40;\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.search-wrapper {\r\n  display: flex;\r\n  align-items: center;\r\n  .form-field();\r\n  input {\r\n    &, &:hover, &:focus {\r\n      border: none !important;\r\n    }\r\n  }\r\n  .search-icon {\r\n    height: 24px;\r\n  }\r\n  &.large {\r\n    .search-icon {\r\n      margin-left: @padding-x-large;\r\n      margin-right: @padding-x-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    .search-icon {\r\n      margin-left: @padding-x-medium;\r\n      margin-right: @padding-x-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: 4px @padding-x-small;\r\n    .search-icon {\r\n      margin-left: @padding-x-small;\r\n      margin-right: @padding-x-small;\r\n    }\r\n  }\r\n  .selected-items {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    .selected-item {\r\n      margin: 1px\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "../../shared/form-field.manager.less"
                 }
             ],
@@ -3651,7 +3651,7 @@
         },
         {
             "name": "IconComponent",
-            "id": "component-IconComponent-cb31473c84d5570a5324fb6d9e8ec05a",
+            "id": "component-IconComponent-2423fd3a764b79b5d9f7bc5650688f77",
             "file": "sp-components/src/app/Components/Atoms/icon/icon.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3688,7 +3688,7 @@
             "propertiesClass": [
                 {
                     "name": "svgIconSettings",
-                    "defaultValue": "{\r\n     'width' : '20px',\r\n     'fill' : this.color\r\n    }",
+                    "defaultValue": "{\r\n     'height' : '20px',\r\n     'fill' : this.color\r\n    }",
                     "type": "object",
                     "optional": false,
                     "description": "",
@@ -3710,11 +3710,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'spt-icon',\r\n  templateUrl: './icon.component.html',\r\n  styleUrls: ['./icon.component.less']\r\n})\r\nexport class IconComponent implements OnInit {\r\n\r\n  @Input() toolTipTittle: string;\r\n  @Input() name: string;\r\n  @Input() color = '#0D0C0B';\r\n\r\n  svgIconSettings = {\r\n     'width' : '20px',\r\n     'fill' : this.color\r\n    }\r\n\r\n  constructor() {}\r\n\r\n  ngOnInit() {}\r\n}\r\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'spt-icon',\r\n  templateUrl: './icon.component.html',\r\n  styleUrls: ['./icon.component.less']\r\n})\r\nexport class IconComponent implements OnInit {\r\n\r\n  @Input() toolTipTittle: string;\r\n  @Input() name: string;\r\n  @Input() color = '#0D0C0B';\r\n\r\n  svgIconSettings = {\r\n     'height' : '20px',\r\n     'fill' : this.color\r\n    }\r\n\r\n  constructor() {}\r\n\r\n  ngOnInit() {}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "svg-icon {\r\n  vertical-align: text-bottom;\r\n}\r\n",
+                    "data": "",
                     "styleUrl": "./icon.component.less"
                 }
             ],
@@ -3728,7 +3728,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "\r\n  <span nz-tooltip [nzTooltipTitle]=\"toolTipTittle\"><svg-icon class=\"icons\" [name]=\"name\" [svgStyle]=\"svgIconSettings\"></svg-icon></span>\r\n"
+            "templateData": "<span nz-tooltip [nzTooltipTitle]=\"toolTipTittle\">\r\n  <svg-icon class=\"icons\" nz-icon [name]=\"name\" [svgStyle]=\"svgIconSettings\">\r\n  </svg-icon>\r\n</span>\r\n"
         },
         {
             "name": "MenuComponent",
@@ -6131,7 +6131,7 @@
                     "styleUrl": "./search.component.less"
                 },
                 {
-                    "data": "@import \"colors.less\";\r\n@error: @red;\r\n\r\n@font-size: 14px;\r\n@padding-y-large: 12px;\r\n@padding-x-large: 10px;\r\n@padding-y-medium: 8px;\r\n@padding-x-medium: 10px;\r\n@padding-y-small: 6px;\r\n@padding-x-small: 10px;\r\n\r\n\r\n.form-field {\r\n  color: #0D0C0B;\r\n  font-size: @font-size;\r\n  height: inherit;\r\n  width: 100%;\r\n  border-radius: 4px;\r\n  border: 1px solid @gray60 !important;\r\n  &.large {\r\n    padding: @padding-y-large @padding-x-large;\r\n    & + label {\r\n      top: @padding-y-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    padding: @padding-y-medium @padding-x-medium;\r\n    & + label {\r\n      top: @padding-y-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: @padding-y-small @padding-x-small;\r\n    & + label {\r\n      top: @padding-y-small;\r\n    }\r\n  }\r\n  &.error, &.has-right-icon {\r\n    padding-right: 45px;\r\n  }\r\n  &.error {\r\n    border: 1px solid @error !important;\r\n    & ~ label {\r\n      color: @error !important;\r\n    }\r\n    &:focus, &:hover {\r\n      border: 1px solid @error !important;\r\n      caret-color: @error;\r\n    }\r\n  }\r\n  &.has-left-icon {\r\n    padding-left: 45px;\r\n    & + label {\r\n      left: 45px;\r\n    }\r\n  }\r\n  &:hover {\r\n    border: 1px solid #000 !important;\r\n  }\r\n  &:focus, &.item-focus {\r\n    border: 1px solid @primary-color !important;\r\n    caret-color: @primary-color;\r\n    & + label {\r\n      color: @primary-color;\r\n      font-size: 11px;\r\n      top: -8px;\r\n      left: 8px;\r\n      padding: 0 4px;\r\n      background-color: #fff;\r\n    }\r\n  }\r\n}\r\n\r\n.text-field-container {\r\n  input {\r\n    &::placeholder {\r\n      visibility: hidden;\r\n      opacity: 0;\r\n      transition: visibility 0.1s ease-out, opacity 0.1s ease-out;\r\n      padding: 0 4px;\r\n    }\r\n    &:focus {\r\n      &::placeholder {\r\n        visibility: visible;\r\n        opacity: 1;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.sp-input-container {\r\n  margin: 0;\r\n  position: relative;\r\n  input {\r\n    box-shadow: none;\r\n    outline: none;\r\n    // max-width: 520px;\r\n    min-height: 24px;\r\n    .form-field();\r\n\r\n    &[disabled] {\r\n      background-color: #ffffff !important;\r\n      color: @gray40 !important;\r\n      border: 1px solid @gray40 !important;\r\n      cursor: not-allowed;\r\n      & ~ label {\r\n        color: @gray40 !important;\r\n      }\r\n      &:hover {\r\n        border: 1px solid @gray40 !important;\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        color: @gray60;\r\n      }\r\n      &:hover {\r\n        & + label {\r\n          color: #000;\r\n        }\r\n      }\r\n      &:focus {\r\n        & + label {\r\n          color: @primary-color;\r\n        }\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        font-size: 11px;\r\n        top: -8px;\r\n        left: 8px;\r\n        padding: 0 4px;\r\n        background-color: #fff;\r\n      }\r\n    }\r\n    & + label {\r\n      position: absolute;\r\n      left: 12px;\r\n      font-size: @font-size;\r\n      color: @gray60;\r\n      background-color: rgba(255,255,255,0);\r\n      pointer-events: none;\r\n      transition: all 0.2s ease, background-color 0.2s ease-in;\r\n    }\r\n  }\r\n  .text-field-icon {\r\n    position: absolute;\r\n    height: 24px;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n  }\r\n  .error-icon, .right-icon {\r\n    right: 12px;\r\n  }\r\n  .left-icon {\r\n    left: 12px;\r\n  }\r\n\r\n  .left-icon, .right-icon {\r\n    svg {\r\n      path {\r\n        fill: @gray70;\r\n      }\r\n    }\r\n  }\r\n  .error-icon {\r\n    svg {\r\n      path {\r\n        fill: @error;\r\n      }\r\n    }\r\n  }\r\n  label {\r\n    &.text-field-bottom-label {\r\n      font-size: 12px;\r\n      margin-top: 10px;\r\n      position: absolute;\r\n      bottom: -20px;\r\n    }\r\n    &.error-label, &.hint-label {\r\n      left: 12px;\r\n    }\r\n    &.length-label {\r\n      right: 12px;\r\n    }\r\n    &.error-label {\r\n      color: @error;\r\n    }\r\n    &.hint-label, &.length-label {\r\n      color: #4F4E4D;\r\n    }\r\n  }\r\n  &.disabled-container {\r\n    .text-field-bottom-label {\r\n      color: @gray40 !important;\r\n    }\r\n\r\n    .text-field-icon {\r\n      svg {\r\n        path {\r\n          fill: @gray40;\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.search-wrapper {\r\n  display: flex;\r\n  align-items: center;\r\n  .form-field();\r\n  input {\r\n    &, &:hover, &:focus {\r\n      border: none !important;\r\n    }\r\n  }\r\n  .search-icon {\r\n    height: 24px;\r\n  }\r\n  &.large {\r\n    .search-icon {\r\n      margin-left: @padding-x-large;\r\n      margin-right: @padding-x-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    .search-icon {\r\n      margin-left: @padding-x-medium;\r\n      margin-right: @padding-x-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: 4px @padding-x-small;\r\n    .search-icon {\r\n      margin-left: @padding-x-small;\r\n      margin-right: @padding-x-small;\r\n    }\r\n  }\r\n  .selected-items {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    .selected-item {\r\n      margin: 1px\r\n    }\r\n  }\r\n}\r\n",
+                    "data": "@import \"colors.less\";\r\n@error: @red;\r\n\r\n@font-size: 14px;\r\n@padding-y-large: 12px;\r\n@padding-x-large: 10px;\r\n@padding-y-medium: 8px;\r\n@padding-x-medium: 10px;\r\n@padding-y-small: 6px;\r\n@padding-x-small: 10px;\r\n\r\n\r\n.form-field {\r\n  color: #0D0C0B;\r\n  font-size: @font-size;\r\n  height: inherit;\r\n  width: 100%;\r\n  border-radius: 4px;\r\n  border: 1px solid @gray60 !important;\r\n  &.large {\r\n    padding: @padding-y-large @padding-x-large;\r\n    & + label {\r\n      top: @padding-y-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    padding: @padding-y-medium @padding-x-medium;\r\n    & + label {\r\n      top: @padding-y-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: @padding-y-small @padding-x-small;\r\n    & + label {\r\n      top: @padding-y-small;\r\n    }\r\n  }\r\n  &.error, &.has-right-icon {\r\n    padding-right: 45px;\r\n  }\r\n  &.error {\r\n    border: 1px solid @error !important;\r\n    & ~ label {\r\n      color: @error !important;\r\n    }\r\n    &:focus, &:hover {\r\n      border: 1px solid @error !important;\r\n      caret-color: @error;\r\n    }\r\n  }\r\n  &.has-left-icon {\r\n    padding-left: 45px;\r\n    & + label {\r\n      left: 45px;\r\n    }\r\n  }\r\n  &:hover {\r\n    border: 1px solid #000 !important;\r\n  }\r\n  &:focus, &.item-focus {\r\n    border: 1px solid @primary-color !important;\r\n    caret-color: @primary-color;\r\n    & + label {\r\n      color: @primary-color;\r\n      font-size: 11px;\r\n      top: -8px;\r\n      left: 8px;\r\n      padding: 0 4px;\r\n      background-color: #fff;\r\n    }\r\n  }\r\n}\r\n\r\n.text-field-container {\r\n  input {\r\n    &::placeholder {\r\n      visibility: hidden;\r\n      opacity: 0;\r\n      transition: visibility 0.1s ease-out, opacity 0.1s ease-out;\r\n      padding: 0 4px;\r\n    }\r\n    &:focus {\r\n      &::placeholder {\r\n        visibility: visible;\r\n        opacity: 1;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.spt-input-container {\r\n  margin: 0;\r\n  position: relative;\r\n  input {\r\n    box-shadow: none;\r\n    outline: none;\r\n    // max-width: 520px;\r\n    min-height: 24px;\r\n    .form-field();\r\n\r\n    &[disabled] {\r\n      background-color: #ffffff !important;\r\n      color: @gray40 !important;\r\n      border: 1px solid @gray40 !important;\r\n      cursor: not-allowed;\r\n      & ~ label {\r\n        color: @gray40 !important;\r\n      }\r\n      &:hover {\r\n        border: 1px solid @gray40 !important;\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        color: @gray60;\r\n      }\r\n      &:hover {\r\n        & + label {\r\n          color: #000;\r\n        }\r\n      }\r\n      &:focus {\r\n        & + label {\r\n          color: @primary-color;\r\n        }\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        font-size: 11px;\r\n        top: -8px;\r\n        left: 8px;\r\n        padding: 0 4px;\r\n        background-color: #fff;\r\n      }\r\n    }\r\n    & + label {\r\n      position: absolute;\r\n      left: 12px;\r\n      font-size: @font-size;\r\n      color: @gray60;\r\n      background-color: rgba(255,255,255,0);\r\n      pointer-events: none;\r\n      transition: all 0.2s ease, background-color 0.2s ease-in;\r\n    }\r\n  }\r\n  .text-field-icon {\r\n    position: absolute;\r\n    height: 24px;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n  }\r\n  .error-icon, .right-icon {\r\n    right: 12px;\r\n  }\r\n  .left-icon {\r\n    left: 12px;\r\n  }\r\n\r\n  .left-icon, .right-icon {\r\n    svg {\r\n      path {\r\n        fill: @gray70;\r\n      }\r\n    }\r\n  }\r\n  .error-icon {\r\n    svg {\r\n      path {\r\n        fill: @error;\r\n      }\r\n    }\r\n  }\r\n  label {\r\n    &.text-field-bottom-label {\r\n      font-size: 12px;\r\n      margin-top: 10px;\r\n      position: absolute;\r\n      bottom: -20px;\r\n    }\r\n    &.error-label, &.hint-label {\r\n      left: 12px;\r\n    }\r\n    &.length-label {\r\n      right: 12px;\r\n    }\r\n    &.error-label {\r\n      color: @error;\r\n    }\r\n    &.hint-label, &.length-label {\r\n      color: #4F4E4D;\r\n    }\r\n  }\r\n  &.disabled-container {\r\n    .text-field-bottom-label {\r\n      color: @gray40 !important;\r\n    }\r\n\r\n    .text-field-icon {\r\n      svg {\r\n        path {\r\n          fill: @gray40;\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.search-wrapper {\r\n  display: flex;\r\n  align-items: center;\r\n  .form-field();\r\n  input {\r\n    &, &:hover, &:focus {\r\n      border: none !important;\r\n    }\r\n  }\r\n  .search-icon {\r\n    height: 24px;\r\n  }\r\n  &.large {\r\n    .search-icon {\r\n      margin-left: @padding-x-large;\r\n      margin-right: @padding-x-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    .search-icon {\r\n      margin-left: @padding-x-medium;\r\n      margin-right: @padding-x-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: 4px @padding-x-small;\r\n    .search-icon {\r\n      margin-left: @padding-x-small;\r\n      margin-right: @padding-x-small;\r\n    }\r\n  }\r\n  .selected-items {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    .selected-item {\r\n      margin: 1px\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "../../shared/form-field.manager.less"
                 }
             ],
@@ -8124,7 +8124,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"colors.less\";\r\n@error: @red;\r\n\r\n@font-size: 14px;\r\n@padding-y-large: 12px;\r\n@padding-x-large: 10px;\r\n@padding-y-medium: 8px;\r\n@padding-x-medium: 10px;\r\n@padding-y-small: 6px;\r\n@padding-x-small: 10px;\r\n\r\n\r\n.form-field {\r\n  color: #0D0C0B;\r\n  font-size: @font-size;\r\n  height: inherit;\r\n  width: 100%;\r\n  border-radius: 4px;\r\n  border: 1px solid @gray60 !important;\r\n  &.large {\r\n    padding: @padding-y-large @padding-x-large;\r\n    & + label {\r\n      top: @padding-y-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    padding: @padding-y-medium @padding-x-medium;\r\n    & + label {\r\n      top: @padding-y-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: @padding-y-small @padding-x-small;\r\n    & + label {\r\n      top: @padding-y-small;\r\n    }\r\n  }\r\n  &.error, &.has-right-icon {\r\n    padding-right: 45px;\r\n  }\r\n  &.error {\r\n    border: 1px solid @error !important;\r\n    & ~ label {\r\n      color: @error !important;\r\n    }\r\n    &:focus, &:hover {\r\n      border: 1px solid @error !important;\r\n      caret-color: @error;\r\n    }\r\n  }\r\n  &.has-left-icon {\r\n    padding-left: 45px;\r\n    & + label {\r\n      left: 45px;\r\n    }\r\n  }\r\n  &:hover {\r\n    border: 1px solid #000 !important;\r\n  }\r\n  &:focus, &.item-focus {\r\n    border: 1px solid @primary-color !important;\r\n    caret-color: @primary-color;\r\n    & + label {\r\n      color: @primary-color;\r\n      font-size: 11px;\r\n      top: -8px;\r\n      left: 8px;\r\n      padding: 0 4px;\r\n      background-color: #fff;\r\n    }\r\n  }\r\n}\r\n\r\n.text-field-container {\r\n  input {\r\n    &::placeholder {\r\n      visibility: hidden;\r\n      opacity: 0;\r\n      transition: visibility 0.1s ease-out, opacity 0.1s ease-out;\r\n      padding: 0 4px;\r\n    }\r\n    &:focus {\r\n      &::placeholder {\r\n        visibility: visible;\r\n        opacity: 1;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.sp-input-container {\r\n  margin: 0;\r\n  position: relative;\r\n  input {\r\n    box-shadow: none;\r\n    outline: none;\r\n    // max-width: 520px;\r\n    min-height: 24px;\r\n    .form-field();\r\n\r\n    &[disabled] {\r\n      background-color: #ffffff !important;\r\n      color: @gray40 !important;\r\n      border: 1px solid @gray40 !important;\r\n      cursor: not-allowed;\r\n      & ~ label {\r\n        color: @gray40 !important;\r\n      }\r\n      &:hover {\r\n        border: 1px solid @gray40 !important;\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        color: @gray60;\r\n      }\r\n      &:hover {\r\n        & + label {\r\n          color: #000;\r\n        }\r\n      }\r\n      &:focus {\r\n        & + label {\r\n          color: @primary-color;\r\n        }\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        font-size: 11px;\r\n        top: -8px;\r\n        left: 8px;\r\n        padding: 0 4px;\r\n        background-color: #fff;\r\n      }\r\n    }\r\n    & + label {\r\n      position: absolute;\r\n      left: 12px;\r\n      font-size: @font-size;\r\n      color: @gray60;\r\n      background-color: rgba(255,255,255,0);\r\n      pointer-events: none;\r\n      transition: all 0.2s ease, background-color 0.2s ease-in;\r\n    }\r\n  }\r\n  .text-field-icon {\r\n    position: absolute;\r\n    height: 24px;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n  }\r\n  .error-icon, .right-icon {\r\n    right: 12px;\r\n  }\r\n  .left-icon {\r\n    left: 12px;\r\n  }\r\n\r\n  .left-icon, .right-icon {\r\n    svg {\r\n      path {\r\n        fill: @gray70;\r\n      }\r\n    }\r\n  }\r\n  .error-icon {\r\n    svg {\r\n      path {\r\n        fill: @error;\r\n      }\r\n    }\r\n  }\r\n  label {\r\n    &.text-field-bottom-label {\r\n      font-size: 12px;\r\n      margin-top: 10px;\r\n      position: absolute;\r\n      bottom: -20px;\r\n    }\r\n    &.error-label, &.hint-label {\r\n      left: 12px;\r\n    }\r\n    &.length-label {\r\n      right: 12px;\r\n    }\r\n    &.error-label {\r\n      color: @error;\r\n    }\r\n    &.hint-label, &.length-label {\r\n      color: #4F4E4D;\r\n    }\r\n  }\r\n  &.disabled-container {\r\n    .text-field-bottom-label {\r\n      color: @gray40 !important;\r\n    }\r\n\r\n    .text-field-icon {\r\n      svg {\r\n        path {\r\n          fill: @gray40;\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.search-wrapper {\r\n  display: flex;\r\n  align-items: center;\r\n  .form-field();\r\n  input {\r\n    &, &:hover, &:focus {\r\n      border: none !important;\r\n    }\r\n  }\r\n  .search-icon {\r\n    height: 24px;\r\n  }\r\n  &.large {\r\n    .search-icon {\r\n      margin-left: @padding-x-large;\r\n      margin-right: @padding-x-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    .search-icon {\r\n      margin-left: @padding-x-medium;\r\n      margin-right: @padding-x-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: 4px @padding-x-small;\r\n    .search-icon {\r\n      margin-left: @padding-x-small;\r\n      margin-right: @padding-x-small;\r\n    }\r\n  }\r\n  .selected-items {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    .selected-item {\r\n      margin: 1px\r\n    }\r\n  }\r\n}\r\n",
+                    "data": "@import \"colors.less\";\r\n@error: @red;\r\n\r\n@font-size: 14px;\r\n@padding-y-large: 12px;\r\n@padding-x-large: 10px;\r\n@padding-y-medium: 8px;\r\n@padding-x-medium: 10px;\r\n@padding-y-small: 6px;\r\n@padding-x-small: 10px;\r\n\r\n\r\n.form-field {\r\n  color: #0D0C0B;\r\n  font-size: @font-size;\r\n  height: inherit;\r\n  width: 100%;\r\n  border-radius: 4px;\r\n  border: 1px solid @gray60 !important;\r\n  &.large {\r\n    padding: @padding-y-large @padding-x-large;\r\n    & + label {\r\n      top: @padding-y-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    padding: @padding-y-medium @padding-x-medium;\r\n    & + label {\r\n      top: @padding-y-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: @padding-y-small @padding-x-small;\r\n    & + label {\r\n      top: @padding-y-small;\r\n    }\r\n  }\r\n  &.error, &.has-right-icon {\r\n    padding-right: 45px;\r\n  }\r\n  &.error {\r\n    border: 1px solid @error !important;\r\n    & ~ label {\r\n      color: @error !important;\r\n    }\r\n    &:focus, &:hover {\r\n      border: 1px solid @error !important;\r\n      caret-color: @error;\r\n    }\r\n  }\r\n  &.has-left-icon {\r\n    padding-left: 45px;\r\n    & + label {\r\n      left: 45px;\r\n    }\r\n  }\r\n  &:hover {\r\n    border: 1px solid #000 !important;\r\n  }\r\n  &:focus, &.item-focus {\r\n    border: 1px solid @primary-color !important;\r\n    caret-color: @primary-color;\r\n    & + label {\r\n      color: @primary-color;\r\n      font-size: 11px;\r\n      top: -8px;\r\n      left: 8px;\r\n      padding: 0 4px;\r\n      background-color: #fff;\r\n    }\r\n  }\r\n}\r\n\r\n.text-field-container {\r\n  input {\r\n    &::placeholder {\r\n      visibility: hidden;\r\n      opacity: 0;\r\n      transition: visibility 0.1s ease-out, opacity 0.1s ease-out;\r\n      padding: 0 4px;\r\n    }\r\n    &:focus {\r\n      &::placeholder {\r\n        visibility: visible;\r\n        opacity: 1;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.spt-input-container {\r\n  margin: 0;\r\n  position: relative;\r\n  input {\r\n    box-shadow: none;\r\n    outline: none;\r\n    // max-width: 520px;\r\n    min-height: 24px;\r\n    .form-field();\r\n\r\n    &[disabled] {\r\n      background-color: #ffffff !important;\r\n      color: @gray40 !important;\r\n      border: 1px solid @gray40 !important;\r\n      cursor: not-allowed;\r\n      & ~ label {\r\n        color: @gray40 !important;\r\n      }\r\n      &:hover {\r\n        border: 1px solid @gray40 !important;\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        color: @gray60;\r\n      }\r\n      &:hover {\r\n        & + label {\r\n          color: #000;\r\n        }\r\n      }\r\n      &:focus {\r\n        & + label {\r\n          color: @primary-color;\r\n        }\r\n      }\r\n    }\r\n    &.dirty {\r\n      & + label {\r\n        font-size: 11px;\r\n        top: -8px;\r\n        left: 8px;\r\n        padding: 0 4px;\r\n        background-color: #fff;\r\n      }\r\n    }\r\n    & + label {\r\n      position: absolute;\r\n      left: 12px;\r\n      font-size: @font-size;\r\n      color: @gray60;\r\n      background-color: rgba(255,255,255,0);\r\n      pointer-events: none;\r\n      transition: all 0.2s ease, background-color 0.2s ease-in;\r\n    }\r\n  }\r\n  .text-field-icon {\r\n    position: absolute;\r\n    height: 24px;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n  }\r\n  .error-icon, .right-icon {\r\n    right: 12px;\r\n  }\r\n  .left-icon {\r\n    left: 12px;\r\n  }\r\n\r\n  .left-icon, .right-icon {\r\n    svg {\r\n      path {\r\n        fill: @gray70;\r\n      }\r\n    }\r\n  }\r\n  .error-icon {\r\n    svg {\r\n      path {\r\n        fill: @error;\r\n      }\r\n    }\r\n  }\r\n  label {\r\n    &.text-field-bottom-label {\r\n      font-size: 12px;\r\n      margin-top: 10px;\r\n      position: absolute;\r\n      bottom: -20px;\r\n    }\r\n    &.error-label, &.hint-label {\r\n      left: 12px;\r\n    }\r\n    &.length-label {\r\n      right: 12px;\r\n    }\r\n    &.error-label {\r\n      color: @error;\r\n    }\r\n    &.hint-label, &.length-label {\r\n      color: #4F4E4D;\r\n    }\r\n  }\r\n  &.disabled-container {\r\n    .text-field-bottom-label {\r\n      color: @gray40 !important;\r\n    }\r\n\r\n    .text-field-icon {\r\n      svg {\r\n        path {\r\n          fill: @gray40;\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.search-wrapper {\r\n  display: flex;\r\n  align-items: center;\r\n  .form-field();\r\n  input {\r\n    &, &:hover, &:focus {\r\n      border: none !important;\r\n    }\r\n  }\r\n  .search-icon {\r\n    height: 24px;\r\n  }\r\n  &.large {\r\n    .search-icon {\r\n      margin-left: @padding-x-large;\r\n      margin-right: @padding-x-large;\r\n    }\r\n  }\r\n  &.medium {\r\n    .search-icon {\r\n      margin-left: @padding-x-medium;\r\n      margin-right: @padding-x-medium;\r\n    }\r\n  }\r\n  &.small {\r\n    padding: 4px @padding-x-small;\r\n    .search-icon {\r\n      margin-left: @padding-x-small;\r\n      margin-right: @padding-x-small;\r\n    }\r\n  }\r\n  .selected-items {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    .selected-item {\r\n      margin: 1px\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "../../shared/form-field.manager.less"
                 }
             ],
@@ -9812,7 +9812,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Breadcrumbs.stories.ts",
+                "file": "src/stories/Molecules/Banner.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -9820,7 +9820,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Banner.stories.ts",
+                "file": "src/stories/Molecules/Breadcrumbs.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -9876,7 +9876,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Organisms/Header.stories.ts",
+                "file": "src/stories/Organisms/Dialogs.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -9884,7 +9884,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Organisms/Dialogs.stories.ts",
+                "file": "src/stories/Organisms/Header.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -10052,7 +10052,7 @@
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Search.stories.ts",
+                "file": "src/stories/Molecules/Dropdown.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -10060,7 +10060,7 @@
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Dropdown.stories.ts",
+                "file": "src/stories/Molecules/Search.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -10228,7 +10228,7 @@
                 "name": "Medium",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Search.stories.ts",
+                "file": "src/stories/Molecules/Dropdown.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -10236,7 +10236,7 @@
                 "name": "Medium",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Dropdown.stories.ts",
+                "file": "src/stories/Molecules/Search.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -10468,7 +10468,7 @@
                 "name": "On",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Atoms/Tab.stories.ts",
+                "file": "src/stories/Atoms/Switch.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -10476,7 +10476,7 @@
                 "name": "On",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Atoms/Switch.stories.ts",
+                "file": "src/stories/Atoms/Tab.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -10571,7 +10571,7 @@
                 "name": "Small",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Search.stories.ts",
+                "file": "src/stories/Molecules/Dropdown.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -10579,7 +10579,7 @@
                 "name": "Small",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Dropdown.stories.ts",
+                "file": "src/stories/Molecules/Search.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -10723,6 +10723,14 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/Atoms/Switch.stories.ts",
+                "type": "Story<SwitchComponent>",
+                "defaultValue": "(args: SwitchComponent) => ({\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/Atoms/Tab.stories.ts",
                 "type": "Story<TabComponent>",
                 "defaultValue": "(args: TabComponent) => ({\r\n  props: args,\r\n})"
@@ -10747,17 +10755,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Breadcrumbs.stories.ts",
-                "type": "Story<BreadcrumbComponent>",
-                "defaultValue": "(args: BreadcrumbComponent) => ({\r\n  props: args,\r\n})"
+                "file": "src/stories/Molecules/Banner.stories.ts",
+                "type": "Story<BannerComponent>",
+                "defaultValue": "(args: BannerComponent) => ({\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Banner.stories.ts",
-                "type": "Story<BannerComponent>",
-                "defaultValue": "(args: BannerComponent) => ({\r\n  props: args,\r\n})"
+                "file": "src/stories/Molecules/Breadcrumbs.stories.ts",
+                "type": "Story<BreadcrumbComponent>",
+                "defaultValue": "(args: BreadcrumbComponent) => ({\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
@@ -10779,25 +10787,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Atoms/Switch.stories.ts",
-                "type": "Story<SwitchComponent>",
-                "defaultValue": "(args: SwitchComponent) => ({\r\n  props: args,\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Molecules/DatePicker.stories.ts",
                 "type": "Story<DatePickerComponent>",
                 "defaultValue": "(args: DatePickerComponent) => ({\r\n  props: args,\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Molecules/Search.stories.ts",
-                "type": "Story<SearchStoryExampleComponent>",
-                "defaultValue": "(args: SearchStoryExampleComponent) => ({\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
@@ -10811,14 +10803,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/SnackBar.stories.ts",
-                "type": "Story<SnackBarExampleComponent>",
-                "defaultValue": "(args: SnackBarExampleComponent) => ({\r\n  props: args,\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Molecules/Menu.stories.ts",
                 "type": "Story<MenuStoryExampleComponent>",
                 "defaultValue": "(args: MenuStoryExampleComponent) => ({\r\n  props: args,\r\n})"
@@ -10827,9 +10811,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/TextField.stories.ts",
-                "type": "Story<TextFieldStoryExampleComponent>",
-                "defaultValue": "(args: TextFieldStoryExampleComponent) => ({\r\n  props: args,\r\n})"
+                "file": "src/stories/Molecules/Search.stories.ts",
+                "type": "Story<SearchStoryExampleComponent>",
+                "defaultValue": "(args: SearchStoryExampleComponent) => ({\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Molecules/SnackBar.stories.ts",
+                "type": "Story<SnackBarExampleComponent>",
+                "defaultValue": "(args: SnackBarExampleComponent) => ({\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
@@ -10838,6 +10830,14 @@
                 "file": "src/stories/Molecules/Step.stories.ts",
                 "type": "Story<StepsComponent>",
                 "defaultValue": "(args: StepsComponent) => ({\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Molecules/TextField.stories.ts",
+                "type": "Story<TextFieldStoryExampleComponent>",
+                "defaultValue": "(args: TextFieldStoryExampleComponent) => ({\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
@@ -10867,17 +10867,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Organisms/Header.stories.ts",
-                "type": "Story<HeaderComponent>",
-                "defaultValue": "(args: HeaderComponent) => ({\r\n  props: args,\r\n})"
+                "file": "src/stories/Organisms/Dialogs.stories.ts",
+                "type": "Story<DialogsExampleComponent>",
+                "defaultValue": "(args: DialogsExampleComponent) => ({\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Organisms/Dialogs.stories.ts",
-                "type": "Story<DialogsExampleComponent>",
-                "defaultValue": "(args: DialogsExampleComponent) => ({\r\n  props: args,\r\n})"
+                "file": "src/stories/Organisms/Header.stories.ts",
+                "type": "Story<HeaderComponent>",
+                "defaultValue": "(args: HeaderComponent) => ({\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
@@ -12647,48 +12647,6 @@
                     "defaultValue": "(args: AvatarComponent) => ({\r\n  props: args,\r\n})"
                 }
             ],
-            "src/stories/Molecules/Search.stories.ts": [
-                {
-                    "name": "Large",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Molecules/Search.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Medium",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Molecules/Search.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "NoDropdown",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Molecules/Search.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Small",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Molecules/Search.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Molecules/Search.stories.ts",
-                    "type": "Story<SearchStoryExampleComponent>",
-                    "defaultValue": "(args: SearchStoryExampleComponent) => ({\r\n  props: args,\r\n})"
-                }
-            ],
             "src/stories/Molecules/Dropdown.stories.ts": [
                 {
                     "name": "Large",
@@ -12801,6 +12759,48 @@
                     "file": "src/stories/Molecules/Dropdown.stories.ts",
                     "type": "Story<DropdownStoryExampleComponent>",
                     "defaultValue": "(args: DropdownStoryExampleComponent) => ({\r\n  props: args,\r\n})"
+                }
+            ],
+            "src/stories/Molecules/Search.stories.ts": [
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Molecules/Search.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Medium",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Molecules/Search.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "NoDropdown",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Molecules/Search.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Molecules/Search.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Molecules/Search.stories.ts",
+                    "type": "Story<SearchStoryExampleComponent>",
+                    "defaultValue": "(args: SearchStoryExampleComponent) => ({\r\n  props: args,\r\n})"
                 }
             ],
             "src/stories/Molecules/TextField.stories.ts": [

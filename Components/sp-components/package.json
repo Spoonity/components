@@ -9,6 +9,9 @@
         "chart.js": "^2.9.4"
     },
     "ngPackage": {
+        "assets": [
+            "src/app/styles/**/*.less"
+          ],
         "lib": {
             "entryFile": "public_api.ts",
             "umdModuleIds": {

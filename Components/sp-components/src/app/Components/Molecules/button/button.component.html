@@ -1,4 +1,5 @@
 <button nz-button [nzType]="type" [nzSize]="size" [disabled]="disabled">
-  <svg-icon *ngIf="leftIcon" nz-icon [name]="leftIcon"></svg-icon>{{text}}
-  <svg-icon *ngIf="rightIcon" nz-icon [name]="rightIcon"></svg-icon>
+  <spt-icon *ngIf="leftIcon" [name]="leftIcon"></spt-icon>
+  <span *ngIf="text" [ngClass]="{leftIcon: leftIcon,rightIcon: rightIcon}">{{ text }}</span>
+  <spt-icon *ngIf="rightIcon" [name]="rightIcon"></spt-icon>
 </button>

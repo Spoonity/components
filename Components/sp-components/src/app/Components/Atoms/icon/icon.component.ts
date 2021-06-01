@@ -12,7 +12,7 @@ export class IconComponent implements OnInit {
   @Input() color = '#0D0C0B';
 
   svgIconSettings = {
-     'width' : '20px',
+     'height' : '20px',
      'fill' : this.color
     }
 
