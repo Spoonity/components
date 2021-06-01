@@ -1,0 +1,688 @@
+// Buttons
+
+button {
+  .anticon {
+    vertical-align: text-bottom;
+  }
+
+  .ant-btn > .anticon + span,
+  .ant-btn > span + .anticon {
+    margin-left: 0;
+  }
+
+  .ant-btn > .anticon > svg {
+    vertical-align: initial;
+  }
+
+  .ant-btn-link:hover,
+  .ant-btn-link:focus,
+  .ant-btn-link:active {
+    border-color: transparent;
+    background-color: @gray20;
+    color: @gray100;
+  }
+
+  .ant-btn-primary[disabled] {
+    background-color: @gray20;
+    border-color: @gray20;
+  }
+}
+// Checkbox
+
+.ant-checkbox-inner {
+  border-width: 2px !important;
+}
+
+.ant-checkbox-indeterminate .ant-checkbox-inner::after {
+  height: 2px !important;
+  background-color: #fff !important;
+}
+
+.ant-checkbox-indeterminate .ant-checkbox-inner {
+  background-color: #ff9900 !important;
+  border-color: #ff9900 !important;
+}
+
+// Radio Button
+
+.ant-radio-disabled .ant-radio-inner {
+  background-color: #fff !important;
+}
+
+.ant-radio-inner {
+  width: 20px !important;
+  height: 20px !important;
+  border-width: 2px;
+}
+
+.ant-radio-inner::after {
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+}
+
+// Progress
+
+.ant-progress-bg {
+  height: 4px !important;
+}
+.ant-progress-circle {
+  width: 40px !important;
+  stroke-width: 9 !important;
+}
+
+// Badge
+
+spt-badge > nz-tag {
+  display: inline-block;
+  border-radius: 16px !important;
+  height: 24px !important;
+  line-height: 16px !important;
+  font-size: 10px !important;
+  background-color: @gray10;
+  border-color: @gray10 !important;
+  .anticon {
+    transform: translateY(2px);
+    svg {
+      path {
+        fill: @gray70;
+      }
+    }
+  }
+  .anticon-close {
+    padding: 5px;
+    font-size: 12px !important;
+    background: @gray70;
+    border-radius: 50px;
+    transform: translateY(-2px) scale(0.83333333) !important;
+    svg {
+      path {
+        fill: @gray10 !important;
+      }
+    }
+  }
+}
+
+spt-chip nz-tag {
+  border-radius: 16px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  font-size: 14px;
+  padding: 7px;
+  .anticon {
+    vertical-align: text-top;
+  }
+  .ant-tag-close-icon{
+    vertical-align: baseline;
+  }
+}
+
+spt-chip nz-tag[disabled] {
+  background-color: #f3f3f3;
+  svg-icon > svg > path {
+    fill: #b1b1b1;
+  }
+}
+
+// Tag
+
+.ant-tag-checkable-checked {
+  background-color: #fff3e0;
+  color: @gray100;
+}
+
+.ant-tag-checkable {
+  background-color: @gray10;
+  border-color: @gray10;
+}
+
+.ant-tag-checkable-checked {
+  background-color: #fff9e6;
+}
+
+.ant-tag-checkable-checked svg-icon svg path {
+  fill: @primary-color;
+}
+
+.ant-tag[disabled] {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+// Tabs
+
+.ant-tabs-nav .ant-tabs-tab:hover {
+  background-color: #f3f3f3;
+}
+
+// Switch
+
+.ant-switch {
+  min-width: 36px !important;
+}
+
+.ant-switch-loading-icon,
+.ant-switch::after {
+  top: -4px !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.ant-switch-checked::after {
+  background-color: #ff9900;
+  margin-left: 1px !important;
+}
+
+.ant-switch-checked {
+  background-color: #ffe1b4;
+}
+
+.ant-switch::before {
+  left: -4px !important;
+}
+
+.ant-switch-loading-icon,
+.ant-switch::after {
+  left: -2px;
+}
+
+.ant-switch-checked::after {
+  left: 34px !important;
+}
+
+// Header
+
+.ant-page-header-heading-title {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+// Breadcrumb
+
+.ant-breadcrumb {
+  font-weight: 400;
+}
+
+nz-breadcrumb-item:last-child {
+  color: @gray100 !important;
+}
+
+.ant-breadcrumb-separator {
+  margin: 0 20px;
+}
+
+// Slider
+
+.ant-slider-handle {
+  border: solid 2px @primary-color !important;
+  width: 20px;
+  height: 20px;
+  margin-top: -8px;
+}
+.ant-slider-handle:hover,
+.ant-slider-handle:active {
+  box-shadow: 0 0px 0px 10px rgba(255, 153, 0, 0.16);
+}
+.ant-slider-disabled {
+  .ant-slider-handle {
+    background-color: @gray40;
+  }
+  .ant-slider-rail {
+    background-color: @gray30;
+  }
+}
+
+.ant-slider-disabled:active,
+.ant-slider-disabled:hover {
+  .ant-slider-handle {
+    box-shadow: none;
+  }
+  .ant-slider-rail {
+    background-color: @gray30;
+  }
+}
+
+.ant-slider-track {
+  height: 6px;
+  top: 3px;
+}
+
+// Scrollbar
+// ---
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: @gray20;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: @gray40;
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: @gray60;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: @gray80;
+}
+
+::-webkit-scrollbar-track {
+  background-color: @gray20;
+}
+
+// Elevation
+// ---
+.spt-elevation--1,
+.spt-elevation--2,
+.spt-elevation--3,
+.spt-elevation--4,
+.spt-elevation--5,
+.spt-elevation--6 {
+  border-radius: 4px;
+}
+// 1 dp
+.spt-elevation--1 {
+  box-shadow: 0 0 2px rgba(13, 12, 11, 0.08), 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+// 2dp
+.spt-elevation--2 {
+  box-shadow: 0 0 2px rgba(13, 12, 11, 0.08), 0 2px 4px rgba(13, 12, 11, 0.12);
+}
+
+// 6dp
+.spt-elevation--3 {
+  box-shadow: 0 1px 4px rgba(13, 12, 11, 0.08), 0 3px 8px rgba(13, 12, 11, 0.16);
+}
+
+// 8dp
+.spt-elevation--4 {
+  box-shadow: 0 1px 4px rgba(13, 12, 11, 0.04),
+    0 4px 12px rgba(13, 12, 11, 0.16);
+}
+
+// 12dp
+.spt-elevation--5 {
+  box-shadow: 0 1px 2px rgba(13, 12, 11, 0.04),
+    0 6px 16px rgba(13, 12, 11, 0.16);
+}
+
+// 24dp
+.spt-elevation--6 {
+  box-shadow: 0 4px 12px rgba(13, 12, 11, 0.08),
+    0 10px 36px rgba(13, 12, 11, 0.24);
+}
+
+// Spacing
+// --
+@spacing--root: 8;
+@spacing--1: (@spacing--root * 1px);
+@spacing--2: (@spacing--root * 2px);
+@spacing--3: (@spacing--root * 3px);
+@spacing--4: (@spacing--root * 6px);
+@spacing--5: (@spacing--root * 8px);
+@spacing--6: (@spacing--root * 10px);
+@spacing--7: (@spacing--root * 14px);
+
+// 8 px
+.spt-spacing--1 {
+  padding: @spacing--1;
+}
+.spt-spacing-y--1 {
+  padding-top: @spacing--1;
+  padding-bottom: @spacing--1;
+}
+.spt-spacing-x--1 {
+  padding-left: @spacing--1;
+  padding-right: @spacing--1;
+}
+.spt-spacing-y-left--1 {
+  padding-left: @spacing--1;
+}
+.spt-spacing-y-right--1 {
+  padding-right: @spacing--1;
+}
+.spt-spacing-y-top--1 {
+  padding-top: @spacing--1;
+}
+.spt-spacing-y-bottom--1 {
+  padding-bottom: @spacing--1;
+}
+
+// 16px
+.spt-spacing--2 {
+  padding: @spacing--2;
+}
+.spt-spacing-y--2 {
+  padding-top: @spacing--2;
+  padding-bottom: @spacing--2;
+}
+.spt-spacing-x--2 {
+  padding-left: @spacing--2;
+  padding-right: @spacing--2;
+}
+.spt-spacing-y-left--2 {
+  padding-left: @spacing--2;
+}
+.spt-spacing-y-right--2 {
+  padding-right: @spacing--2;
+}
+.spt-spacing-y-top--2 {
+  padding-top: @spacing--2;
+}
+.spt-spacing-y-bottom--2 {
+  padding-bottom: @spacing--2;
+}
+
+// 24px
+.spt-spacing--3 {
+  padding: @spacing--3;
+}
+.spt-spacing-y--3 {
+  padding-top: @spacing--3;
+  padding-bottom: @spacing--3;
+}
+.spt-spacing-x--3 {
+  padding-left: @spacing--3;
+  padding-right: @spacing--3;
+}
+.spt-spacing-y-left--3 {
+  padding-left: @spacing--3;
+}
+.spt-spacing-y-right--3 {
+  padding-right: @spacing--3;
+}
+.spt-spacing-y-top--3 {
+  padding-top: @spacing--3;
+}
+.spt-spacing-y-bottom--3 {
+  padding-bottom: @spacing--3;
+}
+
+// 48px
+.spt-spacing--4 {
+  padding: @spacing--4;
+}
+.spt-spacing-y--4 {
+  padding-top: @spacing--4;
+  padding-bottom: @spacing--4;
+}
+.spt-spacing-x--4 {
+  padding-left: @spacing--4;
+  padding-right: @spacing--4;
+}
+.spt-spacing-y-left--4 {
+  padding-left: @spacing--4;
+}
+.spt-spacing-y-right--4 {
+  padding-right: @spacing--4;
+}
+.spt-spacing-y-top--4 {
+  padding-top: @spacing--4;
+}
+.spt-spacing-y-bottom--4 {
+  padding-bottom: @spacing--4;
+}
+
+// 64px
+.spt-spacing--5 {
+  padding: @spacing--5;
+}
+.spt-spacing-y--5 {
+  padding-top: @spacing--5;
+  padding-bottom: @spacing--5;
+}
+.spt-spacing-x--5 {
+  padding-left: @spacing--5;
+  padding-right: @spacing--5;
+}
+.spt-spacing-y-left--5 {
+  padding-left: @spacing--5;
+}
+.spt-spacing-y-right--5 {
+  padding-right: @spacing--5;
+}
+.spt-spacing-y-top--5 {
+  padding-top: @spacing--5;
+}
+.spt-spacing-y-bottom--5 {
+  padding-bottom: @spacing--5;
+}
+
+// 80px
+.spt-spacing--6 {
+  padding: @spacing--6;
+}
+.spt-spacing-y--6 {
+  padding-top: @spacing--6;
+  padding-bottom: @spacing--6;
+}
+.spt-spacing-x--6 {
+  padding-left: @spacing--6;
+  padding-right: @spacing--6;
+}
+.spt-spacing-y-left--6 {
+  padding-left: @spacing--6;
+}
+.spt-spacing-y-right--6 {
+  padding-right: @spacing--6;
+}
+.spt-spacing-y-top--6 {
+  padding-top: @spacing--6;
+}
+.spt-spacing-y-bottom--6 {
+  padding-bottom: @spacing--6;
+}
+
+// 112px
+.spt-spacing--7 {
+  padding: @spacing--7;
+}
+.spt-spacing-y--7 {
+  padding-top: @spacing--7;
+  padding-bottom: @spacing--7;
+}
+.spt-spacing-x--7 {
+  padding-left: @spacing--7;
+  padding-right: @spacing--7;
+}
+.spt-spacing-y-left--7 {
+  padding-left: @spacing--7;
+}
+.spt-spacing-y-right--7 {
+  padding-right: @spacing--7;
+}
+.spt-spacing-y-top--7 {
+  padding-top: @spacing--7;
+}
+.spt-spacing-y-bottom--7 {
+  padding-bottom: @spacing--7;
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+svg-icon svg {
+  width: 20px;
+}
+
+// steps
+.ant-steps,
+.ant-steps-item-process .ant-steps-item-title {
+  font-weight: 700;
+}
+
+.ant-steps-navigation.ant-steps-vertical > .ant-steps-item:after {
+  display: none;
+}
+
+.ant-steps-navigation.ant-steps-vertical > .ant-steps-item {
+  text-align: left;
+}
+.ant-steps-navigation.ant-steps-vertical
+  > .ant-steps-item
+  > .ant-steps-item-container {
+  padding-left: 30px;
+}
+
+// finish
+.ant-steps-item-finish .ant-steps-item-icon {
+  background-color: #fff;
+  border-color: #4caf50 !important;
+}
+
+.ant-steps-item-finish .ant-steps-item-icon {
+  background-color: #4caf50;
+  border-color: #4caf50;
+  color: #fff;
+}
+
+.ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon {
+  color: #fff;
+}
+.ant-steps-item-process .ant-steps-item-icon {
+  background: @primary-color;
+  border-color: @primary-color;
+}
+
+.ant-steps-item-process .ant-steps-item-icon > .ant-steps-icon {
+  color: @gray80;
+}
+
+// disabled
+.ant-steps-item-wait .ant-steps-item-icon {
+  background-color: transparent;
+  border: 1px dashed @gray30;
+}
+
+//after
+.ant-steps-item-finish
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-title::after {
+  background-color: @gray80;
+}
+
+.ant-steps-navigation .ant-steps-item::after {
+  margin-top: -6px;
+}
+
+.ant-steps-navigation .ant-steps-vertical > .ant-steps-item::after {
+  display: none;
+}
+
+.ant-steps-navigation .ant-steps-item {
+  padding-top: 12px;
+}
+
+// Hover
+.ant-steps-navigation .ant-steps-item:hover {
+  background: @gray10;
+}
+
+.ant-steps
+  .ant-steps-item:not(.ant-steps-item-active)
+  > .ant-steps-item-container[role="button"]:hover {
+  background: @gray10;
+}
+
+.ant-steps
+  .ant-steps-item:not(.ant-steps-item-active)
+  > .ant-steps-item-container[role="button"]:hover
+  .ant-steps-item-title {
+  color: @gray80;
+}
+
+.ant-steps
+  .ant-steps-item:not(.ant-steps-item-active):not(.ant-steps-item-process)
+  > .ant-steps-item-container[role="button"]:hover
+  .ant-steps-item-icon {
+  color: @gray80;
+  border-color: @gray80;
+}
+
+.ant-steps
+  .ant-steps-item:not(.ant-steps-item-active):not(.ant-steps-item-process)
+  > .ant-steps-item-container[role="button"]:hover
+  .ant-steps-item-icon
+  .ant-steps-icon {
+  color: @gray80;
+}
+
+//before
+.ant-steps-navigation .ant-steps-item.ant-steps-item-active::before {
+  display: none;
+}
+
+//active
+.ant-steps-item-active {
+  background-color: @primary-1;
+}
+
+// max-width: 480px
+@media (max-width: 480px) {
+  .ant-steps-horizontal.ant-steps-label-horizontal .ant-steps-item {
+    padding-top: 28px;
+  }
+  .ant-steps-horizontal.ant-steps-label-horizontal
+    > .ant-steps-item
+    > .ant-steps-item-container
+    > .ant-steps-item-tail::after {
+    display: none;
+  }
+}
+
+// Modals
+
+.ant-modal-header,
+.ant-modal-footer {
+  border: none;
+}
+
+.ant-modal-header {
+  padding: 24px;
+}
+
+.ant-modal-body {
+  padding: 0 24px;
+}
+
+.ant-modal-footer {
+  padding: 24px;
+}
+
+.ant-modal-footer button + button {
+  margin-left: 24px !important;
+}
+
+.ant-modal-content {
+  .spt-elevation--6;
+}
+
+.ant-table-thead > tr > th {
+  background: none;
+}
+.ant-table-tbody
+  > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)
+  > td {
+  background: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nunito", sans-serif !important;
+  font-weight: 700;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif !important;
+}
+
+.font-80 {
+  color: @gray80;
+}

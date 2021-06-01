@@ -1,0 +1,13 @@
+import { Injectable } from '@angular/core';
+export class MenuService {
+    register(menu) {
+        this.menu = menu;
+    }
+    getMenu() {
+        return this.menu;
+    }
+}
+MenuService.decorators = [
+    { type: Injectable }
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWVudS5zZXJ2aWNlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vc3JjL2FwcC9Db21wb25lbnRzL01vbGVjdWxlcy9tZW51L21lbnUuc2VydmljZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUMsVUFBVSxFQUFDLE1BQU0sZUFBZSxDQUFDO0FBSXpDLE1BQU0sT0FBTyxXQUFXO0lBSWYsUUFBUSxDQUFDLElBQW1CO1FBQ2pDLElBQUksQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDO0lBQ25CLENBQUM7SUFFTSxPQUFPO1FBQ1osT0FBTyxJQUFJLENBQUMsSUFBSSxDQUFDO0lBQ25CLENBQUM7OztZQVhGLFVBQVUiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0luamVjdGFibGV9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHtNZW51Q29tcG9uZW50fSBmcm9tICcuL21lbnUuY29tcG9uZW50JztcblxuQEluamVjdGFibGUoKVxuZXhwb3J0IGNsYXNzIE1lbnVTZXJ2aWNlIHtcblxuICBwcml2YXRlIG1lbnU6IE1lbnVDb21wb25lbnQ7XG5cbiAgcHVibGljIHJlZ2lzdGVyKG1lbnU6IE1lbnVDb21wb25lbnQpIHtcbiAgICB0aGlzLm1lbnUgPSBtZW51O1xuICB9XG5cbiAgcHVibGljIGdldE1lbnUoKTogTWVudUNvbXBvbmVudCB7XG4gICAgcmV0dXJuIHRoaXMubWVudTtcbiAgfVxufVxuIl19

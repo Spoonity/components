@@ -1,0 +1,22 @@
+{
+  "name": "@spoonity/sp-components",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/core": "^11.0.0",
+    "ng-zorro-antd": "^11.4.0",
+    "angular-svg-icon": "^11.2.0",
+    "ng2-charts": "^2.4.2",
+    "chart.js": "^2.9.4"
+  },
+  "main": "bundles/spoonity-sp-components.umd.js",
+  "module": "fesm2015/spoonity-sp-components.js",
+  "es2015": "fesm2015/spoonity-sp-components.js",
+  "esm2015": "esm2015/spoonity-sp-components.js",
+  "fesm2015": "fesm2015/spoonity-sp-components.js",
+  "typings": "spoonity-sp-components.d.ts",
+  "metadata": "spoonity-sp-components.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

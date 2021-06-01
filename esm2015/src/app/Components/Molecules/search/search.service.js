@@ -1,0 +1,13 @@
+import { Injectable } from '@angular/core';
+export class SearchService {
+    register(select) {
+        this.search = select;
+    }
+    getSearch() {
+        return this.search;
+    }
+}
+SearchService.decorators = [
+    { type: Injectable }
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2VhcmNoLnNlcnZpY2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9zcmMvYXBwL0NvbXBvbmVudHMvTW9sZWN1bGVzL3NlYXJjaC9zZWFyY2guc2VydmljZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsVUFBVSxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBSTNDLE1BQU0sT0FBTyxhQUFhO0lBSWpCLFFBQVEsQ0FBQyxNQUF1QjtRQUNyQyxJQUFJLENBQUMsTUFBTSxHQUFHLE1BQU0sQ0FBQztJQUN2QixDQUFDO0lBRU0sU0FBUztRQUNkLE9BQU8sSUFBSSxDQUFDLE1BQU0sQ0FBQztJQUNyQixDQUFDOzs7WUFYRixVQUFVIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgSW5qZWN0YWJsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHsgU2VhcmNoQ29tcG9uZW50IH0gZnJvbSAnLi9zZWFyY2guY29tcG9uZW50JztcblxuQEluamVjdGFibGUoKVxuZXhwb3J0IGNsYXNzIFNlYXJjaFNlcnZpY2Uge1xuXG4gIHByaXZhdGUgc2VhcmNoOiBTZWFyY2hDb21wb25lbnQ7XG5cbiAgcHVibGljIHJlZ2lzdGVyKHNlbGVjdDogU2VhcmNoQ29tcG9uZW50KSB7XG4gICAgdGhpcy5zZWFyY2ggPSBzZWxlY3Q7XG4gIH1cblxuICBwdWJsaWMgZ2V0U2VhcmNoKCk6IFNlYXJjaENvbXBvbmVudCB7XG4gICAgcmV0dXJuIHRoaXMuc2VhcmNoO1xuICB9XG59XG4iXX0=

@@ -1,0 +1,5 @@
+export const appChevronRightIcon = {
+    data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.29 15.46l3.88-3.88L9.29 7.7a.996.996 0 111.41-1.41l4.59 4.59c.39.39.39 1.02 0 1.41l-4.59 4.59a.996.996 0 01-1.41 0c-.38-.39-.39-1.03 0-1.42z" fill="#0D0C0B"/></svg>`,
+    name: 'chevron-right'
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2hldnJvbl9yaWdodC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3NyYy9hcHAvc3ZnL05hdmlnYXRpb24vY2hldnJvbl9yaWdodC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxNQUFNLENBQUMsTUFBTSxtQkFBbUIsR0FBRztJQUMvQixJQUFJLEVBQUUsMFBBQTBQO0lBQ2hRLElBQUksRUFBRSxlQUFlO0NBQ3hCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY29uc3QgYXBwQ2hldnJvblJpZ2h0SWNvbiA9IHtcbiAgICBkYXRhOiBgPHN2ZyBmaWxsPVwibm9uZVwiIHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIiB2aWV3Qm94PVwiMCAwIDI0IDI0XCI+PHBhdGggZD1cIk05LjI5IDE1LjQ2bDMuODgtMy44OEw5LjI5IDcuN2EuOTk2Ljk5NiAwIDExMS40MS0xLjQxbDQuNTkgNC41OWMuMzkuMzkuMzkgMS4wMiAwIDEuNDFsLTQuNTkgNC41OWEuOTk2Ljk5NiAwIDAxLTEuNDEgMGMtLjM4LS4zOS0uMzktMS4wMyAwLTEuNDJ6XCIgZmlsbD1cIiMwRDBDMEJcIi8+PC9zdmc+YCxcbiAgICBuYW1lOiAnY2hldnJvbi1yaWdodCdcbn07Il19

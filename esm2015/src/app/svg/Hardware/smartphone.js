@@ -1,0 +1,5 @@
+export const appSmartphoneIcon = {
+    data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 17H7V6h10v12z" fill="#0D0C0B"/></svg>`,
+    name: 'smartphone'
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic21hcnRwaG9uZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3NyYy9hcHAvc3ZnL0hhcmR3YXJlL3NtYXJ0cGhvbmUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsTUFBTSxDQUFDLE1BQU0saUJBQWlCLEdBQUc7SUFDN0IsSUFBSSxFQUFFLHVNQUF1TTtJQUM3TSxJQUFJLEVBQUUsWUFBWTtDQUNyQixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGNvbnN0IGFwcFNtYXJ0cGhvbmVJY29uID0ge1xuICAgIGRhdGE6IGA8c3ZnIGZpbGw9XCJub25lXCIgeG1sbnM9XCJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Z1wiIHZpZXdCb3g9XCIwIDAgMjQgMjRcIj48cGF0aCBkPVwiTTE3IDFIN2MtMS4xIDAtMiAuOS0yIDJ2MThjMCAxLjEuOSAyIDIgMmgxMGMxLjEgMCAyLS45IDItMlYzYzAtMS4xLS45LTItMi0yem0wIDE3SDdWNmgxMHYxMnpcIiBmaWxsPVwiIzBEMEMwQlwiLz48L3N2Zz5gLFxuICAgIG5hbWU6ICdzbWFydHBob25lJ1xufTsiXX0=
