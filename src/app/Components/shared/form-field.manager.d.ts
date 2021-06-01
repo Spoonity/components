@@ -1,3 +1,4 @@
+import { ElementRef } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 export declare abstract class FormFieldManager implements ControlValueAccessor {
     size: 'medium' | 'large';
@@ -8,6 +9,10 @@ export declare abstract class FormFieldManager implements ControlValueAccessor {
     hint?: string;
     placeholder?: string;
     isDisabled: any;
+    min?: any;
+    max?: any;
+    readonly?: boolean;
+    textInput: ElementRef;
     value: any;
     isDirty: boolean;
     onChange: any;

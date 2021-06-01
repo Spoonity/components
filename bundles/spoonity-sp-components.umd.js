@@ -539,7 +539,11 @@
         endIcon: [{ type: core.Input }],
         hint: [{ type: core.Input }],
         placeholder: [{ type: core.Input }],
-        isDisabled: [{ type: core.Input }]
+        isDisabled: [{ type: core.Input }],
+        min: [{ type: core.Input }],
+        max: [{ type: core.Input }],
+        readonly: [{ type: core.Input }],
+        textInput: [{ type: core.ViewChild, args: ['input',] }]
     };
 
     var TextFieldComponent = /** @class */ (function (_super) {

@@ -1,4 +1,4 @@
-import { EventEmitter, Component, Input, Output, Directive, forwardRef, ViewChild, HostListener, Injectable, HostBinding, ContentChildren, TemplateRef, ViewContainerRef, ViewEncapsulation, NgModule } from '@angular/core';
+import { EventEmitter, Component, Input, Output, Directive, ViewChild, forwardRef, HostListener, Injectable, HostBinding, ContentChildren, TemplateRef, ViewContainerRef, ViewEncapsulation, NgModule } from '@angular/core';
 import { NzAffixModule } from 'ng-zorro-antd/affix';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
@@ -266,7 +266,11 @@ FormFieldManager.propDecorators = {
     endIcon: [{ type: Input }],
     hint: [{ type: Input }],
     placeholder: [{ type: Input }],
-    isDisabled: [{ type: Input }]
+    isDisabled: [{ type: Input }],
+    min: [{ type: Input }],
+    max: [{ type: Input }],
+    readonly: [{ type: Input }],
+    textInput: [{ type: ViewChild, args: ['input',] }]
 };
 
 class TextFieldComponent extends FormFieldManager {
