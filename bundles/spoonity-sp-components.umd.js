@@ -363,57 +363,57 @@
         message.NzMessageModule,
     ];
 
-    var ButtonType;
+    exports.ButtonType = void 0;
     (function (ButtonType) {
         ButtonType["primary"] = "primary";
         ButtonType["secondary"] = "default";
         ButtonType["tertiary"] = "link";
-    })(ButtonType || (ButtonType = {}));
-    var ButtonSize;
+    })(exports.ButtonType || (exports.ButtonType = {}));
+    exports.ButtonSize = void 0;
     (function (ButtonSize) {
         ButtonSize["large"] = "large";
         ButtonSize["medium"] = "default";
         ButtonSize["small"] = "small";
-    })(ButtonSize || (ButtonSize = {}));
-    var SideNavigationType;
+    })(exports.ButtonSize || (exports.ButtonSize = {}));
+    exports.SideNavigationType = void 0;
     (function (SideNavigationType) {
         SideNavigationType["menu"] = "menu";
         SideNavigationType["subMenu"] = "subMenu";
         SideNavigationType["menuGroup"] = "menuGroup";
         SideNavigationType["menuItem"] = "menuItem";
-    })(SideNavigationType || (SideNavigationType = {}));
-    var TagType;
+    })(exports.SideNavigationType || (exports.SideNavigationType = {}));
+    exports.TagType = void 0;
     (function (TagType) {
         TagType["closeable"] = "closeable";
         TagType["default"] = "default";
         TagType["checkable"] = "checkable";
-    })(TagType || (TagType = {}));
-    var AvatarSize;
+    })(exports.TagType || (exports.TagType = {}));
+    exports.AvatarSize = void 0;
     (function (AvatarSize) {
         AvatarSize[AvatarSize["large"] = 48] = "large";
         AvatarSize[AvatarSize["medium"] = 40] = "medium";
         AvatarSize[AvatarSize["small"] = 32] = "small";
-    })(AvatarSize || (AvatarSize = {}));
-    var DividerType;
+    })(exports.AvatarSize || (exports.AvatarSize = {}));
+    exports.DividerType = void 0;
     (function (DividerType) {
         DividerType["vertical"] = "vertical";
         DividerType["horizontal"] = "horizontal";
-    })(DividerType || (DividerType = {}));
-    var ProgressType;
+    })(exports.DividerType || (exports.DividerType = {}));
+    exports.ProgressType = void 0;
     (function (ProgressType) {
         ProgressType["line"] = "line";
         ProgressType["circle"] = "circle";
-    })(ProgressType || (ProgressType = {}));
-    var ICardType;
+    })(exports.ProgressType || (exports.ProgressType = {}));
+    exports.ICardType = void 0;
     (function (ICardType) {
         ICardType["sms"] = "sms";
         ICardType["customer"] = "customer";
         ICardType["gift"] = "giftManagement";
-    })(ICardType || (ICardType = {}));
+    })(exports.ICardType || (exports.ICardType = {}));
 
     var ChipComponent = /** @class */ (function () {
         function ChipComponent() {
-            this.mode = TagType.default;
+            this.mode = exports.TagType.default;
             this.onCloseEvent = new core.EventEmitter();
             this.onCheckEvent = new core.EventEmitter();
         }
@@ -449,8 +449,8 @@
 
     var ButtonComponent = /** @class */ (function () {
         function ButtonComponent() {
-            this.type = ButtonType.primary;
-            this.size = ButtonSize.medium;
+            this.type = exports.ButtonType.primary;
+            this.size = exports.ButtonSize.medium;
         }
         ButtonComponent.prototype.ngOnInit = function () {
         };
@@ -1568,7 +1568,7 @@
 
     var DividerComponent = /** @class */ (function () {
         function DividerComponent() {
-            this.type = DividerType.horizontal;
+            this.type = exports.DividerType.horizontal;
         }
         DividerComponent.prototype.ngOnInit = function () {
         };
@@ -1588,7 +1588,7 @@
 
     var ProgressBarComponent = /** @class */ (function () {
         function ProgressBarComponent() {
-            this.type = ProgressType.line;
+            this.type = exports.ProgressType.line;
         }
         ProgressBarComponent.prototype.ngOnInit = function () {
         };
@@ -1899,7 +1899,7 @@
         labels: [{ type: core.Input }],
         type: [{ type: core.Input }]
     };
-    var ChartType;
+    exports.ChartType = void 0;
     (function (ChartType) {
         ChartType["pie"] = "pie";
         ChartType["doughnut"] = "doughnut";
@@ -1908,7 +1908,7 @@
         ChartType["polarArea"] = "polarArea";
         ChartType["radar"] = "radar";
         ChartType["horizontalBar"] = "horizontalBar";
-    })(ChartType || (ChartType = {}));
+    })(exports.ChartType || (exports.ChartType = {}));
 
     var DialogsComponent = /** @class */ (function () {
         function DialogsComponent(modal, viewContainerRef) {
@@ -1981,14 +1981,14 @@
             this.otherAccounts = [];
             this.AccountsDisplay = this.otherAccounts;
             this.multipleAccounts = false;
-            this.avatarSize = AvatarSize.medium;
+            this.avatarSize = exports.AvatarSize.medium;
             this.keyboarTab = appKeyboardTabIcon.name;
             this.expandLess = appExpandLessIcon.name;
             this.accountBox = appAccountBoxIcon.name;
             this.logoutIcon = appLogoutIcon.name;
             this.expandMore = appExpandMoreIcon.name;
-            this.buttonType = ButtonType.secondary;
-            this.buttonSize = ButtonSize.medium;
+            this.buttonType = exports.ButtonType.secondary;
+            this.buttonSize = exports.ButtonSize.medium;
             this.iconColor = '#FFF';
             this.isCollapse = false;
             this.onToggleLogout = false;
@@ -2172,8 +2172,8 @@
 
     var HeaderComponent = /** @class */ (function () {
         function HeaderComponent() {
-            this.buttonType = ButtonType.primary;
-            this.buttonSize = ButtonSize.medium;
+            this.buttonType = exports.ButtonType.primary;
+            this.buttonSize = exports.ButtonSize.medium;
         }
         HeaderComponent.prototype.ngOnInit = function () { };
         return HeaderComponent;
@@ -2249,9 +2249,9 @@
             this.white = '#FFEBEE';
             this.red = '#EF5350';
             this.green = '#66BB6A';
-            this.avatarSize = AvatarSize.large;
-            this.btnType = ButtonType.secondary;
-            this.buttonSize = ButtonSize.medium;
+            this.avatarSize = exports.AvatarSize.large;
+            this.btnType = exports.ButtonType.secondary;
+            this.buttonSize = exports.ButtonSize.medium;
         }
         CardComponent.prototype.ngOnInit = function () {
             this.isMouseOver = false;
@@ -2716,8 +2716,51 @@
      * Generated bundle index. Do not edit.
      */
 
+    exports.AvatarComponent = AvatarComponent;
+    exports.BackNavigationComponent = BackNavigationComponent;
+    exports.BadgeComponent = BadgeComponent;
+    exports.BannerComponent = BannerComponent;
+    exports.BreadcrumbComponent = BreadcrumbComponent;
+    exports.ButtonComponent = ButtonComponent;
+    exports.CardComponent = CardComponent;
+    exports.ChartComponent = ChartComponent;
+    exports.CheckboxComponent = CheckboxComponent;
+    exports.ChipComponent = ChipComponent;
+    exports.DataVisualizationComponent = DataVisualizationComponent;
+    exports.DatePickerComponent = DatePickerComponent;
+    exports.DialogsComponent = DialogsComponent;
+    exports.DividerComponent = DividerComponent;
+    exports.DropdownComponent = DropdownComponent;
+    exports.DropdownService = DropdownService;
+    exports.ElevationComponent = ElevationComponent;
+    exports.FormFieldManager = FormFieldManager;
+    exports.HeaderComponent = HeaderComponent;
+    exports.IconComponent = IconComponent;
+    exports.MenuComponent = MenuComponent;
+    exports.MenuItemComponent = MenuItemComponent;
+    exports.MenuService = MenuService;
+    exports.MenuTriggerDirective = MenuTriggerDirective;
+    exports.OverlayTemplateComponent = OverlayTemplateComponent;
+    exports.ProgressBarComponent = ProgressBarComponent;
+    exports.RadioButtonComponent = RadioButtonComponent;
+    exports.SearchComponent = SearchComponent;
+    exports.SearchOptionComponent = SearchOptionComponent;
+    exports.SearchService = SearchService;
+    exports.SearchTemplateComponent = SearchTemplateComponent;
+    exports.SideNavigationComponent = SideNavigationComponent;
+    exports.SidebarComponent = SidebarComponent;
+    exports.SliderComponent = SliderComponent;
+    exports.SnackbarComponent = SnackbarComponent;
     exports.SpComponentsComponent = SpComponentsComponent;
     exports.SpComponentsModule = SpComponentsModule;
+    exports.SpacingComponent = SpacingComponent;
+    exports.StepsComponent = StepsComponent;
+    exports.SwitchComponent = SwitchComponent;
+    exports.TabComponent = TabComponent;
+    exports.TableComponent = TableComponent;
+    exports.TextFieldComponent = TextFieldComponent;
+    exports.TooltipComponent = TooltipComponent;
+    exports.UploadComponent = UploadComponent;
     exports.actionIcons = actionIcons;
     exports.alertIcons = alertIcons;
     exports.avIcons = avIcons;
