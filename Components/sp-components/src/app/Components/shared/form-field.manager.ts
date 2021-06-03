@@ -1,4 +1,4 @@
-import { Input, Directive } from '@angular/core';
+import {Input, Directive, ElementRef, ViewChild} from '@angular/core';
 import {ControlValueAccessor} from '@angular/forms';
 
 @Directive()
@@ -26,6 +26,17 @@ export abstract class FormFieldManager implements ControlValueAccessor {
 
   /* is disabled */
   @Input() isDisabled;
+
+  /* minimum value */
+  @Input() min?;
+
+  /* maximum value */
+  @Input() max?;
+
+  /* readonly */
+  @Input() readonly?: boolean;
+
+  @ViewChild('input') textInput: ElementRef;
 
   /* value */
   value = null;

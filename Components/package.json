@@ -13,7 +13,8 @@
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "yarn docs:json && start-storybook -p 6006",
     "build-storybook": "yarn docs:json && build-storybook",
-    "storybook-cache": "start-storybook -p 6006 --no-manager-cache"
+    "storybook-cache": "start-storybook -p 6006 --no-manager-cache",
+    "deploy": "ts-node -O '{\"module\": \"commonjs\"}' deploy.ts"
   },
   "private": true,
   "dependencies": {
@@ -82,7 +83,7 @@
     "protractor": "~7.0.0",
     "style-loader": "^2.0.0",
     "ts-node": "^10.0.0",
-    "tslint": "~6.1.0",
+    "tslint": "^6.1.3",
     "webpack": "^4.46.0"
   },
   "svgGenerator": {
