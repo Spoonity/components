@@ -10,21 +10,24 @@
             <div class="selected-item" *ngFor="let s of selectedItems">
                 <spt-chip [text]="s.text"
                          [icon]="s.icon" mode="closeable"
+                         [color]="s.color"
                          (onCloseEvent)="onClose(s)"></spt-chip>
             </div>
         </div>
         <input #input *ngIf="maximumSelection ? selectedItems.length <= maximumSelection : true"
-               (focus)="focus=true" (blur)="focus=false"
+               (focus)="focusAction()" (blur)="blurAction()"
                [ngClass]="{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}"
                [(ngModel)]="value"
                (ngModelChange)="changeAction($event)"
                (keydown)="onKeyDown($event)"
-               placeholder="{{placeholder}}" autocomplete="off">
+               placeholder="{{placeholder}}" autocomplete="off" [readonly]="readonly">
     </div>
 
     <spt-overlay-template [reference]="searchReference" #searchComp>
-        <div class="search-options-container spt-elevation--5">
-            <ng-content select="spt-search-option"></ng-content>
+        <div class="search-options-container sp-elevation--5">
+            <ng-content select="sp-search-option"></ng-content>
+            <ng-content select="div.search-override"></ng-content>
+            <ng-content select="sp-search-option"></ng-content>
         </div>
     </spt-overlay-template>
 

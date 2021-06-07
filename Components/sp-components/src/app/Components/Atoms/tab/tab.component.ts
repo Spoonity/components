@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'spt-tab',
@@ -13,6 +13,8 @@ export class TabComponent implements OnInit {
   }
 
   @Input() tabs: {name: string, disabled: boolean}[];
+  @Input() index = 0;
+  @Output() selectedIndexChange: EventEmitter<any> = new EventEmitter<any>();
 
   // tabs = [
   //   {

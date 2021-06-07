@@ -6,7 +6,7 @@
            (ngModelChange)="changeAction($event)"
            (keydown)="onKeyDown($event)"
            class="{{size}} has-right-icon"
-           [attr.disabled]="isDisabled" readonly autocomplete="off">
+           [attr.disabled]="!!isDisabled ? isDisabled : null" readonly autocomplete="off">
 
     <!-- label -->
     <label class="text-field-label label">{{ label || placeholder }}</label>

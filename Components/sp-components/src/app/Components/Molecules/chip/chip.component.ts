@@ -9,6 +9,7 @@ import { TagType } from '../../../utils/enums';
 export class ChipComponent implements OnInit {
 
   @Input() text: string;
+  @Input() color: string;
   @Input() icon: string;
   @Input() mode: string = TagType.default;
   @Input() checked: boolean;

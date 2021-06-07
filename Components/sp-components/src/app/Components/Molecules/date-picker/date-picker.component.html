@@ -1,9 +1,9 @@
-<div class="spt-input-container text-field-container" [ngClass]="{'disabled-container': isDisabled}">
+<div class="sp-input-container text-field-container" [ngClass]="{'disabled-container': isDisabled}">
     <input nz-input [ngClass]="{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'has-right-icon': !!endIcon, 'disabled-state': isDisabled}"
            (click)="isDisabled ? $event.stopPropagation() : datePickerEl.open()"
            [(ngModel)]="formattedDate"
            [class]="size" placeholder="{{placeholder}}"
-           [attr.disabled]="isDisabled" readonly>
+           [attr.disabled]="!!isDisabled ? isDisabled : null" readonly>
     <!-- label -->
     <label class="text-field-label label">{{ label || placeholder }}</label>
 
@@ -17,4 +17,4 @@
 </div>
 
 <nz-date-picker #datePickerEl style="visibility: hidden; transform: translateY(-35px)"
-                [(ngModel)]="value" (ngModelChange)="convertDate($event)"></nz-date-picker>
+                [(ngModel)]="value" (ngModelChange)="convertDate($event)" [nzDisabledDate]="disabledDate"></nz-date-picker>

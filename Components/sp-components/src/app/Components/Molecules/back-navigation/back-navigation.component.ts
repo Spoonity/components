@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class BackNavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _location: Location, private _router: Router) { }
 
   @Input() title: string;
   @Input() subTitle: string;
@@ -18,4 +18,11 @@ export class BackNavigationComponent implements OnInit {
   ngOnInit() {
   }
 
+  onBack(route): void {
+    if (route) {
+      this._router.navigate([route]);
+    } else {
+      this._location.back();
+    }
+  }
 }

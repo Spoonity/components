@@ -4,7 +4,7 @@ import {
   ContentChildren,
   ElementRef,
   forwardRef, Input,
-  QueryList,
+  QueryList, Renderer2,
   ViewChild
 } from '@angular/core';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
@@ -59,9 +59,10 @@ export class DropdownComponent extends FormFieldManager implements AfterViewInit
   private keyManager: ActiveDescendantKeyManager<OptionComponent>;
 
   constructor(
-    private _dropdownService: DropdownService
+    private _dropdownService: DropdownService,
+    _renderer: Renderer2
   ) {
-    super();
+    super(_renderer);
     this._dropdownService.register(this);
   }
 

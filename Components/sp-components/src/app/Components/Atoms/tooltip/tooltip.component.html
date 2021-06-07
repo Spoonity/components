@@ -1,1 +1,4 @@
-<span nz-tooltip [nzTooltipTitle]="title">{{content}}</span>
+<span nz-tooltip [nzTooltipTitle]="title">
+  <span *ngIf="content">{{content}}</span>
+  <ng-content></ng-content>
+</span>

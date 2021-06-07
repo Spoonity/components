@@ -21,6 +21,7 @@
       true,
       "attribute",
       "sp",
+      "spt",
       "camelCase"
     ],
     "variable-name": [
@@ -34,6 +35,7 @@
       true,
       "element",
       "sp",
+      "spt",
       "kebab-case"
     ],
     "import-spacing": true,

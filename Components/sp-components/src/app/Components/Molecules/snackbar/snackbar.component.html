@@ -4,13 +4,14 @@
             <div class="ant-notification-notice-message">
                 {{ snackbar.message }}
             </div>
-            <div class="ant-notification-notice-description">
+            <div *ngIf="snackbar.description" class="ant-notification-notice-description">
                 {{ snackbar.description }}
             </div>
-            <span class="ant-notification-notice-btn">
-        <span *ngIf="snackbar.actionMessage" (click)="onAction(snackbar.actionEvent)">
-          {{ snackbar.actionMessage }}
-        </span>
+        </div>
+
+        <div class="action ant-notification-notice-btn">
+            <span *ngIf="snackbar.actionMessage" (click)="onAction(snackbar.actionEvent)">
+                {{ snackbar.actionMessage | uppercase }}
             </span>
         </div>
     </div>

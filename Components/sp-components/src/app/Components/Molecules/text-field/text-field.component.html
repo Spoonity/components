@@ -5,7 +5,10 @@
            [(ngModel)]="value"
            (ngModelChange)="changeAction($event)"
            [attr.type]="type"
-           [attr.maxlength]="max"
+           [attr.step]="step"
+           [attr.min]="min"
+           [attr.max]="max"
+           [attr.maxlength]="maxlength"
            [class]="size" placeholder="{{placeholder}}"
            [attr.disabled]="isDisabled">
 
@@ -19,7 +22,7 @@
     <label class="text-field-bottom-label error-label" *ngIf="!!error">{{ error }}</label>
 
     <!-- maxlength -->
-    <label class="text-field-bottom-label length-label" *ngIf="max">{{getLength()}}/{{max}}</label>
+    <label class="text-field-bottom-label length-label" *ngIf="max">{{getLength()}}/{{maxlength}}</label>
 
 
     <!-- error icon -->

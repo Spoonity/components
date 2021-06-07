@@ -10,21 +10,22 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of secondTable.data">
-      <td *ngIf="checkboxOn">
-        <spt-checkbox></spt-checkbox>
-      </td>
-      <td>{{ data.number }}</td>
-      <td>{{ data.date }}</td>
-      <td>{{ data.description }}</td>
-      <td>{{ data.amount }}</td>
-      <td>
-        <spt-badge
-          [name]="data.status ? 'PAID' : 'NOT PAID'"
-          color="#66BB6A"
-        ></spt-badge>
-      </td>
-      <td>{{ data.invoice }}</td>
-    </tr>
+    <ng-content select="tr"></ng-content>
+<!--    <tr *ngFor="let data of secondTable.data">-->
+<!--      <td *ngIf="checkboxOn">-->
+<!--        <spt-checkbox></spt-checkbox>-->
+<!--      </td>-->
+<!--      <td>{{ data.number }}</td>-->
+<!--      <td>{{ data.date }}</td>-->
+<!--      <td>{{ data.description }}</td>-->
+<!--      <td>{{ data.amount }}</td>-->
+<!--      <td>-->
+<!--        <spt-badge-->
+<!--          [name]="data.status ? 'PAID' : 'NOT PAID'"-->
+<!--          color="#66BB6A"-->
+<!--        ></spt-badge>-->
+<!--      </td>-->
+<!--      <td>{{ data.invoice }}</td>-->
+<!--    </tr>-->
   </tbody>
 </nz-table>

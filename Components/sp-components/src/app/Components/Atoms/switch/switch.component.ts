@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'spt-switch',
@@ -12,5 +12,9 @@ export class SwitchComponent implements OnInit {
   ngOnInit() {
   }
   @Input() on: boolean = false;
+  @Output() onChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+  change() {
+    this.onChanged.emit(this.on);
+  }
 }

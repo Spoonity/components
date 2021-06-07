@@ -1,4 +1,4 @@
-import { Component, OnInit,TemplateRef, ViewChild } from '@angular/core';
+import {Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
@@ -10,6 +10,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 export class SnackbarComponent implements OnInit {
 
   @ViewChild(TemplateRef) template?: TemplateRef<{}>;
+  @Input() cssClass?: string;
 
   constructor(private notification: NzNotificationService) {
   }
@@ -26,7 +27,8 @@ export class SnackbarComponent implements OnInit {
           color: 'white'
         },
         nzData: snackbar,
-        nzPlacement: 'bottomLeft'
+        nzPlacement: 'bottomLeft',
+        nzClass: this.cssClass
       }
     );
   }

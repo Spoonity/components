@@ -1,8 +1,8 @@
-import {Input, Directive, ElementRef, ViewChild} from '@angular/core';
+import {Input, Directive, ElementRef, ViewChild, Renderer2, OnChanges, SimpleChanges} from '@angular/core';
 import {ControlValueAccessor} from '@angular/forms';
 
 @Directive()
-export abstract class FormFieldManager implements ControlValueAccessor {
+export abstract class FormFieldManager implements ControlValueAccessor, OnChanges {
   /* size specification (large or medium) -- default to medium if not provided */
   @Input() size: 'medium' | 'large' = 'medium';
 
@@ -50,6 +50,17 @@ export abstract class FormFieldManager implements ControlValueAccessor {
   /* ControlValueAccessor: onTouched function */
   onTouched: any = () => { };
 
+  protected constructor(
+    private _renderer: Renderer2
+  ) {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.isDisabled) {
+      this.setDisabledState(changes.isDisabled.currentValue);
+    }
+  }
+
   /**
    * ControlValueAccessor override: registerOnChange
    */
@@ -84,6 +95,9 @@ export abstract class FormFieldManager implements ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
+    if (this.textInput) {
+      this._renderer.setProperty(this.textInput.nativeElement, 'disabled', isDisabled);
+    }
   }
 
   /**
