@@ -1,4 +1,4 @@
-import { AfterViewInit, ElementRef, QueryList } from '@angular/core';
+import { AfterViewInit, ElementRef, QueryList, Renderer2 } from '@angular/core';
 import { FormFieldManager } from '../../shared/form-field.manager';
 import { OverlayTemplateComponent } from '../../shared/overlay-template/overlay-template.component';
 import { OptionComponent } from './option/option.component';
@@ -14,7 +14,7 @@ export declare class DropdownComponent extends FormFieldManager implements After
     multiple_selectedOptions: OptionComponent[];
     multiple_selected: any[];
     private keyManager;
-    constructor(_dropdownService: DropdownService);
+    constructor(_dropdownService: DropdownService, _renderer: Renderer2);
     ngAfterViewInit(): void;
     /**
      *  override: inherited writeValue

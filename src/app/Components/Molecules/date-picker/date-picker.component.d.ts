@@ -1,7 +1,9 @@
+import { Renderer2 } from '@angular/core';
 import { FormFieldManager } from '../../shared/form-field.manager';
 export declare class DatePickerComponent extends FormFieldManager {
     formattedDate: string;
-    constructor();
+    constructor(_renderer: Renderer2);
+    disabledDate: (current: Date) => boolean;
     /**
      * override: inherited writeValue
      */

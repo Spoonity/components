@@ -9,8 +9,9 @@ export interface IDataSet {
 }
 export declare class TableComponent implements OnInit {
     checkboxOn: boolean;
-    rows: [];
-    dataSet: IDataSet[];
+    rows: any[];
+    dataSet: any[];
+    pageSize: number;
     totalData: number;
     constructor();
     ngOnInit(): void;

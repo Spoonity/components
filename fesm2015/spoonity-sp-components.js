@@ -1,4 +1,4 @@
-import { EventEmitter, Component, Input, Output, Directive, ViewChild, forwardRef, HostListener, Injectable, HostBinding, ContentChildren, TemplateRef, ViewContainerRef, ViewEncapsulation, NgModule } from '@angular/core';
+import { EventEmitter, Component, Input, Output, Directive, Renderer2, ViewChild, forwardRef, HostListener, Injectable, HostBinding, ContentChildren, TemplateRef, ViewContainerRef, ViewEncapsulation, NgModule } from '@angular/core';
 import { NzAffixModule } from 'ng-zorro-antd/affix';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
@@ -40,15 +40,16 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NG_VALUE_ACCESSOR, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { registerLocaleData, CommonModule } from '@angular/common';
+import { Location, registerLocaleData, CommonModule } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { SvgIconRegistryService, AngularSvgIconModule } from 'angular-svg-icon';
 import { CdkPortal, PortalModule } from '@angular/cdk/portal';
 import { OverlayConfig, Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { ActiveDescendantKeyManager } from '@angular/cdk/a11y';
+import { Router, RouterModule } from '@angular/router';
 import { ChartsModule, ThemeService } from 'ng2-charts';
-import { RouterModule } from '@angular/router';
 import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
+import { differenceInCalendarDays } from 'date-fns';
 
 const NZMODULES = [
     NzAffixModule,
@@ -161,13 +162,14 @@ class ChipComponent {
 ChipComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-chip',
-                template: "<nz-tag\n  [nzMode]=\"mode\"\n  [nzChecked]=\"checked\"\n  (nzOnClose)=\"onClose()\"\n  (nzCheckedChange)=\"checkChange($event)\"\n  [attr.disabled]=\"disabled\"\n>\n  <svg-icon\n    *ngIf=\"icon || checked\"\n    nz-icon\n    [name]=\"checked ? 'check' : icon\"\n    [svgStyle]=\"styles\"\n  ></svg-icon>\n  <span class=\"spt-spacing-x--1\">{{ text }}</span>\n</nz-tag>\n",
+                template: "<nz-tag\n  [nzMode]=\"mode\"\n  [nzChecked]=\"checked\"\n  [nzColor]=\"color\"\n  (nzOnClose)=\"onClose()\"\n  (nzCheckedChange)=\"checkChange($event)\"\n  [attr.disabled]=\"disabled\"\n>\n  <svg-icon\n    *ngIf=\"icon || checked\"\n    nz-icon\n    [name]=\"checked ? 'check' : icon\"\n    [svgStyle]=\"styles\"\n  ></svg-icon>\n  <span class=\"spt-spacing-x--1\">{{ text }}</span>\n</nz-tag>\n",
                 styles: [".ant-tag{height:32px!important;line-height:32px!important;font-size:14px}"]
             },] }
 ];
 ChipComponent.ctorParameters = () => [];
 ChipComponent.propDecorators = {
     text: [{ type: Input }],
+    color: [{ type: Input }],
     icon: [{ type: Input }],
     mode: [{ type: Input }],
     checked: [{ type: Input }],
@@ -202,7 +204,8 @@ ButtonComponent.propDecorators = {
 };
 
 class FormFieldManager {
-    constructor() {
+    constructor(_renderer) {
+        this._renderer = _renderer;
         /* size specification (large or medium) -- default to medium if not provided */
         this.size = 'medium';
         /* value */
@@ -211,6 +214,11 @@ class FormFieldManager {
         this.onChange = () => { };
         /* ControlValueAccessor: onTouched function */
         this.onTouched = () => { };
+    }
+    ngOnChanges(changes) {
+        if (changes.isDisabled) {
+            this.setDisabledState(changes.isDisabled.currentValue);
+        }
     }
     /**
      * ControlValueAccessor override: registerOnChange
@@ -242,6 +250,9 @@ class FormFieldManager {
     }
     setDisabledState(isDisabled) {
         this.isDisabled = isDisabled;
+        if (this.textInput) {
+            this._renderer.setProperty(this.textInput.nativeElement, 'disabled', isDisabled);
+        }
     }
     /**
      * check dirty
@@ -257,6 +268,9 @@ class FormFieldManager {
 }
 FormFieldManager.decorators = [
     { type: Directive }
+];
+FormFieldManager.ctorParameters = () => [
+    { type: Renderer2 }
 ];
 FormFieldManager.propDecorators = {
     size: [{ type: Input }],
@@ -274,8 +288,8 @@ FormFieldManager.propDecorators = {
 };
 
 class TextFieldComponent extends FormFieldManager {
-    constructor() {
-        super();
+    constructor(_renderer) {
+        super(_renderer);
     }
     ngOnInit() {
     }
@@ -292,7 +306,7 @@ class TextFieldComponent extends FormFieldManager {
 TextFieldComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-text-field',
-                template: "<div class=\"spt-input-container text-field-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n\n    <input nz-input [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'has-right-icon': !!endIcon, 'has-length': !!max, 'disabled-state': isDisabled}\"\n           (click)=\"isDisabled ? $event.stopPropagation() : null\"\n           [(ngModel)]=\"value\"\n           (ngModelChange)=\"changeAction($event)\"\n           [attr.type]=\"type\"\n           [attr.maxlength]=\"max\"\n           [class]=\"size\" placeholder=\"{{placeholder}}\"\n           [attr.disabled]=\"isDisabled\">\n\n    <!-- label -->\n    <label class=\"text-field-label label\">{{ label || placeholder }}</label>\n\n    <!-- hint -->\n    <label class=\"text-field-bottom-label hint-label\" *ngIf=\"!!hint && !error\">{{ hint }}</label>\n\n    <!-- error -->\n    <label class=\"text-field-bottom-label error-label\" *ngIf=\"!!error\">{{ error }}</label>\n\n    <!-- maxlength -->\n    <label class=\"text-field-bottom-label length-label\" *ngIf=\"max\">{{getLength()}}/{{max}}</label>\n\n\n    <!-- error icon -->\n    <span *ngIf=\"!!error\" class=\"text-field-icon error-icon\">\n        <svg-icon name=\"report\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n\n    <!-- left icon -->\n    <span *ngIf=\"!!startIcon\" class=\"text-field-icon left-icon\">\n        <svg-icon name=\"{{startIcon}}\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n\n    <!-- error icon -->\n    <span *ngIf=\"!!endIcon && !error\" class=\"text-field-icon right-icon\">\n        <svg-icon name=\"{{endIcon}}\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n</div>\n\n\n",
+                template: "<div class=\"spt-input-container text-field-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n\n    <input nz-input [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'has-right-icon': !!endIcon, 'has-length': !!max, 'disabled-state': isDisabled}\"\n           (click)=\"isDisabled ? $event.stopPropagation() : null\"\n           [(ngModel)]=\"value\"\n           (ngModelChange)=\"changeAction($event)\"\n           [attr.type]=\"type\"\n           [attr.step]=\"step\"\n           [attr.min]=\"min\"\n           [attr.max]=\"max\"\n           [attr.maxlength]=\"maxlength\"\n           [class]=\"size\" placeholder=\"{{placeholder}}\"\n           [attr.disabled]=\"isDisabled\">\n\n    <!-- label -->\n    <label class=\"text-field-label label\">{{ label || placeholder }}</label>\n\n    <!-- hint -->\n    <label class=\"text-field-bottom-label hint-label\" *ngIf=\"!!hint && !error\">{{ hint }}</label>\n\n    <!-- error -->\n    <label class=\"text-field-bottom-label error-label\" *ngIf=\"!!error\">{{ error }}</label>\n\n    <!-- maxlength -->\n    <label class=\"text-field-bottom-label length-label\" *ngIf=\"max\">{{getLength()}}/{{maxlength}}</label>\n\n\n    <!-- error icon -->\n    <span *ngIf=\"!!error\" class=\"text-field-icon error-icon\">\n        <svg-icon name=\"report\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n\n    <!-- left icon -->\n    <span *ngIf=\"!!startIcon\" class=\"text-field-icon left-icon\">\n        <svg-icon name=\"{{startIcon}}\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n\n    <!-- error icon -->\n    <span *ngIf=\"!!endIcon && !error\" class=\"text-field-icon right-icon\">\n        <svg-icon name=\"{{endIcon}}\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n</div>\n\n\n",
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
@@ -300,13 +314,16 @@ TextFieldComponent.decorators = [
                         multi: true
                     }
                 ],
-                styles: [".form-field{color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.form-field.large{padding:12px 10px}.form-field.large+label{top:12px}.form-field.medium{padding:8px 10px}.form-field.medium+label{top:8px}.form-field.small{padding:6px 10px}.form-field.small+label{top:6px}.form-field.error,.form-field.has-right-icon{padding-right:45px}.form-field.error{border:1px solid #ef5350!important}.form-field.error~label{color:#ef5350!important}.form-field.error:focus,.form-field.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.form-field.has-left-icon{padding-left:45px}.form-field.has-left-icon+label{left:45px}.form-field:hover{border:1px solid #000!important}.form-field.item-focus,.form-field:focus{border:1px solid #f90!important;caret-color:#f90}.form-field.item-focus+label,.form-field:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.text-field-container input::-moz-placeholder{visibility:hidden;opacity:0;-moz-transition:visibility .1s ease-out,opacity .1s ease-out;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input::placeholder{visibility:hidden;opacity:0;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input:focus::-moz-placeholder{visibility:visible;opacity:1}.text-field-container input:focus::placeholder{visibility:visible;opacity:1}.spt-input-container{margin:0;position:relative}.spt-input-container input{box-shadow:none;outline:none;min-height:24px;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.spt-input-container input.large{padding:12px 10px}.spt-input-container input.large+label{top:12px}.spt-input-container input.medium{padding:8px 10px}.spt-input-container input.medium+label{top:8px}.spt-input-container input.small{padding:6px 10px}.spt-input-container input.small+label{top:6px}.spt-input-container input.error,.spt-input-container input.has-right-icon{padding-right:45px}.spt-input-container input.error{border:1px solid #ef5350!important}.spt-input-container input.error~label{color:#ef5350!important}.spt-input-container input.error:focus,.spt-input-container input.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.spt-input-container input.has-left-icon{padding-left:45px}.spt-input-container input.has-left-icon+label{left:45px}.spt-input-container input:hover{border:1px solid #000!important}.spt-input-container input.item-focus,.spt-input-container input:focus{border:1px solid #f90!important;caret-color:#f90}.spt-input-container input.item-focus+label,.spt-input-container input:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input[disabled]{background-color:#fff!important;color:#b1b1b1!important;border:1px solid #b1b1b1!important;cursor:not-allowed}.spt-input-container input[disabled]~label{color:#b1b1b1!important}.spt-input-container input[disabled]:hover{border:1px solid #b1b1b1!important}.spt-input-container input.dirty+label{color:#909090}.spt-input-container input.dirty:hover+label{color:#000}.spt-input-container input.dirty:focus+label{color:#f90}.spt-input-container input.dirty+label{font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input+label{position:absolute;left:12px;font-size:14px;color:#909090;background-color:hsla(0,0%,100%,0);pointer-events:none;transition:all .2s ease,background-color .2s ease-in}.spt-input-container .text-field-icon{position:absolute;height:24px;top:50%;transform:translateY(-50%)}.spt-input-container .error-icon,.spt-input-container .right-icon{right:12px}.spt-input-container .left-icon{left:12px}.spt-input-container .left-icon svg path,.spt-input-container .right-icon svg path{fill:#706f6e}.spt-input-container .error-icon svg path{fill:#ef5350}.spt-input-container label.text-field-bottom-label{font-size:12px;margin-top:10px;position:absolute;bottom:-20px}.spt-input-container label.error-label,.spt-input-container label.hint-label{left:12px}.spt-input-container label.length-label{right:12px}.spt-input-container label.error-label{color:#ef5350}.spt-input-container label.hint-label,.spt-input-container label.length-label{color:#4f4e4d}.spt-input-container.disabled-container .text-field-bottom-label{color:#b1b1b1!important}.spt-input-container.disabled-container .text-field-icon svg path{fill:#b1b1b1}.search-wrapper{display:flex;align-items:center;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.search-wrapper.large{padding:12px 10px}.search-wrapper.large+label{top:12px}.search-wrapper.medium{padding:8px 10px}.search-wrapper.medium+label{top:8px}.search-wrapper.small{padding:6px 10px}.search-wrapper.small+label{top:6px}.search-wrapper.error,.search-wrapper.has-right-icon{padding-right:45px}.search-wrapper.error{border:1px solid #ef5350!important}.search-wrapper.error~label{color:#ef5350!important}.search-wrapper.error:focus,.search-wrapper.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.search-wrapper.has-left-icon{padding-left:45px}.search-wrapper.has-left-icon+label{left:45px}.search-wrapper:hover{border:1px solid #000!important}.search-wrapper.item-focus,.search-wrapper:focus{border:1px solid #f90!important;caret-color:#f90}.search-wrapper.item-focus+label,.search-wrapper:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.search-wrapper input,.search-wrapper input:focus,.search-wrapper input:hover{border:none!important}.search-wrapper .search-icon{height:24px}.search-wrapper.large .search-icon,.search-wrapper.medium .search-icon{margin-left:10px;margin-right:10px}.search-wrapper.small{padding:4px 10px}.search-wrapper.small .search-icon{margin-left:10px;margin-right:10px}.search-wrapper .selected-items{display:flex;flex-wrap:wrap}.search-wrapper .selected-items .selected-item{margin:1px}"]
+                styles: [".form-field{color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.form-field.large{padding:12px 10px}.form-field.large+label{top:12px}.form-field.medium{padding:8px 10px}.form-field.medium+label{top:8px}.form-field.small{padding:6px 10px}.form-field.small+label{top:6px}.form-field.error,.form-field.has-right-icon{padding-right:45px}.form-field.error{border:1px solid #ef5350!important}.form-field.error~label{color:#ef5350!important}.form-field.error:focus,.form-field.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.form-field.has-left-icon{padding-left:45px}.form-field.has-left-icon+label{left:45px}.form-field:hover{border:1px solid #000!important}.form-field.item-focus,.form-field:focus{border:1px solid #f90!important;caret-color:#f90}.form-field.item-focus+label,.form-field:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.text-field-container input::-moz-placeholder{visibility:hidden;opacity:0;-moz-transition:visibility .1s ease-out,opacity .1s ease-out;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input::placeholder{visibility:hidden;opacity:0;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input:focus::-moz-placeholder{visibility:visible;opacity:1}.text-field-container input:focus::placeholder{visibility:visible;opacity:1}.spt-input-container{margin:0;position:relative}.spt-input-container input{box-shadow:none;outline:none;min-height:24px;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.spt-input-container input.large{padding:12px 10px}.spt-input-container input.large+label{top:12px}.spt-input-container input.medium{padding:8px 10px}.spt-input-container input.medium+label{top:8px}.spt-input-container input.small{padding:6px 10px}.spt-input-container input.small+label{top:6px}.spt-input-container input.error,.spt-input-container input.has-right-icon{padding-right:45px}.spt-input-container input.error{border:1px solid #ef5350!important}.spt-input-container input.error~label{color:#ef5350!important}.spt-input-container input.error:focus,.spt-input-container input.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.spt-input-container input.has-left-icon{padding-left:45px}.spt-input-container input.has-left-icon+label{left:45px}.spt-input-container input:hover{border:1px solid #000!important}.spt-input-container input.item-focus,.spt-input-container input:focus{border:1px solid #f90!important;caret-color:#f90}.spt-input-container input.item-focus+label,.spt-input-container input:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input[disabled]{background-color:#fff!important;color:#b1b1b1!important;border:1px solid #b1b1b1!important;cursor:not-allowed}.spt-input-container input[disabled]~label{color:#b1b1b1!important}.spt-input-container input[disabled]:hover{border:1px solid #b1b1b1!important}.spt-input-container input.dirty+label{color:#909090}.spt-input-container input.dirty:hover+label{color:#000}.spt-input-container input.dirty:focus+label{color:#f90}.spt-input-container input.dirty+label{font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input+label{position:absolute;left:12px;font-size:14px;color:#909090;background-color:hsla(0,0%,100%,0);pointer-events:none;transition:all .2s ease,background-color .2s ease-in}.spt-input-container .text-field-icon{position:absolute;height:24px;top:50%;transform:translateY(-50%)}.spt-input-container .error-icon,.spt-input-container .right-icon{right:12px}.spt-input-container .left-icon{left:12px}.spt-input-container .left-icon svg path,.spt-input-container .right-icon svg path{fill:#706f6e}.spt-input-container .error-icon svg path{fill:#ef5350}.spt-input-container label.text-field-bottom-label{font-size:12px;margin-top:10px;position:absolute;bottom:-20px}.spt-input-container label.error-label,.spt-input-container label.hint-label{left:12px}.spt-input-container label.length-label{right:12px}.spt-input-container label.error-label{color:#ef5350}.spt-input-container label.hint-label,.spt-input-container label.length-label{color:#4f4e4d}.spt-input-container.disabled-container .text-field-bottom-label{color:#b1b1b1!important}.spt-input-container.disabled-container .text-field-icon svg path{fill:#b1b1b1}.search-wrapper{display:flex;align-items:center;background-color:#fff;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.search-wrapper.large{padding:12px 10px}.search-wrapper.large+label{top:12px}.search-wrapper.medium{padding:8px 10px}.search-wrapper.medium+label{top:8px}.search-wrapper.small{padding:6px 10px}.search-wrapper.small+label{top:6px}.search-wrapper.error,.search-wrapper.has-right-icon{padding-right:45px}.search-wrapper.error{border:1px solid #ef5350!important}.search-wrapper.error~label{color:#ef5350!important}.search-wrapper.error:focus,.search-wrapper.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.search-wrapper.has-left-icon{padding-left:45px}.search-wrapper.has-left-icon+label{left:45px}.search-wrapper:hover{border:1px solid #000!important}.search-wrapper.item-focus,.search-wrapper:focus{border:1px solid #f90!important;caret-color:#f90}.search-wrapper.item-focus+label,.search-wrapper:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.search-wrapper input,.search-wrapper input:focus,.search-wrapper input:hover{border:none!important}.search-wrapper .search-icon{height:24px}.search-wrapper.large .search-icon,.search-wrapper.medium .search-icon{margin-left:10px;margin-right:10px}.search-wrapper.small{padding:4px 10px}.search-wrapper.small .search-icon{margin-left:10px;margin-right:10px}.search-wrapper .selected-items{display:flex;flex-wrap:wrap}.search-wrapper .selected-items .selected-item{margin:1px}"]
             },] }
 ];
-TextFieldComponent.ctorParameters = () => [];
+TextFieldComponent.ctorParameters = () => [
+    { type: Renderer2 }
+];
 TextFieldComponent.propDecorators = {
     type: [{ type: Input }],
-    max: [{ type: Input }]
+    step: [{ type: Input }],
+    maxlength: [{ type: Input }]
 };
 
 class BannerComponent {
@@ -488,8 +505,8 @@ OptionComponent.propDecorators = {
 };
 
 class DropdownComponent extends FormFieldManager {
-    constructor(_dropdownService) {
-        super();
+    constructor(_dropdownService, _renderer) {
+        super(_renderer);
         this._dropdownService = _dropdownService;
         /* multiple selection: list of selected OptionComponent */
         this.multiple_selectedOptions = [];
@@ -651,7 +668,7 @@ class DropdownComponent extends FormFieldManager {
 DropdownComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-dropdown',
-                template: "<div #dropReference class=\"spt-input-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n\n    <input #input [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'disabled-state': isDisabled}\"\n           (click)=\"showDropdown()\"\n           [(ngModel)]=\"value\"\n           (ngModelChange)=\"changeAction($event)\"\n           (keydown)=\"onKeyDown($event)\"\n           class=\"{{size}} has-right-icon\"\n           [attr.disabled]=\"isDisabled\" readonly autocomplete=\"off\">\n\n    <!-- label -->\n    <label class=\"text-field-label label\">{{ label || placeholder }}</label>\n\n    <!-- hint -->\n    <label class=\"text-field-bottom-label hint-label\" *ngIf=\"!!hint && !error\">{{ hint }}</label>\n\n    <!-- error -->\n    <label class=\"text-field-bottom-label error-label\" *ngIf=\"!!error\">{{ error }}</label>\n\n    <!-- error icon -->\n    <span *ngIf=\"!!error\" class=\"text-field-icon error-icon\">\n        <svg-icon name=\"report\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n\n    <!-- left icon -->\n    <span *ngIf=\"!!startIcon\" class=\"text-field-icon left-icon\">\n        <svg-icon name=\"{{startIcon}}\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n\n    <!-- right icon (arrow) -->\n    <div *ngIf=\"!error\" class=\"text-field-icon right-icon\" (click)=\"onDropMenuIconClick($event)\">\n        <svg-icon name=\"expand-more\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </div>\n\n    <spt-overlay-template [reference]=\"dropReference\" #dropdownComp>\n        <div class=\"dropdown-options-container spt-elevation--5\">\n            <ng-content select=\"spt-option\"></ng-content>\n        </div>\n    </spt-overlay-template>\n\n</div>\n\n\n",
+                template: "<div #dropReference class=\"spt-input-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n\n    <input #input [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'disabled-state': isDisabled}\"\n           (click)=\"showDropdown()\"\n           [(ngModel)]=\"value\"\n           (ngModelChange)=\"changeAction($event)\"\n           (keydown)=\"onKeyDown($event)\"\n           class=\"{{size}} has-right-icon\"\n           [attr.disabled]=\"!!isDisabled ? isDisabled : null\" readonly autocomplete=\"off\">\n\n    <!-- label -->\n    <label class=\"text-field-label label\">{{ label || placeholder }}</label>\n\n    <!-- hint -->\n    <label class=\"text-field-bottom-label hint-label\" *ngIf=\"!!hint && !error\">{{ hint }}</label>\n\n    <!-- error -->\n    <label class=\"text-field-bottom-label error-label\" *ngIf=\"!!error\">{{ error }}</label>\n\n    <!-- error icon -->\n    <span *ngIf=\"!!error\" class=\"text-field-icon error-icon\">\n        <svg-icon name=\"report\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n\n    <!-- left icon -->\n    <span *ngIf=\"!!startIcon\" class=\"text-field-icon left-icon\">\n        <svg-icon name=\"{{startIcon}}\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n\n    <!-- right icon (arrow) -->\n    <div *ngIf=\"!error\" class=\"text-field-icon right-icon\" (click)=\"onDropMenuIconClick($event)\">\n        <svg-icon name=\"expand-more\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </div>\n\n    <spt-overlay-template [reference]=\"dropReference\" #dropdownComp>\n        <div class=\"dropdown-options-container spt-elevation--5\">\n            <ng-content select=\"spt-option\"></ng-content>\n        </div>\n    </spt-overlay-template>\n\n</div>\n\n\n",
                 providers: [
                     DropdownService,
                     {
@@ -660,11 +677,12 @@ DropdownComponent.decorators = [
                         multi: true
                     }
                 ],
-                styles: [".dropdown-options-container{width:100%;max-height:200px;overflow:auto}.spt-input-container input:focus~.right-icon,.spt-input-container input~.right-icon{transition:all .2s ease,background-color .2s ease-in}.spt-input-container input:focus~.right-icon{transform:rotate(180deg) translateY(50%)}.spt-input-container input:focus~.right-icon svg path{fill:#f90}", ".form-field{color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.form-field.large{padding:12px 10px}.form-field.large+label{top:12px}.form-field.medium{padding:8px 10px}.form-field.medium+label{top:8px}.form-field.small{padding:6px 10px}.form-field.small+label{top:6px}.form-field.error,.form-field.has-right-icon{padding-right:45px}.form-field.error{border:1px solid #ef5350!important}.form-field.error~label{color:#ef5350!important}.form-field.error:focus,.form-field.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.form-field.has-left-icon{padding-left:45px}.form-field.has-left-icon+label{left:45px}.form-field:hover{border:1px solid #000!important}.form-field.item-focus,.form-field:focus{border:1px solid #f90!important;caret-color:#f90}.form-field.item-focus+label,.form-field:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.text-field-container input::-moz-placeholder{visibility:hidden;opacity:0;-moz-transition:visibility .1s ease-out,opacity .1s ease-out;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input::placeholder{visibility:hidden;opacity:0;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input:focus::-moz-placeholder{visibility:visible;opacity:1}.text-field-container input:focus::placeholder{visibility:visible;opacity:1}.spt-input-container{margin:0;position:relative}.spt-input-container input{box-shadow:none;outline:none;min-height:24px;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.spt-input-container input.large{padding:12px 10px}.spt-input-container input.large+label{top:12px}.spt-input-container input.medium{padding:8px 10px}.spt-input-container input.medium+label{top:8px}.spt-input-container input.small{padding:6px 10px}.spt-input-container input.small+label{top:6px}.spt-input-container input.error,.spt-input-container input.has-right-icon{padding-right:45px}.spt-input-container input.error{border:1px solid #ef5350!important}.spt-input-container input.error~label{color:#ef5350!important}.spt-input-container input.error:focus,.spt-input-container input.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.spt-input-container input.has-left-icon{padding-left:45px}.spt-input-container input.has-left-icon+label{left:45px}.spt-input-container input:hover{border:1px solid #000!important}.spt-input-container input.item-focus,.spt-input-container input:focus{border:1px solid #f90!important;caret-color:#f90}.spt-input-container input.item-focus+label,.spt-input-container input:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input[disabled]{background-color:#fff!important;color:#b1b1b1!important;border:1px solid #b1b1b1!important;cursor:not-allowed}.spt-input-container input[disabled]~label{color:#b1b1b1!important}.spt-input-container input[disabled]:hover{border:1px solid #b1b1b1!important}.spt-input-container input.dirty+label{color:#909090}.spt-input-container input.dirty:hover+label{color:#000}.spt-input-container input.dirty:focus+label{color:#f90}.spt-input-container input.dirty+label{font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input+label{position:absolute;left:12px;font-size:14px;color:#909090;background-color:hsla(0,0%,100%,0);pointer-events:none;transition:all .2s ease,background-color .2s ease-in}.spt-input-container .text-field-icon{position:absolute;height:24px;top:50%;transform:translateY(-50%)}.spt-input-container .error-icon,.spt-input-container .right-icon{right:12px}.spt-input-container .left-icon{left:12px}.spt-input-container .left-icon svg path,.spt-input-container .right-icon svg path{fill:#706f6e}.spt-input-container .error-icon svg path{fill:#ef5350}.spt-input-container label.text-field-bottom-label{font-size:12px;margin-top:10px;position:absolute;bottom:-20px}.spt-input-container label.error-label,.spt-input-container label.hint-label{left:12px}.spt-input-container label.length-label{right:12px}.spt-input-container label.error-label{color:#ef5350}.spt-input-container label.hint-label,.spt-input-container label.length-label{color:#4f4e4d}.spt-input-container.disabled-container .text-field-bottom-label{color:#b1b1b1!important}.spt-input-container.disabled-container .text-field-icon svg path{fill:#b1b1b1}.search-wrapper{display:flex;align-items:center;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.search-wrapper.large{padding:12px 10px}.search-wrapper.large+label{top:12px}.search-wrapper.medium{padding:8px 10px}.search-wrapper.medium+label{top:8px}.search-wrapper.small{padding:6px 10px}.search-wrapper.small+label{top:6px}.search-wrapper.error,.search-wrapper.has-right-icon{padding-right:45px}.search-wrapper.error{border:1px solid #ef5350!important}.search-wrapper.error~label{color:#ef5350!important}.search-wrapper.error:focus,.search-wrapper.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.search-wrapper.has-left-icon{padding-left:45px}.search-wrapper.has-left-icon+label{left:45px}.search-wrapper:hover{border:1px solid #000!important}.search-wrapper.item-focus,.search-wrapper:focus{border:1px solid #f90!important;caret-color:#f90}.search-wrapper.item-focus+label,.search-wrapper:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.search-wrapper input,.search-wrapper input:focus,.search-wrapper input:hover{border:none!important}.search-wrapper .search-icon{height:24px}.search-wrapper.large .search-icon,.search-wrapper.medium .search-icon{margin-left:10px;margin-right:10px}.search-wrapper.small{padding:4px 10px}.search-wrapper.small .search-icon{margin-left:10px;margin-right:10px}.search-wrapper .selected-items{display:flex;flex-wrap:wrap}.search-wrapper .selected-items .selected-item{margin:1px}"]
+                styles: [".dropdown-options-container{width:100%;max-height:200px;overflow:auto}.spt-input-container input:focus~.right-icon,.spt-input-container input~.right-icon{transition:all .2s ease,background-color .2s ease-in}.spt-input-container input:focus~.right-icon{transform:rotate(180deg) translateY(50%)}.spt-input-container input:focus~.right-icon svg path{fill:#f90}", ".form-field{color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.form-field.large{padding:12px 10px}.form-field.large+label{top:12px}.form-field.medium{padding:8px 10px}.form-field.medium+label{top:8px}.form-field.small{padding:6px 10px}.form-field.small+label{top:6px}.form-field.error,.form-field.has-right-icon{padding-right:45px}.form-field.error{border:1px solid #ef5350!important}.form-field.error~label{color:#ef5350!important}.form-field.error:focus,.form-field.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.form-field.has-left-icon{padding-left:45px}.form-field.has-left-icon+label{left:45px}.form-field:hover{border:1px solid #000!important}.form-field.item-focus,.form-field:focus{border:1px solid #f90!important;caret-color:#f90}.form-field.item-focus+label,.form-field:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.text-field-container input::-moz-placeholder{visibility:hidden;opacity:0;-moz-transition:visibility .1s ease-out,opacity .1s ease-out;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input::placeholder{visibility:hidden;opacity:0;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input:focus::-moz-placeholder{visibility:visible;opacity:1}.text-field-container input:focus::placeholder{visibility:visible;opacity:1}.spt-input-container{margin:0;position:relative}.spt-input-container input{box-shadow:none;outline:none;min-height:24px;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.spt-input-container input.large{padding:12px 10px}.spt-input-container input.large+label{top:12px}.spt-input-container input.medium{padding:8px 10px}.spt-input-container input.medium+label{top:8px}.spt-input-container input.small{padding:6px 10px}.spt-input-container input.small+label{top:6px}.spt-input-container input.error,.spt-input-container input.has-right-icon{padding-right:45px}.spt-input-container input.error{border:1px solid #ef5350!important}.spt-input-container input.error~label{color:#ef5350!important}.spt-input-container input.error:focus,.spt-input-container input.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.spt-input-container input.has-left-icon{padding-left:45px}.spt-input-container input.has-left-icon+label{left:45px}.spt-input-container input:hover{border:1px solid #000!important}.spt-input-container input.item-focus,.spt-input-container input:focus{border:1px solid #f90!important;caret-color:#f90}.spt-input-container input.item-focus+label,.spt-input-container input:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input[disabled]{background-color:#fff!important;color:#b1b1b1!important;border:1px solid #b1b1b1!important;cursor:not-allowed}.spt-input-container input[disabled]~label{color:#b1b1b1!important}.spt-input-container input[disabled]:hover{border:1px solid #b1b1b1!important}.spt-input-container input.dirty+label{color:#909090}.spt-input-container input.dirty:hover+label{color:#000}.spt-input-container input.dirty:focus+label{color:#f90}.spt-input-container input.dirty+label{font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input+label{position:absolute;left:12px;font-size:14px;color:#909090;background-color:hsla(0,0%,100%,0);pointer-events:none;transition:all .2s ease,background-color .2s ease-in}.spt-input-container .text-field-icon{position:absolute;height:24px;top:50%;transform:translateY(-50%)}.spt-input-container .error-icon,.spt-input-container .right-icon{right:12px}.spt-input-container .left-icon{left:12px}.spt-input-container .left-icon svg path,.spt-input-container .right-icon svg path{fill:#706f6e}.spt-input-container .error-icon svg path{fill:#ef5350}.spt-input-container label.text-field-bottom-label{font-size:12px;margin-top:10px;position:absolute;bottom:-20px}.spt-input-container label.error-label,.spt-input-container label.hint-label{left:12px}.spt-input-container label.length-label{right:12px}.spt-input-container label.error-label{color:#ef5350}.spt-input-container label.hint-label,.spt-input-container label.length-label{color:#4f4e4d}.spt-input-container.disabled-container .text-field-bottom-label{color:#b1b1b1!important}.spt-input-container.disabled-container .text-field-icon svg path{fill:#b1b1b1}.search-wrapper{display:flex;align-items:center;background-color:#fff;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.search-wrapper.large{padding:12px 10px}.search-wrapper.large+label{top:12px}.search-wrapper.medium{padding:8px 10px}.search-wrapper.medium+label{top:8px}.search-wrapper.small{padding:6px 10px}.search-wrapper.small+label{top:6px}.search-wrapper.error,.search-wrapper.has-right-icon{padding-right:45px}.search-wrapper.error{border:1px solid #ef5350!important}.search-wrapper.error~label{color:#ef5350!important}.search-wrapper.error:focus,.search-wrapper.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.search-wrapper.has-left-icon{padding-left:45px}.search-wrapper.has-left-icon+label{left:45px}.search-wrapper:hover{border:1px solid #000!important}.search-wrapper.item-focus,.search-wrapper:focus{border:1px solid #f90!important;caret-color:#f90}.search-wrapper.item-focus+label,.search-wrapper:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.search-wrapper input,.search-wrapper input:focus,.search-wrapper input:hover{border:none!important}.search-wrapper .search-icon{height:24px}.search-wrapper.large .search-icon,.search-wrapper.medium .search-icon{margin-left:10px;margin-right:10px}.search-wrapper.small{padding:4px 10px}.search-wrapper.small .search-icon{margin-left:10px;margin-right:10px}.search-wrapper .selected-items{display:flex;flex-wrap:wrap}.search-wrapper .selected-items .selected-item{margin:1px}"]
             },] }
 ];
 DropdownComponent.ctorParameters = () => [
-    { type: DropdownService }
+    { type: DropdownService },
+    { type: Renderer2 }
 ];
 DropdownComponent.propDecorators = {
     selectMultiple: [{ type: Input }],
@@ -758,8 +776,8 @@ SearchOptionComponent.propDecorators = {
 };
 
 class SearchComponent extends FormFieldManager {
-    constructor(_searchService) {
-        super();
+    constructor(_searchService, _renderer) {
+        super(_renderer);
         this._searchService = _searchService;
         /* selected items (chips) */
         this.selectedItems = [];
@@ -788,6 +806,21 @@ class SearchComponent extends FormFieldManager {
         else {
             this.hideDropdown();
         }
+    }
+    /**
+     * focus action
+     */
+    focusAction() {
+        if (this.launchOnFocus) {
+            this.search.show();
+        }
+        this.focus = true;
+    }
+    /**
+     * blur action
+     */
+    blurAction() {
+        this.focus = false;
     }
     /**
      * show options action
@@ -834,7 +867,7 @@ class SearchComponent extends FormFieldManager {
 SearchComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-search',
-                template: "<div #searchReference class=\"spt-input-container search-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n    <div class=\"search-wrapper {{size}} \" [ngClass]=\"{'item-focus': focus}\">\n        <!-- search icon -->\n        <div class=\"search-icon left-icon\">\n            <svg-icon name=\"search\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n        </div>\n\n        <!-- selected items (chips) -->\n        <div class=\"selected-items spt-spacing-x--1\" *ngIf=\"selectedItems.length\">\n            <div class=\"selected-item\" *ngFor=\"let s of selectedItems\">\n                <spt-chip [text]=\"s.text\"\n                         [icon]=\"s.icon\" mode=\"closeable\"\n                         (onCloseEvent)=\"onClose(s)\"></spt-chip>\n            </div>\n        </div>\n        <input #input *ngIf=\"maximumSelection ? selectedItems.length <= maximumSelection : true\"\n               (focus)=\"focus=true\" (blur)=\"focus=false\"\n               [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}\"\n               [(ngModel)]=\"value\"\n               (ngModelChange)=\"changeAction($event)\"\n               (keydown)=\"onKeyDown($event)\"\n               placeholder=\"{{placeholder}}\" autocomplete=\"off\">\n    </div>\n\n    <spt-overlay-template [reference]=\"searchReference\" #searchComp>\n        <div class=\"search-options-container spt-elevation--5\">\n            <ng-content select=\"spt-search-option\"></ng-content>\n        </div>\n    </spt-overlay-template>\n\n</div>\n\n\n",
+                template: "<div #searchReference class=\"spt-input-container search-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n    <div class=\"search-wrapper {{size}} \" [ngClass]=\"{'item-focus': focus}\">\n        <!-- search icon -->\n        <div class=\"search-icon left-icon\">\n            <svg-icon name=\"search\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n        </div>\n\n        <!-- selected items (chips) -->\n        <div class=\"selected-items spt-spacing-x--1\" *ngIf=\"selectedItems.length\">\n            <div class=\"selected-item\" *ngFor=\"let s of selectedItems\">\n                <spt-chip [text]=\"s.text\"\n                         [icon]=\"s.icon\" mode=\"closeable\"\n                         [color]=\"s.color\"\n                         (onCloseEvent)=\"onClose(s)\"></spt-chip>\n            </div>\n        </div>\n        <input #input *ngIf=\"maximumSelection ? selectedItems.length <= maximumSelection : true\"\n               (focus)=\"focusAction()\" (blur)=\"blurAction()\"\n               [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}\"\n               [(ngModel)]=\"value\"\n               (ngModelChange)=\"changeAction($event)\"\n               (keydown)=\"onKeyDown($event)\"\n               placeholder=\"{{placeholder}}\" autocomplete=\"off\" [readonly]=\"readonly\">\n    </div>\n\n    <spt-overlay-template [reference]=\"searchReference\" #searchComp>\n        <div class=\"search-options-container sp-elevation--5\">\n            <ng-content select=\"sp-search-option\"></ng-content>\n            <ng-content select=\"div.search-override\"></ng-content>\n            <ng-content select=\"sp-search-option\"></ng-content>\n        </div>\n    </spt-overlay-template>\n\n</div>\n\n\n",
                 providers: [
                     SearchService,
                     {
@@ -843,16 +876,18 @@ SearchComponent.decorators = [
                         multi: true
                     }
                 ],
-                styles: [".spt-input-container input::-moz-placeholder{visibility:visible!important}.spt-input-container input::placeholder{visibility:visible!important}.search-options-container{width:100%;max-height:200px;overflow:auto}", ".form-field{color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.form-field.large{padding:12px 10px}.form-field.large+label{top:12px}.form-field.medium{padding:8px 10px}.form-field.medium+label{top:8px}.form-field.small{padding:6px 10px}.form-field.small+label{top:6px}.form-field.error,.form-field.has-right-icon{padding-right:45px}.form-field.error{border:1px solid #ef5350!important}.form-field.error~label{color:#ef5350!important}.form-field.error:focus,.form-field.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.form-field.has-left-icon{padding-left:45px}.form-field.has-left-icon+label{left:45px}.form-field:hover{border:1px solid #000!important}.form-field.item-focus,.form-field:focus{border:1px solid #f90!important;caret-color:#f90}.form-field.item-focus+label,.form-field:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.text-field-container input::-moz-placeholder{visibility:hidden;opacity:0;-moz-transition:visibility .1s ease-out,opacity .1s ease-out;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input::placeholder{visibility:hidden;opacity:0;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input:focus::-moz-placeholder{visibility:visible;opacity:1}.text-field-container input:focus::placeholder{visibility:visible;opacity:1}.spt-input-container{margin:0;position:relative}.spt-input-container input{box-shadow:none;outline:none;min-height:24px;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.spt-input-container input.large{padding:12px 10px}.spt-input-container input.large+label{top:12px}.spt-input-container input.medium{padding:8px 10px}.spt-input-container input.medium+label{top:8px}.spt-input-container input.small{padding:6px 10px}.spt-input-container input.small+label{top:6px}.spt-input-container input.error,.spt-input-container input.has-right-icon{padding-right:45px}.spt-input-container input.error{border:1px solid #ef5350!important}.spt-input-container input.error~label{color:#ef5350!important}.spt-input-container input.error:focus,.spt-input-container input.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.spt-input-container input.has-left-icon{padding-left:45px}.spt-input-container input.has-left-icon+label{left:45px}.spt-input-container input:hover{border:1px solid #000!important}.spt-input-container input.item-focus,.spt-input-container input:focus{border:1px solid #f90!important;caret-color:#f90}.spt-input-container input.item-focus+label,.spt-input-container input:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input[disabled]{background-color:#fff!important;color:#b1b1b1!important;border:1px solid #b1b1b1!important;cursor:not-allowed}.spt-input-container input[disabled]~label{color:#b1b1b1!important}.spt-input-container input[disabled]:hover{border:1px solid #b1b1b1!important}.spt-input-container input.dirty+label{color:#909090}.spt-input-container input.dirty:hover+label{color:#000}.spt-input-container input.dirty:focus+label{color:#f90}.spt-input-container input.dirty+label{font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input+label{position:absolute;left:12px;font-size:14px;color:#909090;background-color:hsla(0,0%,100%,0);pointer-events:none;transition:all .2s ease,background-color .2s ease-in}.spt-input-container .text-field-icon{position:absolute;height:24px;top:50%;transform:translateY(-50%)}.spt-input-container .error-icon,.spt-input-container .right-icon{right:12px}.spt-input-container .left-icon{left:12px}.spt-input-container .left-icon svg path,.spt-input-container .right-icon svg path{fill:#706f6e}.spt-input-container .error-icon svg path{fill:#ef5350}.spt-input-container label.text-field-bottom-label{font-size:12px;margin-top:10px;position:absolute;bottom:-20px}.spt-input-container label.error-label,.spt-input-container label.hint-label{left:12px}.spt-input-container label.length-label{right:12px}.spt-input-container label.error-label{color:#ef5350}.spt-input-container label.hint-label,.spt-input-container label.length-label{color:#4f4e4d}.spt-input-container.disabled-container .text-field-bottom-label{color:#b1b1b1!important}.spt-input-container.disabled-container .text-field-icon svg path{fill:#b1b1b1}.search-wrapper{display:flex;align-items:center;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.search-wrapper.large{padding:12px 10px}.search-wrapper.large+label{top:12px}.search-wrapper.medium{padding:8px 10px}.search-wrapper.medium+label{top:8px}.search-wrapper.small{padding:6px 10px}.search-wrapper.small+label{top:6px}.search-wrapper.error,.search-wrapper.has-right-icon{padding-right:45px}.search-wrapper.error{border:1px solid #ef5350!important}.search-wrapper.error~label{color:#ef5350!important}.search-wrapper.error:focus,.search-wrapper.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.search-wrapper.has-left-icon{padding-left:45px}.search-wrapper.has-left-icon+label{left:45px}.search-wrapper:hover{border:1px solid #000!important}.search-wrapper.item-focus,.search-wrapper:focus{border:1px solid #f90!important;caret-color:#f90}.search-wrapper.item-focus+label,.search-wrapper:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.search-wrapper input,.search-wrapper input:focus,.search-wrapper input:hover{border:none!important}.search-wrapper .search-icon{height:24px}.search-wrapper.large .search-icon,.search-wrapper.medium .search-icon{margin-left:10px;margin-right:10px}.search-wrapper.small{padding:4px 10px}.search-wrapper.small .search-icon{margin-left:10px;margin-right:10px}.search-wrapper .selected-items{display:flex;flex-wrap:wrap}.search-wrapper .selected-items .selected-item{margin:1px}"]
+                styles: [".spt-input-container input::-moz-placeholder{visibility:visible!important}.spt-input-container input::placeholder{visibility:visible!important}.search-options-container{width:100%;max-height:200px;overflow:auto}", ".form-field{color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.form-field.large{padding:12px 10px}.form-field.large+label{top:12px}.form-field.medium{padding:8px 10px}.form-field.medium+label{top:8px}.form-field.small{padding:6px 10px}.form-field.small+label{top:6px}.form-field.error,.form-field.has-right-icon{padding-right:45px}.form-field.error{border:1px solid #ef5350!important}.form-field.error~label{color:#ef5350!important}.form-field.error:focus,.form-field.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.form-field.has-left-icon{padding-left:45px}.form-field.has-left-icon+label{left:45px}.form-field:hover{border:1px solid #000!important}.form-field.item-focus,.form-field:focus{border:1px solid #f90!important;caret-color:#f90}.form-field.item-focus+label,.form-field:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.text-field-container input::-moz-placeholder{visibility:hidden;opacity:0;-moz-transition:visibility .1s ease-out,opacity .1s ease-out;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input::placeholder{visibility:hidden;opacity:0;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input:focus::-moz-placeholder{visibility:visible;opacity:1}.text-field-container input:focus::placeholder{visibility:visible;opacity:1}.spt-input-container{margin:0;position:relative}.spt-input-container input{box-shadow:none;outline:none;min-height:24px;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.spt-input-container input.large{padding:12px 10px}.spt-input-container input.large+label{top:12px}.spt-input-container input.medium{padding:8px 10px}.spt-input-container input.medium+label{top:8px}.spt-input-container input.small{padding:6px 10px}.spt-input-container input.small+label{top:6px}.spt-input-container input.error,.spt-input-container input.has-right-icon{padding-right:45px}.spt-input-container input.error{border:1px solid #ef5350!important}.spt-input-container input.error~label{color:#ef5350!important}.spt-input-container input.error:focus,.spt-input-container input.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.spt-input-container input.has-left-icon{padding-left:45px}.spt-input-container input.has-left-icon+label{left:45px}.spt-input-container input:hover{border:1px solid #000!important}.spt-input-container input.item-focus,.spt-input-container input:focus{border:1px solid #f90!important;caret-color:#f90}.spt-input-container input.item-focus+label,.spt-input-container input:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input[disabled]{background-color:#fff!important;color:#b1b1b1!important;border:1px solid #b1b1b1!important;cursor:not-allowed}.spt-input-container input[disabled]~label{color:#b1b1b1!important}.spt-input-container input[disabled]:hover{border:1px solid #b1b1b1!important}.spt-input-container input.dirty+label{color:#909090}.spt-input-container input.dirty:hover+label{color:#000}.spt-input-container input.dirty:focus+label{color:#f90}.spt-input-container input.dirty+label{font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input+label{position:absolute;left:12px;font-size:14px;color:#909090;background-color:hsla(0,0%,100%,0);pointer-events:none;transition:all .2s ease,background-color .2s ease-in}.spt-input-container .text-field-icon{position:absolute;height:24px;top:50%;transform:translateY(-50%)}.spt-input-container .error-icon,.spt-input-container .right-icon{right:12px}.spt-input-container .left-icon{left:12px}.spt-input-container .left-icon svg path,.spt-input-container .right-icon svg path{fill:#706f6e}.spt-input-container .error-icon svg path{fill:#ef5350}.spt-input-container label.text-field-bottom-label{font-size:12px;margin-top:10px;position:absolute;bottom:-20px}.spt-input-container label.error-label,.spt-input-container label.hint-label{left:12px}.spt-input-container label.length-label{right:12px}.spt-input-container label.error-label{color:#ef5350}.spt-input-container label.hint-label,.spt-input-container label.length-label{color:#4f4e4d}.spt-input-container.disabled-container .text-field-bottom-label{color:#b1b1b1!important}.spt-input-container.disabled-container .text-field-icon svg path{fill:#b1b1b1}.search-wrapper{display:flex;align-items:center;background-color:#fff;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.search-wrapper.large{padding:12px 10px}.search-wrapper.large+label{top:12px}.search-wrapper.medium{padding:8px 10px}.search-wrapper.medium+label{top:8px}.search-wrapper.small{padding:6px 10px}.search-wrapper.small+label{top:6px}.search-wrapper.error,.search-wrapper.has-right-icon{padding-right:45px}.search-wrapper.error{border:1px solid #ef5350!important}.search-wrapper.error~label{color:#ef5350!important}.search-wrapper.error:focus,.search-wrapper.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.search-wrapper.has-left-icon{padding-left:45px}.search-wrapper.has-left-icon+label{left:45px}.search-wrapper:hover{border:1px solid #000!important}.search-wrapper.item-focus,.search-wrapper:focus{border:1px solid #f90!important;caret-color:#f90}.search-wrapper.item-focus+label,.search-wrapper:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.search-wrapper input,.search-wrapper input:focus,.search-wrapper input:hover{border:none!important}.search-wrapper .search-icon{height:24px}.search-wrapper.large .search-icon,.search-wrapper.medium .search-icon{margin-left:10px;margin-right:10px}.search-wrapper.small{padding:4px 10px}.search-wrapper.small .search-icon{margin-left:10px;margin-right:10px}.search-wrapper .selected-items{display:flex;flex-wrap:wrap}.search-wrapper .selected-items .selected-item{margin:1px}"]
             },] }
 ];
 SearchComponent.ctorParameters = () => [
-    { type: SearchService }
+    { type: SearchService },
+    { type: Renderer2 }
 ];
 SearchComponent.propDecorators = {
     placeholder: [{ type: Input }],
     selectedItems: [{ type: Input }],
     maximumSelection: [{ type: Input }],
+    launchOnFocus: [{ type: Input }],
     filter: [{ type: Output }],
     itemSelected: [{ type: Output }],
     itemRemoved: [{ type: Output }],
@@ -1134,18 +1169,32 @@ MenuTriggerDirective.propDecorators = {
 };
 
 class BackNavigationComponent {
-    constructor() { }
+    constructor(_location, _router) {
+        this._location = _location;
+        this._router = _router;
+    }
     ngOnInit() {
+    }
+    onBack(route) {
+        if (route) {
+            this._router.navigate([route]);
+        }
+        else {
+            this._location.back();
+        }
     }
 }
 BackNavigationComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-back-navigation',
-                template: "<nz-page-header class=\"site-page-header\" nzBackIcon [nzTitle]=\"title\" [nzSubtitle]=\"subTitle\">\n</nz-page-header>",
+                template: "<nz-page-header class=\"site-page-header\" (nzBack)=\"onBack(route)\" nzBackIcon [nzTitle]=\"title\" [nzSubtitle]=\"subTitle\">\n</nz-page-header>\n",
                 styles: [".site-page-header{padding:0}"]
             },] }
 ];
-BackNavigationComponent.ctorParameters = () => [];
+BackNavigationComponent.ctorParameters = () => [
+    { type: Location },
+    { type: Router }
+];
 BackNavigationComponent.propDecorators = {
     title: [{ type: Input }],
     subTitle: [{ type: Input }],
@@ -1182,7 +1231,8 @@ class SnackbarComponent {
                 color: 'white'
             },
             nzData: snackbar,
-            nzPlacement: 'bottomLeft'
+            nzPlacement: 'bottomLeft',
+            nzClass: this.cssClass
         });
     }
     onAction(callback) {
@@ -1192,15 +1242,16 @@ class SnackbarComponent {
 SnackbarComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-snackbar',
-                template: "<ng-template #template let-snackbar=\"data\">\n    <div class=\"ant-notification-notice-content\">\n        <div>\n            <div class=\"ant-notification-notice-message\">\n                {{ snackbar.message }}\n            </div>\n            <div class=\"ant-notification-notice-description\">\n                {{ snackbar.description }}\n            </div>\n            <span class=\"ant-notification-notice-btn\">\n        <span *ngIf=\"snackbar.actionMessage\" (click)=\"onAction(snackbar.actionEvent)\">\n          {{ snackbar.actionMessage }}\n        </span>\n            </span>\n        </div>\n    </div>\n</ng-template>\n",
-                styles: [".ant-notification-notice-content{background-color:#0d0c0b;color:#fff}.ant-notification-notice-btn,.ant-notification-notice-message{color:#fff}.ant-notification-notice-btn{float:left;margin-top:8px;cursor:pointer}"]
+                template: "<ng-template #template let-snackbar=\"data\">\n    <div class=\"ant-notification-notice-content\">\n        <div>\n            <div class=\"ant-notification-notice-message\">\n                {{ snackbar.message }}\n            </div>\n            <div *ngIf=\"snackbar.description\" class=\"ant-notification-notice-description\">\n                {{ snackbar.description }}\n            </div>\n        </div>\n\n        <div class=\"action ant-notification-notice-btn\">\n            <span *ngIf=\"snackbar.actionMessage\" (click)=\"onAction(snackbar.actionEvent)\">\n                {{ snackbar.actionMessage | uppercase }}\n            </span>\n        </div>\n    </div>\n</ng-template>\n",
+                styles: [".ant-notification-notice-content{background-color:#0d0c0b;color:#fff;display:flex;align-items:center}.action{margin-left:auto}.ant-notification-notice-btn{color:#fff}.ant-notification-notice-message{color:#fff;margin-bottom:0!important}.ant-notification-notice-description{margin-top:5px}.ant-notification-notice-btn{float:left;margin-top:8px;cursor:pointer}"]
             },] }
 ];
 SnackbarComponent.ctorParameters = () => [
     { type: NzNotificationService }
 ];
 SnackbarComponent.propDecorators = {
-    template: [{ type: ViewChild, args: [TemplateRef,] }]
+    template: [{ type: ViewChild, args: [TemplateRef,] }],
+    cssClass: [{ type: Input }]
 };
 
 class AvatarComponent {
@@ -1334,20 +1385,25 @@ RadioButtonComponent.propDecorators = {
 class SwitchComponent {
     constructor() {
         this.on = false;
+        this.onChanged = new EventEmitter();
     }
     ngOnInit() {
+    }
+    change() {
+        this.onChanged.emit(this.on);
     }
 }
 SwitchComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-switch',
-                template: "<nz-switch [ngModel]=\"on\"></nz-switch>",
+                template: "<nz-switch [(ngModel)]=\"on\" (ngModelChange)=\"change()\"></nz-switch>\n",
                 styles: ["nz-switch{margin:10px}"]
             },] }
 ];
 SwitchComponent.ctorParameters = () => [];
 SwitchComponent.propDecorators = {
-    on: [{ type: Input }]
+    on: [{ type: Input }],
+    onChanged: [{ type: Output }]
 };
 
 class SliderComponent {
@@ -1371,20 +1427,25 @@ SliderComponent.propDecorators = {
 };
 
 class TabComponent {
-    constructor() { }
+    constructor() {
+        this.index = 0;
+        this.selectedIndexChange = new EventEmitter();
+    }
     ngOnInit() {
     }
 }
 TabComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-tab',
-                template: "<nz-tabset>\n    <nz-tab *ngFor=\"let tab of tabs\" [nzTitle]=\"tab.name\" [nzDisabled]=\"tab.disabled\">\n        {{ tab.name }}\n    </nz-tab>\n</nz-tabset>",
+                template: "<nz-tabset [nzSelectedIndex]=\"index\" (nzSelectedIndexChange)=\"selectedIndexChange.emit($event)\">\n    <nz-tab *ngFor=\"let tab of tabs\" [nzTitle]=\"tab.name\" [nzDisabled]=\"tab.disabled\">\n        {{ tab.name }}\n    </nz-tab>\n</nz-tabset>\n",
                 styles: [""]
             },] }
 ];
 TabComponent.ctorParameters = () => [];
 TabComponent.propDecorators = {
-    tabs: [{ type: Input }]
+    tabs: [{ type: Input }],
+    index: [{ type: Input }],
+    selectedIndexChange: [{ type: Output }]
 };
 
 class TooltipComponent {
@@ -1395,7 +1456,7 @@ class TooltipComponent {
 TooltipComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-tooltip',
-                template: "<span nz-tooltip [nzTooltipTitle]=\"title\">{{content}}</span>",
+                template: "<span nz-tooltip [nzTooltipTitle]=\"title\">\n  <span *ngIf=\"content\">{{content}}</span>\n  <ng-content></ng-content>\n</span>\n",
                 styles: [""]
             },] }
 ];
@@ -1753,7 +1814,7 @@ class TableComponent {
 TableComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-table',
-                template: "<nz-table class=\"table\" #secondTable [nzData]=\"dataSet\">\n  <thead>\n    <tr>\n      <th *ngIf=\"checkboxOn\">\n        <spt-checkbox></spt-checkbox>\n      </th>\n      <th *ngFor=\"let title of rows\">\n        <b>{{ title }}</b>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let data of secondTable.data\">\n      <td *ngIf=\"checkboxOn\">\n        <spt-checkbox></spt-checkbox>\n      </td>\n      <td>{{ data.number }}</td>\n      <td>{{ data.date }}</td>\n      <td>{{ data.description }}</td>\n      <td>{{ data.amount }}</td>\n      <td>\n        <spt-badge\n          [name]=\"data.status ? 'PAID' : 'NOT PAID'\"\n          color=\"#66BB6A\"\n        ></spt-badge>\n      </td>\n      <td>{{ data.invoice }}</td>\n    </tr>\n  </tbody>\n</nz-table>\n",
+                template: "<nz-table class=\"table\" #secondTable [nzData]=\"dataSet\">\n  <thead>\n    <tr>\n      <th *ngIf=\"checkboxOn\">\n        <spt-checkbox></spt-checkbox>\n      </th>\n      <th *ngFor=\"let title of rows\">\n        <b>{{ title }}</b>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-content select=\"tr\"></ng-content>\n<!--    <tr *ngFor=\"let data of secondTable.data\">-->\n<!--      <td *ngIf=\"checkboxOn\">-->\n<!--        <spt-checkbox></spt-checkbox>-->\n<!--      </td>-->\n<!--      <td>{{ data.number }}</td>-->\n<!--      <td>{{ data.date }}</td>-->\n<!--      <td>{{ data.description }}</td>-->\n<!--      <td>{{ data.amount }}</td>-->\n<!--      <td>-->\n<!--        <spt-badge-->\n<!--          [name]=\"data.status ? 'PAID' : 'NOT PAID'\"-->\n<!--          color=\"#66BB6A\"-->\n<!--        ></spt-badge>-->\n<!--      </td>-->\n<!--      <td>{{ data.invoice }}</td>-->\n<!--    </tr>-->\n  </tbody>\n</nz-table>\n",
                 styles: [".table{font-family:Nunito Sans;font-style:normal;font-weight:400;font-size:14px;line-height:24px;border:1px solid #e2e2e2;border-radius:4px}thead,tr:hover{background-color:#fff}thead>tr>th{background:#fff}"]
             },] }
 ];
@@ -1761,7 +1822,8 @@ TableComponent.ctorParameters = () => [];
 TableComponent.propDecorators = {
     checkboxOn: [{ type: Input }],
     rows: [{ type: Input }],
-    dataSet: [{ type: Input }]
+    dataSet: [{ type: Input }],
+    pageSize: [{ type: Input }]
 };
 
 const appUploadFileIcon = {
@@ -2200,8 +2262,17 @@ SpComponentsComponent.ctorParameters = () => [
 ];
 
 class DatePickerComponent extends FormFieldManager {
-    constructor() {
-        super();
+    constructor(_renderer) {
+        super(_renderer);
+        this.disabledDate = (current) => {
+            if (this.min) {
+                return differenceInCalendarDays(current, this.min) < 0;
+            }
+            if (this.max) {
+                return differenceInCalendarDays(current, this.max) > 0;
+            }
+            return null;
+        };
     }
     /**
      * override: inherited writeValue
@@ -2232,8 +2303,8 @@ class DatePickerComponent extends FormFieldManager {
 }
 DatePickerComponent.decorators = [
     { type: Component, args: [{
-                selector: 'spt-date-picker',
-                template: "<div class=\"spt-input-container text-field-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n    <input nz-input [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'has-right-icon': !!endIcon, 'disabled-state': isDisabled}\"\n           (click)=\"isDisabled ? $event.stopPropagation() : datePickerEl.open()\"\n           [(ngModel)]=\"formattedDate\"\n           [class]=\"size\" placeholder=\"{{placeholder}}\"\n           [attr.disabled]=\"isDisabled\" readonly>\n    <!-- label -->\n    <label class=\"text-field-label label\">{{ label || placeholder }}</label>\n\n    <!-- error -->\n    <label class=\"text-field-bottom-label error-label\" *ngIf=\"!!error\">{{ error }}</label>\n\n    <!-- error icon -->\n    <span *ngIf=\"!!error\" class=\"text-field-icon error-icon\">\n        <svg-icon name=\"report\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n</div>\n\n<nz-date-picker #datePickerEl style=\"visibility: hidden; transform: translateY(-35px)\"\n                [(ngModel)]=\"value\" (ngModelChange)=\"convertDate($event)\"></nz-date-picker>\n",
+                selector: 'sp-date-picker',
+                template: "<div class=\"sp-input-container text-field-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n    <input nz-input [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'has-right-icon': !!endIcon, 'disabled-state': isDisabled}\"\n           (click)=\"isDisabled ? $event.stopPropagation() : datePickerEl.open()\"\n           [(ngModel)]=\"formattedDate\"\n           [class]=\"size\" placeholder=\"{{placeholder}}\"\n           [attr.disabled]=\"!!isDisabled ? isDisabled : null\" readonly>\n    <!-- label -->\n    <label class=\"text-field-label label\">{{ label || placeholder }}</label>\n\n    <!-- error -->\n    <label class=\"text-field-bottom-label error-label\" *ngIf=\"!!error\">{{ error }}</label>\n\n    <!-- error icon -->\n    <span *ngIf=\"!!error\" class=\"text-field-icon error-icon\">\n        <svg-icon name=\"report\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n</div>\n\n<nz-date-picker #datePickerEl style=\"visibility: hidden; transform: translateY(-35px)\"\n                [(ngModel)]=\"value\" (ngModelChange)=\"convertDate($event)\" [nzDisabledDate]=\"disabledDate\"></nz-date-picker>\n",
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
@@ -2241,10 +2312,12 @@ DatePickerComponent.decorators = [
                         multi: true
                     }
                 ],
-                styles: [".form-field{color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.form-field.large{padding:12px 10px}.form-field.large+label{top:12px}.form-field.medium{padding:8px 10px}.form-field.medium+label{top:8px}.form-field.small{padding:6px 10px}.form-field.small+label{top:6px}.form-field.error,.form-field.has-right-icon{padding-right:45px}.form-field.error{border:1px solid #ef5350!important}.form-field.error~label{color:#ef5350!important}.form-field.error:focus,.form-field.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.form-field.has-left-icon{padding-left:45px}.form-field.has-left-icon+label{left:45px}.form-field:hover{border:1px solid #000!important}.form-field.item-focus,.form-field:focus{border:1px solid #f90!important;caret-color:#f90}.form-field.item-focus+label,.form-field:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.text-field-container input::-moz-placeholder{visibility:hidden;opacity:0;-moz-transition:visibility .1s ease-out,opacity .1s ease-out;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input::placeholder{visibility:hidden;opacity:0;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input:focus::-moz-placeholder{visibility:visible;opacity:1}.text-field-container input:focus::placeholder{visibility:visible;opacity:1}.spt-input-container{margin:0;position:relative}.spt-input-container input{box-shadow:none;outline:none;min-height:24px;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.spt-input-container input.large{padding:12px 10px}.spt-input-container input.large+label{top:12px}.spt-input-container input.medium{padding:8px 10px}.spt-input-container input.medium+label{top:8px}.spt-input-container input.small{padding:6px 10px}.spt-input-container input.small+label{top:6px}.spt-input-container input.error,.spt-input-container input.has-right-icon{padding-right:45px}.spt-input-container input.error{border:1px solid #ef5350!important}.spt-input-container input.error~label{color:#ef5350!important}.spt-input-container input.error:focus,.spt-input-container input.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.spt-input-container input.has-left-icon{padding-left:45px}.spt-input-container input.has-left-icon+label{left:45px}.spt-input-container input:hover{border:1px solid #000!important}.spt-input-container input.item-focus,.spt-input-container input:focus{border:1px solid #f90!important;caret-color:#f90}.spt-input-container input.item-focus+label,.spt-input-container input:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input[disabled]{background-color:#fff!important;color:#b1b1b1!important;border:1px solid #b1b1b1!important;cursor:not-allowed}.spt-input-container input[disabled]~label{color:#b1b1b1!important}.spt-input-container input[disabled]:hover{border:1px solid #b1b1b1!important}.spt-input-container input.dirty+label{color:#909090}.spt-input-container input.dirty:hover+label{color:#000}.spt-input-container input.dirty:focus+label{color:#f90}.spt-input-container input.dirty+label{font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input+label{position:absolute;left:12px;font-size:14px;color:#909090;background-color:hsla(0,0%,100%,0);pointer-events:none;transition:all .2s ease,background-color .2s ease-in}.spt-input-container .text-field-icon{position:absolute;height:24px;top:50%;transform:translateY(-50%)}.spt-input-container .error-icon,.spt-input-container .right-icon{right:12px}.spt-input-container .left-icon{left:12px}.spt-input-container .left-icon svg path,.spt-input-container .right-icon svg path{fill:#706f6e}.spt-input-container .error-icon svg path{fill:#ef5350}.spt-input-container label.text-field-bottom-label{font-size:12px;margin-top:10px;position:absolute;bottom:-20px}.spt-input-container label.error-label,.spt-input-container label.hint-label{left:12px}.spt-input-container label.length-label{right:12px}.spt-input-container label.error-label{color:#ef5350}.spt-input-container label.hint-label,.spt-input-container label.length-label{color:#4f4e4d}.spt-input-container.disabled-container .text-field-bottom-label{color:#b1b1b1!important}.spt-input-container.disabled-container .text-field-icon svg path{fill:#b1b1b1}.search-wrapper{display:flex;align-items:center;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.search-wrapper.large{padding:12px 10px}.search-wrapper.large+label{top:12px}.search-wrapper.medium{padding:8px 10px}.search-wrapper.medium+label{top:8px}.search-wrapper.small{padding:6px 10px}.search-wrapper.small+label{top:6px}.search-wrapper.error,.search-wrapper.has-right-icon{padding-right:45px}.search-wrapper.error{border:1px solid #ef5350!important}.search-wrapper.error~label{color:#ef5350!important}.search-wrapper.error:focus,.search-wrapper.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.search-wrapper.has-left-icon{padding-left:45px}.search-wrapper.has-left-icon+label{left:45px}.search-wrapper:hover{border:1px solid #000!important}.search-wrapper.item-focus,.search-wrapper:focus{border:1px solid #f90!important;caret-color:#f90}.search-wrapper.item-focus+label,.search-wrapper:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.search-wrapper input,.search-wrapper input:focus,.search-wrapper input:hover{border:none!important}.search-wrapper .search-icon{height:24px}.search-wrapper.large .search-icon,.search-wrapper.medium .search-icon{margin-left:10px;margin-right:10px}.search-wrapper.small{padding:4px 10px}.search-wrapper.small .search-icon{margin-left:10px;margin-right:10px}.search-wrapper .selected-items{display:flex;flex-wrap:wrap}.search-wrapper .selected-items .selected-item{margin:1px}"]
+                styles: [".form-field{color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.form-field.large{padding:12px 10px}.form-field.large+label{top:12px}.form-field.medium{padding:8px 10px}.form-field.medium+label{top:8px}.form-field.small{padding:6px 10px}.form-field.small+label{top:6px}.form-field.error,.form-field.has-right-icon{padding-right:45px}.form-field.error{border:1px solid #ef5350!important}.form-field.error~label{color:#ef5350!important}.form-field.error:focus,.form-field.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.form-field.has-left-icon{padding-left:45px}.form-field.has-left-icon+label{left:45px}.form-field:hover{border:1px solid #000!important}.form-field.item-focus,.form-field:focus{border:1px solid #f90!important;caret-color:#f90}.form-field.item-focus+label,.form-field:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.text-field-container input::-moz-placeholder{visibility:hidden;opacity:0;-moz-transition:visibility .1s ease-out,opacity .1s ease-out;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input::placeholder{visibility:hidden;opacity:0;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input:focus::-moz-placeholder{visibility:visible;opacity:1}.text-field-container input:focus::placeholder{visibility:visible;opacity:1}.spt-input-container{margin:0;position:relative}.spt-input-container input{box-shadow:none;outline:none;min-height:24px;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.spt-input-container input.large{padding:12px 10px}.spt-input-container input.large+label{top:12px}.spt-input-container input.medium{padding:8px 10px}.spt-input-container input.medium+label{top:8px}.spt-input-container input.small{padding:6px 10px}.spt-input-container input.small+label{top:6px}.spt-input-container input.error,.spt-input-container input.has-right-icon{padding-right:45px}.spt-input-container input.error{border:1px solid #ef5350!important}.spt-input-container input.error~label{color:#ef5350!important}.spt-input-container input.error:focus,.spt-input-container input.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.spt-input-container input.has-left-icon{padding-left:45px}.spt-input-container input.has-left-icon+label{left:45px}.spt-input-container input:hover{border:1px solid #000!important}.spt-input-container input.item-focus,.spt-input-container input:focus{border:1px solid #f90!important;caret-color:#f90}.spt-input-container input.item-focus+label,.spt-input-container input:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input[disabled]{background-color:#fff!important;color:#b1b1b1!important;border:1px solid #b1b1b1!important;cursor:not-allowed}.spt-input-container input[disabled]~label{color:#b1b1b1!important}.spt-input-container input[disabled]:hover{border:1px solid #b1b1b1!important}.spt-input-container input.dirty+label{color:#909090}.spt-input-container input.dirty:hover+label{color:#000}.spt-input-container input.dirty:focus+label{color:#f90}.spt-input-container input.dirty+label{font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input+label{position:absolute;left:12px;font-size:14px;color:#909090;background-color:hsla(0,0%,100%,0);pointer-events:none;transition:all .2s ease,background-color .2s ease-in}.spt-input-container .text-field-icon{position:absolute;height:24px;top:50%;transform:translateY(-50%)}.spt-input-container .error-icon,.spt-input-container .right-icon{right:12px}.spt-input-container .left-icon{left:12px}.spt-input-container .left-icon svg path,.spt-input-container .right-icon svg path{fill:#706f6e}.spt-input-container .error-icon svg path{fill:#ef5350}.spt-input-container label.text-field-bottom-label{font-size:12px;margin-top:10px;position:absolute;bottom:-20px}.spt-input-container label.error-label,.spt-input-container label.hint-label{left:12px}.spt-input-container label.length-label{right:12px}.spt-input-container label.error-label{color:#ef5350}.spt-input-container label.hint-label,.spt-input-container label.length-label{color:#4f4e4d}.spt-input-container.disabled-container .text-field-bottom-label{color:#b1b1b1!important}.spt-input-container.disabled-container .text-field-icon svg path{fill:#b1b1b1}.search-wrapper{display:flex;align-items:center;background-color:#fff;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #909090!important}.search-wrapper.large{padding:12px 10px}.search-wrapper.large+label{top:12px}.search-wrapper.medium{padding:8px 10px}.search-wrapper.medium+label{top:8px}.search-wrapper.small{padding:6px 10px}.search-wrapper.small+label{top:6px}.search-wrapper.error,.search-wrapper.has-right-icon{padding-right:45px}.search-wrapper.error{border:1px solid #ef5350!important}.search-wrapper.error~label{color:#ef5350!important}.search-wrapper.error:focus,.search-wrapper.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.search-wrapper.has-left-icon{padding-left:45px}.search-wrapper.has-left-icon+label{left:45px}.search-wrapper:hover{border:1px solid #000!important}.search-wrapper.item-focus,.search-wrapper:focus{border:1px solid #f90!important;caret-color:#f90}.search-wrapper.item-focus+label,.search-wrapper:focus+label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.search-wrapper input,.search-wrapper input:focus,.search-wrapper input:hover{border:none!important}.search-wrapper .search-icon{height:24px}.search-wrapper.large .search-icon,.search-wrapper.medium .search-icon{margin-left:10px;margin-right:10px}.search-wrapper.small{padding:4px 10px}.search-wrapper.small .search-icon{margin-left:10px;margin-right:10px}.search-wrapper .selected-items{display:flex;flex-wrap:wrap}.search-wrapper .selected-items .selected-item{margin:1px}"]
             },] }
 ];
-DatePickerComponent.ctorParameters = () => [];
+DatePickerComponent.ctorParameters = () => [
+    { type: Renderer2 }
+];
 
 registerLocaleData(en);
 const ɵ0 = en_US;

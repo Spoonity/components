@@ -1,6 +1,7 @@
-import { ElementRef } from '@angular/core';
+import { ElementRef, Renderer2, OnChanges, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-export declare abstract class FormFieldManager implements ControlValueAccessor {
+export declare abstract class FormFieldManager implements ControlValueAccessor, OnChanges {
+    private _renderer;
     size: 'medium' | 'large';
     label: string;
     error?: string;
@@ -17,6 +18,8 @@ export declare abstract class FormFieldManager implements ControlValueAccessor {
     isDirty: boolean;
     onChange: any;
     onTouched: any;
+    protected constructor(_renderer: Renderer2);
+    ngOnChanges(changes: SimpleChanges): void;
     /**
      * ControlValueAccessor override: registerOnChange
      */

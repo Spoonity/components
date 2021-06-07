@@ -3,6 +3,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 export declare class SnackbarComponent implements OnInit {
     private notification;
     template?: TemplateRef<{}>;
+    cssClass?: string;
     constructor(notification: NzNotificationService);
     ngOnInit(): void;
     createSnackbar(snackbar: ISnackbar): void;

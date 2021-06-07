@@ -1,6 +1,7 @@
 import { EventEmitter, OnInit } from '@angular/core';
 export declare class ChipComponent implements OnInit {
     text: string;
+    color: string;
     icon: string;
     mode: string;
     checked: boolean;
