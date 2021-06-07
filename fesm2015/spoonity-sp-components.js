@@ -1437,7 +1437,7 @@ class TabComponent {
 TabComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-tab',
-                template: "<nz-tabset [nzSelectedIndex]=\"index\" (nzSelectedIndexChange)=\"selectedIndexChange.emit($event)\">\n    <nz-tab *ngFor=\"let tab of tabs\" [nzTitle]=\"tab.name\" [nzDisabled]=\"tab.disabled\">\n        {{ tab.name }}\n    </nz-tab>\n</nz-tabset>\n",
+                template: "<nz-tabset [nzSelectedIndex]=\"index\" (nzSelectedIndexChange)=\"selectedIndexChange.emit($event)\">\n    <nz-tab *ngFor=\"let tab of tabs\" [nzTitle]=\"tab.name\" [nzDisabled]=\"tab.disabled\"></nz-tab>\n</nz-tabset>\n",
                 styles: [""]
             },] }
 ];
