@@ -1,5 +1,3 @@
 <nz-tabset [nzSelectedIndex]="index" (nzSelectedIndexChange)="selectedIndexChange.emit($event)">
-    <nz-tab *ngFor="let tab of tabs" [nzTitle]="tab.name" [nzDisabled]="tab.disabled">
-        {{ tab.name }}
-    </nz-tab>
+    <nz-tab *ngFor="let tab of tabs" [nzTitle]="tab.name" [nzDisabled]="tab.disabled"></nz-tab>
 </nz-tabset>
