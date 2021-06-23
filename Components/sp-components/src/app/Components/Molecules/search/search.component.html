@@ -14,7 +14,7 @@
                          (onCloseEvent)="onClose(s)"></spt-chip>
             </div>
         </div>
-        <input #input *ngIf="maximumSelection ? selectedItems.length <= maximumSelection : true"
+        <input #input *ngIf="maximumSelection ? selectedItems.length < maximumSelection : true"
                (focus)="focusAction()" (blur)="blurAction()"
                [ngClass]="{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}"
                [(ngModel)]="value"
