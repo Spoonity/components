@@ -9,5 +9,5 @@ export declare class BackNavigationComponent implements OnInit {
     subTitle: string;
     route: string;
     ngOnInit(): void;
-    onBack(route?: any): void;
+    onBack(route: any): void;
 }

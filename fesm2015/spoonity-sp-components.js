@@ -1891,7 +1891,7 @@ class HeaderComponent {
 HeaderComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-header',
-                template: "<div class=\"header\">\n  <div class=\"sub-header-1\">\n    <spt-back-navigation\n      *ngIf=\"backTitle\"\n      [title]=\"backTitle\"\n    ></spt-back-navigation>\n    <spt-breadcrumb *ngIf=\"breadcrumbs\" [items]=\"breadcrumbs\"></spt-breadcrumb>\n    <span class=\"title\" (click)=\"backTitle ? backNavigationComponent.onBack() : null\">{{ title }}</span>\n  </div>\n  <div class=\"sub-header-2\">\n    <div class=\"search\">\n      <spt-search *ngIf=\"search\"></spt-search>\n    </div>\n    <spt-button\n      *ngIf=\"btnTitle\"\n      [text]=\"btnTitle\"\n      [type]=\"buttonType\"\n      [size]=\"buttonSize\"\n      (click)=\"action()\"\n    ></spt-button>\n  </div>\n</div>\n",
+                template: "<div class=\"header\">\n  <div class=\"sub-header-1\">\n    <spt-back-navigation\n      *ngIf=\"backTitle\"\n      [title]=\"backTitle\"\n    ></spt-back-navigation>\n    <spt-breadcrumb *ngIf=\"breadcrumbs\" [items]=\"breadcrumbs\"></spt-breadcrumb>\n    <span class=\"title\">{{ title }}</span>\n  </div>\n  <div class=\"sub-header-2\">\n    <div class=\"search\">\n      <spt-search *ngIf=\"search\"></spt-search>\n    </div>\n    <spt-button\n      *ngIf=\"btnTitle\"\n      [text]=\"btnTitle\"\n      [type]=\"buttonType\"\n      [size]=\"buttonSize\"\n      (click)=\"action()\"\n    ></spt-button>\n  </div>\n</div>\n",
                 styles: [".header{display:flex;width:100%;flex-direction:row;justify-content:space-between;align-items:center;padding:24px 0}.sub-header-1{display:flex;flex-direction:column}.sub-header-2{display:flex;flex-direction:row;align-items:center;justify-content:flex-end}.search{width:300px;padding-right:30px}.title{font-family:Nunito;font-style:normal;font-weight:700;font-size:32px;line-height:48px;display:flex;align-items:center}"]
             },] }
 ];
@@ -1902,8 +1902,7 @@ HeaderComponent.propDecorators = {
     breadcrumbs: [{ type: Input }],
     btnTitle: [{ type: Input }],
     search: [{ type: Input }],
-    action: [{ type: Input }],
-    backNavigationComponent: [{ type: ViewChild, args: [BackNavigationComponent,] }]
+    action: [{ type: Input }]
 };
 
 const appRedeemIcon = {
