@@ -2617,11 +2617,15 @@
         function DatePickerComponent(_renderer) {
             var _this = _super.call(this, _renderer) || this;
             _this.disabledDate = function (current) {
-                if (_this.min) {
+                if (_this.min != null && _this.max == null) {
                     return dateFns.differenceInCalendarDays(current, _this.min) < 0;
                 }
-                if (_this.max) {
+                if (_this.max != null && _this.min == null) {
                     return dateFns.differenceInCalendarDays(current, _this.max) > 0;
+                }
+                if (_this.max != null && _this.min != null) {
+                    return dateFns.differenceInCalendarDays(current, _this.min) < 0 &&
+                        dateFns.differenceInCalendarDays(current, _this.max) > 0;
                 }
                 return null;
             };

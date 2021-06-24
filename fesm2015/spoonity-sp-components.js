@@ -2265,11 +2265,15 @@ class DatePickerComponent extends FormFieldManager {
     constructor(_renderer) {
         super(_renderer);
         this.disabledDate = (current) => {
-            if (this.min) {
+            if (this.min != null && this.max == null) {
                 return differenceInCalendarDays(current, this.min) < 0;
             }
-            if (this.max) {
+            if (this.max != null && this.min == null) {
                 return differenceInCalendarDays(current, this.max) > 0;
+            }
+            if (this.max != null && this.min != null) {
+                return differenceInCalendarDays(current, this.min) < 0 &&
+                    differenceInCalendarDays(current, this.max) > 0;
             }
             return null;
         };
