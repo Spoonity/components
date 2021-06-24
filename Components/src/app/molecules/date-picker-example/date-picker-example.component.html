@@ -17,4 +17,12 @@
 
     <p>date object: {{date2}}</p>
 
+    <div class="spt-spacing-y--1 text-field-row">
+        <div class="spt-spacing-x--1">
+            <spt-date-picker [(ngModel)]="date3" label="date3 (with min and max)" size="large" [min]="minDate" [max]="maxDate"></spt-date-picker>
+        </div>
+    </div>
+
+    <p>date object: {{date3}}</p>
+
 </div>
