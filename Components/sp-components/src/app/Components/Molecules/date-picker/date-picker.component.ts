@@ -22,11 +22,6 @@ export class DatePickerComponent extends FormFieldManager {
    */
   formattedDate: string;
 
-  /**
-   * open state for the date picker overlay
-   */
-  datePickerOpen: boolean;
-
   @ViewChild(NzDatePickerComponent) nzDatePickerComponent: NzDatePickerComponent;
 
   constructor(_renderer: Renderer2) {
@@ -54,19 +49,6 @@ export class DatePickerComponent extends FormFieldManager {
    */
   writeValue(obj: any): void {
     this.value = obj;
-    this.setDate();
     this.checkDirty();
-  }
-
-  /**
-   * set date to display
-   */
-  setDate(): void {
-    if (this.value) {
-      const date: Date = this.value;
-      this.formattedDate = date.toLocaleDateString();
-    } else {
-      this.formattedDate = '';
-    }
   }
 }
