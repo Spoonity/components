@@ -19,6 +19,11 @@
     <span *ngIf="!error && datePickerOpen" class="text-field-icon right-icon date-picker-close" (click)="closeDatePicker()">
         <svg-icon name="cancel-black" [svgStyle]="{ 'width.px':24 }"></svg-icon>
     </span>
+
+    <!-- close icon and action -->
+    <span *ngIf="!error && !datePickerOpen" class="text-field-icon right-icon date-picker-close" (click)="clearDate()">
+        <svg-icon name="clear" [svgStyle]="{ 'width.px':24 }"></svg-icon>
+    </span>
 </div>
 
 <nz-date-picker #datePickerEl style="visibility: hidden; transform: translateY(-35px)" (nzOnOpenChange)="onDatePickerOpen($event)"

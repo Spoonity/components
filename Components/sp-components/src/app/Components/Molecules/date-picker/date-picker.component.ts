@@ -53,11 +53,9 @@ export class DatePickerComponent extends FormFieldManager {
    * override: inherited writeValue
    */
   writeValue(obj: any): void {
-    if (obj !== undefined) {
-      this.value = obj;
-      this.setDate();
-      this.checkDirty();
-    }
+    this.value = obj;
+    this.setDate();
+    this.checkDirty();
   }
 
   /**
@@ -67,6 +65,8 @@ export class DatePickerComponent extends FormFieldManager {
     if (this.value) {
       const date: Date = this.value;
       this.formattedDate = date.toLocaleDateString();
+    } else {
+      this.formattedDate = '';
     }
   }
 
@@ -83,6 +83,11 @@ export class DatePickerComponent extends FormFieldManager {
    */
   closeDatePicker(): void {
     this.nzDatePickerComponent.close();
+  }
+
+  clearDate(): void {
+    this.writeValue(null);
+    this.onChange();
   }
 
   /**
