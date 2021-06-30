@@ -2635,20 +2635,7 @@
          */
         DatePickerComponent.prototype.writeValue = function (obj) {
             this.value = obj;
-            this.setDate();
             this.checkDirty();
-        };
-        /**
-         * set date to display
-         */
-        DatePickerComponent.prototype.setDate = function () {
-            if (this.value) {
-                var date = this.value;
-                this.formattedDate = date.toLocaleDateString();
-            }
-            else {
-                this.formattedDate = '';
-            }
         };
         return DatePickerComponent;
     }(FormFieldManager));

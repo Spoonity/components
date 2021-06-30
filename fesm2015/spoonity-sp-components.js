@@ -2282,20 +2282,7 @@ class DatePickerComponent extends FormFieldManager {
      */
     writeValue(obj) {
         this.value = obj;
-        this.setDate();
         this.checkDirty();
-    }
-    /**
-     * set date to display
-     */
-    setDate() {
-        if (this.value) {
-            const date = this.value;
-            this.formattedDate = date.toLocaleDateString();
-        }
-        else {
-            this.formattedDate = '';
-        }
     }
 }
 DatePickerComponent.decorators = [

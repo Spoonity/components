@@ -6,10 +6,6 @@ export declare class DatePickerComponent extends FormFieldManager {
      * string formatted date
      */
     formattedDate: string;
-    /**
-     * open state for the date picker overlay
-     */
-    datePickerOpen: boolean;
     nzDatePickerComponent: NzDatePickerComponent;
     constructor(_renderer: Renderer2);
     disabledDate: (current: Date) => boolean;
@@ -17,8 +13,4 @@ export declare class DatePickerComponent extends FormFieldManager {
      * override: inherited writeValue
      */
     writeValue(obj: any): void;
-    /**
-     * set date to display
-     */
-    setDate(): void;
 }
