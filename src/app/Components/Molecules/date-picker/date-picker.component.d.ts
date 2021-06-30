@@ -21,18 +21,4 @@ export declare class DatePickerComponent extends FormFieldManager {
      * set date to display
      */
     setDate(): void;
-    /**
-     * format date to display
-     */
-    convertDate(event: any): void;
-    /**
-     * close the datepicker
-     */
-    closeDatePicker(): void;
-    clearDate(): void;
-    /**
-     * listen when the datepicker overlay status changes (open/close)
-     * @param open
-     */
-    onDatePickerOpen(open: boolean): void;
 }
