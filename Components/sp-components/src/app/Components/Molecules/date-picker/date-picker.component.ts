@@ -1,7 +1,8 @@
-import {Component, forwardRef, Renderer2} from '@angular/core';
+import {Component, forwardRef, Renderer2, ViewChild} from '@angular/core';
 import {FormFieldManager} from '../../shared/form-field.manager';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import { differenceInCalendarDays } from 'date-fns';
+import {NzDatePickerComponent} from 'ng-zorro-antd/date-picker';
 
 @Component({
   selector: 'spt-date-picker',
@@ -16,7 +17,17 @@ import { differenceInCalendarDays } from 'date-fns';
   ]
 })
 export class DatePickerComponent extends FormFieldManager {
+  /**
+   * string formatted date
+   */
   formattedDate: string;
+
+  /**
+   * open state for the date picker overlay
+   */
+  datePickerOpen: boolean;
+
+  @ViewChild(NzDatePickerComponent) nzDatePickerComponent: NzDatePickerComponent;
 
   constructor(_renderer: Renderer2) {
     super(_renderer);
@@ -65,5 +76,20 @@ export class DatePickerComponent extends FormFieldManager {
   convertDate(event: any): void {
     this.setDate();
     this.changeAction(event);
+  }
+
+  /**
+   * close the datepicker
+   */
+  closeDatePicker(): void {
+    this.nzDatePickerComponent.close();
+  }
+
+  /**
+   * listen when the datepicker overlay status changes (open/close)
+   * @param open
+   */
+  onDatePickerOpen(open: boolean) {
+    this.datePickerOpen = open;
   }
 }
