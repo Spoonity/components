@@ -43,7 +43,7 @@
     & ~ label {
       color: @error !important;
     }
-    &:focus, &:hover {
+    &:focus, &:hover, &.ant-picker-focused {
       border: 1px solid @error !important;
       caret-color: @error;
     }
@@ -57,7 +57,7 @@
   &:hover {
     border: 1px solid #000 !important;
   }
-  &:focus, &.item-focus {
+  &:focus, &.item-focus, &.ant-picker-focused {
     border: 1px solid @primary-color !important;
     caret-color: @primary-color;
     & + label {
@@ -72,14 +72,14 @@
 }
 
 .text-field-container {
-  input {
+  input, nz-date-picker {
     &::placeholder {
       visibility: hidden;
       opacity: 0;
       transition: visibility 0.1s ease-out, opacity 0.1s ease-out;
       padding: 0 4px;
     }
-    &:focus {
+    &:focus, &.ant-picker-focused {
       &::placeholder {
         visibility: visible;
         opacity: 1;
@@ -91,7 +91,7 @@
 .spt-input-container {
   margin: 0;
   position: relative;
-  input {
+  input, nz-date-picker {
     box-shadow: none;
     outline: none;
     // max-width: 520px;
@@ -119,7 +119,7 @@
           color: #000;
         }
       }
-      &:focus {
+      &:focus, &.ant-picker-focused {
         & + label {
           color: @primary-color;
         }
@@ -211,7 +211,7 @@
   align-items: center;
   background-color: #fff;
   .form-field();
-  input {
+  input, nz-date-picker {
     &, &:hover, &:focus {
       border: none !important;
     }
