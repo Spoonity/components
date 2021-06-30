@@ -29,6 +29,7 @@ export declare class DatePickerComponent extends FormFieldManager {
      * close the datepicker
      */
     closeDatePicker(): void;
+    clearDate(): void;
     /**
      * listen when the datepicker overlay status changes (open/close)
      * @param open

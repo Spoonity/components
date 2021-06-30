@@ -2634,11 +2634,9 @@
          * override: inherited writeValue
          */
         DatePickerComponent.prototype.writeValue = function (obj) {
-            if (obj !== undefined) {
-                this.value = obj;
-                this.setDate();
-                this.checkDirty();
-            }
+            this.value = obj;
+            this.setDate();
+            this.checkDirty();
         };
         /**
          * set date to display
@@ -2647,6 +2645,9 @@
             if (this.value) {
                 var date = this.value;
                 this.formattedDate = date.toLocaleDateString();
+            }
+            else {
+                this.formattedDate = '';
             }
         };
         /**
@@ -2662,6 +2663,10 @@
         DatePickerComponent.prototype.closeDatePicker = function () {
             this.nzDatePickerComponent.close();
         };
+        DatePickerComponent.prototype.clearDate = function () {
+            this.writeValue(null);
+            this.onChange();
+        };
         /**
          * listen when the datepicker overlay status changes (open/close)
          * @param open
@@ -2674,7 +2679,7 @@
     DatePickerComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-date-picker',
-                    template: "<div class=\"spt-input-container text-field-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n    <input nz-input [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'has-right-icon': !!endIcon, 'disabled-state': isDisabled}\"\n           (click)=\"isDisabled ? $event.stopPropagation() : datePickerEl.open()\"\n           [(ngModel)]=\"formattedDate\"\n           [class]=\"size\" placeholder=\"{{placeholder}}\"\n           [attr.disabled]=\"!!isDisabled ? isDisabled : null\" readonly>\n    <!-- label -->\n    <label class=\"text-field-label label\">{{ label || placeholder }}</label>\n\n    <!-- error -->\n    <label class=\"text-field-bottom-label error-label\" *ngIf=\"!!error\">{{ error }}</label>\n\n    <!-- error icon -->\n    <span *ngIf=\"!!error\" class=\"text-field-icon error-icon\">\n        <svg-icon name=\"report\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n\n    <!-- close icon and action -->\n    <span *ngIf=\"!error && datePickerOpen\" class=\"text-field-icon right-icon date-picker-close\" (click)=\"closeDatePicker()\">\n        <svg-icon name=\"cancel-black\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n</div>\n\n<nz-date-picker #datePickerEl style=\"visibility: hidden; transform: translateY(-35px)\" (nzOnOpenChange)=\"onDatePickerOpen($event)\"\n                [(ngModel)]=\"value\" (ngModelChange)=\"convertDate($event)\" [nzDisabledDate]=\"disabledDate\"></nz-date-picker>\n",
+                    template: "<div class=\"spt-input-container text-field-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n    <input nz-input [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'has-right-icon': !!endIcon, 'disabled-state': isDisabled}\"\n           (click)=\"isDisabled ? $event.stopPropagation() : datePickerEl.open()\"\n           [(ngModel)]=\"formattedDate\"\n           [class]=\"size\" placeholder=\"{{placeholder}}\"\n           [attr.disabled]=\"!!isDisabled ? isDisabled : null\" readonly>\n    <!-- label -->\n    <label class=\"text-field-label label\">{{ label || placeholder }}</label>\n\n    <!-- error -->\n    <label class=\"text-field-bottom-label error-label\" *ngIf=\"!!error\">{{ error }}</label>\n\n    <!-- error icon -->\n    <span *ngIf=\"!!error\" class=\"text-field-icon error-icon\">\n        <svg-icon name=\"report\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n\n    <!-- close icon and action -->\n    <span *ngIf=\"!error && datePickerOpen\" class=\"text-field-icon right-icon date-picker-close\" (click)=\"closeDatePicker()\">\n        <svg-icon name=\"cancel-black\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n\n    <!-- close icon and action -->\n    <span *ngIf=\"!error && !datePickerOpen\" class=\"text-field-icon right-icon date-picker-close\" (click)=\"clearDate()\">\n        <svg-icon name=\"clear\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n</div>\n\n<nz-date-picker #datePickerEl style=\"visibility: hidden; transform: translateY(-35px)\" (nzOnOpenChange)=\"onDatePickerOpen($event)\"\n                [(ngModel)]=\"value\" (ngModelChange)=\"convertDate($event)\" [nzDisabledDate]=\"disabledDate\"></nz-date-picker>\n",
                     providers: [
                         {
                             provide: forms.NG_VALUE_ACCESSOR,
