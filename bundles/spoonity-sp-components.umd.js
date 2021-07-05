@@ -2439,6 +2439,18 @@
 
     var mapsIcons = [appPlaceIcon];
 
+    var appCalendarIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z\"/></svg>",
+        name: 'calendar'
+    };
+
+    var appDownloadIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z\"/></svg>",
+        name: 'download'
+    };
+
+    var miscIcons = [appCalendarIcon, appDownloadIcon];
+
     var appArrowBackIcon = {
         data: "<svg fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42a.996.996 0 00-1.41 0l-6.59 6.59a.996.996 0 000 1.41l6.59 6.59a.996.996 0 101.41-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z\" fill=\"#0D0C0B\"/></svg>",
         name: 'arrow-back'
@@ -2579,6 +2591,10 @@
             });
             // Maps Icons
             mapsIcons.forEach(function (element) {
+                iconReg.addSvg(element.name, element.data);
+            });
+            // Misc Icons
+            miscIcons.forEach(function (element) {
                 iconReg.addSvg(element.name, element.data);
             });
             // Navigation Icons
@@ -2818,6 +2834,7 @@
     exports.hardwareIcons = hardwareIcons;
     exports.imageIcons = imageIcons;
     exports.mapsIcons = mapsIcons;
+    exports.miscIcons = miscIcons;
     exports.navigationIcons = navigationIcons;
     exports.notificationIcons = notificationIcons;
     exports.socialIcons = socialIcons;
@@ -2836,31 +2853,33 @@
     exports.ɵbi = appEditIcon;
     exports.ɵbj = appWbIncandescentIcon;
     exports.ɵbk = appPlaceIcon;
-    exports.ɵbl = appArrowBackIcon;
-    exports.ɵbm = appArrowDownwardIcon;
-    exports.ɵbn = appArrowForwardIcon;
-    exports.ɵbo = appArrowUpwardIcon;
-    exports.ɵbp = appCancelBlackIcon;
-    exports.ɵbq = appCheckIcon;
-    exports.ɵbr = appChevronLeftIcon;
-    exports.ɵbs = appChevronRightIcon;
-    exports.ɵbt = appClearIcon;
-    exports.ɵbu = appEastIcon;
-    exports.ɵbv = appExpandLessIcon;
-    exports.ɵbw = appExpandMoreIcon;
-    exports.ɵbx = appFirstPageIcon;
-    exports.ɵby = appLastPageIcon;
-    exports.ɵbz = appMoreVertIcon;
+    exports.ɵbl = appCalendarIcon;
+    exports.ɵbm = appDownloadIcon;
+    exports.ɵbn = appArrowBackIcon;
+    exports.ɵbo = appArrowDownwardIcon;
+    exports.ɵbp = appArrowForwardIcon;
+    exports.ɵbq = appArrowUpwardIcon;
+    exports.ɵbr = appCancelBlackIcon;
+    exports.ɵbs = appCheckIcon;
+    exports.ɵbt = appChevronLeftIcon;
+    exports.ɵbu = appChevronRightIcon;
+    exports.ɵbv = appClearIcon;
+    exports.ɵbw = appEastIcon;
+    exports.ɵbx = appExpandLessIcon;
+    exports.ɵby = appExpandMoreIcon;
+    exports.ɵbz = appFirstPageIcon;
     exports.ɵc = DropdownService;
-    exports.ɵca = appRefreshIcon;
-    exports.ɵcb = appPriorityHighIcon;
-    exports.ɵcc = appSmsIcon;
-    exports.ɵcd = appPeopleIcon;
-    exports.ɵce = appCheckBoxOutlineBlankIcon;
-    exports.ɵcf = appCheckBoxIcon;
-    exports.ɵcg = appIndeterminateCheckBoxIcon;
-    exports.ɵch = appRadioButtonCheckedIcon;
-    exports.ɵci = appRadioButtonUncheckedIcon;
+    exports.ɵca = appLastPageIcon;
+    exports.ɵcb = appMoreVertIcon;
+    exports.ɵcc = appRefreshIcon;
+    exports.ɵcd = appPriorityHighIcon;
+    exports.ɵce = appSmsIcon;
+    exports.ɵcf = appPeopleIcon;
+    exports.ɵcg = appCheckBoxOutlineBlankIcon;
+    exports.ɵch = appCheckBoxIcon;
+    exports.ɵci = appIndeterminateCheckBoxIcon;
+    exports.ɵcj = appRadioButtonCheckedIcon;
+    exports.ɵck = appRadioButtonUncheckedIcon;
     exports.ɵd = OverlayTemplateComponent;
     exports.ɵe = OptionComponent;
     exports.ɵf = SearchService;

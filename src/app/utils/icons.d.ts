@@ -7,6 +7,7 @@ export * from '../svg/File/index';
 export * from '../svg/Hardware/index';
 export * from '../svg/Image/index';
 export * from '../svg/Maps/index';
+export * from '../svg/Misc/index';
 export * from '../svg/Navigation/index';
 export * from '../svg/Notification/index';
 export * from '../svg/Social/index';

@@ -2090,6 +2090,18 @@ const appPlaceIcon = {
 
 const mapsIcons = [appPlaceIcon];
 
+const appCalendarIcon = {
+    data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>`,
+    name: 'calendar'
+};
+
+const appDownloadIcon = {
+    data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>`,
+    name: 'download'
+};
+
+const miscIcons = [appCalendarIcon, appDownloadIcon];
+
 const appArrowBackIcon = {
     data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42a.996.996 0 00-1.41 0l-6.59 6.59a.996.996 0 000 1.41l6.59 6.59a.996.996 0 101.41-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" fill="#0D0C0B"/></svg>`,
     name: 'arrow-back'
@@ -2230,6 +2242,10 @@ class SpComponentsComponent {
         });
         // Maps Icons
         mapsIcons.forEach(element => {
+            iconReg.addSvg(element.name, element.data);
+        });
+        // Misc Icons
+        miscIcons.forEach(element => {
             iconReg.addSvg(element.name, element.data);
         });
         // Navigation Icons
@@ -2419,5 +2435,5 @@ SpComponentsModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { AvatarComponent, AvatarSize, BackNavigationComponent, BadgeComponent, BreadcrumbComponent, ButtonComponent, ButtonSize, ButtonType, CardComponent, ChartComponent, ChartType, CheckboxComponent, ChipComponent, DataVisualizationComponent, DatePickerComponent, DialogsComponent, DividerComponent, DividerType, DropdownComponent, ElevationComponent, HeaderComponent, ICardType, MenuComponent, ProgressBarComponent, ProgressType, RadioButtonComponent, SearchComponent, SideNavigationComponent, SideNavigationType, SidebarComponent, SliderComponent, SnackbarComponent, SpComponentsComponent, SpComponentsModule, SpacingComponent, StepsComponent, SwitchComponent, TabComponent, TableComponent, TagType, TextFieldComponent, TooltipComponent, UploadComponent, actionIcons, alertIcons, avIcons, communicationIcons, contentIcons, fileIcons, hardwareIcons, imageIcons, mapsIcons, navigationIcons, notificationIcons, socialIcons, toggleIcons, ɵ0, FormFieldManager as ɵa, BannerComponent as ɵb, appEmailIcon as ɵba, appAddCircleOutlineIcon as ɵbb, appAddIcon as ɵbc, appReportIcon as ɵbd, appSendIcon as ɵbe, appUploadFileIcon as ɵbf, appKeyboardTabIcon as ɵbg, appSmartphoneIcon as ɵbh, appEditIcon as ɵbi, appWbIncandescentIcon as ɵbj, appPlaceIcon as ɵbk, appArrowBackIcon as ɵbl, appArrowDownwardIcon as ɵbm, appArrowForwardIcon as ɵbn, appArrowUpwardIcon as ɵbo, appCancelBlackIcon as ɵbp, appCheckIcon as ɵbq, appChevronLeftIcon as ɵbr, appChevronRightIcon as ɵbs, appClearIcon as ɵbt, appEastIcon as ɵbu, appExpandLessIcon as ɵbv, appExpandMoreIcon as ɵbw, appFirstPageIcon as ɵbx, appLastPageIcon as ɵby, appMoreVertIcon as ɵbz, DropdownService as ɵc, appRefreshIcon as ɵca, appPriorityHighIcon as ɵcb, appSmsIcon as ɵcc, appPeopleIcon as ɵcd, appCheckBoxOutlineBlankIcon as ɵce, appCheckBoxIcon as ɵcf, appIndeterminateCheckBoxIcon as ɵcg, appRadioButtonCheckedIcon as ɵch, appRadioButtonUncheckedIcon as ɵci, OverlayTemplateComponent as ɵd, OptionComponent as ɵe, SearchService as ɵf, SearchOptionComponent as ɵg, SearchTemplateComponent as ɵh, MenuService as ɵi, MenuItemComponent as ɵj, MenuTriggerDirective as ɵk, IconComponent as ɵl, NZMODULES as ɵm, appAccountBoxIcon as ɵn, appCheckCircleIcon as ɵo, appExpandIcon as ɵp, appFavoriteIcon as ɵq, appHomeIcon as ɵr, appLogoutIcon as ɵs, appRedeemIcon as ɵt, appSearchIcon as ɵu, appSettingsIcon as ɵv, appErrorIcon as ɵw, appWarningIcon as ɵx, appRecentActorsIcon as ɵy, appCallIcon as ɵz };
+export { AvatarComponent, AvatarSize, BackNavigationComponent, BadgeComponent, BreadcrumbComponent, ButtonComponent, ButtonSize, ButtonType, CardComponent, ChartComponent, ChartType, CheckboxComponent, ChipComponent, DataVisualizationComponent, DatePickerComponent, DialogsComponent, DividerComponent, DividerType, DropdownComponent, ElevationComponent, HeaderComponent, ICardType, MenuComponent, ProgressBarComponent, ProgressType, RadioButtonComponent, SearchComponent, SideNavigationComponent, SideNavigationType, SidebarComponent, SliderComponent, SnackbarComponent, SpComponentsComponent, SpComponentsModule, SpacingComponent, StepsComponent, SwitchComponent, TabComponent, TableComponent, TagType, TextFieldComponent, TooltipComponent, UploadComponent, actionIcons, alertIcons, avIcons, communicationIcons, contentIcons, fileIcons, hardwareIcons, imageIcons, mapsIcons, miscIcons, navigationIcons, notificationIcons, socialIcons, toggleIcons, ɵ0, FormFieldManager as ɵa, BannerComponent as ɵb, appEmailIcon as ɵba, appAddCircleOutlineIcon as ɵbb, appAddIcon as ɵbc, appReportIcon as ɵbd, appSendIcon as ɵbe, appUploadFileIcon as ɵbf, appKeyboardTabIcon as ɵbg, appSmartphoneIcon as ɵbh, appEditIcon as ɵbi, appWbIncandescentIcon as ɵbj, appPlaceIcon as ɵbk, appCalendarIcon as ɵbl, appDownloadIcon as ɵbm, appArrowBackIcon as ɵbn, appArrowDownwardIcon as ɵbo, appArrowForwardIcon as ɵbp, appArrowUpwardIcon as ɵbq, appCancelBlackIcon as ɵbr, appCheckIcon as ɵbs, appChevronLeftIcon as ɵbt, appChevronRightIcon as ɵbu, appClearIcon as ɵbv, appEastIcon as ɵbw, appExpandLessIcon as ɵbx, appExpandMoreIcon as ɵby, appFirstPageIcon as ɵbz, DropdownService as ɵc, appLastPageIcon as ɵca, appMoreVertIcon as ɵcb, appRefreshIcon as ɵcc, appPriorityHighIcon as ɵcd, appSmsIcon as ɵce, appPeopleIcon as ɵcf, appCheckBoxOutlineBlankIcon as ɵcg, appCheckBoxIcon as ɵch, appIndeterminateCheckBoxIcon as ɵci, appRadioButtonCheckedIcon as ɵcj, appRadioButtonUncheckedIcon as ɵck, OverlayTemplateComponent as ɵd, OptionComponent as ɵe, SearchService as ɵf, SearchOptionComponent as ɵg, SearchTemplateComponent as ɵh, MenuService as ɵi, MenuItemComponent as ɵj, MenuTriggerDirective as ɵk, IconComponent as ɵl, NZMODULES as ɵm, appAccountBoxIcon as ɵn, appCheckCircleIcon as ɵo, appExpandIcon as ɵp, appFavoriteIcon as ɵq, appHomeIcon as ɵr, appLogoutIcon as ɵs, appRedeemIcon as ɵt, appSearchIcon as ɵu, appSettingsIcon as ɵv, appErrorIcon as ɵw, appWarningIcon as ɵx, appRecentActorsIcon as ɵy, appCallIcon as ɵz };
 //# sourceMappingURL=spoonity-sp-components.js.map
