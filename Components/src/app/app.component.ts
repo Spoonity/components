@@ -7,6 +7,7 @@ import { appRedeemIcon } from 'sp-components/src/app/svg/Action/redeem';
 import { appPeopleIcon } from 'sp-components/src/app/svg/Social/people';
 import { SideNavigationType } from 'sp-components/src/app/utils/enums';
 import * as ic from 'sp-components/src/app/utils/icons';
+import {element} from 'protractor';
 
 @Component({
   selector: 'app-root',
@@ -90,6 +91,10 @@ export class AppComponent {
     });
     // Maps Icons
     ic.mapsIcons.forEach(element => {
+      this.iconReg.addSvg(element.name, element.data);
+    });
+    // Misc Icons
+    ic.miscIcons.forEach(element => {
       this.iconReg.addSvg(element.name, element.data);
     });
     // Navigation Icons

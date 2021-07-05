@@ -53,6 +53,10 @@ export class SpComponentsComponent implements OnInit {
     ic.mapsIcons.forEach(element => {
       iconReg.addSvg(element.name, element.data);
     });
+    // Misc Icons
+    ic.miscIcons.forEach(element => {
+      iconReg.addSvg(element.name, element.data);
+    });
     // Navigation Icons
     ic.navigationIcons.forEach(element => {
       iconReg.addSvg(element.name, element.data);
@@ -69,7 +73,6 @@ export class SpComponentsComponent implements OnInit {
     ic.toggleIcons.forEach(element => {
       iconReg.addSvg(element.name, element.data);
     });
-
   }
 
 }

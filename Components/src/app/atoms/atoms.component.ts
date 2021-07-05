@@ -98,7 +98,7 @@ export class AtomsComponent implements OnInit {
     let icons = [];
     icons = icons.concat(ic.actionIcons, ic.alertIcons, ic.avIcons,
       ic.communicationIcons, ic.contentIcons, ic.fileIcons,
-      ic.hardwareIcons, ic.imageIcons, ic.mapsIcons, ic.navigationIcons,
+      ic.hardwareIcons, ic.imageIcons, ic.mapsIcons, ic.miscIcons, ic.navigationIcons,
       ic.notificationIcons, ic.socialIcons, ic.toggleIcons);
     return icons;
   }
