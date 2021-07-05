@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {NzTableComponent} from 'ng-zorro-antd/table';
 
 export interface IDataSet {
   number: number;
@@ -15,18 +16,12 @@ export interface IDataSet {
   styleUrls: ['./table.component.less']
 })
 export class TableComponent implements OnInit {
-
   @Input() checkboxOn: boolean;
   @Input() rows: any[];
   @Input() dataSet: any[];
-  @Input() pageSize: number;
-
-  totalData: number;
 
   constructor() { }
 
   ngOnInit() {
-    this.totalData = this.dataSet.length;
   }
-
 }

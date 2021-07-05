@@ -32,7 +32,8 @@
                             }
                         ],
                         "styles": [
-                            "node_modules/@spoonity/sp-components/src/app/styles/main.less"
+                            "src/app/styles/main.less"
+
                         ],
                         "scripts": [],
                         "vendorChunk": true,

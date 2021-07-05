@@ -20,7 +20,7 @@ export class MoleculesComponent implements OnInit {
 
   constructor() { }
 
-  buttonType: ButtonType = ButtonType.primary;
+  buttonType: ButtonType = ButtonType.secondary;
   buttonSize: ButtonSize = ButtonSize.medium;
 
   tagType: TagType = TagType.default;

@@ -1,4 +1,7 @@
-<nz-table class="table" #secondTable [nzData]="dataSet">
+<nz-table class="table"
+          [nzShowPagination]="false"
+          [nzFrontPagination]="false"
+          [nzData]="dataSet">
   <thead>
     <tr>
       <th *ngIf="checkboxOn">
@@ -11,21 +14,5 @@
   </thead>
   <tbody>
     <ng-content select="tr"></ng-content>
-<!--    <tr *ngFor="let data of secondTable.data">-->
-<!--      <td *ngIf="checkboxOn">-->
-<!--        <spt-checkbox></spt-checkbox>-->
-<!--      </td>-->
-<!--      <td>{{ data.number }}</td>-->
-<!--      <td>{{ data.date }}</td>-->
-<!--      <td>{{ data.description }}</td>-->
-<!--      <td>{{ data.amount }}</td>-->
-<!--      <td>-->
-<!--        <spt-badge-->
-<!--          [name]="data.status ? 'PAID' : 'NOT PAID'"-->
-<!--          color="#66BB6A"-->
-<!--        ></spt-badge>-->
-<!--      </td>-->
-<!--      <td>{{ data.invoice }}</td>-->
-<!--    </tr>-->
   </tbody>
 </nz-table>

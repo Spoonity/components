@@ -193,7 +193,7 @@
   dependencies:
     "tslib" "^2.0.0"
 
-"@angular/cdk@^11.0.2", "@angular/cdk@^11.0.4":
+"@angular/cdk@^11.0.2", "@angular/cdk@^11.2.13":
   "integrity" "sha512-FkE4iCwoLbQxLDUOjV1I7M/6hmpyb7erAjEdWgch7nGRNxF1hqX5Bqf1lvLFKPNCbx5NRI5K7YVAdIUQUR8vug=="
   "resolved" "https://registry.npmjs.org/@angular/cdk/-/cdk-11.2.13.tgz"
   "version" "11.2.13"
@@ -2202,12 +2202,6 @@
   "version" "7.1.2"
   dependencies:
     "@sinonjs/commons" "^1.7.0"
-
-"@spoonity/sp-components@file:sp-components/spoonity-sp-components-0.0.1.tgz":
-  "integrity" "sha512-WyVYx+T612NwKdr8oOXF63QqaLHOhkwhcJ/9vplb7JwEY5S4vfSXO8QBhJvAxKLg6olKeWeC00ZII231t9mYAw=="
-  "resolved" "file:sp-components/spoonity-sp-components-0.0.1.tgz"
-  dependencies:
-    "tslib" "^2.0.0"
 
 "@storybook/addon-actions@6.3.0-beta.5":
   "integrity" "sha512-MFYUpdWvurPJVsFjjjzVyfG3RpgQY9tLxg87S0UIYBggcPID2pHFdOMlobS1slCiOIGIBLGzfqAVDKYW8Kj9Iw=="

@@ -31,7 +31,6 @@
     "@ngneat/svg-icon": "^3.2.0",
     "@schematics/angular": "^11.2.13",
     "@schematics/update": "^0.1102.12",
-    "@spoonity/sp-components": "file:sp-components/spoonity-sp-components-0.0.1.tgz",
     "angular-svg-icon": "^11.2.0",
     "chart.js": "^2.9.4",
     "i": "^0.3.6",
@@ -51,7 +50,7 @@
   "devDependencies": {
     "@angular-builders/custom-webpack": "^11.1.1",
     "@angular-devkit/build-angular": "^0.1102.13",
-    "@angular/cdk": "^11.0.4",
+    "@angular/cdk": "^11.2.13",
     "@angular/cli": "^11.0.4",
     "@angular/compiler-cli": "~11.0.4",
     "@angular/language-service": "^11.0.4",

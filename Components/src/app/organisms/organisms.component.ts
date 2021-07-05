@@ -14,7 +14,6 @@ import { appSendIcon } from "sp-components/src/app/svg/Content/send";
 import { appPlaceIcon } from "sp-components/src/app/svg/Maps/place";
 import { appPeopleIcon } from "sp-components/src/app/svg/Social/people";
 
-
 @Component({
   selector: 'app-organisms',
   templateUrl: './organisms.component.html',
@@ -42,7 +41,7 @@ export class OrganismsComponent implements OnInit {
   sideDataMultiAccount: ISidebar = <ISidebar>{};
 
   dataSet: IDataSet[] = [];
-
+  pagingDataSet: IDataSet[] = [];
   campaigns: ICampaign[];
   customers: ICustomer[];
   giftManagements: IGiftManagement[];
@@ -168,8 +167,72 @@ export class OrganismsComponent implements OnInit {
         amount: '$1200.00 CAD',
         status: true,
         invoice: 'PDF'
+      },
+      {
+        number: 3492,
+        date: 'Sept 1, 2012',
+        description: 'September Monthly Fees',
+        amount: '$1200.00 CAD',
+        status: true,
+        invoice: 'PDF'
+      },
+      {
+        number: 1367,
+        date: 'Aug 1, 2012',
+        description: 'August Monthly Fees',
+        amount: '$1200.00 CAD',
+        status: true,
+        invoice: 'PDF'
+      },
+      {
+        number: 9524,
+        date: 'Jul 1, 2012',
+        description: 'July Monthly Fees',
+        amount: '$1200.00 CAD',
+        status: true,
+        invoice: 'PDF'
+      },
+      {
+        number: 4375,
+        date: 'Jun 1, 2012',
+        description: 'June Monthly Fees',
+        amount: '$1200.00 CAD',
+        status: true,
+        invoice: 'PDF'
+      },
+      {
+        number: 3492,
+        date: 'May 1, 2012',
+        description: 'May Monthly Fees',
+        amount: '$1200.00 CAD',
+        status: true,
+        invoice: 'PDF'
+      },
+      {
+        number: 1367,
+        date: 'Apr 1, 2012',
+        description: 'April Monthly Fees',
+        amount: '$1200.00 CAD',
+        status: true,
+        invoice: 'PDF'
+      },
+      {
+        number: 9524,
+        date: 'Mar 1, 2012',
+        description: 'March Monthly Fees',
+        amount: '$1200.00 CAD',
+        status: true,
+        invoice: 'PDF'
+      },
+      {
+        number: 4375,
+        date: 'Feb 1, 2012',
+        description: 'February Monthly Fees',
+        amount: '$1200.00 CAD',
+        status: true,
+        invoice: 'PDF'
       }
-    ]
+    ];
   }
 
   getUserData(): IUserData {

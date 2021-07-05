@@ -114,10 +114,42 @@
     <br>
     <div class="section">
         <h2>TABLE</h2>
-        <spt-table [rows]="dataRows" [dataSet]="dataSet"></spt-table>
+        <spt-table [rows]="dataRows" [dataSet]="dataSet">
+            <tr *ngFor="let data of dataSet">
+              <td>{{ data.number }}</td>
+              <td>{{ data.date }}</td>
+              <td>{{ data.description }}</td>
+              <td>{{ data.amount }}</td>
+              <td>
+                <spt-badge
+                  [name]="data.status ? 'PAID' : 'NOT PAID'"
+                  color="#66BB6A"
+                ></spt-badge>
+              </td>
+              <td>{{ data.invoice }}</td>
+            </tr>
+        </spt-table>
         <br>
-        <h3>Table with checkbox</h3>
-        <spt-table [rows]="dataRows" [dataSet]="dataSet" [checkboxOn]="true"></spt-table>
+
+        <h3>TABLE WITH CHECKBOX</h3>
+        <spt-table [rows]="dataRows" [dataSet]="dataSet" [checkboxOn]="true">
+            <tr *ngFor="let data of dataSet">
+              <td>
+                <spt-checkbox></spt-checkbox>
+              </td>
+              <td>{{ data.number }}</td>
+              <td>{{ data.date }}</td>
+              <td>{{ data.description }}</td>
+              <td>{{ data.amount }}</td>
+              <td>
+                <spt-badge
+                  [name]="data.status ? 'PAID' : 'NOT PAID'"
+                  color="#66BB6A"
+                ></spt-badge>
+              </td>
+              <td>{{ data.invoice }}</td>
+            </tr>
+        </spt-table>
     </div>
     <br>
     <div class="section">
@@ -138,7 +170,7 @@
             </div>
         </div> -->
 
-        <!-- <button nz-button nzType="primary" (click)="toggleCard()">
+        <!-- <button nz-button nzType="primary" (click)="toggleCard()">å
             <span>Toggle Send State</span>
         </button> -->
         <br>
