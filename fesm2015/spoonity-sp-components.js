@@ -50,6 +50,7 @@ import { Router, RouterModule } from '@angular/router';
 import { ChartsModule, ThemeService } from 'ng2-charts';
 import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
 import { differenceInCalendarDays } from 'date-fns';
+import { NzNoAnimationModule } from 'ng-zorro-antd/core/no-animation';
 
 const NZMODULES = [
     NzAffixModule,
@@ -182,6 +183,7 @@ class ButtonComponent {
     constructor() {
         this.type = ButtonType.primary;
         this.size = ButtonSize.medium;
+        this.B = ButtonType;
     }
     ngOnInit() {
     }
@@ -189,7 +191,7 @@ class ButtonComponent {
 ButtonComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-button',
-                template: "<button nz-button [nzType]=\"type\" [nzSize]=\"size\" [disabled]=\"disabled\">\n  <spt-icon *ngIf=\"leftIcon\" [name]=\"leftIcon\"></spt-icon>\n  <span *ngIf=\"text\" [ngClass]=\"{leftIcon: leftIcon,rightIcon: rightIcon}\">{{ text }}</span>\n  <spt-icon *ngIf=\"rightIcon\" [name]=\"rightIcon\"></spt-icon>\n</button>\n",
+                template: "<button nz-button nzNoAnimation [nzType]=\"type\" [nzSize]=\"size\" [disabled]=\"disabled\" [ngClass]=\"{'ant-btn-secondary': type === B.secondary, 'ant-btn-tertiary': type === B.tertiary, 'with-text': text != null}\">\n  <spt-icon *ngIf=\"leftIcon\" [name]=\"leftIcon\"></spt-icon>\n  <span *ngIf=\"text\" [ngClass]=\"{leftIcon: leftIcon,rightIcon: rightIcon}\">{{ text }}</span>\n  <spt-icon *ngIf=\"rightIcon\" [name]=\"rightIcon\"></spt-icon>\n</button>\n",
                 styles: [".leftIcon{margin-left:10px}.rightIcon{margin-right:10px}"]
             },] }
 ];
@@ -1808,22 +1810,20 @@ SidebarComponent.propDecorators = {
 class TableComponent {
     constructor() { }
     ngOnInit() {
-        this.totalData = this.dataSet.length;
     }
 }
 TableComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-table',
-                template: "<nz-table class=\"table\" #secondTable [nzData]=\"dataSet\">\n  <thead>\n    <tr>\n      <th *ngIf=\"checkboxOn\">\n        <spt-checkbox></spt-checkbox>\n      </th>\n      <th *ngFor=\"let title of rows\">\n        <b>{{ title }}</b>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-content select=\"tr\"></ng-content>\n<!--    <tr *ngFor=\"let data of secondTable.data\">-->\n<!--      <td *ngIf=\"checkboxOn\">-->\n<!--        <spt-checkbox></spt-checkbox>-->\n<!--      </td>-->\n<!--      <td>{{ data.number }}</td>-->\n<!--      <td>{{ data.date }}</td>-->\n<!--      <td>{{ data.description }}</td>-->\n<!--      <td>{{ data.amount }}</td>-->\n<!--      <td>-->\n<!--        <spt-badge-->\n<!--          [name]=\"data.status ? 'PAID' : 'NOT PAID'\"-->\n<!--          color=\"#66BB6A\"-->\n<!--        ></spt-badge>-->\n<!--      </td>-->\n<!--      <td>{{ data.invoice }}</td>-->\n<!--    </tr>-->\n  </tbody>\n</nz-table>\n",
-                styles: [".table{font-family:Nunito Sans;font-style:normal;font-weight:400;font-size:14px;line-height:24px;border:1px solid #e2e2e2;border-radius:4px}thead,tr:hover{background-color:#fff}thead>tr>th{background:#fff}"]
+                template: "<nz-table class=\"table\"\n          [nzShowPagination]=\"false\"\n          [nzFrontPagination]=\"false\"\n          [nzData]=\"dataSet\">\n  <thead>\n    <tr>\n      <th *ngIf=\"checkboxOn\">\n        <spt-checkbox></spt-checkbox>\n      </th>\n      <th *ngFor=\"let title of rows\">\n        <b>{{ title }}</b>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-content select=\"tr\"></ng-content>\n  </tbody>\n</nz-table>\n",
+                styles: [".table{font-family:Nunito Sans;font-style:normal;font-weight:400;font-size:14px;line-height:24px;border-radius:4px;border:1px solid #e2e2e2;border-bottom:none}thead,tr:hover{background-color:#fff}thead>tr>th{background:#fff}"]
             },] }
 ];
 TableComponent.ctorParameters = () => [];
 TableComponent.propDecorators = {
     checkboxOn: [{ type: Input }],
     rows: [{ type: Input }],
-    dataSet: [{ type: Input }],
-    pageSize: [{ type: Input }]
+    dataSet: [{ type: Input }]
 };
 
 const appUploadFileIcon = {
@@ -2409,6 +2409,7 @@ SpComponentsModule.decorators = [
                     PortalModule,
                     OverlayModule,
                     ...NZMODULES,
+                    NzNoAnimationModule,
                 ],
                 providers: [{ provide: NZ_I18N, useValue: ɵ0 }, ThemeService],
             },] }

@@ -11,8 +11,6 @@ export declare class TableComponent implements OnInit {
     checkboxOn: boolean;
     rows: any[];
     dataSet: any[];
-    pageSize: number;
-    totalData: number;
     constructor();
     ngOnInit(): void;
 }
