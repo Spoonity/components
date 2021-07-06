@@ -51,6 +51,9 @@ export class SearchComponent extends FormFieldManager implements AfterViewInit {
   /* item removed action */
   @Output() itemRemoved: EventEmitter<any> = new EventEmitter<any>();
 
+  /* search overlay closed */
+  @Output() overlayStatusChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   /* overlay template component */
   @ViewChild(OverlayTemplateComponent)
   public search: OverlayTemplateComponent;
@@ -117,13 +120,15 @@ export class SearchComponent extends FormFieldManager implements AfterViewInit {
    */
   public showDropdown(): void {
     this.search.show();
+    this.overlayStatusChange.emit(true);
   }
 
   /**
-   * hide dropdown action
+   * hide options action
    */
   public hideDropdown(): void {
     this.search.hide();
+    this.overlayStatusChange.emit(false);
   }
 
   /**
