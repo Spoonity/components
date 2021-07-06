@@ -23,6 +23,31 @@
         </div>
     </div>
 
+    <!----- LARGE ----->
+    <div class="input-large spt-spacing-y--2">
+        <h3>Large (readonly and launch on focus)</h3>
+
+        <div class="spt-spacing-y--1 dropdown-row">
+            <div class="spt-spacing-x--1">
+                <spt-search size="large"
+                            placeholder="Search fruits or vegetables"
+                            [(ngModel)]="largeSearchModel"
+                            [selectedItems]="largeSelectedItemsReadonly"
+                            [readonly]="true"
+                            [launchOnFocus]="true"
+                            (filter)="filter('large')"
+                            (itemSelected)="largeItemSelectedReadonly($event)"
+                            (itemRemoved)="largeItemRemovedReadonly($event)">
+                    <spt-search-option [value]="f" *ngFor="let f of allOptions">
+                        <span>{{f.name}} - </span>
+                        <span class="light"><em>{{f.type}} </em></span>
+                        <span class="light">(color: {{f.color}})</span>
+                    </spt-search-option>
+                </spt-search>
+            </div>
+        </div>
+    </div>
+
 
     <!----- MEDIUM ----->
     <div class="input-large spt-spacing-y--2">

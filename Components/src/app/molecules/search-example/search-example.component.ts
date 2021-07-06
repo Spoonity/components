@@ -15,6 +15,7 @@ export class SearchExampleComponent {
 
   /* selected items - chips (by example type */
   largeSelectedItems: {id: string; icon: string; text: string}[] = [];
+  largeSelectedItemsReadonly: {id: string; icon: string; text: string}[] = [];
   mediumSelectedItems: {id: string; icon: string; text: string}[] = [];
   smallSelectedItems: {id: string; icon: string; text: string}[] = [];
 
@@ -117,6 +118,20 @@ export class SearchExampleComponent {
   }
 
   /**
+   * on select action (Large example type)
+   */
+  largeItemSelectedReadonly(selectedItem: any): void {
+    this.largeSelectedItemsReadonly.push({
+      id: selectedItem.id.toString(),
+      text: selectedItem.name,
+      icon: 'favorite'
+    });
+
+    // clear model
+    this.largeSearchModel = '';
+  }
+
+  /**
    * on select action (Medium example type)
    */
   mediumItemSelected(selectedItem: any): void {
@@ -150,6 +165,15 @@ export class SearchExampleComponent {
   largeItemRemoved(removedItem: any): void {
     this.largeSelectedItems = Array.from(
       this.largeSelectedItems.filter(s => s.id.toString() !== removedItem.id.toString())
+    );
+  }
+
+  /**
+   * remove item action (Large example type)
+   */
+  largeItemRemovedReadonly(removedItem: any): void {
+    this.largeSelectedItemsReadonly = Array.from(
+      this.largeSelectedItemsReadonly.filter(s => s.id.toString() !== removedItem.id.toString())
     );
   }
 

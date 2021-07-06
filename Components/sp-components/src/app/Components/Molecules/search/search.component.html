@@ -1,4 +1,4 @@
-<div #searchReference class="spt-input-container search-container" [ngClass]="{'disabled-container': isDisabled}">
+<div #searchReference class="spt-input-container search-container" [ngClass]="{'disabled-container': isDisabled}" (click)="launchOnFocus ? focusAction() : null">
     <div class="search-wrapper {{size}} " [ngClass]="{'item-focus': focus}">
         <!-- search icon -->
         <div class="search-icon left-icon">
@@ -14,20 +14,22 @@
                          (onCloseEvent)="onClose(s)"></spt-chip>
             </div>
         </div>
-        <input #input *ngIf="maximumSelection ? selectedItems.length < maximumSelection : true"
+        <input #input *ngIf="(maximumSelection ? selectedItems.length < maximumSelection : true) && !readonly"
                (focus)="focusAction()" (blur)="blurAction()"
                [ngClass]="{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}"
                [(ngModel)]="value"
                (ngModelChange)="changeAction($event)"
                (keydown)="onKeyDown($event)"
                placeholder="{{placeholder}}" autocomplete="off" [readonly]="readonly">
+
+        <!-- because input is hidden on readonly mode display the placeholder separately -->
+        <p class="font-60" *ngIf="readonly" style="margin: 0; cursor: default">{{placeholder}}</p>
     </div>
 
     <spt-overlay-template [reference]="searchReference" #searchComp>
         <div class="search-options-container spt-elevation--5">
-            <ng-content select="sp-search-option"></ng-content>
+            <ng-content select="spt-search-option"></ng-content>
             <ng-content select="div.search-override"></ng-content>
-            <ng-content select="sp-search-option"></ng-content>
         </div>
     </spt-overlay-template>
 
