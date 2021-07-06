@@ -789,6 +789,8 @@ class SearchComponent extends FormFieldManager {
         this.itemSelected = new EventEmitter();
         /* item removed action */
         this.itemRemoved = new EventEmitter();
+        /* search overlay closed */
+        this.overlayStatusChange = new EventEmitter();
         this._searchService.register(this);
     }
     ngAfterViewInit() {
@@ -829,12 +831,14 @@ class SearchComponent extends FormFieldManager {
      */
     showDropdown() {
         this.search.show();
+        this.overlayStatusChange.emit(true);
     }
     /**
-     * hide dropdown action
+     * hide options action
      */
     hideDropdown() {
         this.search.hide();
+        this.overlayStatusChange.emit(false);
     }
     /**
      * keydown event
@@ -893,6 +897,7 @@ SearchComponent.propDecorators = {
     filter: [{ type: Output }],
     itemSelected: [{ type: Output }],
     itemRemoved: [{ type: Output }],
+    overlayStatusChange: [{ type: Output }],
     search: [{ type: ViewChild, args: [OverlayTemplateComponent,] }],
     options: [{ type: ContentChildren, args: [SearchOptionComponent,] }]
 };

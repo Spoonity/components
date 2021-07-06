@@ -1089,6 +1089,8 @@
             _this.itemSelected = new core.EventEmitter();
             /* item removed action */
             _this.itemRemoved = new core.EventEmitter();
+            /* search overlay closed */
+            _this.overlayStatusChange = new core.EventEmitter();
             _this._searchService.register(_this);
             return _this;
         }
@@ -1130,12 +1132,14 @@
          */
         SearchComponent.prototype.showDropdown = function () {
             this.search.show();
+            this.overlayStatusChange.emit(true);
         };
         /**
-         * hide dropdown action
+         * hide options action
          */
         SearchComponent.prototype.hideDropdown = function () {
             this.search.hide();
+            this.overlayStatusChange.emit(false);
         };
         /**
          * keydown event
@@ -1195,6 +1199,7 @@
         filter: [{ type: core.Output }],
         itemSelected: [{ type: core.Output }],
         itemRemoved: [{ type: core.Output }],
+        overlayStatusChange: [{ type: core.Output }],
         search: [{ type: core.ViewChild, args: [OverlayTemplateComponent,] }],
         options: [{ type: core.ContentChildren, args: [SearchOptionComponent,] }]
     };
