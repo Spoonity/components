@@ -42,7 +42,7 @@ export class OverlayTemplateComponent implements OnInit {
     this.syncWidth();
   }
 
-  @HostListener('document:visibilitychange', ['$event'])
+  @HostListener('document:visibilitychange')
   visibilityChange() {
     if (document.hidden) {
       if (this.overlayRef) {
@@ -51,8 +51,8 @@ export class OverlayTemplateComponent implements OnInit {
     }
   }
 
-  @HostListener('window:blur', ['$event'])
-  onFocus(event) {
+  @HostListener('window:blur')
+  onFocus() {
     if (this.overlayRef) {
       this.hide();
     }
