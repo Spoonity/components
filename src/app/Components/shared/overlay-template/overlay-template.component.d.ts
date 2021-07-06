@@ -12,6 +12,8 @@ export declare class OverlayTemplateComponent implements OnInit {
     show(): void;
     hide(): void;
     onWinResize(): void;
+    visibilityChange(): void;
+    onFocus(): void;
     private syncWidth;
     protected getOverlayConfig(): OverlayConfig;
 }

@@ -388,6 +388,18 @@ class OverlayTemplateComponent {
     onWinResize() {
         this.syncWidth();
     }
+    visibilityChange() {
+        if (document.hidden) {
+            if (this.overlayRef) {
+                this.hide();
+            }
+        }
+    }
+    onFocus() {
+        if (this.overlayRef) {
+            this.hide();
+        }
+    }
     syncWidth() {
         if (!this.overlayRef) {
             return;
@@ -429,7 +441,9 @@ OverlayTemplateComponent.ctorParameters = () => [
 OverlayTemplateComponent.propDecorators = {
     reference: [{ type: Input }],
     contentTemplate: [{ type: ViewChild, args: [CdkPortal, { static: true },] }],
-    onWinResize: [{ type: HostListener, args: ['window:resize',] }]
+    onWinResize: [{ type: HostListener, args: ['window:resize',] }],
+    visibilityChange: [{ type: HostListener, args: ['document:visibilitychange',] }],
+    onFocus: [{ type: HostListener, args: ['window:blur',] }]
 };
 
 class DropdownService {
@@ -789,8 +803,6 @@ class SearchComponent extends FormFieldManager {
         this.itemSelected = new EventEmitter();
         /* item removed action */
         this.itemRemoved = new EventEmitter();
-        /* search overlay closed */
-        this.overlayStatusChange = new EventEmitter();
         this._searchService.register(this);
     }
     ngAfterViewInit() {
@@ -801,6 +813,7 @@ class SearchComponent extends FormFieldManager {
     changeAction($event) {
         this.onChange($event);
         this.checkDirty();
+        console.log(this.value);
         if (this.value.length > 0) {
             if (!this.search.showing) {
                 this.showDropdown();
@@ -831,14 +844,12 @@ class SearchComponent extends FormFieldManager {
      */
     showDropdown() {
         this.search.show();
-        this.overlayStatusChange.emit(true);
     }
     /**
      * hide options action
      */
     hideDropdown() {
         this.search.hide();
-        this.overlayStatusChange.emit(false);
     }
     /**
      * keydown event
@@ -873,7 +884,7 @@ class SearchComponent extends FormFieldManager {
 SearchComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-search',
-                template: "<div #searchReference class=\"spt-input-container search-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n    <div class=\"search-wrapper {{size}} \" [ngClass]=\"{'item-focus': focus}\">\n        <!-- search icon -->\n        <div class=\"search-icon left-icon\">\n            <svg-icon name=\"search\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n        </div>\n\n        <!-- selected items (chips) -->\n        <div class=\"selected-items spt-spacing-x--1\" *ngIf=\"selectedItems.length\">\n            <div class=\"selected-item\" *ngFor=\"let s of selectedItems\">\n                <spt-chip [text]=\"s.text\"\n                         [icon]=\"s.icon\" mode=\"closeable\"\n                         [color]=\"s.color\"\n                         (onCloseEvent)=\"onClose(s)\"></spt-chip>\n            </div>\n        </div>\n        <input #input *ngIf=\"maximumSelection ? selectedItems.length < maximumSelection : true\"\n               (focus)=\"focusAction()\" (blur)=\"blurAction()\"\n               [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}\"\n               [(ngModel)]=\"value\"\n               (ngModelChange)=\"changeAction($event)\"\n               (keydown)=\"onKeyDown($event)\"\n               placeholder=\"{{placeholder}}\" autocomplete=\"off\" [readonly]=\"readonly\">\n    </div>\n\n    <spt-overlay-template [reference]=\"searchReference\" #searchComp>\n        <div class=\"search-options-container spt-elevation--5\">\n            <ng-content select=\"sp-search-option\"></ng-content>\n            <ng-content select=\"div.search-override\"></ng-content>\n            <ng-content select=\"sp-search-option\"></ng-content>\n        </div>\n    </spt-overlay-template>\n\n</div>\n\n\n",
+                template: "<div #searchReference class=\"spt-input-container search-container\" [ngClass]=\"{'disabled-container': isDisabled}\" (click)=\"launchOnFocus ? focusAction() : null\">\n    <div class=\"search-wrapper {{size}} \" [ngClass]=\"{'item-focus': focus}\">\n        <!-- search icon -->\n        <div class=\"search-icon left-icon\">\n            <svg-icon name=\"search\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n        </div>\n\n        <!-- selected items (chips) -->\n        <div class=\"selected-items spt-spacing-x--1\" *ngIf=\"selectedItems.length\">\n            <div class=\"selected-item\" *ngFor=\"let s of selectedItems\">\n                <spt-chip [text]=\"s.text\"\n                         [icon]=\"s.icon\" mode=\"closeable\"\n                         [color]=\"s.color\"\n                         (onCloseEvent)=\"onClose(s)\"></spt-chip>\n            </div>\n        </div>\n        <input #input *ngIf=\"(maximumSelection ? selectedItems.length < maximumSelection : true) && !readonly\"\n               (focus)=\"focusAction()\" (blur)=\"blurAction()\"\n               [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}\"\n               [(ngModel)]=\"value\"\n               (ngModelChange)=\"changeAction($event)\"\n               (keydown)=\"onKeyDown($event)\"\n               placeholder=\"{{placeholder}}\" autocomplete=\"off\" [readonly]=\"readonly\">\n\n        <!-- because input is hidden on readonly mode display the placeholder separately -->\n        <p class=\"font-60\" *ngIf=\"readonly\" style=\"margin: 0; cursor: default\">{{placeholder}}</p>\n    </div>\n\n    <spt-overlay-template [reference]=\"searchReference\" #searchComp>\n        <div class=\"search-options-container spt-elevation--5\">\n            <ng-content select=\"spt-search-option\"></ng-content>\n            <ng-content select=\"div.search-override\"></ng-content>\n        </div>\n    </spt-overlay-template>\n\n</div>\n\n\n",
                 providers: [
                     SearchService,
                     {
@@ -897,7 +908,6 @@ SearchComponent.propDecorators = {
     filter: [{ type: Output }],
     itemSelected: [{ type: Output }],
     itemRemoved: [{ type: Output }],
-    overlayStatusChange: [{ type: Output }],
     search: [{ type: ViewChild, args: [OverlayTemplateComponent,] }],
     options: [{ type: ContentChildren, args: [SearchOptionComponent,] }]
 };

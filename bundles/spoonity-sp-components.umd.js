@@ -664,6 +664,18 @@
         OverlayTemplateComponent.prototype.onWinResize = function () {
             this.syncWidth();
         };
+        OverlayTemplateComponent.prototype.visibilityChange = function () {
+            if (document.hidden) {
+                if (this.overlayRef) {
+                    this.hide();
+                }
+            }
+        };
+        OverlayTemplateComponent.prototype.onFocus = function () {
+            if (this.overlayRef) {
+                this.hide();
+            }
+        };
         OverlayTemplateComponent.prototype.syncWidth = function () {
             if (!this.overlayRef) {
                 return;
@@ -706,7 +718,9 @@
     OverlayTemplateComponent.propDecorators = {
         reference: [{ type: core.Input }],
         contentTemplate: [{ type: core.ViewChild, args: [portal.CdkPortal, { static: true },] }],
-        onWinResize: [{ type: core.HostListener, args: ['window:resize',] }]
+        onWinResize: [{ type: core.HostListener, args: ['window:resize',] }],
+        visibilityChange: [{ type: core.HostListener, args: ['document:visibilitychange',] }],
+        onFocus: [{ type: core.HostListener, args: ['window:blur',] }]
     };
 
     var DropdownService = /** @class */ (function () {
@@ -1089,8 +1103,6 @@
             _this.itemSelected = new core.EventEmitter();
             /* item removed action */
             _this.itemRemoved = new core.EventEmitter();
-            /* search overlay closed */
-            _this.overlayStatusChange = new core.EventEmitter();
             _this._searchService.register(_this);
             return _this;
         }
@@ -1102,6 +1114,7 @@
         SearchComponent.prototype.changeAction = function ($event) {
             this.onChange($event);
             this.checkDirty();
+            console.log(this.value);
             if (this.value.length > 0) {
                 if (!this.search.showing) {
                     this.showDropdown();
@@ -1132,14 +1145,12 @@
          */
         SearchComponent.prototype.showDropdown = function () {
             this.search.show();
-            this.overlayStatusChange.emit(true);
         };
         /**
          * hide options action
          */
         SearchComponent.prototype.hideDropdown = function () {
             this.search.hide();
-            this.overlayStatusChange.emit(false);
         };
         /**
          * keydown event
@@ -1175,7 +1186,7 @@
     SearchComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-search',
-                    template: "<div #searchReference class=\"spt-input-container search-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n    <div class=\"search-wrapper {{size}} \" [ngClass]=\"{'item-focus': focus}\">\n        <!-- search icon -->\n        <div class=\"search-icon left-icon\">\n            <svg-icon name=\"search\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n        </div>\n\n        <!-- selected items (chips) -->\n        <div class=\"selected-items spt-spacing-x--1\" *ngIf=\"selectedItems.length\">\n            <div class=\"selected-item\" *ngFor=\"let s of selectedItems\">\n                <spt-chip [text]=\"s.text\"\n                         [icon]=\"s.icon\" mode=\"closeable\"\n                         [color]=\"s.color\"\n                         (onCloseEvent)=\"onClose(s)\"></spt-chip>\n            </div>\n        </div>\n        <input #input *ngIf=\"maximumSelection ? selectedItems.length < maximumSelection : true\"\n               (focus)=\"focusAction()\" (blur)=\"blurAction()\"\n               [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}\"\n               [(ngModel)]=\"value\"\n               (ngModelChange)=\"changeAction($event)\"\n               (keydown)=\"onKeyDown($event)\"\n               placeholder=\"{{placeholder}}\" autocomplete=\"off\" [readonly]=\"readonly\">\n    </div>\n\n    <spt-overlay-template [reference]=\"searchReference\" #searchComp>\n        <div class=\"search-options-container spt-elevation--5\">\n            <ng-content select=\"sp-search-option\"></ng-content>\n            <ng-content select=\"div.search-override\"></ng-content>\n            <ng-content select=\"sp-search-option\"></ng-content>\n        </div>\n    </spt-overlay-template>\n\n</div>\n\n\n",
+                    template: "<div #searchReference class=\"spt-input-container search-container\" [ngClass]=\"{'disabled-container': isDisabled}\" (click)=\"launchOnFocus ? focusAction() : null\">\n    <div class=\"search-wrapper {{size}} \" [ngClass]=\"{'item-focus': focus}\">\n        <!-- search icon -->\n        <div class=\"search-icon left-icon\">\n            <svg-icon name=\"search\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n        </div>\n\n        <!-- selected items (chips) -->\n        <div class=\"selected-items spt-spacing-x--1\" *ngIf=\"selectedItems.length\">\n            <div class=\"selected-item\" *ngFor=\"let s of selectedItems\">\n                <spt-chip [text]=\"s.text\"\n                         [icon]=\"s.icon\" mode=\"closeable\"\n                         [color]=\"s.color\"\n                         (onCloseEvent)=\"onClose(s)\"></spt-chip>\n            </div>\n        </div>\n        <input #input *ngIf=\"(maximumSelection ? selectedItems.length < maximumSelection : true) && !readonly\"\n               (focus)=\"focusAction()\" (blur)=\"blurAction()\"\n               [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}\"\n               [(ngModel)]=\"value\"\n               (ngModelChange)=\"changeAction($event)\"\n               (keydown)=\"onKeyDown($event)\"\n               placeholder=\"{{placeholder}}\" autocomplete=\"off\" [readonly]=\"readonly\">\n\n        <!-- because input is hidden on readonly mode display the placeholder separately -->\n        <p class=\"font-60\" *ngIf=\"readonly\" style=\"margin: 0; cursor: default\">{{placeholder}}</p>\n    </div>\n\n    <spt-overlay-template [reference]=\"searchReference\" #searchComp>\n        <div class=\"search-options-container spt-elevation--5\">\n            <ng-content select=\"spt-search-option\"></ng-content>\n            <ng-content select=\"div.search-override\"></ng-content>\n        </div>\n    </spt-overlay-template>\n\n</div>\n\n\n",
                     providers: [
                         SearchService,
                         {
@@ -1199,7 +1210,6 @@
         filter: [{ type: core.Output }],
         itemSelected: [{ type: core.Output }],
         itemRemoved: [{ type: core.Output }],
-        overlayStatusChange: [{ type: core.Output }],
         search: [{ type: core.ViewChild, args: [OverlayTemplateComponent,] }],
         options: [{ type: core.ContentChildren, args: [SearchOptionComponent,] }]
     };

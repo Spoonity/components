@@ -17,7 +17,6 @@ export declare class SearchComponent extends FormFieldManager implements AfterVi
     filter: EventEmitter<any>;
     itemSelected: EventEmitter<any>;
     itemRemoved: EventEmitter<any>;
-    overlayStatusChange: EventEmitter<boolean>;
     search: OverlayTemplateComponent;
     options: QueryList<SearchOptionComponent>;
     selected: SearchOptionComponent;
