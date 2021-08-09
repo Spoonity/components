@@ -1,5 +1,9 @@
 <nz-steps [nzCurrent]="current" [nzType]="type" (nzIndexChange)="onIndexChange($event)" [nzDirection]="direction">
     <ng-container *ngFor="let step of steps; let idx = index">
-        <nz-step [nzStatus]="current === idx ? 'process' : (step.status || 'wait')" [nzTitle]="step.title" [nzDescription]="step.description" [nzDisabled]="preventFutureSteps ? current < idx : false"></nz-step>
+        <!--- if status is not provided, do default -->
+        <nz-step *ngIf="!step.status" [nzTitle]="step.title" [nzDescription]="step.description" [nzDisabled]="preventFutureSteps ? current < idx : false"></nz-step>
+
+        <!--- if status is provided, use that status -->
+        <nz-step *ngIf="step.status" [nzStatus]="current === idx ? 'process' : (step.status || 'wait')" [nzTitle]="step.title" [nzDescription]="step.description" [nzDisabled]="preventFutureSteps ? current < idx : false"></nz-step>
     </ng-container>
 </nz-steps>
