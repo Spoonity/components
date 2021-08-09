@@ -5,6 +5,7 @@ export declare class StepsComponent implements OnInit {
     steps: Array<ISteps>;
     type: string;
     direction: string;
+    preventFutureSteps: boolean;
     onIndexChangeEvent: EventEmitter<number>;
     ngOnInit(): void;
     onIndexChange(event: number): void;
@@ -12,4 +13,5 @@ export declare class StepsComponent implements OnInit {
 export interface ISteps {
     title: string;
     description: string;
+    status?: 'wait' | 'process' | 'finish' | 'error';
 }
