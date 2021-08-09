@@ -1247,7 +1247,7 @@
         { type: core.Component, args: [{
                     selector: 'spt-steps',
                     template: "<nz-steps [nzCurrent]=\"current\" [nzType]=\"type\" (nzIndexChange)=\"onIndexChange($event)\" [nzDirection]=\"direction\">\n    <ng-container *ngFor=\"let step of steps; let idx = index\">\n        <!--- if status is not provided, do default -->\n        <nz-step *ngIf=\"!step.status\" [nzTitle]=\"step.title\" [nzDescription]=\"step.description\" [nzDisabled]=\"preventFutureSteps ? current < idx : false\"></nz-step>\n\n        <!--- if status is provided, use that status -->\n        <nz-step *ngIf=\"step.status\" [nzStatus]=\"current === idx ? 'process' : (step.status || 'wait')\" [nzTitle]=\"step.title\" [nzDescription]=\"step.description\" [nzDisabled]=\"preventFutureSteps ? current < idx : false\"></nz-step>\n    </ng-container>\n</nz-steps>\n",
-                    styles: ["nz-step .ant-steps-item-finish .ant-steps-item-icon{background-color:#fff;border-color:#4caf50!important;color:#0d0c0b!important}nz-step{-webkit-user-select:none;-moz-user-select:none;user-select:none}"]
+                    styles: ["nz-step .ant-steps-item-finish .ant-steps-item-icon{background-color:#fff;border-color:#4caf50!important}nz-step{-webkit-user-select:none;-moz-user-select:none;user-select:none}"]
                 },] }
     ];
     StepsComponent.ctorParameters = function () { return []; };
