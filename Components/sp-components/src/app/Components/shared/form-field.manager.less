@@ -85,6 +85,9 @@
         opacity: 1;
       }
     }
+    &.disabled-state {
+      cursor: not-allowed !important;
+    }
   }
 }
 
@@ -98,7 +101,7 @@
     min-height: 24px;
     .form-field();
 
-    &[disabled] {
+    &[disabled], &.disabled-state {
       background-color: #ffffff !important;
       color: @gray40 !important;
       border: 1px solid @gray40 !important;

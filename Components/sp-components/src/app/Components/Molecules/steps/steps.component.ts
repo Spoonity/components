@@ -11,8 +11,9 @@ export class StepsComponent implements OnInit {
 
   @Input() current: number;
   @Input() steps: Array<ISteps>;
-  @Input() type : string = 'navigation';
-  @Input() direction : string = 'horizontal';
+  @Input() type: string = 'navigation';
+  @Input() direction: string = 'horizontal';
+  @Input() preventFutureSteps: boolean;
   @Output() onIndexChangeEvent = new EventEmitter<number>();
 
     ngOnInit() {
@@ -21,10 +22,10 @@ export class StepsComponent implements OnInit {
     onIndexChange(event: number): void {
       this.onIndexChangeEvent.emit(event);
     }
-
 }
 
 export interface ISteps {
   title: string;
   description: string;
+  status?: 'wait' | 'process' | 'finish' | 'error';
 }

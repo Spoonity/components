@@ -31,6 +31,7 @@ export class MoleculesComponent implements OnInit {
   enumTagType = TagType;
 
   currentStep = 0;
+  currentStep1 = 0;
   banners: IBanner[] = [];
   steps: ISteps[] = []
   breadcrumbItems: IBreadCrumbItem[] = [];
@@ -100,6 +101,10 @@ export class MoleculesComponent implements OnInit {
 
   onIndexChange(event: number) {
     this.currentStep = event;
+  }
+
+  onIndexChange1(event: number) {
+    this.currentStep1 = event;
   }
 
 }

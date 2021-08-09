@@ -10,7 +10,8 @@
            [attr.max]="max"
            [attr.maxlength]="maxlength"
            [class]="size" placeholder="{{placeholder}}"
-           [attr.disabled]="isDisabled">
+           [attr.disabled]="isDisabled"
+           [attr.readonly]="isDisabled">
 
     <!-- label -->
     <label class="text-field-label label">{{ label || placeholder }}</label>
@@ -22,7 +23,7 @@
     <label class="text-field-bottom-label error-label" *ngIf="!!error">{{ error }}</label>
 
     <!-- maxlength -->
-    <label class="text-field-bottom-label length-label" *ngIf="max">{{getLength()}}/{{maxlength}}</label>
+    <label class="text-field-bottom-label length-label" *ngIf="maxlength">{{getLength()}}/{{maxlength}}</label>
 
 
     <!-- error icon -->

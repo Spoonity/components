@@ -163,6 +163,23 @@
         <h2>Steps</h2>
         <spt-steps [current]="currentStep" [steps]="steps" [type]="'navigation'"
             (onIndexChangeEvent)="onIndexChange($event)"></spt-steps>
+
+        <div class="spt-spacing-y--4">
+            <h2>Steps (disable future steps)</h2>
+            <spt-steps [current]="currentStep1" [steps]="[
+                  { title: 'Step 1', description: '', status: 'wait' },
+                  { title: 'Step 2', description: '', status: 'finish' },
+                  { title: 'Step 3', description: '' },
+                  { title: 'Step 4', description: '' },
+                  { title: 'Step 5', description: '' }
+            ]" [type]="'navigation'" [preventFutureSteps]="true"
+                       (onIndexChangeEvent)="onIndexChange1($event)"></spt-steps>
+            <div class="spt-spacing-y--2">
+                <spt-button class="spt-spacing-right--1" text="PREV" [disabled]="currentStep1 === 0" (click)="onIndexChange1(currentStep1-1)"></spt-button>
+                <spt-button text="NEXT" [disabled]="currentStep1 === steps.length - 1" (click)="onIndexChange1(currentStep1+1)"></spt-button>
+            </div>
+        </div>
+
     </div>
 
     <!-- Text field Example -->
