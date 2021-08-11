@@ -3,5 +3,13 @@ import { appCalendarDateRangeIcon } from './calendar_date_range';
 import { appCalendarTodayIcon } from './calendar_today';
 import { appDownloadIcon } from './download';
 import { appScheduleIcon } from './schedule';
+import { appSettingsSuggestIcon } from './settings_suggest';
 
-export const miscIcons = [appCalendarIcon, appCalendarDateRangeIcon, appCalendarTodayIcon, appDownloadIcon, appScheduleIcon];
+export const miscIcons = [
+  appCalendarIcon,
+  appCalendarDateRangeIcon,
+  appCalendarTodayIcon,
+  appDownloadIcon,
+  appScheduleIcon,
+  appSettingsSuggestIcon
+];
