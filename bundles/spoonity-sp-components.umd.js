@@ -1919,7 +1919,7 @@
     IconComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-icon',
-                    template: "<span nz-tooltip [nzTooltipTitle]=\"toolTipTittle\">\n  <svg-icon class=\"icons\" nz-icon [name]=\"name\" [svgStyle]=\"svgIconSettings\">\n  </svg-icon>\n</span>\n",
+                    template: "<span nz-tooltip [nzTooltipTitle]=\"toolTipTittle\">\n  <svg-icon class=\"icons\" nz-icon [name]=\"name\" [svgStyle]=\"{'height.px':20,'fill':color}\">\n  </svg-icon>\n</span>\n",
                     styles: [""]
                 },] }
     ];
@@ -2480,7 +2480,19 @@
         name: 'schedule'
     };
 
-    var miscIcons = [appCalendarIcon, appCalendarDateRangeIcon, appCalendarTodayIcon, appDownloadIcon, appScheduleIcon];
+    var appSettingsSuggestIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path fill=\"none\" d=\"M0 0h24v24H0z\"/><path d=\"M17.41 6.59L15 5.5l2.41-1.09L18.5 2l1.09 2.41L22 5.5l-2.41 1.09L18.5 9l-1.09-2.41zm3.87 6.13L20.5 11l-.78 1.72-1.72.78 1.72.78.78 1.72.78-1.72L23 13.5l-1.72-.78zm-5.04 1.65l1.94 1.47-2.5 4.33-2.24-.94c-.2.13-.42.26-.64.37l-.3 2.4h-5l-.3-2.41c-.22-.11-.43-.23-.64-.37l-2.24.94-2.5-4.33 1.94-1.47c-.01-.11-.01-.24-.01-.36s0-.25.01-.37l-1.94-1.47 2.5-4.33 2.24.94c.2-.13.42-.26.64-.37L7.5 6h5l.3 2.41c.22.11.43.23.64.37l2.24-.94 2.5 4.33-1.94 1.47c.01.12.01.24.01.37s0 .24-.01.36zM13 14c0-1.66-1.34-3-3-3s-3 1.34-3 3 1.34 3 3 3 3-1.34 3-3z\"/></svg>",
+        name: 'settings-suggest'
+    };
+
+    var miscIcons = [
+        appCalendarIcon,
+        appCalendarDateRangeIcon,
+        appCalendarTodayIcon,
+        appDownloadIcon,
+        appScheduleIcon,
+        appSettingsSuggestIcon
+    ];
 
     var appArrowBackIcon = {
         data: "<svg fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42a.996.996 0 00-1.41 0l-6.59 6.59a.996.996 0 000 1.41l6.59 6.59a.996.996 0 101.41-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z\" fill=\"#0D0C0B\"/></svg>",
@@ -2889,31 +2901,32 @@
     exports.ɵbn = appCalendarTodayIcon;
     exports.ɵbo = appDownloadIcon;
     exports.ɵbp = appScheduleIcon;
-    exports.ɵbq = appArrowBackIcon;
-    exports.ɵbr = appArrowDownwardIcon;
-    exports.ɵbs = appArrowForwardIcon;
-    exports.ɵbt = appArrowUpwardIcon;
-    exports.ɵbu = appCancelBlackIcon;
-    exports.ɵbv = appCheckIcon;
-    exports.ɵbw = appChevronLeftIcon;
-    exports.ɵbx = appChevronRightIcon;
-    exports.ɵby = appClearIcon;
-    exports.ɵbz = appEastIcon;
+    exports.ɵbq = appSettingsSuggestIcon;
+    exports.ɵbr = appArrowBackIcon;
+    exports.ɵbs = appArrowDownwardIcon;
+    exports.ɵbt = appArrowForwardIcon;
+    exports.ɵbu = appArrowUpwardIcon;
+    exports.ɵbv = appCancelBlackIcon;
+    exports.ɵbw = appCheckIcon;
+    exports.ɵbx = appChevronLeftIcon;
+    exports.ɵby = appChevronRightIcon;
+    exports.ɵbz = appClearIcon;
     exports.ɵc = DropdownService;
-    exports.ɵca = appExpandLessIcon;
-    exports.ɵcb = appExpandMoreIcon;
-    exports.ɵcc = appFirstPageIcon;
-    exports.ɵcd = appLastPageIcon;
-    exports.ɵce = appMoreVertIcon;
-    exports.ɵcf = appRefreshIcon;
-    exports.ɵcg = appPriorityHighIcon;
-    exports.ɵch = appSmsIcon;
-    exports.ɵci = appPeopleIcon;
-    exports.ɵcj = appCheckBoxOutlineBlankIcon;
-    exports.ɵck = appCheckBoxIcon;
-    exports.ɵcl = appIndeterminateCheckBoxIcon;
-    exports.ɵcm = appRadioButtonCheckedIcon;
-    exports.ɵcn = appRadioButtonUncheckedIcon;
+    exports.ɵca = appEastIcon;
+    exports.ɵcb = appExpandLessIcon;
+    exports.ɵcc = appExpandMoreIcon;
+    exports.ɵcd = appFirstPageIcon;
+    exports.ɵce = appLastPageIcon;
+    exports.ɵcf = appMoreVertIcon;
+    exports.ɵcg = appRefreshIcon;
+    exports.ɵch = appPriorityHighIcon;
+    exports.ɵci = appSmsIcon;
+    exports.ɵcj = appPeopleIcon;
+    exports.ɵck = appCheckBoxOutlineBlankIcon;
+    exports.ɵcl = appCheckBoxIcon;
+    exports.ɵcm = appIndeterminateCheckBoxIcon;
+    exports.ɵcn = appRadioButtonCheckedIcon;
+    exports.ɵco = appRadioButtonUncheckedIcon;
     exports.ɵd = OverlayTemplateComponent;
     exports.ɵe = OptionComponent;
     exports.ɵf = SearchService;
