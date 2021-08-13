@@ -14,7 +14,7 @@ export class IconComponent implements OnInit {
   svgIconSettings = {
      'height' : '20px',
      'fill' : this.color
-    }
+  }
 
   constructor() {}
 
