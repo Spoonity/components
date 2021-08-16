@@ -85,8 +85,6 @@ export class SearchComponent extends FormFieldManager implements AfterViewInit {
     this.onChange($event);
     this.checkDirty();
 
-    console.log(this.value);
-
     if (this.value.length > 0) {
       if (!this.search.showing) {
         this.showDropdown();
