@@ -192,7 +192,7 @@ ButtonComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-button',
                 template: "<button nz-button nzNoAnimation [nzType]=\"type\" [nzSize]=\"size\" [disabled]=\"disabled\" [ngClass]=\"{'ant-btn-secondary': type === B.secondary, 'ant-btn-tertiary': type === B.tertiary, 'with-text': text != null}\">\n  <spt-icon *ngIf=\"leftIcon\" [name]=\"leftIcon\"></spt-icon>\n  <span *ngIf=\"text\" [ngClass]=\"{leftIcon: leftIcon,rightIcon: rightIcon}\">{{ text }}</span>\n  <spt-icon *ngIf=\"rightIcon\" [name]=\"rightIcon\"></spt-icon>\n</button>\n",
-                styles: [".leftIcon{margin-left:10px}.rightIcon{margin-right:10px}"]
+                styles: [".leftIcon{margin-left:10px}.rightIcon{margin-right:10px}.ant-btn[disabled]{background-color:transparent}.ant-btn[disabled] span{color:#b1b1b1!important}"]
             },] }
 ];
 ButtonComponent.ctorParameters = () => [];
