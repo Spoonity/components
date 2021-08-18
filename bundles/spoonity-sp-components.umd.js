@@ -854,6 +854,7 @@
                 else {
                     this.single_selected = obj;
                 }
+                this.value = obj;
                 this.checkDirty();
             }
         };
