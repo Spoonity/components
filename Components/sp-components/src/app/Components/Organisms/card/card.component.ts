@@ -86,6 +86,8 @@ export class CardComponent implements OnInit {
   white = '#FFEBEE';
   red = '#EF5350';
   green = '#66BB6A';
+  grey = '#e0e0e0';
+  campaignColor;
 
   avatarSize: AvatarSize = AvatarSize.large;
 
@@ -106,23 +108,30 @@ export class CardComponent implements OnInit {
     }
   }
 
-  getStatus(id){
+  getCampaignStatus(id){
     if (id == CAMPAIGN_STATUS.ACTIVE){
+      this.campaignColor = this.green;
       return 'SENDING';
     }
     if (id == CAMPAIGN_STATUS.INACTIVE) {
+      this.campaignColor = this.grey;
+
       return 'DRAFT';
     }
     if (id == CAMPAIGN_STATUS.EXPIRED) {
+      this.campaignColor = this.red;
+
       return 'EXPIRED';
     }
     if (id == CAMPAIGN_STATUS.DELETED) {
+      this.campaignColor = this.red;
       return 'DELETED';
     }
+    this.campaignColor = this.green;
     return 'SENT';
   }
 
-  getMetric(type, campaign){
+  getCampaignMetric(type, campaign){
     let metric = campaign.metrics.filter(stat => { return stat.type === type })[0];
 
     if (type === 'Send') {

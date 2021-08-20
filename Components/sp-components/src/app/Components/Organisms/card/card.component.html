@@ -9,18 +9,18 @@
       <div class="campaign" *ngIf="campaign">
         <spt-icon
           class="icons"
-          [toolTipTitle]="(
+          [name]="(
                   campaign.notification_template.medium.id == 1
-                    ? 'email'
-        : campaign.notification_template.medium.id == 4
-        ? 'stay_current_portrait'
-        : 'chat'
+                    ? email
+        : campaign.notification_template.medium.id == 3
+        ? smartphone
+        : sms
         )"
-          [name]="campaign.notification_template.medium.name"
         ></spt-icon>
-        <span class="shadow-text" *ngIf="campaign.notification_template.medium.name === 'sms'"
-          ><b>{{ campaign.notification_template.medium.name | uppercase }}</b></span
-        >
+        <span class="shadow-text">
+          <b  *ngIf="campaign.notification_template.medium.name === 'sms'">{{ campaign.notification_template.medium.name | uppercase }}</b>
+          <b  *ngIf="campaign.notification_template.medium.name !== 'sms'">{{ campaign.notification_template.medium.name | titlecase}}</b>
+        </span>
       </div>
       <div
         class="campaign"
@@ -53,19 +53,14 @@
         <div class="sub-content1">
           <spt-badge
             class="badge"
-            [color]="(campaign.status.id === CAMPAIGN_STATUS.ACTIVE || campaign.status.id === CAMPAIGN_STATUS.COMPLETE) ? green : red"
-            [name]="getStatus(campaign.status.id)"
+            [color]="campaignColor"
+            [name]="getCampaignStatus(campaign.status.id)"
           ></spt-badge>
           <span class="shadow-text">Created: {{ campaign.date_created * 1000 | date: "MMMM d, y" }}</span>
         </div>
         <span>{{ campaign.name }}</span>
         <div class="sub-content2">
-          <spt-icon
-            class="icons"
-            [toolTipTitle]="'target group'"
-            [name]="people"
-          ></spt-icon>
-          <span class="shadow-text">{{ campaign.target_group_id }}</span>
+          <ng-content select="div.target-group"></ng-content>
         </div>
       </div>
       <div class="content" *ngIf="customer">
@@ -98,43 +93,38 @@
       <div class="printer-container">
         <span class="shadow-text">Send</span>
         <div class="printer">
-          <span>{{ getMetric('Send', campaign) }}</span>
+          <span>{{ getCampaignMetric('Send', campaign) }}</span>
         </div>
       </div>
       <div class="sendIcon">
-        <spt-icon class="icons" [toolTipTitle]="send" [name]="send"></spt-icon>
+        <spt-icon class="icons" [name]="send"></spt-icon>
       </div>
       <div class="printer-container">
         <span class="shadow-text">Open</span>
         <div class="printer">
-          <span>{{ getMetric('Open', campaign) }}</span>
+          <span>{{ getCampaignMetric('Open', campaign) }}</span>
         </div>
       </div>
       <div class="sendIcon">
-        <spt-icon class="icons" [toolTipTitle]="send" [name]="send"></spt-icon>
+        <spt-icon class="icons" [name]="send"></spt-icon>
       </div>
       <div class="printer-container">
         <span class="shadow-text">Visit</span>
         <div class="printer">
-          <span>{{ getMetric('Visit', campaign) }}</span>
+          <span>{{ getCampaignMetric('Visit', campaign) }}</span>
         </div>
       </div>
       <div class="sendIcon">
-        <spt-icon class="icons" [toolTipTitle]="send" [name]="send"></spt-icon>
+        <spt-icon class="icons" [name]="send"></spt-icon>
       </div>
       <div class="printer-container">
         <span class="shadow-text">Spend</span>
         <div class="printer">
-          <span>{{ getMetric('Spend', campaign) }}</span>
+          <span>{{ getCampaignMetric('Spend', campaign) }}</span>
         </div>
       </div>
-      <div class="moreVertIcon">
-        <spt-icon
-          class="icons"
-          [toolTipTitle]="moreVert"
-          [name]="moreVert"
-          (click)="option()"
-        ></spt-icon>
+      <div class="menu-content">
+        <ng-content select="div.menu"></ng-content>
       </div>
     </div>
 
