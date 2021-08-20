@@ -1,16 +1,19 @@
 import { OnInit } from '@angular/core';
 import { AvatarSize, ButtonSize, ButtonType } from '../../../utils/enums';
 export interface ICampaign {
-    type: string;
-    title: string;
-    targetGroup: string;
-    plataform: string;
-    dateCreated: string;
-    isSend: boolean;
-    sendCount: number;
-    openCount: number;
-    visitCount: number;
-    spendCount: number;
+    id: number;
+    notification_template: any;
+    notification_template_id: number;
+    name: string;
+    description?: any;
+    error?: any;
+    date_scheduled: number;
+    date_sent?: any;
+    date_created: number;
+    date_updated: number;
+    status: any;
+    target_group_id: number;
+    metrics: any;
 }
 export interface ICustomer {
     type: string;
@@ -29,6 +32,13 @@ export interface IGiftManagement {
     email: string;
     phone: string;
 }
+export declare enum CAMPAIGN_STATUS {
+    ACTIVE = 1,
+    INACTIVE = 2,
+    EXPIRED = 3,
+    DELETED = 4,
+    COMPLETE = 5
+}
 export declare class CardComponent implements OnInit {
     campaign: ICampaign;
     customer: ICustomer;
@@ -44,6 +54,7 @@ export declare class CardComponent implements OnInit {
     smartphone: string;
     call: string;
     redeem: string;
+    CAMPAIGN_STATUS: typeof CAMPAIGN_STATUS;
     isSend: boolean;
     isMouseOver: boolean;
     white: string;
@@ -55,4 +66,6 @@ export declare class CardComponent implements OnInit {
     constructor();
     ngOnInit(): void;
     toggleCard(): void;
+    getStatus(id: any): "SENDING" | "DRAFT" | "EXPIRED" | "DELETED" | "SENT";
+    getMetric(type: any, campaign: any): any;
 }

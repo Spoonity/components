@@ -1,6 +1,6 @@
 import { OnInit } from '@angular/core';
 export declare class IconComponent implements OnInit {
-    toolTipTittle: string;
+    toolTipTitle: string;
     name: string;
     color: string;
     svgIconSettings: {
