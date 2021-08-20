@@ -9,6 +9,11 @@
 @padding-y-small: 6px;
 @padding-x-small: 10px;
 
+.overflow-text() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .form-field {
   color: #0D0C0B;
@@ -73,6 +78,7 @@
 
 .text-field-container {
   input, nz-date-picker {
+    text-overflow: ellipsis;
     &::placeholder {
       visibility: hidden;
       opacity: 0;
@@ -180,6 +186,12 @@
       margin-top: 10px;
       position: absolute;
       bottom: -20px;
+      width: 80%;
+      .overflow-text();
+    }
+    &.text-field-label {
+      max-width: 80%;
+      .overflow-text();
     }
     &.error-label, &.hint-label {
       left: 12px;
