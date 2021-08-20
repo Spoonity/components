@@ -356,18 +356,18 @@
     <form [formGroup]="sampleForm2">
         <div class="input-large spt-spacing-y--2">
             <h3>Sample Form</h3>
-            <p>A combination of Reactive form and Template driven form</p>
+            <p class="spt-spacing-bottom--3">A combination of Reactive form and Template driven form</p>
 
-            <div class="spt-spacing-x--1">
-                <spt-text-field formControlName="field1" label="formControl 1"></spt-text-field>
+            <div class="spt-spacing-x--1 spt-spacing-bottom--3">
+                <spt-text-field formControlName="field1" label="formControl 1" maxlength="20"></spt-text-field>
             </div>
-            <div class="spt-spacing-x--1">
+            <div class="spt-spacing-x--1 spt-spacing-bottom--3">
                 <spt-text-field formControlName="field2" label="formControl 2"></spt-text-field>
             </div>
-            <div class="spt-spacing-x--1">
+            <div class="spt-spacing-x--1 spt-spacing-bottom--3">
                 <spt-text-field [(ngModel)]="model3" [ngModelOptions]="{standalone: true}" label="ngModel 1"></spt-text-field>
             </div>
-            <div class="spt-spacing-x--1">
+            <div class="spt-spacing-x--1 spt-spacing-bottom--3">
                 <spt-text-field [(ngModel)]="model4" [ngModelOptions]="{standalone: true}" label="ngModel 1">></spt-text-field>
             </div>
         </div>
