@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class IconComponent implements OnInit {
 
-  @Input() toolTipTittle: string;
+  @Input() toolTipTitle: string;
   @Input() name: string;
   @Input() color = '#0D0C0B';
 

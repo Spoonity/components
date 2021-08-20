@@ -109,18 +109,40 @@ export class OrganismsComponent implements OnInit {
   }
   getCampaigns(): ICampaign[] {
     return [
+      {
+        id: 1,
+        notification_template: {
+            medium: {
+              id: 1,
+              name: "email"
+            }
+          },
+        notification_template_id: 1,
+        name: 'Sales',
+        date_created: 1629320329,
+        date_scheduled: null,
+        date_updated: 1629320329,
+        status: {
+          id: 1
+        },
+        target_group_id: 1,
+        // TODO: "metrics" is not originally on ICampaign, so will likely need to update this once stats API is sorted out
+        metrics: [
           {
-            type: 'campaign',
-            title: 'Sales',
-            targetGroup: 'Elders',
-            plataform: 'sms',
-            dateCreated: '04/04/20',
-            isSend: true,
-            sendCount: 10,
-            openCount: 6,
-            visitCount: 4,
-            spendCount: 40
+            type: 'Send',
+            value: 10
+          }, {
+            type: 'Visit',
+            value: 4
+          }, {
+            type: 'Open',
+            value: 6
+          }, {
+            type: 'Spend',
+            value: 40
           }
+        ]
+      }
     ]
   }
 

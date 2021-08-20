@@ -7,7 +7,7 @@
     </div>
     <spt-icon
       class="icons"
-      [toolTipTittle]="expandMore"
+      [toolTipTitle]="expandMore"
       [name]="expandMore"
       *ngIf="multipleAccounts && !isCollapse"
       (click)="expandAccounts()"
@@ -47,7 +47,7 @@
     >
       <spt-icon
         class="icons"
-        [toolTipTittle]="option.title"
+        [toolTipTitle]="option.title"
         [name]="option.icon.name"
         [color]="iconColor"
       ></spt-icon>
@@ -63,7 +63,7 @@
   <div class="collapse" (click)="onCollapse()">
     <spt-icon
       class="icons"
-      [toolTipTittle]="keyboarTab"
+      [toolTipTitle]="keyboarTab"
       [name]="keyboarTab"
       [color]="iconColor"
     ></spt-icon>
@@ -77,7 +77,7 @@
       </div>
       <spt-icon
         class="icons"
-        [toolTipTittle]="expandLess"
+        [toolTipTitle]="expandLess"
         [name]="expandLess"
         *ngIf="!onToggleLogout"
         (click)="toggleLogout()"
@@ -85,7 +85,7 @@
       ></spt-icon>
       <spt-icon
         class="icons"
-        [toolTipTittle]="accountBox"
+        [toolTipTitle]="accountBox"
         [name]="accountBox"
         *ngIf="onToggleLogout"
         (click)="toggleLogout()"

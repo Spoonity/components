@@ -9,18 +9,24 @@ import { appSmsIcon } from '../../../svg/Notification/sms';
 import { appPeopleIcon } from '../../../svg/Social/people';
 import { AvatarSize, ButtonSize, ButtonType } from '../../../utils/enums';
 
+
 export interface ICampaign {
-  type: string;
-  title: string;
-  targetGroup: string;
-  plataform: string;
-  dateCreated: string;
-  isSend: boolean;
-  sendCount: number;
-  openCount: number;
-  visitCount: number;
-  spendCount: number;
+  id: number;
+  notification_template;
+  notification_template_id: number;
+  name: string;
+  description?: any;
+  error?: any;
+  date_scheduled: number;
+  date_sent?: any;
+  date_created: number;
+  date_updated: number;
+  status;
+  target_group_id: number
+  // TODO: "metrics" is not originally on ICampaign, so will likely need to update this once stats API is sorted out
+  metrics;
 }
+
 
 export interface ICustomer {
   type: string;
@@ -39,6 +45,14 @@ export interface IGiftManagement {
   deliverProcess: string;
   email: string;
   phone: string;
+}
+
+export enum CAMPAIGN_STATUS {
+  ACTIVE = 1,
+  INACTIVE = 2,
+  EXPIRED = 3,
+  DELETED = 4,
+  COMPLETE = 5,
 }
 
 @Component({
@@ -64,6 +78,8 @@ export class CardComponent implements OnInit {
   call = appCallIcon.name;
   redeem = appRedeemIcon.name;
 
+  CAMPAIGN_STATUS = CAMPAIGN_STATUS;
+
   isSend = true;
   isMouseOver: boolean;
 
@@ -88,5 +104,36 @@ export class CardComponent implements OnInit {
     } else {
       this.isSend = true;
     }
+  }
+
+  getStatus(id){
+    if (id == CAMPAIGN_STATUS.ACTIVE){
+      return 'SENDING';
+    }
+    if (id == CAMPAIGN_STATUS.INACTIVE) {
+      return 'DRAFT';
+    }
+    if (id == CAMPAIGN_STATUS.EXPIRED) {
+      return 'EXPIRED';
+    }
+    if (id == CAMPAIGN_STATUS.DELETED) {
+      return 'DELETED';
+    }
+    return 'SENT';
+  }
+
+  getMetric(type, campaign){
+    let metric = campaign.metrics.filter(stat => { return stat.type === type })[0];
+
+    if (type === 'Send') {
+      return (metric.value ? metric.value : 0);
+    }
+    if (type === 'Open') {
+      return (metric.value ? metric.value + '%' : '--');
+    }
+    if (type === 'Spend') {
+      return (metric.value ? "$" + metric.value : '--');
+    }
+    return (metric.value ? metric.value : '--');
   }
 }
