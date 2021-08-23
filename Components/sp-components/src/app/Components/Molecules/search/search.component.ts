@@ -124,6 +124,7 @@ export class SearchComponent extends FormFieldManager implements AfterViewInit {
    */
   public hideDropdown(): void {
     this.search.hide();
+    this.focus = false;
   }
 
   /**
