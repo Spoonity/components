@@ -1151,6 +1151,7 @@
          */
         SearchComponent.prototype.hideDropdown = function () {
             this.search.hide();
+            this.focus = false;
         };
         /**
          * keydown event

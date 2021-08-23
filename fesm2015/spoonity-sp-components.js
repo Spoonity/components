@@ -850,6 +850,7 @@ class SearchComponent extends FormFieldManager {
      */
     hideDropdown() {
         this.search.hide();
+        this.focus = false;
     }
     /**
      * keydown event
