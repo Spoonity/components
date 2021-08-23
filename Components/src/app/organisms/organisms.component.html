@@ -177,7 +177,26 @@
         <h2>Campaign</h2>
         <div *ngFor="let card of campaigns">
             <br>
-            <spt-card [campaign]="card" [option]="optionAction"></spt-card>
+            <spt-card [campaign]="card">
+    
+                <div class="target-group">
+                    <spt-icon
+                        class="icons"
+                        [toolTipTitle]="'target group'"
+                        [name]="'people'"
+                    ></spt-icon>
+                    <span class="shadow-text">birthday</span>
+                </div>
+    
+                <div class="menu">
+                    <spt-button [type]="'link'" leftIcon="more-vert" [spMenuTrigger]="menu"></spt-button>
+                    <spt-menu #menu>
+                        <spt-menu-item startIcon="edit" (click)="duplicateAction()">Duplicate</spt-menu-item>
+                        <spt-menu-item startIcon="delete" (click)="deleteAction()">Delete</spt-menu-item>
+                    </spt-menu>
+                </div>
+                
+            </spt-card>
         </div>
 
         <h2>Customer</h2>

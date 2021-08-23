@@ -61,8 +61,11 @@ export class OrganismsComponent implements OnInit {
   headerAction: () => void = ()  => {
     alert("action in header");
   };
-  optionAction: () => void = () => {
-    alert("options");
+  duplicateAction: () => void = () => {
+    alert("duplicate");
+  };
+  deleteAction: () => void = () => {
+    alert("delete");
   };
   cancelAction: () => void = () => {
     alert("Cancel");
