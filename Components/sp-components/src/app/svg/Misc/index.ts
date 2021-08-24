@@ -5,6 +5,7 @@ import { appDownloadIcon } from './download';
 import { appScheduleIcon } from './schedule';
 import { appSettingsSuggestIcon } from './settings_suggest';
 import { appDeleteIcon } from './delete';
+import { appFileCopyIcon } from './file_copy';
 
 export const miscIcons = [
   appCalendarIcon,
@@ -13,5 +14,6 @@ export const miscIcons = [
   appDownloadIcon,
   appScheduleIcon,
   appSettingsSuggestIcon,
-  appDeleteIcon
+  appDeleteIcon,
+  appFileCopyIcon
 ];
