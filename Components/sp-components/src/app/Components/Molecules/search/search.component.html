@@ -18,6 +18,7 @@
         <input #input *ngIf="(maximumSelection ? selectedItems.length < maximumSelection : true) && !readonly"
                (focus)="focusAction()" (blur)="blurAction()"
                [ngClass]="{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}"
+               [style.background-color]="backgroundColor"
                [(ngModel)]="value"
                (ngModelChange)="changeAction($event)"
                (keydown)="onKeyDown($event)"
