@@ -13,6 +13,8 @@ export declare abstract class FormFieldManager implements ControlValueAccessor, 
     min?: any;
     max?: any;
     readonly?: boolean;
+    /** background color **/
+    backgroundColor: string;
     textInput: ElementRef;
     value: any;
     isDirty: boolean;
