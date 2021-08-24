@@ -1,5 +1,6 @@
 <div #searchReference class="spt-input-container search-container" [ngClass]="{'disabled-container': isDisabled}" (click)="launchOnFocus ? focusAction() : null">
-    <div class="search-wrapper {{size}} " [ngClass]="{'item-focus': focus}">
+    <div class="search-wrapper {{size}} " [ngClass]="{'item-focus': focus}"
+         [style.background-color]="backgroundColor">
         <!-- search icon -->
         <div class="search-icon left-icon">
             <svg-icon name="search" [svgStyle]="{ 'width.px':24 }"></svg-icon>

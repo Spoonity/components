@@ -3,13 +3,15 @@
     <input #input [ngClass]="{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'disabled-state': isDisabled}"
            (click)="showDropdown()"
            [(ngModel)]="value"
+           [style.background-color]="backgroundColor"
            (ngModelChange)="changeAction($event)"
            (keydown)="onKeyDown($event)"
            class="{{size}} has-right-icon"
            [attr.disabled]="!!isDisabled ? isDisabled : null" readonly autocomplete="off">
 
     <!-- label -->
-    <label class="text-field-label label">{{ label || placeholder }}</label>
+    <label class="text-field-label label"
+           [style.background-color]="backgroundColor">{{ label || placeholder }}</label>
 
     <!-- hint -->
     <label class="text-field-bottom-label hint-label" *ngIf="!!hint && !error">{{ hint }}</label>

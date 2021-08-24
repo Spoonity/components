@@ -2,12 +2,14 @@
     <nz-date-picker
             [class]="size"
             nzPlaceHolder=" "
+            [style.background-color]="backgroundColor"
             [ngClass]="{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'has-right-icon': !!endIcon, 'disabled-state': isDisabled}"
             [(ngModel)]="value" (ngModelChange)="changeAction($event)" [nzDisabledDate]="disabledDate"></nz-date-picker>
 
 
     <!-- label -->
-    <label class="text-field-label label">{{ label || placeholder }}</label>
+    <label class="text-field-label label"
+           [style.background-color]="backgroundColor">{{ label || placeholder }}</label>
 
     <!-- error -->
     <label class="text-field-bottom-label error-label" *ngIf="!!error">{{ error }}</label>

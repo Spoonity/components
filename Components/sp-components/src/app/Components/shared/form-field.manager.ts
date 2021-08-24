@@ -36,6 +36,9 @@ export abstract class FormFieldManager implements ControlValueAccessor, OnChange
   /* readonly */
   @Input() readonly?: boolean;
 
+  /** background color **/
+  @Input() backgroundColor: string;
+
   @ViewChild('input') textInput: ElementRef;
 
   /* value */

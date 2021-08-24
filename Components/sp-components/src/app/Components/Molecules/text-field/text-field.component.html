@@ -11,10 +11,11 @@
            [attr.maxlength]="maxlength"
            [class]="size" placeholder="{{placeholder}}"
            [attr.disabled]="isDisabled"
-           [attr.readonly]="isDisabled">
+           [attr.readonly]="isDisabled"
+           [style.background-color]="backgroundColor">
 
     <!-- label -->
-    <label class="text-field-label label">{{ label || placeholder }}</label>
+    <label class="text-field-label label" [style.background-color]="backgroundColor">{{ label || placeholder }}</label>
 
     <!-- hint -->
     <label class="text-field-bottom-label hint-label" *ngIf="!!hint && !error">{{ hint }}</label>
