@@ -1306,7 +1306,7 @@ BadgeComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-badge',
                 template: "\n<nz-tag class=\"badges\" nzStandalone [nzColor]=\"color\" [style.font-size]=\"fontSize + 'px'\" [style.line-height]=\"(fontSize + 2) + 'px'\">{{name}}</nz-tag>\n",
-                styles: [".badges{display:flex}.ant-tag{line-height:11px!important;width:-webkit-fit-content!important;width:-moz-fit-content!important;width:fit-content!important;padding:4px 12px!important;height:-webkit-fit-content!important;height:-moz-fit-content!important;height:fit-content!important;border:none!important}"]
+                styles: [".badges{display:flex}.ant-tag{width:-webkit-fit-content!important;width:-moz-fit-content!important;width:fit-content!important;padding:4px 12px!important;height:-webkit-fit-content!important;height:-moz-fit-content!important;height:fit-content!important;border:none!important}"]
             },] }
 ];
 BadgeComponent.ctorParameters = () => [];
