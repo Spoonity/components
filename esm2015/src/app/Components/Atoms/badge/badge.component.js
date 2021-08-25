@@ -8,7 +8,7 @@ BadgeComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-badge',
                 template: "\n<nz-tag class=\"badges\" nzStandalone [nzColor]=\"color\">{{name}}</nz-tag>\n",
-                styles: [".badges{display:flex}.ant-tag{line-height:11px!important;font-size:14px!important;width:-webkit-fit-content!important;width:-moz-fit-content!important;width:fit-content!important;padding:8px 12px!important;height:-webkit-fit-content!important;height:-moz-fit-content!important;height:fit-content!important}"]
+                styles: [".badges{display:flex}.ant-tag{line-height:11px!important;font-size:14px!important;width:-webkit-fit-content!important;width:-moz-fit-content!important;width:fit-content!important;padding:4px 12px!important;height:-webkit-fit-content!important;height:-moz-fit-content!important;height:fit-content!important}"]
             },] }
 ];
 BadgeComponent.ctorParameters = () => [];

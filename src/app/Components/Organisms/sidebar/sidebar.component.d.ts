@@ -1,5 +1,6 @@
 import { AvatarSize, ButtonSize, ButtonType } from '../../../utils/enums';
 import { OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 export interface IUserData {
     name: string;
     id: string;
@@ -18,6 +19,8 @@ export interface IMenuItems {
     isActive: boolean;
 }
 export declare class SidebarComponent implements OnInit {
+    private _route;
+    private _router;
     sidebarData: ISidebar;
     optionsData: IMenuItems[];
     userDisplay: IUserData;
@@ -41,7 +44,7 @@ export declare class SidebarComponent implements OnInit {
     MenuHeight: string;
     OptionWidht: string;
     lineRight: string;
-    constructor();
+    constructor(_route: ActivatedRoute, _router: Router);
     ngOnInit(): void;
     onCollapse(): void;
     onActive(option: IMenuItems): void;
