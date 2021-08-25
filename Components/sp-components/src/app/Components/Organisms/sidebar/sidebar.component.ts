@@ -5,6 +5,7 @@ import { appExpandLessIcon } from '../../../svg/Navigation/expand_less';
 import { appKeyboardTabIcon } from '../../../svg/Hardware/keyboard_tab';
 import { AvatarSize, ButtonSize, ButtonType } from '../../../utils/enums';
 import { Component, Input, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 export interface IUserData {
   name: string;
@@ -66,7 +67,10 @@ export class SidebarComponent implements OnInit {
   OptionWidht = '240px';
   lineRight = '-20px';
 
-  constructor() { }
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router
+  ) { }
 
   ngOnInit() {
     if (this.sidebarData.users.length > 1) { this.multipleAccounts = true; }
@@ -108,6 +112,7 @@ export class SidebarComponent implements OnInit {
         e.isActive = false;
       }
     });
+    this._router.navigate([option.link], {relativeTo: this._route}).then();
   }
 
   toggleLogout() {
