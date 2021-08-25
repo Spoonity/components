@@ -3,10 +3,7 @@ export declare class IconComponent implements OnInit {
     toolTipTitle: string;
     name: string;
     color: string;
-    svgIconSettings: {
-        height: string;
-        fill: string;
-    };
+    size: number;
     constructor();
     ngOnInit(): void;
 }
