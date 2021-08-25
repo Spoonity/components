@@ -10,11 +10,7 @@ export class IconComponent implements OnInit {
   @Input() toolTipTitle: string;
   @Input() name: string;
   @Input() color = '#0D0C0B';
-
-  svgIconSettings = {
-     'height' : '20px',
-     'fill' : this.color
-  }
+  @Input() size = 20;
 
   constructor() {}
 
