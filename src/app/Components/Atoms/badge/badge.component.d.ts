@@ -4,4 +4,5 @@ export declare class BadgeComponent implements OnInit {
     ngOnInit(): void;
     name: string;
     color: string;
+    fontSize: number;
 }
