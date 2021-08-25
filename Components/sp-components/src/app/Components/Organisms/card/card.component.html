@@ -51,7 +51,7 @@
     <div class="content">
       <div class="content" *ngIf="campaign">
         <div class="sub-content1">
-          <spt-badge
+          <spt-badge [fontSize]="12"
             class="badge"
             [color]="campaignColor"
             [name]="getCampaignStatus(campaign.status.id)"

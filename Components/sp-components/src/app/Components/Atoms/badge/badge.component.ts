@@ -14,5 +14,6 @@ export class BadgeComponent implements OnInit {
 
   @Input() name: string;
   @Input() color: string;
+  @Input() fontSize = 14;
 
 }
