@@ -87,7 +87,7 @@ export class CardComponent implements OnInit {
   red = '#EF5350';
   green = '#66BB6A';
   grey = '#e0e0e0';
-  orange = '#ff9900';
+  orange = '#FFB300';
   campaignColor;
 
   avatarSize: AvatarSize = AvatarSize.large;
