@@ -61,6 +61,7 @@ export declare class CardComponent implements OnInit {
     red: string;
     green: string;
     grey: string;
+    orange: string;
     campaignColor: any;
     avatarSize: AvatarSize;
     btnType: ButtonType;
@@ -68,6 +69,6 @@ export declare class CardComponent implements OnInit {
     constructor();
     ngOnInit(): void;
     toggleCard(): void;
-    getCampaignStatus(id: any): "SENDING" | "DRAFT" | "EXPIRED" | "DELETED" | "SENT";
+    getCampaignStatus(campaign: any): "SENDING" | "SCHEDULED" | "DRAFT" | "EXPIRED" | "DELETED" | "SENT";
     getCampaignMetric(type: any, campaign: any): any;
 }
