@@ -87,6 +87,7 @@ export class CardComponent implements OnInit {
   red = '#EF5350';
   green = '#66BB6A';
   grey = '#e0e0e0';
+  orange = '#FFB300';
   campaignColor;
 
   avatarSize: AvatarSize = AvatarSize.large;
@@ -108,22 +109,25 @@ export class CardComponent implements OnInit {
     }
   }
 
-  getCampaignStatus(id){
-    if (id == CAMPAIGN_STATUS.ACTIVE){
+  getCampaignStatus(campaign){
+    if (campaign.status.id == CAMPAIGN_STATUS.ACTIVE){
       this.campaignColor = this.green;
       return 'SENDING';
     }
-    if (id == CAMPAIGN_STATUS.INACTIVE) {
+    if (campaign.status.id == CAMPAIGN_STATUS.INACTIVE) {
+      if (this.campaign.date_scheduled){
+        this.campaignColor = this.orange;
+        return 'SCHEDULED';
+      }
       this.campaignColor = this.grey;
-
       return 'DRAFT';
     }
-    if (id == CAMPAIGN_STATUS.EXPIRED) {
+    if (campaign.status.id == CAMPAIGN_STATUS.EXPIRED) {
       this.campaignColor = this.red;
 
       return 'EXPIRED';
     }
-    if (id == CAMPAIGN_STATUS.DELETED) {
+    if (campaign.status.id == CAMPAIGN_STATUS.DELETED) {
       this.campaignColor = this.red;
       return 'DELETED';
     }
