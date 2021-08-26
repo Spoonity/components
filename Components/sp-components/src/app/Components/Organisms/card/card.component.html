@@ -19,7 +19,7 @@
         ></spt-icon>
         <span class="shadow-text">
           <b  *ngIf="campaign.notification_template.medium.name === 'sms'">{{ campaign.notification_template.medium.name | uppercase }}</b>
-          <b  *ngIf="campaign.notification_template.medium.name !== 'sms'">{{ campaign.notification_template.medium.name | titlecase}}</b>
+          <b  *ngIf="campaign.notification_template.medium.name !== 'sms'">{{ campaign.notification_template.medium.name | titlecase }}</b>
         </span>
       </div>
       <div
@@ -54,7 +54,7 @@
           <spt-badge [fontSize]="12"
             class="badge"
             [color]="campaignColor"
-            [name]="getCampaignStatus(campaign.status.id)"
+            [name]="getCampaignStatus(campaign)"
           ></spt-badge>
           <span class="shadow-text date padding-left">Created: {{ campaign.date_created * 1000 | date: "MMM d, y" }}</span>
         </div>
@@ -90,39 +90,43 @@
   </div>
   <div class="col2">
     <div class="col2" *ngIf="campaign">
-      <div class="printer-container">
-        <span class="shadow-text">Send</span>
-        <div class="printer">
-          <span>{{ getCampaignMetric('Send', campaign) }}</span>
+      <span *ngIf="campaign.status.id != CAMPAIGN_STATUS.INACTIVE" style="display: flex">
+        
+        <div class="printer-container">
+          <span class="shadow-text">Send</span>
+          <div class="printer">
+            <span>{{ getCampaignMetric('Send', campaign) }}</span>
+          </div>
         </div>
-      </div>
-      <div class="sendIcon">
-        <spt-icon [name]="send"></spt-icon>
-      </div>
-      <div class="printer-container">
-        <span class="shadow-text">Open</span>
-        <div class="printer">
-          <span>{{ getCampaignMetric('Open', campaign) }}</span>
+        <div class="sendIcon">
+          <spt-icon [name]="send"></spt-icon>
         </div>
-      </div>
-      <div class="sendIcon">
-        <spt-icon [name]="send"></spt-icon>
-      </div>
-      <div class="printer-container">
-        <span class="shadow-text">Visit</span>
-        <div class="printer">
-          <span>{{ getCampaignMetric('Visit', campaign) }}</span>
+        <div class="printer-container">
+          <span class="shadow-text">Open</span>
+          <div class="printer">
+            <span>{{ getCampaignMetric('Open', campaign) }}</span>
+          </div>
         </div>
-      </div>
-      <div class="sendIcon">
-        <spt-icon [name]="send"></spt-icon>
-      </div>
-      <div class="printer-container">
-        <span class="shadow-text">Spend</span>
-        <div class="printer">
-          <span>{{ getCampaignMetric('Spend', campaign) }}</span>
+        <div class="sendIcon">
+          <spt-icon [name]="send"></spt-icon>
         </div>
-      </div>
+        <div class="printer-container">
+          <span class="shadow-text">Visit</span>
+          <div class="printer">
+            <span>{{ getCampaignMetric('Visit', campaign) }}</span>
+          </div>
+        </div>
+        <div class="sendIcon">
+          <spt-icon [name]="send"></spt-icon>
+        </div>
+        <div class="printer-container">
+          <span class="shadow-text">Spend</span>
+          <div class="printer">
+            <span>{{ getCampaignMetric('Spend', campaign) }}</span>
+          </div>
+        </div>
+
+      </span>
       <div class="menu-content">
         <ng-content select="div.menu"></ng-content>
       </div>
