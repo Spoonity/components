@@ -8,7 +8,6 @@
     <div class="campaign">
       <div class="campaign" *ngIf="campaign">
         <spt-icon
-          class="icons"
           [size]="32"
           [name]="(
                   campaign.notification_template.medium.id == 1
@@ -57,29 +56,29 @@
             [color]="campaignColor"
             [name]="getCampaignStatus(campaign.status.id)"
           ></spt-badge>
-          <span class="shadow-text">Created: {{ campaign.date_created * 1000 | date: "MMMM d, y" }}</span>
+          <span class="shadow-text date padding-left">Created: {{ campaign.date_created * 1000 | date: "MMM d, y" }}</span>
         </div>
         <span>{{ campaign.name }}</span>
-        <div class="sub-content2">
+        <div class="sub-content2 shadow-text">
           <ng-content select="div.target-group"></ng-content>
         </div>
       </div>
       <div class="content" *ngIf="customer">
         <div class="sub-content3">
           <span>{{ customer.name }}</span>
-          <span class="shadow-text"
+          <span class="shadow-text date"
             >Member Since: {{ customer.dateCreated }}</span
           >
         </div>
       </div>
       <div class="content" *ngIf="giftManagement">
         <div class="sub-content1">
-          <spt-badge
+          <spt-badge [fontSize]="12"
             class="badge"
             [name]="giftManagement.deliverProcess | uppercase"
             color="#66BB6A"
           ></spt-badge>
-          <span class="shadow-text"
+          <span class="shadow-text date padding-left"
             >Created: {{ giftManagement.dateCreated }}</span
           >
         </div>
@@ -98,7 +97,7 @@
         </div>
       </div>
       <div class="sendIcon">
-        <spt-icon class="icons" [name]="send"></spt-icon>
+        <spt-icon [name]="send"></spt-icon>
       </div>
       <div class="printer-container">
         <span class="shadow-text">Open</span>
@@ -107,7 +106,7 @@
         </div>
       </div>
       <div class="sendIcon">
-        <spt-icon class="icons" [name]="send"></spt-icon>
+        <spt-icon [name]="send"></spt-icon>
       </div>
       <div class="printer-container">
         <span class="shadow-text">Visit</span>
@@ -116,7 +115,7 @@
         </div>
       </div>
       <div class="sendIcon">
-        <spt-icon class="icons" [name]="send"></spt-icon>
+        <spt-icon [name]="send"></spt-icon>
       </div>
       <div class="printer-container">
         <span class="shadow-text">Spend</span>
@@ -137,7 +136,7 @@
             [toolTipTitle]="email"
             [name]="email"
           ></spt-icon>
-          <span class="shadow-text">Email</span>
+          <span class="shadow-text padding-left">Email</span>
         </div>
         <div class="sub-content4">
           <span>{{ customer.email }}</span>
@@ -146,7 +145,7 @@
       <div class="sub-content3">
         <div>
           <spt-icon class="icons" [toolTipTitle]="call" [name]="call"></spt-icon>
-          <span class="shadow-text">Phone</span>
+          <span class="shadow-text padding-left">Phone</span>
         </div>
         <div class="sub-content4">
           <span>{{ customer.phone }}</span>
@@ -162,7 +161,7 @@
             [toolTipTitle]="email"
             [name]="email"
           ></spt-icon>
-          <span class="shadow-text">Email</span>
+          <span class="shadow-text padding-left">Email</span>
         </div>
         <div class="sub-content4">
           <span>{{ giftManagement.email }}</span>
@@ -171,7 +170,7 @@
       <div class="sub-content3">
         <div>
           <spt-icon class="icons" [toolTipTitle]="call" [name]="call"></spt-icon>
-          <span class="shadow-text">Phone</span>
+          <span class="shadow-text padding-left">Phone</span>
         </div>
         <div class="sub-content4">
           <span>{{ giftManagement.phone }}</span>

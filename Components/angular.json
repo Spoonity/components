@@ -33,7 +33,6 @@
                         ],
                         "styles": [
                             "src/app/styles/main.less"
-
                         ],
                         "scripts": [],
                         "vendorChunk": true,
@@ -135,5 +134,8 @@
             }
         }
     },
-    "defaultProject": "Components"
+    "defaultProject": "Components",
+    "cli": {
+        "analytics": false
+    }
 }
