@@ -819,11 +819,11 @@ class SearchComponent extends FormFieldManager {
             if (!this.search.showing) {
                 this.showDropdown();
             }
-            this.filterAction();
         }
         else {
             this.hideDropdown();
         }
+        this.filterAction();
     }
     /**
      * focus action
