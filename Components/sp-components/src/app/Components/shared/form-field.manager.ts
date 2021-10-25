@@ -4,7 +4,7 @@ import {ControlValueAccessor} from '@angular/forms';
 @Directive()
 export abstract class FormFieldManager implements ControlValueAccessor, OnChanges {
   /* size specification (large or medium) -- default to medium if not provided */
-  @Input() size: 'medium' | 'large' = 'medium';
+  @Input() size: 'small' | 'medium' | 'large' = 'medium';
 
   /* text field label */
   @Input() label: string;

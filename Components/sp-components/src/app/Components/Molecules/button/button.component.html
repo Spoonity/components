@@ -1,4 +1,12 @@
-<button nz-button nzNoAnimation [nzType]="type" [nzSize]="size" [disabled]="disabled" [ngClass]="{'ant-btn-secondary': type === B.secondary, 'ant-btn-tertiary': type === B.tertiary, 'with-text': text != null}">
+<button nz-button nzNoAnimation [nzType]="type" [nzSize]="size" [disabled]="disabled"
+        [ngClass]="{
+          'ant-btn-secondary': type === B.secondary,
+          'ant-btn-tertiary': type === B.tertiary,
+          'with-text': text != null,
+          'button-sm': size === S.small,
+          'button-md': size === S.medium,
+          'button-lg': size === S.large
+        }">
   <spt-icon *ngIf="leftIcon" [name]="leftIcon"></spt-icon>
   <span *ngIf="text" [ngClass]="{leftIcon: leftIcon,rightIcon: rightIcon}">{{ text }}</span>
   <spt-icon *ngIf="rightIcon" [name]="rightIcon"></spt-icon>

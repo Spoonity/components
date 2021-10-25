@@ -2,11 +2,11 @@
 @error: @red;
 
 @font-size: 14px;
-@padding-y-large: 12px;
+@padding-y-large: 14px;
 @padding-x-large: 10px;
-@padding-y-medium: 8px;
+@padding-y-medium: 10px;
 @padding-x-medium: 10px;
-@padding-y-small: 6px;
+@padding-y-small: 8px;
 @padding-x-small: 10px;
 
 .overflow-text() {
@@ -21,21 +21,24 @@
   height: inherit;
   width: 100%;
   border-radius: 4px;
-  border: 1px solid @gray60 !important;
+  border: 1px solid @gray40 !important;
   &.large {
     padding: @padding-y-large @padding-x-large;
+    height: 50px;
     & + label {
       top: @padding-y-large;
     }
   }
   &.medium {
     padding: @padding-y-medium @padding-x-medium;
+    height: 42px;
     & + label {
       top: @padding-y-medium;
     }
   }
   &.small {
     padding: @padding-y-small @padding-x-small;
+    height: 34px;
     & + label {
       top: @padding-y-small;
     }
