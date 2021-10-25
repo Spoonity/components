@@ -2,7 +2,7 @@ import { ElementRef, Renderer2, OnChanges, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 export declare abstract class FormFieldManager implements ControlValueAccessor, OnChanges {
     private _renderer;
-    size: 'medium' | 'large';
+    size: 'small' | 'medium' | 'large';
     label: string;
     error?: string;
     startIcon?: string;

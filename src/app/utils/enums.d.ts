@@ -5,7 +5,7 @@ export declare enum ButtonType {
 }
 export declare enum ButtonSize {
     large = "large",
-    medium = "default",
+    medium = "medium",
     small = "small"
 }
 export declare enum SideNavigationType {
