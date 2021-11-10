@@ -1,139 +1,36 @@
 <div
-  [ngClass]="{ card: campaign || giftManagement, cardForCustomer: customer }"
+  [ngClass]="{ card: campaign || giftManagement, customerCard: customer }"
   (mouseover)="isMouseOver = true"
   (mouseout)="isMouseOver = false"
   [ngStyle]="{ 'background-color': customer?.isSelect ? '#F3F3F3' : '' }"
 >
-  <div class="col1">
-    <div class="campaign">
-      <div class="campaign" *ngIf="campaign">
-        <spt-icon
-          [size]="32"
-          color="#4F4E4D"
-          [name]="(
-                  campaign.notification_template.medium.id == 1
-                    ? email
-        : campaign.notification_template.medium.id == 3
-        ? smartphone
-        : sms
-        )"
-        ></spt-icon>
-        <span class="shadow-text">
-          <b  *ngIf="campaign.notification_template.medium.name === 'sms'">{{ campaign.notification_template.medium.name | uppercase }}</b>
-          <b  *ngIf="campaign.notification_template.medium.name !== 'sms'">{{ campaign.notification_template.medium.name | titlecase }}</b>
-        </span>
-      </div>
-      <div
-        class="campaign"
-        *ngIf="customer"
-        [ngStyle]="{ 'background-color': !isMouseOver ? white : '' }"
-      >
-        <spt-avatar
-          [hidden]="isMouseOver"
-          [text]="customer.name | slice: 0:1"
-          [size]="avatarSize"
-          [backgroundColor]="white"
-          [color]="red"
-        ></spt-avatar>
-        <spt-checkbox
-          [hidden]="!isMouseOver"
-          [check]="customer.isSelect"
-          (onChangeEvent)="customer.isSelect = $event"
-        ></spt-checkbox>
-      </div>
-      <div class="campaign" *ngIf="giftManagement">
-        <spt-icon
-          class="icons"
-          [toolTipTitle]="redeem"
-          [name]="redeem"
-        ></spt-icon>
-      </div>
+
+<!-- Start Customer Card -->
+<div class="col customer-col"  *ngIf="customer">
+    <div
+      class="body"
+      [ngStyle]="{ 'background-color': !isMouseOver ? customer.isSelect ? '#FFF4E0' : white : null }"
+    >
+      <spt-avatar
+        [hidden]="isMouseOver || customer.isSelect"
+        [text]="customer.name | slice: 0:1"
+        [size]="avatarSize"
+        [backgroundColor]="customer.isSelect ? '#FFF4E0' : white"
+        [color]="red"
+      ></spt-avatar>
+      <spt-checkbox
+        [hidden]="!isMouseOver && !customer.isSelect"
+        [check]="customer.isSelect"
+        (onChangeEvent)="customer.isSelect = $event"
+      ></spt-checkbox>
     </div>
     <div class="content">
-      <div class="content" *ngIf="campaign">
-        <div class="sub-content1">
-          <spt-badge [fontSize]="12"
-            class="badge"
-            [color]="campaignColor"
-            [name]="getCampaignStatus(campaign)"
-          ></spt-badge>
-          <span class="shadow-text date padding-left">Created: {{ campaign.date_created * 1000 | date: "MMM d, y" }}</span>
-        </div>
-        <span>{{ campaign.name }}</span>
-        <div class="sub-content2 shadow-text">
-          <ng-content select="div.target-group"></ng-content>
-        </div>
-      </div>
-      <div class="content" *ngIf="customer">
-        <div class="sub-content3">
-          <span>{{ customer.name }}</span>
-          <span class="shadow-text date"
-            >Member Since: {{ customer.dateCreated }}</span
-          >
-        </div>
-      </div>
-      <div class="content" *ngIf="giftManagement">
-        <div class="sub-content1">
-          <spt-badge [fontSize]="12"
-            class="badge"
-            [name]="giftManagement.deliverProcess | uppercase"
-            color="#66BB6A"
-          ></spt-badge>
-          <span class="shadow-text date padding-left"
-            >Created: {{ giftManagement.dateCreated }}</span
-          >
-        </div>
-        <span
-          ><b>ID: {{ giftManagement.id }}</b></span
+      <div class="sub-content3">
+        <span>{{ customer.name }}</span>
+        <span class="shadow-text date"
+          >Member Since: {{ customer.dateCreated }}</span
         >
       </div>
-    </div>
-  </div>
-  <div class="col2">
-    <div class="col2" *ngIf="campaign">
-      <span *ngIf="campaign.status.id != CAMPAIGN_STATUS.INACTIVE" style="display: flex">
-        
-        <div class="printer-container">
-          <span class="shadow-text">Send</span>
-          <div class="printer">
-            <span>{{ getCampaignMetric('Send', campaign) }}</span>
-          </div>
-        </div>
-        <div class="sendIcon">
-          <spt-icon [name]="send"></spt-icon>
-        </div>
-        <div class="printer-container">
-          <span class="shadow-text">Open</span>
-          <div class="printer">
-            <span>{{ getCampaignMetric('Open', campaign) }}</span>
-          </div>
-        </div>
-        <div class="sendIcon">
-          <spt-icon [name]="send"></spt-icon>
-        </div>
-        <div class="printer-container">
-          <span class="shadow-text">Visit</span>
-          <div class="printer">
-            <span>{{ getCampaignMetric('Visit', campaign) }}</span>
-          </div>
-        </div>
-        <div class="sendIcon">
-          <spt-icon [name]="send"></spt-icon>
-        </div>
-        <div class="printer-container">
-          <span class="shadow-text">Spend</span>
-          <div class="printer">
-            <span>{{ getCampaignMetric('Spend', campaign) }}</span>
-          </div>
-        </div>
-
-      </span>
-      <div class="menu-content">
-        <ng-content select="div.menu"></ng-content>
-      </div>
-    </div>
-
-    <div class="col2" *ngIf="customer">
       <div class="sub-content3">
         <div>
           <spt-icon
@@ -157,44 +54,160 @@
         </div>
       </div>
     </div>
-
-    <div class="col2" *ngIf="giftManagement">
-      <div class="sub-content3">
-        <div>
-          <spt-icon
-            class="icons"
-            [toolTipTitle]="email"
-            [name]="email"
-          ></spt-icon>
-          <span class="shadow-text padding-left">Email</span>
-        </div>
-        <div class="sub-content4">
-          <span>{{ giftManagement.email }}</span>
-        </div>
-      </div>
-      <div class="sub-content3">
-        <div>
-          <spt-icon class="icons" [toolTipTitle]="call" [name]="call"></spt-icon>
-          <span class="shadow-text padding-left">Phone</span>
-        </div>
-        <div class="sub-content4">
-          <span>{{ giftManagement.phone }}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col3" *ngIf="giftManagement">
-    <spt-button
-      [size]="buttonSize"
-      [type]="btnType"
-      [text]="'CANCEL'"
-      (click)="cancel()"
-    ></spt-button>
-    <spt-button
-      [size]="buttonSize"
-      [type]="btnType"
-      [text]="'GO TO GUEST'"
-      (click)="goToGuest()"
-    ></spt-button>
-  </div>
 </div>
+<!-- End Customer Card -->
+
+<!-- Start Campaign Card -->
+<div class="col campaign-col" *ngIf="campaign">
+ 
+     <div class="body campaign-body">
+       <div class="campaign-icon">
+         <spt-icon
+           [size]="32"
+           color="#4F4E4D"
+           [name]="(
+                   campaign.notification_template.medium.id == 1
+                     ? email
+         : campaign.notification_template.medium.id == 3
+         ? smartphone
+         : sms
+         )"
+         ></spt-icon>
+         <span class="shadow-text">
+           <b  *ngIf="campaign.notification_template.medium.name === 'sms'">{{ campaign.notification_template.medium.name | uppercase }}</b>
+           <b  *ngIf="campaign.notification_template.medium.name !== 'sms'">{{ campaign.notification_template.medium.name | titlecase }}</b>
+         </span>
+       </div>
+     
+     </div>
+     <div class="content campaign-content">
+       <div class="sub-content3" *ngIf="campaign">
+         <div class="sub-content1">
+           <spt-badge [fontSize]="12"
+             class="badge"
+             [color]="campaignColor"
+             [name]="getCampaignStatus(campaign)"
+           ></spt-badge>
+           <span class="shadow-text date padding-left">Created: {{ campaign.date_created * 1000 | date: "MMM d, y" }}</span>
+         </div>
+         <span>{{ campaign.name }}</span>
+         <div class="sub-content2 shadow-text">
+           <ng-content select="div.target-group"></ng-content>
+         </div>
+       </div>
+      
+      
+     </div>
+     <div class="content campaign-content">
+       <span *ngIf="campaign.status.id != CAMPAIGN_STATUS.INACTIVE" style="display: flex">
+         
+         <div class="printer-container">
+           <span class="shadow-text">Send</span>
+           <div class="printer">
+             <span>{{ getCampaignMetric('Send', campaign) }}</span>
+           </div>
+         </div>
+         <div class="sendIcon">
+           <spt-icon [name]="send"></spt-icon>
+         </div>
+         <div class="printer-container">
+           <span class="shadow-text">Open</span>
+           <div class="printer">
+             <span>{{ getCampaignMetric('Open', campaign) }}</span>
+           </div>
+         </div>
+         <div class="sendIcon">
+           <spt-icon [name]="send"></spt-icon>
+         </div>
+         <div class="printer-container">
+           <span class="shadow-text">Visit</span>
+           <div class="printer">
+             <span>{{ getCampaignMetric('Visit', campaign) }}</span>
+           </div>
+         </div>
+         <div class="sendIcon">
+           <spt-icon [name]="send"></spt-icon>
+         </div>
+         <div class="printer-container">
+           <span class="shadow-text">Spend</span>
+           <div class="printer">
+             <span>{{ getCampaignMetric('Spend', campaign) }}</span>
+           </div>
+         </div>
+ 
+       </span>
+       <div class="menu-content">
+         <ng-content select="div.menu"></ng-content>
+       </div>
+     </div>
+</div>
+<!-- End Campaign Card -->
+
+<!-- Start Gift Card -->
+<div class="col gift-col" *ngIf="giftManagement">
+     <div class="body gift-body">
+       <div class="campaign">
+         <spt-icon
+           class="icons"
+           [toolTipTitle]="redeem"
+           [name]="redeem"
+         ></spt-icon>
+       </div>
+     </div>
+     <div class="content gift-content">
+       <div class="content">
+         <div class="sub-content1">
+           <spt-badge [fontSize]="12"
+             class="badge"
+             [name]="giftManagement.deliverProcess | uppercase"
+             color="#66BB6A"
+           ></spt-badge>
+           <span class="shadow-text date padding-left"
+             >Created: {{ giftManagement.dateCreated }}</span
+           >
+         </div>
+         <span
+           ><b>ID: {{ giftManagement.id }}</b></span
+         >
+       </div>
+     </div>
+   <div class="content gift-content">
+       <div class="sub-content3">
+         <div>
+           <spt-icon
+             class="icons"
+             [toolTipTitle]="email"
+             [name]="email"
+           ></spt-icon>
+           <span class="shadow-text padding-left">Email</span>
+         </div>
+         <div class="sub-content4">
+           <span>{{ giftManagement.email }}</span>
+         </div>
+       </div>
+       <div class="sub-content3">
+         <div>
+           <spt-icon class="icons" [toolTipTitle]="call" [name]="call"></spt-icon>
+           <span class="shadow-text padding-left">Phone</span>
+         </div>
+         <div class="sub-content4">
+           <span>{{ giftManagement.phone }}</span>
+         </div>
+       </div>
+   </div>
+   <div class="col3">
+     <spt-button
+       [size]="buttonSize"
+       [type]="btnType"
+       [text]="'CANCEL'"
+       (click)="cancel()"
+     ></spt-button>
+     <spt-button
+       [size]="buttonSize"
+       [type]="btnType"
+       [text]="'GO TO GUEST'"
+       (click)="goToGuest()"
+     ></spt-button>
+   </div>
+</div>
+<!-- End Gift Card -->
