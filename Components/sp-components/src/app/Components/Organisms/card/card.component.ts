@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { appRedeemIcon } from '../../../svg/Action/redeem';
 import { appCallIcon } from '../../../svg/Communication/call';
 import { appEmailIcon } from '../../../svg/Communication/email';
@@ -65,9 +65,14 @@ export class CardComponent implements OnInit {
   @Input() customer: ICustomer;
   @Input() giftManagement: IGiftManagement;
 
+  @Input() checked: Boolean;
+  @Input() unChecked: Boolean;
+
   @Input() option: () => {};
   @Input() cancel: () => {};
   @Input() goToGuest: () => {};
+
+  @Output() onSelect = new EventEmitter<any>();
 
   sms = appSmsIcon.name;
   people = appPeopleIcon.name;
@@ -99,6 +104,12 @@ export class CardComponent implements OnInit {
 
   ngOnInit() {
     this.isMouseOver = false;
+    if(this.checked){
+      this.customer.isSelect = true;
+    }
+    if(this.unChecked){
+      this.customer.isSelect = false;
+    }
   }
 
   toggleCard() {
@@ -148,5 +159,9 @@ export class CardComponent implements OnInit {
       return (metric.value ? "$" + metric.value : '--');
     }
     return (metric.value ? metric.value : '--');
+  }
+
+  onSelectEvent($event){
+    this.onSelect.emit($event);
   }
 }
