@@ -1,4 +1,4 @@
-import { OnInit } from '@angular/core';
+import { EventEmitter, OnInit } from '@angular/core';
 import { AvatarSize, ButtonSize, ButtonType } from '../../../utils/enums';
 export interface ICampaign {
     id: number;
@@ -43,9 +43,12 @@ export declare class CardComponent implements OnInit {
     campaign: ICampaign;
     customer: ICustomer;
     giftManagement: IGiftManagement;
+    checked: Boolean;
+    unChecked: Boolean;
     option: () => {};
     cancel: () => {};
     goToGuest: () => {};
+    onSelect: EventEmitter<any>;
     sms: string;
     people: string;
     send: string;
@@ -71,4 +74,5 @@ export declare class CardComponent implements OnInit {
     toggleCard(): void;
     getCampaignStatus(campaign: any): "SENDING" | "SCHEDULED" | "DRAFT" | "EXPIRED" | "DELETED" | "SENT";
     getCampaignMetric(type: any, campaign: any): any;
+    onSelectEvent($event: any): void;
 }
