@@ -102,7 +102,8 @@ export class OrganismsComponent implements OnInit {
     return [
       {
         type: 'customer',
-        name: 'Andres Mann',
+        firstName: 'Andres',
+        lastName: 'Mann',
         dateCreated: '01/11/20',
         isSelect: false,
         email: 'alexmann@gmail.com',

@@ -2,7 +2,7 @@
   [ngClass]="{ card: campaign || giftManagement, customerCard: customer }"
   (mouseover)="isMouseOver = true"
   (mouseout)="isMouseOver = false"
-  [ngStyle]="{ 'background-color': customer?.isSelect ? '#F3F3F3' : '' }"
+  [ngStyle]="{ 'background-color': customer?.isSelect ? '#FFF' : '' }"
 >
   <!-- Start Customer Card -->
   <div class="col customer-col" *ngIf="customer">
@@ -18,7 +18,7 @@
     >
       <spt-avatar
         [hidden]="isMouseOver || customer.isSelect"
-        [text]="customer.name | slice: 0:1"
+        [text]="(customer.firstName | slice: 0:1) + (customer.lastName | slice: 0:1)"
         [size]="avatarSize"
         [backgroundColor]="customer.isSelect ? '#FFF4E0' : white"
         [color]="red"
@@ -31,39 +31,37 @@
     </div>
     <div class="content">
       <div class="sub-content3">
-        <div class="content-space spt-spacing-x--3 sub-content3">
-          <span class=" spt-spacing-y--1">{{ customer.name }}</span>
-          <span class="shadow-text date"
+        <div class="content-space spt-spacing-x--3 user-content">
+          <span class=" spt-spacing-y--1 subTitle1">{{ customer.firstName + " " + customer.lastName }}</span>
+          <span class="shadow-text date body2"
             >Member Since: {{ customer.dateCreated }}</span
           >
         </div>
       </div>
       <div class="sub-content3">
         <div class="content-space ">
-          <div>
+          <div class="content-icon">
             <spt-icon
               class="icons"
-              [toolTipTitle]="email"
               [name]="email"
             ></spt-icon>
-            <span class="spt-spacing-y--1 shadow-text padding-left">Email</span>
+            <span class="spt-spacing-y--1 shadow-text padding-left body2">Email</span>
           </div>
-          <div class="sub-content4">
-            <span class="text-email">{{ customer.email }}</span>
+          <div class="sub-content4 text-email body1">
+            <span class="padding-left">{{ customer.email }}</span>
           </div>
         </div>
       </div>
       <div class="content-space spt-spacing-x--3 sub-content3 ">
-        <div>
+        <div class="content-icon">
           <spt-icon
             class="icons"
-            [toolTipTitle]="call"
             [name]="call"
           ></spt-icon>
-          <span class="spt-spacing-y--1 shadow-text padding-left">Phone</span>
+          <span class="spt-spacing-y--1 shadow-text padding-left body2">Phone</span>
         </div>
-        <div class="sub-content4">
-          <span>{{ customer.phone }}</span>
+        <div class="sub-content4 body1">
+          <span class="padding-left">{{ customer.phone || '---' }}</span>
         </div>
       </div>
     </div>
