@@ -17,7 +17,8 @@ export interface ICampaign {
 }
 export interface ICustomer {
     type: string;
-    name: string;
+    firstName: string;
+    lastName: string;
     dateCreated: string;
     isSelect: boolean;
     email: string;
