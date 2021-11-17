@@ -462,7 +462,7 @@
     ButtonComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-button',
-                    template: "<button nz-button nzNoAnimation [nzType]=\"type\" [nzSize]=\"size\" [disabled]=\"disabled\"\n        [ngClass]=\"{\n          'ant-btn-secondary': type === B.secondary,\n          'ant-btn-tertiary': type === B.tertiary,\n          'with-text': text != null,\n          'button-sm': size === S.small,\n          'button-md': size === S.medium,\n          'button-lg': size === S.large\n        }\">\n  <spt-icon *ngIf=\"leftIcon\" [name]=\"leftIcon\"></spt-icon>\n  <span *ngIf=\"text\" [ngClass]=\"{leftIcon: leftIcon,rightIcon: rightIcon}\">{{ text }}</span>\n  <spt-icon *ngIf=\"rightIcon\" [name]=\"rightIcon\"></spt-icon>\n</button>\n",
+                    template: "<button nz-button nzNoAnimation [nzType]=\"type\" [nzSize]=\"size\" [disabled]=\"disabled\"\n        [ngClass]=\"{\n          'ant-btn-secondary': type === B.secondary,\n          'ant-btn-tertiary': type === B.tertiary,\n          'with-text': text != null,\n          'button-sm': size === S.small,\n          'button-md': size === S.medium,\n          'button-lg': size === S.large\n        }\"\n        [style.backgroundColor]=\"color\"\n        [style.borderColor]=\"color\">\n  <spt-icon *ngIf=\"leftIcon\" [name]=\"leftIcon\"></spt-icon>\n  <span *ngIf=\"text\" [ngClass]=\"{leftIcon: leftIcon,rightIcon: rightIcon}\">{{ text }}</span>\n  <spt-icon *ngIf=\"rightIcon\" [name]=\"rightIcon\"></spt-icon>\n</button>\n",
                     styles: [".leftIcon{margin-left:10px}.rightIcon{margin-right:10px}.ant-btn[disabled]{background-color:transparent}.ant-btn[disabled] span{color:#b1b1b1!important}.button-sm{height:34px!important;padding-top:4px!important;padding-bottom:4px!important;box-shadow:none}.button-md{height:42px!important;padding-top:8px!important;padding-bottom:8px!important;box-shadow:none}.button-lg{height:50px!important;padding-top:12px!important;padding-bottom:12px!important;box-shadow:none}"]
                 },] }
     ];
@@ -473,7 +473,8 @@
         leftIcon: [{ type: core.Input }],
         rightIcon: [{ type: core.Input }],
         text: [{ type: core.Input }],
-        disabled: [{ type: core.Input }]
+        disabled: [{ type: core.Input }],
+        color: [{ type: core.Input }]
     };
 
     var FormFieldManager = /** @class */ (function () {
