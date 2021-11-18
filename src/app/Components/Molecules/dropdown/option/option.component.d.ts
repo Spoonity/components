@@ -5,6 +5,7 @@ export declare class OptionComponent implements OnInit {
     private _dropdownService;
     value: any;
     text: string;
+    disabled: boolean;
     get selected(): boolean;
     active: boolean;
     checkboxModel: boolean;
