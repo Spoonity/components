@@ -1,5 +1,5 @@
-<div class="option-container">
-    <!--- multiple selection (include checkbox -->
+<div class="option-container" [ngClass]="{'disabled': disabled, 'enabled': !disabled}">
+    <!--- multiple selection (include checkbox) -->
     <div *ngIf="select.selectMultiple" nz-col nzSpan="8">
         <label nz-checkbox nzValue="{{value}}" [(ngModel)]="checkboxModel" (ngModelChange)="selectItem()">{{text}}</label>
     </div>

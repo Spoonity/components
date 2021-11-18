@@ -2,7 +2,12 @@
 
 :host {
   .options-container();
-  &.selected, &:hover, &.active {
+
+  &.selected, &.active {
+    .option-item-active();
+  }
+
+  .enabled:hover {
     .option-item-active();
   }
 
@@ -10,11 +15,7 @@
     font-weight: bold;
   }
 
-  &:hover, &.active {
-    .option-item-active();
-  }
-
-  &.disabled {
+  .disabled {
     .option-item-disabled();
   }
 }

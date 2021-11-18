@@ -15,6 +15,9 @@ export class OptionComponent implements OnInit {
   /* option display text */
   @Input() public text: string;
 
+  /* of the selection should be disabled */
+  @Input() public disabled: boolean;
+
   /* bind class.selected */
   @HostBinding('class.selected')
   public get selected(): boolean {
@@ -36,9 +39,11 @@ export class OptionComponent implements OnInit {
   /* click event listener */
   @HostListener('click', ['$event'])
   public onClick(event: UIEvent) {
-    event.preventDefault();
-    event.stopPropagation();
-    this.select.selectOption(this);
+    if (!this.disabled) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.select.selectOption(this);
+    }
   }
 
 

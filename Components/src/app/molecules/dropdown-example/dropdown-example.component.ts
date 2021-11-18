@@ -24,9 +24,9 @@ export class DropdownExampleComponent implements OnInit {
   savedValues1: {[key: string]: any};
   savedValues2: {[key: string]: any};
 
-  options: {id: string; value: string}[] =  [
+  options: {id: string; value: string; disabled?: boolean}[] =  [
     { id: 'opt1', value: 'Option 1'},
-    { id: 'opt2', value: 'Option 2'},
+    { id: 'opt2', value: 'Option 2', disabled: true},
     { id: 'opt3', value: 'Option 3'},
     { id: 'opt4', value: 'Option 4'},
     { id: 'opt5', value: 'Option 5'},

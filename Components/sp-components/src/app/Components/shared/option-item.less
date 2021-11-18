@@ -2,7 +2,6 @@
 
 .options-container {
   display: block;
-  padding: 0 0.875rem;
   height: 2.5rem;
   line-height: 2.5rem;
   color: @gray80;
@@ -12,6 +11,12 @@
   text-overflow: ellipsis;
   user-select: none;
   cursor: pointer;
+}
+
+.options-container {
+  div {
+    padding: 0 5px;
+  }
 }
 
 .option-item-active {

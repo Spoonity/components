@@ -249,35 +249,35 @@
 
             <div class="spt-spacing--1">
                 <spt-dropdown label="formControl 1 (single)" formControlName="field1" hint="initialized with formControl">
-                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
                 </spt-dropdown>
             </div>
             <div class="spt-spacing--1">
                 <spt-dropdown placeholder="formControl 2 (single)" formControlName="field2" hint="initialized with formControl">
-                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
                 </spt-dropdown>
             </div>
             <div class="spt-spacing--1">
                 <spt-dropdown label="ngModel 1 (single)" [(ngModel)]="model2" [ngModelOptions]="{standalone: true}" hint="initialized with ngModel">
-                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
                 </spt-dropdown>
             </div>
 
             <div class="spt-spacing--1">
                 <spt-dropdown label="formControl 3 (multiple)" formControlName="field3" hint="initialized with formControl" [selectMultiple]="true">
-                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
                 </spt-dropdown>
             </div>
 
             <div class="spt-spacing--1">
                 <spt-dropdown label="formControl 4 (multiple)" formControlName="field4" [selectMultiple]="true">
-                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
                 </spt-dropdown>
             </div>
 
             <div class="spt-spacing--1">
                 <spt-dropdown label="ngModel 2 (multiple)" [(ngModel)]="model3" [ngModelOptions]="{standalone: true}" [selectMultiple]="true">
-                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
+                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
                 </spt-dropdown>
             </div>
 
