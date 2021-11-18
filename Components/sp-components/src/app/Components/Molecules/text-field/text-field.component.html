@@ -1,6 +1,13 @@
 <div class="spt-input-container text-field-container" [ngClass]="{'disabled-container': isDisabled}">
 
-    <input nz-input [ngClass]="{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'has-right-icon': !!endIcon, 'has-length': !!max, 'disabled-state': isDisabled}"
+    <input nz-input [ngClass]="{'dirty': isDirty,
+                                'error': !!error,
+                                'has-left-icon': !!startIcon,
+                                'has-right-icon': !!endIcon,
+                                'has-length': !!max,
+                                'disabled-state': isDisabled,
+                                'show-placeholder': !label
+                                }"
            (click)="isDisabled ? $event.stopPropagation() : null"
            [(ngModel)]="value"
            (ngModelChange)="changeAction($event)"
@@ -15,7 +22,7 @@
            [style.background-color]="backgroundColor">
 
     <!-- label -->
-    <label class="text-field-label label" [style.background-color]="backgroundColor">{{ label || placeholder }}</label>
+    <label *ngIf="label" class="text-field-label label" [style.background-color]="backgroundColor">{{ label }}</label>
 
     <!-- hint -->
     <label class="text-field-bottom-label hint-label" *ngIf="!!hint && !error">{{ hint }}</label>
