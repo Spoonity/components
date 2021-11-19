@@ -245,40 +245,60 @@
     <form [formGroup]="sampleForm2">
         <div class="input-large spt-spacing-y--2">
             <h3>Sample Form</h3>
-            <p>A combination of Reactive form and Template driven form</p>
+            <p class="spt-spacing-bottom--3">A combination of Reactive form and Template driven form</p>
 
-            <div class="spt-spacing--1">
+            <div class="spt-spacing-bottom--4">
                 <spt-dropdown label="formControl 1 (single)" formControlName="field1" hint="initialized with formControl">
                     <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
                 </spt-dropdown>
             </div>
-            <div class="spt-spacing--1">
+            <div class="spt-spacing-bottom--4">
                 <spt-dropdown placeholder="formControl 2 (single)" formControlName="field2" hint="initialized with formControl">
                     <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
                 </spt-dropdown>
             </div>
-            <div class="spt-spacing--1">
+            <div class="spt-spacing-bottom--4">
                 <spt-dropdown label="ngModel 1 (single)" [(ngModel)]="model2" [ngModelOptions]="{standalone: true}" hint="initialized with ngModel">
                     <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
                 </spt-dropdown>
             </div>
 
-            <div class="spt-spacing--1">
+            <div class="spt-spacing-bottom--4">
                 <spt-dropdown label="formControl 3 (multiple)" formControlName="field3" hint="initialized with formControl" [selectMultiple]="true">
                     <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
                 </spt-dropdown>
             </div>
 
-            <div class="spt-spacing--1">
+            <div class="spt-spacing-bottom--4">
                 <spt-dropdown label="formControl 4 (multiple)" formControlName="field4" [selectMultiple]="true">
                     <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
                 </spt-dropdown>
             </div>
 
-            <div class="spt-spacing--1">
+            <div class="spt-spacing-bottom--4">
                 <spt-dropdown label="ngModel 2 (multiple)" [(ngModel)]="model3" [ngModelOptions]="{standalone: true}" [selectMultiple]="true">
                     <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
                 </spt-dropdown>
+            </div>
+
+            <div class="spt-spacing-bottom--4 dynamic-row">
+                <spt-dropdown label="formControl 5 (single dynamic update)" formControlName="field5" hint="should update when button is clicked">
+                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
+                </spt-dropdown>
+
+                <div class="spt-spacing-left--3">
+                    <spt-button text="UPDATE" (click)="updateField5()"></spt-button>
+                </div>
+            </div>
+
+            <div class="spt-spacing-bottom--4 dynamic-row">
+                <spt-dropdown label="formControl 6 (multiple dynamic update)" formControlName="field6" hint="initialized with formControl" [selectMultiple]="true">
+                    <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
+                </spt-dropdown>
+
+                <div class="spt-spacing-left--3">
+                    <spt-button text="UPDATE" (click)="updateField6()"></spt-button>
+                </div>
             </div>
 
         </div>
@@ -306,6 +326,12 @@
 
                     <tr><td class="spt-spacing-x--1"><strong>formControl 4: </strong></td>
                         <td class="spt-spacing-x--1">{{savedValues1.field4 || '---'}}</td></tr>
+
+                    <tr><td class="spt-spacing-x--1"><strong>formControl 5: </strong></td>
+                        <td class="spt-spacing-x--1">{{savedValues1.field5 || '---'}}</td></tr>
+
+                    <tr><td class="spt-spacing-x--1"><strong>formControl 6: </strong></td>
+                        <td class="spt-spacing-x--1">{{savedValues1.field6 || '---'}}</td></tr>
 
                     <tr><td class="spt-spacing-x--1"><strong>ngModel 2: </strong></td>
                         <td class="spt-spacing-x--1">{{savedValues2.model2 || '---'}}</td></tr>

@@ -60,7 +60,9 @@ export class DropdownExampleComponent implements OnInit {
       field1: new FormControl('opt1'),
       field2: new FormControl(),
       field3: new FormControl(['opt2', 'opt3']),
-      field4: new FormControl()
+      field4: new FormControl(),
+      field5: new FormControl(),
+      field6: new FormControl()
     });
   }
 
@@ -71,5 +73,13 @@ export class DropdownExampleComponent implements OnInit {
       model1: this.model2,
       model2: this.model3
     };
+  }
+
+  updateField5() {
+    this.sampleForm2.get('field5').setValue('opt1');
+  }
+
+  updateField6() {
+    this.sampleForm2.get('field6').setValue(['opt1', 'opt2', 'opt3']);
   }
 }
