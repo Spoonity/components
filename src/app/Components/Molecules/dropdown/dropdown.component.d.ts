@@ -16,8 +16,11 @@ export declare class DropdownComponent extends FormFieldManager implements After
     private keyManager;
     constructor(_dropdownService: DropdownService, _renderer: Renderer2);
     ngAfterViewInit(): void;
+    private _updateValueOnMultiple;
+    private _updateValueOnSingle;
     /**
      *  override: inherited writeValue
+     *  called on form control setValue and form initialize
      */
     writeValue(obj: any): void;
     /**

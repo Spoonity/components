@@ -830,18 +830,10 @@
             var _this = this;
             setTimeout(function () {
                 if (_this.selectMultiple) {
-                    _this.options.toArray().forEach(function (o) {
-                        if (_this.multiple_selected.includes(o.value)) {
-                            _this.selectOption(o);
-                        }
-                    });
-                    _this.value = _this.multiple_selectedOptions.length ?
-                        Array.from(_this.multiple_selectedOptions, function (o) { return o.text; }).join(', ')
-                        : '';
+                    _this._updateValueOnMultiple();
                 }
                 else {
-                    _this.single_selectedOption = _this.options.toArray().find(function (option) { return option.value === _this.single_selected; });
-                    _this.value = _this.single_selectedOption ? _this.single_selectedOption.text : '';
+                    _this._updateValueOnSingle();
                     _this.keyManager = new a11y.ActiveDescendantKeyManager(_this.options)
                         .withHorizontalOrientation('ltr')
                         .withVerticalOrientation()
@@ -850,20 +842,42 @@
                 _this.checkDirty();
             }, 100);
         };
+        DropdownComponent.prototype._updateValueOnMultiple = function () {
+            var _this = this;
+            this.options.toArray().forEach(function (o) {
+                if (_this.multiple_selected.includes(o.value)) {
+                    _this.selectOption(o);
+                }
+            });
+            this.value = this.multiple_selectedOptions.length ?
+                Array.from(this.multiple_selectedOptions, function (o) { return o.text; }).join(', ')
+                : '';
+        };
+        DropdownComponent.prototype._updateValueOnSingle = function () {
+            var _this = this;
+            this.single_selectedOption = this.options.toArray().find(function (option) { return option.value === _this.single_selected; });
+            this.value = this.single_selectedOption ? this.single_selectedOption.text : '';
+        };
         /**
          *  override: inherited writeValue
+         *  called on form control setValue and form initialize
          */
         DropdownComponent.prototype.writeValue = function (obj) {
             if (obj !== undefined) {
                 if (this.selectMultiple) {
                     if (Array.isArray(obj)) {
                         this.multiple_selected = obj;
+                        if (this.options) {
+                            this._updateValueOnMultiple();
+                        }
                     }
                 }
                 else {
                     this.single_selected = obj;
+                    if (this.options) {
+                        this._updateValueOnSingle();
+                    }
                 }
-                this.value = obj;
                 this.checkDirty();
             }
         };

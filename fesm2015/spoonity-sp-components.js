@@ -541,18 +541,10 @@ class DropdownComponent extends FormFieldManager {
     ngAfterViewInit() {
         setTimeout(() => {
             if (this.selectMultiple) {
-                this.options.toArray().forEach((o) => {
-                    if (this.multiple_selected.includes(o.value)) {
-                        this.selectOption(o);
-                    }
-                });
-                this.value = this.multiple_selectedOptions.length ?
-                    Array.from(this.multiple_selectedOptions, (o) => o.text).join(', ')
-                    : '';
+                this._updateValueOnMultiple();
             }
             else {
-                this.single_selectedOption = this.options.toArray().find(option => option.value === this.single_selected);
-                this.value = this.single_selectedOption ? this.single_selectedOption.text : '';
+                this._updateValueOnSingle();
                 this.keyManager = new ActiveDescendantKeyManager(this.options)
                     .withHorizontalOrientation('ltr')
                     .withVerticalOrientation()
@@ -561,20 +553,40 @@ class DropdownComponent extends FormFieldManager {
             this.checkDirty();
         }, 100);
     }
+    _updateValueOnMultiple() {
+        this.options.toArray().forEach((o) => {
+            if (this.multiple_selected.includes(o.value)) {
+                this.selectOption(o);
+            }
+        });
+        this.value = this.multiple_selectedOptions.length ?
+            Array.from(this.multiple_selectedOptions, (o) => o.text).join(', ')
+            : '';
+    }
+    _updateValueOnSingle() {
+        this.single_selectedOption = this.options.toArray().find(option => option.value === this.single_selected);
+        this.value = this.single_selectedOption ? this.single_selectedOption.text : '';
+    }
     /**
      *  override: inherited writeValue
+     *  called on form control setValue and form initialize
      */
     writeValue(obj) {
         if (obj !== undefined) {
             if (this.selectMultiple) {
                 if (Array.isArray(obj)) {
                     this.multiple_selected = obj;
+                    if (this.options) {
+                        this._updateValueOnMultiple();
+                    }
                 }
             }
             else {
                 this.single_selected = obj;
+                if (this.options) {
+                    this._updateValueOnSingle();
+                }
             }
-            this.value = obj;
             this.checkDirty();
         }
     }
