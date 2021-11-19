@@ -1,4 +1,14 @@
-import {Input, Directive, ElementRef, ViewChild, Renderer2, OnChanges, SimpleChanges} from '@angular/core';
+import {
+  Input,
+  Directive,
+  ElementRef,
+  ViewChild,
+  Renderer2,
+  OnChanges,
+  SimpleChanges,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import {ControlValueAccessor} from '@angular/forms';
 
 @Directive()
@@ -38,6 +48,8 @@ export abstract class FormFieldManager implements ControlValueAccessor, OnChange
 
   /** background color **/
   @Input() backgroundColor: string;
+
+  @Output() focus: EventEmitter<any> = new EventEmitter<any>();
 
   @ViewChild('input') textInput: ElementRef;
 

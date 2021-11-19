@@ -1,6 +1,6 @@
 <div class="spt-input-container text-field-container" [ngClass]="{'disabled-container': isDisabled}">
 
-    <input nz-input [ngClass]="{'dirty': isDirty,
+    <input #input nz-input [ngClass]="{'dirty': isDirty,
                                 'error': !!error,
                                 'has-left-icon': !!startIcon,
                                 'has-right-icon': !!endIcon,
@@ -9,6 +9,7 @@
                                 'show-placeholder': !label
                                 }"
            (click)="isDisabled ? $event.stopPropagation() : null"
+           (focus)="focus.emit()"
            [(ngModel)]="value"
            (ngModelChange)="changeAction($event)"
            [attr.type]="type"
