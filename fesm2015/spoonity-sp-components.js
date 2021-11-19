@@ -295,6 +295,7 @@ FormFieldManager.propDecorators = {
 class TextFieldComponent extends FormFieldManager {
     constructor(_renderer) {
         super(_renderer);
+        this.focus = new EventEmitter();
     }
     ngOnInit() {
     }
@@ -311,7 +312,7 @@ class TextFieldComponent extends FormFieldManager {
 TextFieldComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-text-field',
-                template: "<div class=\"spt-input-container text-field-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n\n    <input nz-input [ngClass]=\"{'dirty': isDirty,\n                                'error': !!error,\n                                'has-left-icon': !!startIcon,\n                                'has-right-icon': !!endIcon,\n                                'has-length': !!max,\n                                'disabled-state': isDisabled,\n                                'show-placeholder': !label\n                                }\"\n           (click)=\"isDisabled ? $event.stopPropagation() : null\"\n           [(ngModel)]=\"value\"\n           (ngModelChange)=\"changeAction($event)\"\n           [attr.type]=\"type\"\n           [attr.step]=\"step\"\n           [attr.min]=\"min\"\n           [attr.max]=\"max\"\n           [attr.maxlength]=\"maxlength\"\n           [class]=\"size\" placeholder=\"{{placeholder}}\"\n           [attr.disabled]=\"isDisabled\"\n           [attr.readonly]=\"isDisabled\"\n           [style.background-color]=\"backgroundColor\">\n\n    <!-- label -->\n    <label *ngIf=\"label\" class=\"text-field-label label\" [style.background-color]=\"backgroundColor\">{{ label }}</label>\n\n    <!-- hint -->\n    <label class=\"text-field-bottom-label hint-label\" *ngIf=\"!!hint && !error\">{{ hint }}</label>\n\n    <!-- error -->\n    <label class=\"text-field-bottom-label error-label\" *ngIf=\"!!error\">{{ error }}</label>\n\n    <!-- maxlength -->\n    <label class=\"text-field-bottom-label length-label\" *ngIf=\"maxlength\">{{getLength()}}/{{maxlength}}</label>\n\n\n    <!-- error icon -->\n    <span *ngIf=\"!!error\" class=\"text-field-icon error-icon\">\n        <svg-icon name=\"report\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n\n    <!-- left icon -->\n    <span *ngIf=\"!!startIcon\" class=\"text-field-icon left-icon\">\n        <svg-icon name=\"{{startIcon}}\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n\n    <!-- error icon -->\n    <span *ngIf=\"!!endIcon && !error\" class=\"text-field-icon right-icon\">\n        <svg-icon name=\"{{endIcon}}\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n</div>\n\n\n",
+                template: "<div class=\"spt-input-container text-field-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n\n    <input #input nz-input [ngClass]=\"{'dirty': isDirty,\n                                'error': !!error,\n                                'has-left-icon': !!startIcon,\n                                'has-right-icon': !!endIcon,\n                                'has-length': !!max,\n                                'disabled-state': isDisabled,\n                                'show-placeholder': !label\n                                }\"\n           (click)=\"isDisabled ? $event.stopPropagation() : null\"\n           (focus)=\"focus.emit()\"\n           [(ngModel)]=\"value\"\n           (ngModelChange)=\"changeAction($event)\"\n           [attr.type]=\"type\"\n           [attr.step]=\"step\"\n           [attr.min]=\"min\"\n           [attr.max]=\"max\"\n           [attr.maxlength]=\"maxlength\"\n           [class]=\"size\" placeholder=\"{{placeholder}}\"\n           [attr.disabled]=\"isDisabled\"\n           [attr.readonly]=\"isDisabled\"\n           [style.background-color]=\"backgroundColor\">\n\n    <!-- label -->\n    <label *ngIf=\"label\" class=\"text-field-label label\" [style.background-color]=\"backgroundColor\">{{ label }}</label>\n\n    <!-- hint -->\n    <label class=\"text-field-bottom-label hint-label\" *ngIf=\"!!hint && !error\">{{ hint }}</label>\n\n    <!-- error -->\n    <label class=\"text-field-bottom-label error-label\" *ngIf=\"!!error\">{{ error }}</label>\n\n    <!-- maxlength -->\n    <label class=\"text-field-bottom-label length-label\" *ngIf=\"maxlength\">{{getLength()}}/{{maxlength}}</label>\n\n\n    <!-- error icon -->\n    <span *ngIf=\"!!error\" class=\"text-field-icon error-icon\">\n        <svg-icon name=\"report\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n\n    <!-- left icon -->\n    <span *ngIf=\"!!startIcon\" class=\"text-field-icon left-icon\">\n        <svg-icon name=\"{{startIcon}}\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n\n    <!-- error icon -->\n    <span *ngIf=\"!!endIcon && !error\" class=\"text-field-icon right-icon\">\n        <svg-icon name=\"{{endIcon}}\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n</div>\n\n\n",
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
@@ -328,7 +329,8 @@ TextFieldComponent.ctorParameters = () => [
 TextFieldComponent.propDecorators = {
     type: [{ type: Input }],
     step: [{ type: Input }],
-    maxlength: [{ type: Input }]
+    maxlength: [{ type: Input }],
+    focus: [{ type: Output }]
 };
 
 class BannerComponent {
