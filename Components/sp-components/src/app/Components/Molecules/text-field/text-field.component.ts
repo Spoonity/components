@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, forwardRef, Renderer2} from '@angular/core';
+import {Component, Input, OnInit, forwardRef, Renderer2, Output, EventEmitter} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {FormFieldManager} from '../../shared/form-field.manager';
 
@@ -25,6 +25,9 @@ export class TextFieldComponent extends FormFieldManager implements OnInit {
 
   /* optional: max length */
   @Input() maxlength: number;
+
+  @Output() focus: EventEmitter<any> = new EventEmitter<any>();
+
 
   ngOnInit(): void {
   }
