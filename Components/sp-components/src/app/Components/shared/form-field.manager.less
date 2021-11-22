@@ -236,12 +236,22 @@
   align-items: center;
   background-color: #fff;
   .form-field();
-  input, nz-date-picker {
-    &, &:hover, &:focus {
-      border-radius: 0 !important;
-      border-left: none !important;
-      border-right: none !important;
+  input {
+    border: none !important;
+    height: calc(100% - 2px);
+    &:focus, &:hover {
+      border: none !important;
     }
+    //&, &:hover, &:focus {
+    //  border-radius: 0 !important;
+    //  border-left: none !important;
+    //  border-right: none !important;
+    //}
+    //&:focus {
+    //  border: 1px solid @primary-color !important;
+    //  border-left: none !important;
+    //  border-right: none !important;
+    //}
   }
   .search-icon {
     height: 24px;
