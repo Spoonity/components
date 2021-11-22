@@ -42,6 +42,9 @@ export class SearchComponent extends FormFieldManager implements AfterViewInit {
   /* optional: if the overlay should launch when the input is in focus */
   @Input() launchOnFocus?: boolean;
 
+  /* if the search icon on the left should be hidden */
+  @Input() hideSearchIcon: boolean;
+
   /* filter action */
   @Output() filter: EventEmitter<any> = new EventEmitter();
 

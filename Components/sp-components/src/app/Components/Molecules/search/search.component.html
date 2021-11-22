@@ -2,7 +2,7 @@
     <div class="search-wrapper {{size}} " [ngClass]="{'item-focus': focus}"
          [style.background-color]="backgroundColor">
         <!-- search icon -->
-        <div class="search-icon left-icon">
+        <div class="search-icon left-icon" *ngIf="!hideSearchIcon">
             <svg-icon name="search" [svgStyle]="{ 'width.px':24 }"></svg-icon>
         </div>
 

@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'spt-search-example',
   templateUrl: './search-example.component.html',
   styleUrls: ['./search-example.component.less']
 })
-export class SearchExampleComponent {
+export class SearchExampleComponent implements OnInit {
 
   /* filtered list (by example type) */
   largeFilteredList: any[] = [];
@@ -39,6 +39,11 @@ export class SearchExampleComponent {
     {id: 9, name: 'asparagus', color: 'green', type: 'vegetable'},
   ];
 
+  ngOnInit(): void {
+    this.largeFilteredList = [...this.allOptions];
+    this.mediumFilteredList = [...this.allOptions];
+    this.smallFilteredList = [...this.allOptions];
+  }
 
   /**
    * filter action via type

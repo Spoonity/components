@@ -7,12 +7,14 @@
         <div class="spt-spacing-y--1 dropdown-row">
             <div class="spt-spacing-x--1">
                 <spt-search size="large"
-                           placeholder="Search fruits or vegetables"
-                           [(ngModel)]="largeSearchModel"
-                           [selectedItems]="largeSelectedItems"
-                           (filter)="filter('large')"
-                           (itemSelected)="largeItemSelected($event)"
-                           (itemRemoved)="largeItemRemoved($event)">
+                            placeholder="Search fruits or vegetables"
+                            [(ngModel)]="largeSearchModel"
+                            [selectedItems]="largeSelectedItems"
+                            [hideSearchIcon]="true"
+                            [launchOnFocus]="true"
+                            (filter)="filter('large')"
+                            (itemSelected)="largeItemSelected($event)"
+                            (itemRemoved)="largeItemRemoved($event)">
                     <spt-search-option [value]="f" *ngFor="let f of largeFilteredList">
                         <span>{{f.name}} - </span>
                         <span class="light"><em>{{f.type}} </em></span>
