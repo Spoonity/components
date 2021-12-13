@@ -8,6 +8,7 @@ import { appDeleteIcon } from './delete';
 import { appFileCopyIcon } from './file_copy';
 import { appDesktopIcon } from './desktop';
 import { appLinkIcon } from './link';
+import { appHelpIcon } from './help';
 
 export const miscIcons = [
   appCalendarIcon,
@@ -19,5 +20,6 @@ export const miscIcons = [
   appDeleteIcon,
   appFileCopyIcon,
   appDesktopIcon,
-  appLinkIcon
+  appLinkIcon,
+  appHelpIcon
 ];
