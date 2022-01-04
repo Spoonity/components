@@ -2,6 +2,7 @@
     <nz-date-picker
             [class]="size"
             nzPlaceHolder=" "
+            [nzFormat]="dateFormat"
             [style.background-color]="backgroundColor"
             [ngClass]="{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'has-right-icon': !!endIcon, 'disabled-state': isDisabled}"
             [(ngModel)]="value" (ngModelChange)="changeAction($event)" [nzDisabledDate]="disabledDate"></nz-date-picker>

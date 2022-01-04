@@ -1,4 +1,4 @@
-import {Component, forwardRef, Renderer2, ViewChild} from '@angular/core';
+import {Component, forwardRef, Input, Renderer2, ViewChild} from '@angular/core';
 import {FormFieldManager} from '../../shared/form-field.manager';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {differenceInCalendarDays} from 'date-fns';
@@ -21,6 +21,9 @@ export class DatePickerComponent extends FormFieldManager {
    * string formatted date
    */
   formattedDate: string;
+
+  /** date format (and acceptable inputs). default: 'dd/MM/yyyy **/
+  @Input() dateFormat: 'dd/MM/yyyy' | 'dd/MM' | 'MM/yyy' = 'dd/MM/yyyy';
 
   @ViewChild(NzDatePickerComponent) nzDatePickerComponent: NzDatePickerComponent;
 
