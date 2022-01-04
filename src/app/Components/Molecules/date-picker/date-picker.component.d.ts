@@ -6,6 +6,8 @@ export declare class DatePickerComponent extends FormFieldManager {
      * string formatted date
      */
     formattedDate: string;
+    /** date format (and acceptable inputs). default: 'dd/MM/yyyy **/
+    dateFormat: 'dd/MM/yyyy' | 'dd/MM' | 'MM/yyy';
     nzDatePickerComponent: NzDatePickerComponent;
     constructor(_renderer: Renderer2);
     disabledDate: (current: Date) => boolean;

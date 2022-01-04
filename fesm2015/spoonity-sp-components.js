@@ -2440,6 +2440,8 @@ SpComponentsComponent.ctorParameters = () => [
 class DatePickerComponent extends FormFieldManager {
     constructor(_renderer) {
         super(_renderer);
+        /** date format (and acceptable inputs). default: 'dd/MM/yyyy **/
+        this.dateFormat = 'dd/MM/yyyy';
         this.disabledDate = (current) => {
             if (this.min && this.max == null) {
                 return differenceInCalendarDays(current, this.min) < 0;
@@ -2464,7 +2466,7 @@ class DatePickerComponent extends FormFieldManager {
 DatePickerComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-date-picker',
-                template: "<div class=\"spt-input-container text-field-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n    <nz-date-picker\n            [class]=\"size\"\n            nzPlaceHolder=\" \"\n            [style.background-color]=\"backgroundColor\"\n            [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'has-right-icon': !!endIcon, 'disabled-state': isDisabled}\"\n            [(ngModel)]=\"value\" (ngModelChange)=\"changeAction($event)\" [nzDisabledDate]=\"disabledDate\"></nz-date-picker>\n\n\n    <!-- label -->\n    <label class=\"text-field-label label\"\n           [style.background-color]=\"backgroundColor\">{{ label || placeholder }}</label>\n\n    <!-- error -->\n    <label class=\"text-field-bottom-label error-label\" *ngIf=\"!!error\">{{ error }}</label>\n\n    <!-- error icon -->\n    <span *ngIf=\"!!error\" class=\"text-field-icon error-icon\">\n        <svg-icon name=\"report\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n</div>\n",
+                template: "<div class=\"spt-input-container text-field-container\" [ngClass]=\"{'disabled-container': isDisabled}\">\n    <nz-date-picker\n            [class]=\"size\"\n            nzPlaceHolder=\" \"\n            [nzFormat]=\"dateFormat\"\n            [style.background-color]=\"backgroundColor\"\n            [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'has-left-icon': !!startIcon, 'has-right-icon': !!endIcon, 'disabled-state': isDisabled}\"\n            [(ngModel)]=\"value\" (ngModelChange)=\"changeAction($event)\" [nzDisabledDate]=\"disabledDate\"></nz-date-picker>\n\n\n    <!-- label -->\n    <label class=\"text-field-label label\"\n           [style.background-color]=\"backgroundColor\">{{ label || placeholder }}</label>\n\n    <!-- error -->\n    <label class=\"text-field-bottom-label error-label\" *ngIf=\"!!error\">{{ error }}</label>\n\n    <!-- error icon -->\n    <span *ngIf=\"!!error\" class=\"text-field-icon error-icon\">\n        <svg-icon name=\"report\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n    </span>\n</div>\n",
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
@@ -2479,6 +2481,7 @@ DatePickerComponent.ctorParameters = () => [
     { type: Renderer2 }
 ];
 DatePickerComponent.propDecorators = {
+    dateFormat: [{ type: Input }],
     nzDatePickerComponent: [{ type: ViewChild, args: [NzDatePickerComponent,] }]
 };
 
