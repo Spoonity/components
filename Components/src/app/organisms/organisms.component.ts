@@ -102,14 +102,14 @@ export class OrganismsComponent implements OnInit {
     return [
       {
         type: 'customer',
-        firstName: 'Andres',
-        lastName: 'Mann',
-        dateCreated: '01/11/20',
+        first_name: 'Andres',
+        last_name: 'Mann',
+        date_created: 1393939168,
         isSelect: false,
         email: 'alexmann@gmail.com',
         phone: '(123) 456-7890'
       }
-    ]
+    ];
   }
   getCampaigns(): ICampaign[] {
     return [

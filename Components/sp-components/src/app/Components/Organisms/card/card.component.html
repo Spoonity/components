@@ -18,7 +18,7 @@
     >
       <spt-avatar
         [hidden]="isMouseOver || customer.isSelect"
-        [text]="(customer.firstName | slice: 0:1) + (customer.lastName | slice: 0:1)"
+        [text]="(customer.first_name | uppercase | slice: 0:1) + (customer.last_name | uppercase | slice: 0:1)"
         [size]="avatarSize"
         [backgroundColor]="customer.isSelect ? '#FFF4E0' : white"
         [color]="red"
@@ -32,9 +32,9 @@
     <div class="content">
       <div class="sub-content3">
         <div class="content-space spt-spacing-x--3 user-content">
-          <span class=" spt-spacing-y--1 subTitle1">{{ customer.firstName + " " + customer.lastName }}</span>
+          <span class=" spt-spacing-y--1 subTitle1">{{ customer.first_name + " " + customer.last_name }}</span>
           <span class="shadow-text date body2"
-            >Member Since: {{ customer.dateCreated }}</span
+            >Member Since: {{ customer.date_created * 1000 | date:'mediumDate' }}</span
           >
         </div>
       </div>

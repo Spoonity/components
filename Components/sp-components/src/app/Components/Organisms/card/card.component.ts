@@ -30,9 +30,9 @@ export interface ICampaign {
 
 export interface ICustomer {
   type: string;
-  firstName: string;
-  lastName: string;
-  dateCreated: string;
+  first_name: string;
+  last_name: string;
+  date_created: number;
   isSelect: boolean;
   email: string;
   phone: string;
