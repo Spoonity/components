@@ -108,6 +108,24 @@ export class OrganismsComponent implements OnInit {
         isSelect: false,
         email: 'alexmann@gmail.com',
         phone: '(123) 456-7890'
+      },
+      {
+        type: 'customer',
+        first_name: 'Andres',
+        last_name: 'Mann',
+        date_created: 1393939168,
+        isSelect: false,
+        email: 'alexmann@gmail.com',
+        phone: '(123) 456-7890'
+      },
+      {
+        type: 'customer',
+        first_name: 'Andres',
+        last_name: 'Mann',
+        date_created: 1393939168,
+        isSelect: false,
+        email: 'alexmann@gmail.com',
+        phone: '(123) 456-7890'
       }
     ];
   }

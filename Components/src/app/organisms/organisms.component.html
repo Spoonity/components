@@ -201,10 +201,9 @@
         </div>
 
         <h2>Customer</h2>
-        <div *ngFor="let card of customers">
+        <div *ngFor="let card of customers; let i=index">
             <br>
-            <h2>{{card.type | uppercase}}</h2>
-            <spt-card [customer]="card"></spt-card>
+            <spt-card [disableCheckbox]="i == 2" [customer]="card" (onSelect)="card.isSelect = $event"></spt-card>
         </div>
         <h2>Gift Management</h2>
         <div *ngFor="let card of giftManagements">

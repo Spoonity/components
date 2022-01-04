@@ -66,8 +66,8 @@ export class CardComponent implements OnInit {
   @Input() customer: ICustomer;
   @Input() giftManagement: IGiftManagement;
 
-  @Input() checked: Boolean;
-  @Input() unChecked: Boolean;
+  @Input() checked: boolean;
+  @Input() disableCheckbox: boolean;
 
   @Input() option: () => {};
   @Input() cancel: () => {};
@@ -105,11 +105,8 @@ export class CardComponent implements OnInit {
 
   ngOnInit() {
     this.isMouseOver = false;
-    if(this.checked){
-      this.customer.isSelect = true;
-    }
-    if(this.unChecked){
-      this.customer.isSelect = false;
+    if (this.customer) {
+      this.customer.isSelect = this.checked;
     }
   }
 

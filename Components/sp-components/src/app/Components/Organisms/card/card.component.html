@@ -17,14 +17,14 @@
       }"
     >
       <spt-avatar
-        [hidden]="isMouseOver || customer.isSelect"
+        [hidden]="customer.isSelect || (!disableCheckbox && isMouseOver)"
         [text]="(customer.first_name | uppercase | slice: 0:1) + (customer.last_name | uppercase | slice: 0:1)"
         [size]="avatarSize"
         [backgroundColor]="customer.isSelect ? '#FFF4E0' : white"
         [color]="red"
       ></spt-avatar>
       <spt-checkbox
-        [hidden]="!isMouseOver && !customer.isSelect"
+        [hidden]="disableCheckbox || (!isMouseOver && !customer.isSelect)"
         [check]="customer.isSelect"
         (onChangeEvent)="onSelectEvent($event)"
       ></spt-checkbox>
