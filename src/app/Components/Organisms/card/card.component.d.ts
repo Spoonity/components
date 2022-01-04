@@ -44,8 +44,8 @@ export declare class CardComponent implements OnInit {
     campaign: ICampaign;
     customer: ICustomer;
     giftManagement: IGiftManagement;
-    checked: Boolean;
-    unChecked: Boolean;
+    checked: boolean;
+    disableCheckbox: boolean;
     option: () => {};
     cancel: () => {};
     goToGuest: () => {};
