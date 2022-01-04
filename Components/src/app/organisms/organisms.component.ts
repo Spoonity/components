@@ -114,7 +114,7 @@ export class OrganismsComponent implements OnInit {
         first_name: 'Andres',
         last_name: 'Mann',
         date_created: 1393939168,
-        isSelect: false,
+        isSelect: true,
         email: 'alexmann@gmail.com',
         phone: '(123) 456-7890'
       },

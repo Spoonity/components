@@ -24,7 +24,7 @@
         [color]="red"
       ></spt-avatar>
       <spt-checkbox
-        [hidden]="disableCheckbox || (!isMouseOver && !customer.isSelect)"
+        [hidden]="!customer.isSelect && (disableCheckbox || !isMouseOver)"
         [check]="customer.isSelect"
         (onChangeEvent)="onSelectEvent($event)"
       ></spt-checkbox>
