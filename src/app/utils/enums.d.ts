@@ -1,7 +1,8 @@
 export declare enum ButtonType {
     primary = "primary",
     secondary = "default",
-    tertiary = "link"
+    tertiary = "link",
+    inverted = "inverted"
 }
 export declare enum ButtonSize {
     large = "large",
