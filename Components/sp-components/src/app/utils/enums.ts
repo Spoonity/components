@@ -1,7 +1,8 @@
 export enum ButtonType {
   primary = 'primary',
   secondary = 'default',
-  tertiary = 'link'
+  tertiary = 'link',
+  inverted = 'inverted'
 }
 
 export enum ButtonSize {

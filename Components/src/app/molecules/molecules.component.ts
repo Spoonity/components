@@ -1,8 +1,8 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { IBreadCrumbItem } from 'sp-components/src/app/Components/Molecules/breadcrumb/breadcrumb.component';
-import { SnackbarComponent, ISnackbar } from 'sp-components/src/app/Components/Molecules/snackbar/snackbar.component';
-import { ISteps } from 'sp-components/src/app/Components/Molecules/steps/steps.component';
-import { ButtonType, ButtonSize, TagType } from 'sp-components/src/app/utils/enums';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {IBreadCrumbItem} from 'sp-components/src/app/Components/Molecules/breadcrumb/breadcrumb.component';
+import {ISnackbar, SnackbarComponent} from 'sp-components/src/app/Components/Molecules/snackbar/snackbar.component';
+import {ISteps} from 'sp-components/src/app/Components/Molecules/steps/steps.component';
+import {ButtonSize, ButtonType, TagType} from 'sp-components/src/app/utils/enums';
 
 
 interface IBanner {
@@ -22,6 +22,7 @@ export class MoleculesComponent implements OnInit {
 
   buttonType: ButtonType = ButtonType.secondary;
   buttonSize: ButtonSize = ButtonSize.medium;
+  buttonInverted: ButtonType = ButtonType.inverted;
 
   tagType: TagType = TagType.default;
 

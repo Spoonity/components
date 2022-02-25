@@ -7,8 +7,9 @@
           'button-md': size === S.medium,
           'button-lg': size === S.large
         }"
+        [style.color]="type === B.inverted ? '#FFFFFF' : '#0D0C0B'"
         [style.backgroundColor]="color"
-        [style.borderColor]="color">
+        [style.borderColor]="type === B.inverted ? '#FFFFFF' : color">
   <spt-icon *ngIf="leftIcon" [name]="leftIcon"></spt-icon>
   <span *ngIf="text" [ngClass]="{leftIcon: leftIcon,rightIcon: rightIcon}">{{ text }}</span>
   <spt-icon *ngIf="rightIcon" [name]="rightIcon"></spt-icon>
