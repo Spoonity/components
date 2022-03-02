@@ -1,0 +1,5 @@
+export const appAccountBalanceIcon = {
+    data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M4 10h3v7H4zM10.5 10h3v7h-3zM2 19h20v3H2zM17 10h3v7h-3zM12 1L2 6v2h20V6z"/></svg>`,
+    name: 'account-balance'
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYWNjb3VudF9iYWxhbmNlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vc3JjL2FwcC9zdmcvTWlzYy9hY2NvdW50X2JhbGFuY2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsTUFBTSxDQUFDLE1BQU0scUJBQXFCLEdBQUc7SUFDakMsSUFBSSxFQUFFLDZMQUE2TDtJQUNuTSxJQUFJLEVBQUUsaUJBQWlCO0NBQzFCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY29uc3QgYXBwQWNjb3VudEJhbGFuY2VJY29uID0ge1xuICAgIGRhdGE6IGA8c3ZnIHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIiB2aWV3Qm94PVwiMCAwIDI0IDI0XCI+PHBhdGggZmlsbD1cIm5vbmVcIiBkPVwiTTAgMGgyNHYyNEgwelwiLz48cGF0aCBkPVwiTTQgMTBoM3Y3SDR6TTEwLjUgMTBoM3Y3aC0zek0yIDE5aDIwdjNIMnpNMTcgMTBoM3Y3aC0zek0xMiAxTDIgNnYyaDIwVjZ6XCIvPjwvc3ZnPmAsXG4gICAgbmFtZTogJ2FjY291bnQtYmFsYW5jZSdcbn07Il19
