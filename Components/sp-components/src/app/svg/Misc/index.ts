@@ -9,8 +9,10 @@ import { appFileCopyIcon } from './file_copy';
 import { appDesktopIcon } from './desktop';
 import { appLinkIcon } from './link';
 import { appHelpIcon } from './help';
+import { appAccountBalanceIcon } from './account_balance';
 
 export const miscIcons = [
+  appAccountBalanceIcon,
   appCalendarIcon,
   appCalendarDateRangeIcon,
   appCalendarTodayIcon,
