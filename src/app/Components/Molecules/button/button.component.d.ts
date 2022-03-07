@@ -8,6 +8,7 @@ export declare class ButtonComponent implements OnInit {
     text: string;
     disabled: boolean;
     color: string;
+    iconColor: string;
     B: typeof ButtonType;
     S: typeof ButtonSize;
     constructor();
