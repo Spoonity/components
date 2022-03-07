@@ -15,6 +15,7 @@ export class ButtonComponent implements OnInit {
   @Input() text: string;
   @Input() disabled: boolean;
   @Input() color: string;
+  @Input() iconColor: string;
 
   B = ButtonType;
   S = ButtonSize;

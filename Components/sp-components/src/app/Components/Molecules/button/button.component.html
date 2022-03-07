@@ -10,7 +10,7 @@
         [style.color]="type === B.inverted ? '#FFFFFF' : '#0D0C0B'"
         [style.backgroundColor]="color"
         [style.borderColor]="type === B.inverted ? '#FFFFFF' : color">
-  <spt-icon *ngIf="leftIcon" [name]="leftIcon"></spt-icon>
+  <spt-icon *ngIf="leftIcon" [name]="leftIcon" [color]="iconColor"></spt-icon>
   <span *ngIf="text" [ngClass]="{leftIcon: leftIcon,rightIcon: rightIcon}">{{ text }}</span>
-  <spt-icon *ngIf="rightIcon" [name]="rightIcon"></spt-icon>
+  <spt-icon *ngIf="rightIcon" [name]="rightIcon" [color]="iconColor"></spt-icon>
 </button>
