@@ -189,4 +189,25 @@
             </div>
         </div>
     </div>
+
+    <div class="spt-spacing-y--1">
+        <h3>Single Selection with position</h3>
+        <div class="menu-example">
+<div class="menu-position-container">
+    <spt-button text="menu" [spMenuTrigger]="menu1"></spt-button>
+    <div class="menu-position">
+        <spt-menu #menu1>
+            <spt-menu-item (click)="actionSelected('item 1 selected', 1)">sample 1</spt-menu-item>
+            <spt-menu-item (click)="actionSelected('item 2 selected', 1)">sample 2</spt-menu-item>
+            <spt-menu-item (click)="actionSelected('item 3 selected', 1)">sample 3</spt-menu-item>
+        </spt-menu>
+    </div>
+</div>
+            <div class="spt-spacing--2 spt-elevation--1 menu-action">
+                <p><strong>action: </strong></p>
+                <p *ngIf="!actionText[1]"><em>select an item on the menu</em></p>
+                <p>{{actionText[1]}}</p>
+            </div>
+        </div>
+    </div>
 </div>

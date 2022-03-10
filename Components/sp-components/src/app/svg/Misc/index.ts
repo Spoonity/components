@@ -10,12 +10,14 @@ import { appDesktopIcon } from './desktop';
 import { appLinkIcon } from './link';
 import { appHelpIcon } from './help';
 import { appAccountBalanceIcon } from './account_balance';
+import { appCreditCard } from './credit_card';
 
 export const miscIcons = [
   appAccountBalanceIcon,
   appCalendarIcon,
   appCalendarDateRangeIcon,
   appCalendarTodayIcon,
+  appCreditCard,
   appDownloadIcon,
   appScheduleIcon,
   appSettingsSuggestIcon,
