@@ -1683,7 +1683,7 @@
 
     var ProgressBarComponent = /** @class */ (function () {
         function ProgressBarComponent() {
-            this.type = exports.ProgressType.line;
+            this.type = 'line';
         }
         ProgressBarComponent.prototype.ngOnInit = function () {
         };
@@ -1692,7 +1692,7 @@
     ProgressBarComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-progress-bar',
-                    template: "<nz-progress [nzPercent]=\"percent\" [nzShowInfo]=\"info\" [nzType]=\"type\"></nz-progress>",
+                    template: "<nz-progress [nzPercent]=\"percent\" [nzShowInfo]=\"info\" [nzType]=\"type\"></nz-progress>\n",
                     styles: [""]
                 },] }
     ];
@@ -2854,7 +2854,78 @@
         nzDatePickerComponent: [{ type: core.ViewChild, args: [datePicker.NzDatePickerComponent,] }]
     };
 
+    var ProgressCircleComponent = /** @class */ (function () {
+        function ProgressCircleComponent() {
+            this.showPercent = true;
+            this.color = '#FF9900';
+            this.width = 45;
+            this.strokeWidth = 9;
+        }
+        ProgressCircleComponent.prototype.ngOnInit = function () {
+        };
+        return ProgressCircleComponent;
+    }());
+    ProgressCircleComponent.decorators = [
+        { type: core.Component, args: [{
+                    selector: 'spt-progress-circle',
+                    template: "<nz-progress [nzPercent]=\"percent\"\n             [nzShowInfo]=\"showPercent\"\n             [nzStrokeColor]=\"color\"\n             [nzWidth]=\"width\"\n             [nzStrokeWidth]=\"strokeWidth\"\n             nzType=\"circle\">\n</nz-progress>\n",
+                    styles: [""]
+                },] }
+    ];
+    ProgressCircleComponent.ctorParameters = function () { return []; };
+    ProgressCircleComponent.propDecorators = {
+        percent: [{ type: core.Input }],
+        showPercent: [{ type: core.Input }],
+        color: [{ type: core.Input }],
+        width: [{ type: core.Input }],
+        strokeWidth: [{ type: core.Input }]
+    };
+
     common.registerLocaleData(en__default['default']);
+    var COMPONENTS = [
+        SpComponentsComponent,
+        ChipComponent,
+        ButtonComponent,
+        TextFieldComponent,
+        BannerComponent,
+        SideNavigationComponent,
+        StepsComponent,
+        DropdownComponent,
+        OptionComponent,
+        OverlayTemplateComponent,
+        SidebarComponent,
+        SearchComponent,
+        SearchTemplateComponent,
+        SearchOptionComponent,
+        BackNavigationComponent,
+        BreadcrumbComponent,
+        SnackbarComponent,
+        MenuComponent,
+        MenuTriggerDirective,
+        MenuItemComponent,
+        AvatarComponent,
+        BadgeComponent,
+        DividerComponent,
+        ProgressBarComponent,
+        ProgressCircleComponent,
+        CheckboxComponent,
+        RadioButtonComponent,
+        SwitchComponent,
+        SliderComponent,
+        TabComponent,
+        TooltipComponent,
+        ElevationComponent,
+        SpacingComponent,
+        IconComponent,
+        DataVisualizationComponent,
+        ChartComponent,
+        DialogsComponent,
+        TableComponent,
+        UploadComponent,
+        HeaderComponent,
+        CardComponent,
+        DatePickerComponent
+    ];
     var ɵ0 = i18n.en_US;
     var SpComponentsModule = /** @class */ (function () {
         function SpComponentsModule() {
@@ -2863,92 +2934,8 @@
     }());
     SpComponentsModule.decorators = [
         { type: core.NgModule, args: [{
-                    declarations: [
-                        SpComponentsComponent,
-                        ChipComponent,
-                        ButtonComponent,
-                        TextFieldComponent,
-                        BannerComponent,
-                        SideNavigationComponent,
-                        StepsComponent,
-                        DropdownComponent,
-                        OptionComponent,
-                        OverlayTemplateComponent,
-                        SidebarComponent,
-                        SearchComponent,
-                        SearchTemplateComponent,
-                        SearchOptionComponent,
-                        BackNavigationComponent,
-                        BreadcrumbComponent,
-                        SnackbarComponent,
-                        MenuComponent,
-                        MenuTriggerDirective,
-                        MenuItemComponent,
-                        AvatarComponent,
-                        BadgeComponent,
-                        DividerComponent,
-                        ProgressBarComponent,
-                        CheckboxComponent,
-                        RadioButtonComponent,
-                        SwitchComponent,
-                        SliderComponent,
-                        TabComponent,
-                        TooltipComponent,
-                        ElevationComponent,
-                        SpacingComponent,
-                        IconComponent,
-                        DataVisualizationComponent,
-                        ChartComponent,
-                        DialogsComponent,
-                        TableComponent,
-                        UploadComponent,
-                        HeaderComponent,
-                        CardComponent,
-                        DatePickerComponent
-                    ],
-                    exports: [
-                        SpComponentsComponent,
-                        ChipComponent,
-                        ButtonComponent,
-                        TextFieldComponent,
-                        BannerComponent,
-                        SideNavigationComponent,
-                        StepsComponent,
-                        DropdownComponent,
-                        OptionComponent,
-                        OverlayTemplateComponent,
-                        SidebarComponent,
-                        SearchComponent,
-                        SearchTemplateComponent,
-                        SearchOptionComponent,
-                        BackNavigationComponent,
-                        BreadcrumbComponent,
-                        SnackbarComponent,
-                        MenuComponent,
-                        MenuTriggerDirective,
-                        MenuItemComponent,
-                        AvatarComponent,
-                        BadgeComponent,
-                        DividerComponent,
-                        ProgressBarComponent,
-                        CheckboxComponent,
-                        RadioButtonComponent,
-                        SwitchComponent,
-                        SliderComponent,
-                        TabComponent,
-                        TooltipComponent,
-                        ElevationComponent,
-                        SpacingComponent,
-                        IconComponent,
-                        DataVisualizationComponent,
-                        ChartComponent,
-                        DialogsComponent,
-                        TableComponent,
-                        UploadComponent,
-                        HeaderComponent,
-                        CardComponent,
-                        DatePickerComponent
-                    ],
+                    declarations: __spread(COMPONENTS),
+                    exports: __spread(COMPONENTS),
                     imports: __spread([
                         common.CommonModule,
                         ng2Charts.ChartsModule,
@@ -3021,55 +3008,56 @@
     exports.ɵ0 = ɵ0;
     exports.ɵa = FormFieldManager;
     exports.ɵb = BannerComponent;
-    exports.ɵba = appEmailIcon;
-    exports.ɵbb = appAddCircleOutlineIcon;
-    exports.ɵbc = appAddIcon;
-    exports.ɵbd = appReportIcon;
-    exports.ɵbe = appSendIcon;
-    exports.ɵbf = appUploadFileIcon;
-    exports.ɵbg = appKeyboardTabIcon;
-    exports.ɵbh = appSmartphoneIcon;
-    exports.ɵbi = appEditIcon;
-    exports.ɵbj = appWbIncandescentIcon;
-    exports.ɵbk = appPlaceIcon;
-    exports.ɵbl = appAccountBalanceIcon;
-    exports.ɵbm = appCalendarIcon;
-    exports.ɵbn = appCalendarDateRangeIcon;
-    exports.ɵbo = appCalendarTodayIcon;
-    exports.ɵbp = appCreditCard;
-    exports.ɵbq = appDownloadIcon;
-    exports.ɵbr = appScheduleIcon;
-    exports.ɵbs = appSettingsSuggestIcon;
-    exports.ɵbt = appDeleteIcon;
-    exports.ɵbu = appFileCopyIcon;
-    exports.ɵbv = appDesktopIcon;
-    exports.ɵbw = appLinkIcon;
-    exports.ɵbx = appHelpIcon;
-    exports.ɵby = appArrowBackIcon;
-    exports.ɵbz = appArrowDownwardIcon;
+    exports.ɵba = appCallIcon;
+    exports.ɵbb = appEmailIcon;
+    exports.ɵbc = appAddCircleOutlineIcon;
+    exports.ɵbd = appAddIcon;
+    exports.ɵbe = appReportIcon;
+    exports.ɵbf = appSendIcon;
+    exports.ɵbg = appUploadFileIcon;
+    exports.ɵbh = appKeyboardTabIcon;
+    exports.ɵbi = appSmartphoneIcon;
+    exports.ɵbj = appEditIcon;
+    exports.ɵbk = appWbIncandescentIcon;
+    exports.ɵbl = appPlaceIcon;
+    exports.ɵbm = appAccountBalanceIcon;
+    exports.ɵbn = appCalendarIcon;
+    exports.ɵbo = appCalendarDateRangeIcon;
+    exports.ɵbp = appCalendarTodayIcon;
+    exports.ɵbq = appCreditCard;
+    exports.ɵbr = appDownloadIcon;
+    exports.ɵbs = appScheduleIcon;
+    exports.ɵbt = appSettingsSuggestIcon;
+    exports.ɵbu = appDeleteIcon;
+    exports.ɵbv = appFileCopyIcon;
+    exports.ɵbw = appDesktopIcon;
+    exports.ɵbx = appLinkIcon;
+    exports.ɵby = appHelpIcon;
+    exports.ɵbz = appArrowBackIcon;
     exports.ɵc = DropdownService;
-    exports.ɵca = appArrowForwardIcon;
-    exports.ɵcb = appArrowUpwardIcon;
-    exports.ɵcc = appCancelBlackIcon;
-    exports.ɵcd = appCheckIcon;
-    exports.ɵce = appChevronLeftIcon;
-    exports.ɵcf = appChevronRightIcon;
-    exports.ɵcg = appClearIcon;
-    exports.ɵch = appEastIcon;
-    exports.ɵci = appExpandLessIcon;
-    exports.ɵcj = appExpandMoreIcon;
-    exports.ɵck = appFirstPageIcon;
-    exports.ɵcl = appLastPageIcon;
-    exports.ɵcm = appMoreVertIcon;
-    exports.ɵcn = appRefreshIcon;
-    exports.ɵco = appPriorityHighIcon;
-    exports.ɵcp = appSmsIcon;
-    exports.ɵcq = appPeopleIcon;
-    exports.ɵcr = appCheckBoxOutlineBlankIcon;
-    exports.ɵcs = appCheckBoxIcon;
-    exports.ɵct = appIndeterminateCheckBoxIcon;
-    exports.ɵcu = appRadioButtonCheckedIcon;
-    exports.ɵcv = appRadioButtonUncheckedIcon;
+    exports.ɵca = appArrowDownwardIcon;
+    exports.ɵcb = appArrowForwardIcon;
+    exports.ɵcc = appArrowUpwardIcon;
+    exports.ɵcd = appCancelBlackIcon;
+    exports.ɵce = appCheckIcon;
+    exports.ɵcf = appChevronLeftIcon;
+    exports.ɵcg = appChevronRightIcon;
+    exports.ɵch = appClearIcon;
+    exports.ɵci = appEastIcon;
+    exports.ɵcj = appExpandLessIcon;
+    exports.ɵck = appExpandMoreIcon;
+    exports.ɵcl = appFirstPageIcon;
+    exports.ɵcm = appLastPageIcon;
+    exports.ɵcn = appMoreVertIcon;
+    exports.ɵco = appRefreshIcon;
+    exports.ɵcp = appPriorityHighIcon;
+    exports.ɵcq = appSmsIcon;
+    exports.ɵcr = appPeopleIcon;
+    exports.ɵcs = appCheckBoxOutlineBlankIcon;
+    exports.ɵct = appCheckBoxIcon;
+    exports.ɵcu = appIndeterminateCheckBoxIcon;
+    exports.ɵcv = appRadioButtonCheckedIcon;
+    exports.ɵcw = appRadioButtonUncheckedIcon;
     exports.ɵd = OverlayTemplateComponent;
     exports.ɵe = OptionComponent;
     exports.ɵf = SearchService;
@@ -3078,21 +3066,21 @@
     exports.ɵi = MenuService;
     exports.ɵj = MenuItemComponent;
     exports.ɵk = MenuTriggerDirective;
-    exports.ɵl = IconComponent;
-    exports.ɵm = NZMODULES;
-    exports.ɵn = appAccountBoxIcon;
-    exports.ɵo = appCheckCircleIcon;
-    exports.ɵp = appExpandIcon;
-    exports.ɵq = appFavoriteIcon;
-    exports.ɵr = appHomeIcon;
-    exports.ɵs = appLogoutIcon;
-    exports.ɵt = appRedeemIcon;
-    exports.ɵu = appSearchIcon;
-    exports.ɵv = appSettingsIcon;
-    exports.ɵw = appErrorIcon;
-    exports.ɵx = appWarningIcon;
-    exports.ɵy = appRecentActorsIcon;
-    exports.ɵz = appCallIcon;
+    exports.ɵl = ProgressCircleComponent;
+    exports.ɵm = IconComponent;
+    exports.ɵn = NZMODULES;
+    exports.ɵo = appAccountBoxIcon;
+    exports.ɵp = appCheckCircleIcon;
+    exports.ɵq = appExpandIcon;
+    exports.ɵr = appFavoriteIcon;
+    exports.ɵs = appHomeIcon;
+    exports.ɵt = appLogoutIcon;
+    exports.ɵu = appRedeemIcon;
+    exports.ɵv = appSearchIcon;
+    exports.ɵw = appSettingsIcon;
+    exports.ɵx = appErrorIcon;
+    exports.ɵy = appWarningIcon;
+    exports.ɵz = appRecentActorsIcon;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

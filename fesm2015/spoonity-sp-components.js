@@ -1359,7 +1359,7 @@ DividerComponent.propDecorators = {
 
 class ProgressBarComponent {
     constructor() {
-        this.type = ProgressType.line;
+        this.type = 'line';
     }
     ngOnInit() {
     }
@@ -1367,7 +1367,7 @@ class ProgressBarComponent {
 ProgressBarComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-progress-bar',
-                template: "<nz-progress [nzPercent]=\"percent\" [nzShowInfo]=\"info\" [nzType]=\"type\"></nz-progress>",
+                template: "<nz-progress [nzPercent]=\"percent\" [nzShowInfo]=\"info\" [nzType]=\"type\"></nz-progress>\n",
                 styles: [""]
             },] }
 ];
@@ -2499,97 +2499,87 @@ DatePickerComponent.propDecorators = {
     nzDatePickerComponent: [{ type: ViewChild, args: [NzDatePickerComponent,] }]
 };
 
+class ProgressCircleComponent {
+    constructor() {
+        this.showPercent = true;
+        this.color = '#FF9900';
+        this.width = 45;
+        this.strokeWidth = 9;
+    }
+    ngOnInit() {
+    }
+}
+ProgressCircleComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'spt-progress-circle',
+                template: "<nz-progress [nzPercent]=\"percent\"\n             [nzShowInfo]=\"showPercent\"\n             [nzStrokeColor]=\"color\"\n             [nzWidth]=\"width\"\n             [nzStrokeWidth]=\"strokeWidth\"\n             nzType=\"circle\">\n</nz-progress>\n",
+                styles: [""]
+            },] }
+];
+ProgressCircleComponent.ctorParameters = () => [];
+ProgressCircleComponent.propDecorators = {
+    percent: [{ type: Input }],
+    showPercent: [{ type: Input }],
+    color: [{ type: Input }],
+    width: [{ type: Input }],
+    strokeWidth: [{ type: Input }]
+};
+
 registerLocaleData(en);
+const COMPONENTS = [
+    SpComponentsComponent,
+    ChipComponent,
+    ButtonComponent,
+    TextFieldComponent,
+    BannerComponent,
+    SideNavigationComponent,
+    StepsComponent,
+    DropdownComponent,
+    OptionComponent,
+    OverlayTemplateComponent,
+    SidebarComponent,
+    SearchComponent,
+    SearchTemplateComponent,
+    SearchOptionComponent,
+    BackNavigationComponent,
+    BreadcrumbComponent,
+    SnackbarComponent,
+    MenuComponent,
+    MenuTriggerDirective,
+    MenuItemComponent,
+    AvatarComponent,
+    BadgeComponent,
+    DividerComponent,
+    ProgressBarComponent,
+    ProgressCircleComponent,
+    CheckboxComponent,
+    RadioButtonComponent,
+    SwitchComponent,
+    SliderComponent,
+    TabComponent,
+    TooltipComponent,
+    ElevationComponent,
+    SpacingComponent,
+    IconComponent,
+    DataVisualizationComponent,
+    ChartComponent,
+    DialogsComponent,
+    TableComponent,
+    UploadComponent,
+    HeaderComponent,
+    CardComponent,
+    DatePickerComponent
+];
 const ɵ0 = en_US;
 class SpComponentsModule {
 }
 SpComponentsModule.decorators = [
     { type: NgModule, args: [{
                 declarations: [
-                    SpComponentsComponent,
-                    ChipComponent,
-                    ButtonComponent,
-                    TextFieldComponent,
-                    BannerComponent,
-                    SideNavigationComponent,
-                    StepsComponent,
-                    DropdownComponent,
-                    OptionComponent,
-                    OverlayTemplateComponent,
-                    SidebarComponent,
-                    SearchComponent,
-                    SearchTemplateComponent,
-                    SearchOptionComponent,
-                    BackNavigationComponent,
-                    BreadcrumbComponent,
-                    SnackbarComponent,
-                    MenuComponent,
-                    MenuTriggerDirective,
-                    MenuItemComponent,
-                    AvatarComponent,
-                    BadgeComponent,
-                    DividerComponent,
-                    ProgressBarComponent,
-                    CheckboxComponent,
-                    RadioButtonComponent,
-                    SwitchComponent,
-                    SliderComponent,
-                    TabComponent,
-                    TooltipComponent,
-                    ElevationComponent,
-                    SpacingComponent,
-                    IconComponent,
-                    DataVisualizationComponent,
-                    ChartComponent,
-                    DialogsComponent,
-                    TableComponent,
-                    UploadComponent,
-                    HeaderComponent,
-                    CardComponent,
-                    DatePickerComponent
+                    ...COMPONENTS
                 ],
                 exports: [
-                    SpComponentsComponent,
-                    ChipComponent,
-                    ButtonComponent,
-                    TextFieldComponent,
-                    BannerComponent,
-                    SideNavigationComponent,
-                    StepsComponent,
-                    DropdownComponent,
-                    OptionComponent,
-                    OverlayTemplateComponent,
-                    SidebarComponent,
-                    SearchComponent,
-                    SearchTemplateComponent,
-                    SearchOptionComponent,
-                    BackNavigationComponent,
-                    BreadcrumbComponent,
-                    SnackbarComponent,
-                    MenuComponent,
-                    MenuTriggerDirective,
-                    MenuItemComponent,
-                    AvatarComponent,
-                    BadgeComponent,
-                    DividerComponent,
-                    ProgressBarComponent,
-                    CheckboxComponent,
-                    RadioButtonComponent,
-                    SwitchComponent,
-                    SliderComponent,
-                    TabComponent,
-                    TooltipComponent,
-                    ElevationComponent,
-                    SpacingComponent,
-                    IconComponent,
-                    DataVisualizationComponent,
-                    ChartComponent,
-                    DialogsComponent,
-                    TableComponent,
-                    UploadComponent,
-                    HeaderComponent,
-                    CardComponent,
-                    DatePickerComponent
+                    ...COMPONENTS
                 ],
                 imports: [
                     CommonModule,
@@ -2612,5 +2602,5 @@ SpComponentsModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { AvatarComponent, AvatarSize, BackNavigationComponent, BadgeComponent, BreadcrumbComponent, ButtonComponent, ButtonSize, ButtonType, CardComponent, ChartComponent, ChartType, CheckboxComponent, ChipComponent, DataVisualizationComponent, DatePickerComponent, DialogsComponent, DividerComponent, DividerType, DropdownComponent, ElevationComponent, HeaderComponent, ICardType, MenuComponent, ProgressBarComponent, ProgressType, RadioButtonComponent, SearchComponent, SideNavigationComponent, SideNavigationType, SidebarComponent, SliderComponent, SnackbarComponent, SpComponentsComponent, SpComponentsModule, SpacingComponent, StepsComponent, SwitchComponent, TabComponent, TableComponent, TagType, TextFieldComponent, TooltipComponent, UploadComponent, actionIcons, alertIcons, avIcons, communicationIcons, contentIcons, fileIcons, hardwareIcons, imageIcons, mapsIcons, miscIcons, navigationIcons, notificationIcons, socialIcons, toggleIcons, ɵ0, FormFieldManager as ɵa, BannerComponent as ɵb, appEmailIcon as ɵba, appAddCircleOutlineIcon as ɵbb, appAddIcon as ɵbc, appReportIcon as ɵbd, appSendIcon as ɵbe, appUploadFileIcon as ɵbf, appKeyboardTabIcon as ɵbg, appSmartphoneIcon as ɵbh, appEditIcon as ɵbi, appWbIncandescentIcon as ɵbj, appPlaceIcon as ɵbk, appAccountBalanceIcon as ɵbl, appCalendarIcon as ɵbm, appCalendarDateRangeIcon as ɵbn, appCalendarTodayIcon as ɵbo, appCreditCard as ɵbp, appDownloadIcon as ɵbq, appScheduleIcon as ɵbr, appSettingsSuggestIcon as ɵbs, appDeleteIcon as ɵbt, appFileCopyIcon as ɵbu, appDesktopIcon as ɵbv, appLinkIcon as ɵbw, appHelpIcon as ɵbx, appArrowBackIcon as ɵby, appArrowDownwardIcon as ɵbz, DropdownService as ɵc, appArrowForwardIcon as ɵca, appArrowUpwardIcon as ɵcb, appCancelBlackIcon as ɵcc, appCheckIcon as ɵcd, appChevronLeftIcon as ɵce, appChevronRightIcon as ɵcf, appClearIcon as ɵcg, appEastIcon as ɵch, appExpandLessIcon as ɵci, appExpandMoreIcon as ɵcj, appFirstPageIcon as ɵck, appLastPageIcon as ɵcl, appMoreVertIcon as ɵcm, appRefreshIcon as ɵcn, appPriorityHighIcon as ɵco, appSmsIcon as ɵcp, appPeopleIcon as ɵcq, appCheckBoxOutlineBlankIcon as ɵcr, appCheckBoxIcon as ɵcs, appIndeterminateCheckBoxIcon as ɵct, appRadioButtonCheckedIcon as ɵcu, appRadioButtonUncheckedIcon as ɵcv, OverlayTemplateComponent as ɵd, OptionComponent as ɵe, SearchService as ɵf, SearchOptionComponent as ɵg, SearchTemplateComponent as ɵh, MenuService as ɵi, MenuItemComponent as ɵj, MenuTriggerDirective as ɵk, IconComponent as ɵl, NZMODULES as ɵm, appAccountBoxIcon as ɵn, appCheckCircleIcon as ɵo, appExpandIcon as ɵp, appFavoriteIcon as ɵq, appHomeIcon as ɵr, appLogoutIcon as ɵs, appRedeemIcon as ɵt, appSearchIcon as ɵu, appSettingsIcon as ɵv, appErrorIcon as ɵw, appWarningIcon as ɵx, appRecentActorsIcon as ɵy, appCallIcon as ɵz };
+export { AvatarComponent, AvatarSize, BackNavigationComponent, BadgeComponent, BreadcrumbComponent, ButtonComponent, ButtonSize, ButtonType, CardComponent, ChartComponent, ChartType, CheckboxComponent, ChipComponent, DataVisualizationComponent, DatePickerComponent, DialogsComponent, DividerComponent, DividerType, DropdownComponent, ElevationComponent, HeaderComponent, ICardType, MenuComponent, ProgressBarComponent, ProgressType, RadioButtonComponent, SearchComponent, SideNavigationComponent, SideNavigationType, SidebarComponent, SliderComponent, SnackbarComponent, SpComponentsComponent, SpComponentsModule, SpacingComponent, StepsComponent, SwitchComponent, TabComponent, TableComponent, TagType, TextFieldComponent, TooltipComponent, UploadComponent, actionIcons, alertIcons, avIcons, communicationIcons, contentIcons, fileIcons, hardwareIcons, imageIcons, mapsIcons, miscIcons, navigationIcons, notificationIcons, socialIcons, toggleIcons, ɵ0, FormFieldManager as ɵa, BannerComponent as ɵb, appCallIcon as ɵba, appEmailIcon as ɵbb, appAddCircleOutlineIcon as ɵbc, appAddIcon as ɵbd, appReportIcon as ɵbe, appSendIcon as ɵbf, appUploadFileIcon as ɵbg, appKeyboardTabIcon as ɵbh, appSmartphoneIcon as ɵbi, appEditIcon as ɵbj, appWbIncandescentIcon as ɵbk, appPlaceIcon as ɵbl, appAccountBalanceIcon as ɵbm, appCalendarIcon as ɵbn, appCalendarDateRangeIcon as ɵbo, appCalendarTodayIcon as ɵbp, appCreditCard as ɵbq, appDownloadIcon as ɵbr, appScheduleIcon as ɵbs, appSettingsSuggestIcon as ɵbt, appDeleteIcon as ɵbu, appFileCopyIcon as ɵbv, appDesktopIcon as ɵbw, appLinkIcon as ɵbx, appHelpIcon as ɵby, appArrowBackIcon as ɵbz, DropdownService as ɵc, appArrowDownwardIcon as ɵca, appArrowForwardIcon as ɵcb, appArrowUpwardIcon as ɵcc, appCancelBlackIcon as ɵcd, appCheckIcon as ɵce, appChevronLeftIcon as ɵcf, appChevronRightIcon as ɵcg, appClearIcon as ɵch, appEastIcon as ɵci, appExpandLessIcon as ɵcj, appExpandMoreIcon as ɵck, appFirstPageIcon as ɵcl, appLastPageIcon as ɵcm, appMoreVertIcon as ɵcn, appRefreshIcon as ɵco, appPriorityHighIcon as ɵcp, appSmsIcon as ɵcq, appPeopleIcon as ɵcr, appCheckBoxOutlineBlankIcon as ɵcs, appCheckBoxIcon as ɵct, appIndeterminateCheckBoxIcon as ɵcu, appRadioButtonCheckedIcon as ɵcv, appRadioButtonUncheckedIcon as ɵcw, OverlayTemplateComponent as ɵd, OptionComponent as ɵe, SearchService as ɵf, SearchOptionComponent as ɵg, SearchTemplateComponent as ɵh, MenuService as ɵi, MenuItemComponent as ɵj, MenuTriggerDirective as ɵk, ProgressCircleComponent as ɵl, IconComponent as ɵm, NZMODULES as ɵn, appAccountBoxIcon as ɵo, appCheckCircleIcon as ɵp, appExpandIcon as ɵq, appFavoriteIcon as ɵr, appHomeIcon as ɵs, appLogoutIcon as ɵt, appRedeemIcon as ɵu, appSearchIcon as ɵv, appSettingsIcon as ɵw, appErrorIcon as ɵx, appWarningIcon as ɵy, appRecentActorsIcon as ɵz };
 //# sourceMappingURL=spoonity-sp-components.js.map
