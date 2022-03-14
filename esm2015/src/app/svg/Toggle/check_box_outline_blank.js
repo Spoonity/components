@@ -1,5 +1,0 @@
-export const appCheckBoxOutlineBlankIcon = {
-    data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h14v14zm0-16H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" fill="#0D0C0B"/></svg>`,
-    name: 'check-box-outline-blank'
-};
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2hlY2tfYm94X291dGxpbmVfYmxhbmsuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi9zcmMvYXBwL3N2Zy9Ub2dnbGUvY2hlY2tfYm94X291dGxpbmVfYmxhbmsudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsTUFBTSxDQUFDLE1BQU0sMkJBQTJCLEdBQUc7SUFDdkMsSUFBSSxFQUFFLHdNQUF3TTtJQUM5TSxJQUFJLEVBQUUseUJBQXlCO0NBQ2xDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY29uc3QgYXBwQ2hlY2tCb3hPdXRsaW5lQmxhbmtJY29uID0ge1xuICAgIGRhdGE6IGA8c3ZnIGZpbGw9XCJub25lXCIgeG1sbnM9XCJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Z1wiIHZpZXdCb3g9XCIwIDAgMjQgMjRcIj48cGF0aCBkPVwiTTE5IDE5SDVWNWgxNHYxNHptMC0xNkg1Yy0xLjEgMC0yIC45LTIgMnYxNGMwIDEuMS45IDIgMiAyaDE0YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6XCIgZmlsbD1cIiMwRDBDMEJcIi8+PC9zdmc+YCxcbiAgICBuYW1lOiAnY2hlY2stYm94LW91dGxpbmUtYmxhbmsnXG59OyJdfQ==
