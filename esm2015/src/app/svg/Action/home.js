@@ -1,0 +1,5 @@
+export const appHomeIcon = {
+    data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.8 3.9l-6 4.5c-.5.38-.8.97-.8 1.6v9c0 1.1.9 2 2 2h4v-7h4v7h4c1.1 0 2-.9 2-2v-9c0-.63-.3-1.22-.8-1.6l-6-4.5a2.01 2.01 0 00-2.4 0z" fill="#0D0C0B"/></svg>`,
+    name: 'home'
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaG9tZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3NyYy9hcHAvc3ZnL0FjdGlvbi9ob21lLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE1BQU0sQ0FBQyxNQUFNLFdBQVcsR0FBRztJQUN2QixJQUFJLEVBQUUsOE9BQThPO0lBQ3BQLElBQUksRUFBRSxNQUFNO0NBQ2YsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjb25zdCBhcHBIb21lSWNvbiA9IHtcbiAgICBkYXRhOiBgPHN2ZyBmaWxsPVwibm9uZVwiIHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIiB2aWV3Qm94PVwiMCAwIDI0IDI0XCI+PHBhdGggZD1cIk0xMC44IDMuOWwtNiA0LjVjLS41LjM4LS44Ljk3LS44IDEuNnY5YzAgMS4xLjkgMiAyIDJoNHYtN2g0djdoNGMxLjEgMCAyLS45IDItMnYtOWMwLS42My0uMy0xLjIyLS44LTEuNmwtNi00LjVhMi4wMSAyLjAxIDAgMDAtMi40IDB6XCIgZmlsbD1cIiMwRDBDMEJcIi8+PC9zdmc+YCxcbiAgICBuYW1lOiAnaG9tZSdcbn07Il19
