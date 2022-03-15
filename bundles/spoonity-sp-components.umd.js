@@ -2611,20 +2611,44 @@
         name: 'credit-card'
     };
 
+    var appAnalyticsIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-5h2v5zm4 0h-2v-3h2v3zm0-5h-2v-2h2v2zm4 5h-2V7h2v10z\"/></svg>",
+        name: 'analytics'
+    };
+
+    var appConnectIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path fill=\"none\" d=\"M0 0h24v24H0z\"/><path d=\"M11 14H9a9 9 0 019-9v2c-3.87 0-7 3.13-7 7zm7-3V9c-2.76 0-5 2.24-5 5h2c0-1.66 1.34-3 3-3zM7 4c0-1.11-.89-2-2-2s-2 .89-2 2 .89 2 2 2 2-.89 2-2zm4.45.5h-2A2.99 2.99 0 016.5 7h-3C2.67 7 2 7.67 2 8.5V11h6V8.74a4.97 4.97 0 003.45-4.24zM19 17c1.11 0 2-.89 2-2s-.89-2-2-2-2 .89-2 2 .89 2 2 2zm1.5 1h-3a2.99 2.99 0 01-2.95-2.5h-2A4.97 4.97 0 0016 19.74V22h6v-2.5c0-.83-.67-1.5-1.5-1.5z\"/></svg>",
+        name: 'connect'
+    };
+
+    var appLoyaltyIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7zm11.77 8.27L13 19.54l-4.27-4.27A2.5 2.5 0 0110.5 11c.69 0 1.32.28 1.77.74l.73.72.73-.73a2.5 2.5 0 013.54 3.54z\"/></svg>",
+        name: 'loyalty'
+    };
+
+    var appPaymentsIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M19 14V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-9-1c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-6v11c0 1.1-.9 2-2 2H4v-2h17V7h2z\"/></svg>",
+        name: 'payments'
+    };
+
     var miscIcons = [
         appAccountBalanceIcon,
+        appAnalyticsIcon,
         appCalendarIcon,
         appCalendarDateRangeIcon,
         appCalendarTodayIcon,
+        appConnectIcon,
         appCreditCard,
-        appDownloadIcon,
-        appScheduleIcon,
-        appSettingsSuggestIcon,
         appDeleteIcon,
-        appFileCopyIcon,
         appDesktopIcon,
+        appDownloadIcon,
+        appFileCopyIcon,
+        appHelpIcon,
         appLinkIcon,
-        appHelpIcon
+        appLoyaltyIcon,
+        appPaymentsIcon,
+        appScheduleIcon,
+        appSettingsSuggestIcon
     ];
 
     var appArrowBackIcon = {
@@ -3063,43 +3087,47 @@
     exports.ɵbj = appWbIncandescentIcon;
     exports.ɵbk = appPlaceIcon;
     exports.ɵbl = appAccountBalanceIcon;
-    exports.ɵbm = appCalendarIcon;
-    exports.ɵbn = appCalendarDateRangeIcon;
-    exports.ɵbo = appCalendarTodayIcon;
-    exports.ɵbp = appCreditCard;
-    exports.ɵbq = appDownloadIcon;
-    exports.ɵbr = appScheduleIcon;
-    exports.ɵbs = appSettingsSuggestIcon;
-    exports.ɵbt = appDeleteIcon;
-    exports.ɵbu = appFileCopyIcon;
-    exports.ɵbv = appDesktopIcon;
-    exports.ɵbw = appLinkIcon;
-    exports.ɵbx = appHelpIcon;
-    exports.ɵby = appArrowBackIcon;
-    exports.ɵbz = appArrowDownwardIcon;
+    exports.ɵbm = appAnalyticsIcon;
+    exports.ɵbn = appCalendarIcon;
+    exports.ɵbo = appCalendarDateRangeIcon;
+    exports.ɵbp = appCalendarTodayIcon;
+    exports.ɵbq = appConnectIcon;
+    exports.ɵbr = appCreditCard;
+    exports.ɵbs = appDeleteIcon;
+    exports.ɵbt = appDesktopIcon;
+    exports.ɵbu = appDownloadIcon;
+    exports.ɵbv = appFileCopyIcon;
+    exports.ɵbw = appHelpIcon;
+    exports.ɵbx = appLinkIcon;
+    exports.ɵby = appLoyaltyIcon;
+    exports.ɵbz = appPaymentsIcon;
     exports.ɵc = DropdownService;
-    exports.ɵca = appArrowForwardIcon;
-    exports.ɵcb = appArrowUpwardIcon;
-    exports.ɵcc = appCancelBlackIcon;
-    exports.ɵcd = appCheckIcon;
-    exports.ɵce = appChevronLeftIcon;
-    exports.ɵcf = appChevronRightIcon;
-    exports.ɵcg = appClearIcon;
-    exports.ɵch = appEastIcon;
-    exports.ɵci = appExpandLessIcon;
-    exports.ɵcj = appExpandMoreIcon;
-    exports.ɵck = appFirstPageIcon;
-    exports.ɵcl = appLastPageIcon;
-    exports.ɵcm = appMoreVertIcon;
-    exports.ɵcn = appRefreshIcon;
-    exports.ɵco = appPriorityHighIcon;
-    exports.ɵcp = appSmsIcon;
-    exports.ɵcq = appPeopleIcon;
-    exports.ɵcr = appCheckBoxOutlineBlankIcon;
-    exports.ɵcs = appCheckBoxIcon;
-    exports.ɵct = appIndeterminateCheckBoxIcon;
-    exports.ɵcu = appRadioButtonCheckedIcon;
-    exports.ɵcv = appRadioButtonUncheckedIcon;
+    exports.ɵca = appScheduleIcon;
+    exports.ɵcb = appSettingsSuggestIcon;
+    exports.ɵcc = appArrowBackIcon;
+    exports.ɵcd = appArrowDownwardIcon;
+    exports.ɵce = appArrowForwardIcon;
+    exports.ɵcf = appArrowUpwardIcon;
+    exports.ɵcg = appCancelBlackIcon;
+    exports.ɵch = appCheckIcon;
+    exports.ɵci = appChevronLeftIcon;
+    exports.ɵcj = appChevronRightIcon;
+    exports.ɵck = appClearIcon;
+    exports.ɵcl = appEastIcon;
+    exports.ɵcm = appExpandLessIcon;
+    exports.ɵcn = appExpandMoreIcon;
+    exports.ɵco = appFirstPageIcon;
+    exports.ɵcp = appLastPageIcon;
+    exports.ɵcq = appMoreVertIcon;
+    exports.ɵcr = appRefreshIcon;
+    exports.ɵcs = appPriorityHighIcon;
+    exports.ɵct = appSmsIcon;
+    exports.ɵcu = appPeopleIcon;
+    exports.ɵcv = appCheckBoxOutlineBlankIcon;
+    exports.ɵcw = appCheckBoxIcon;
+    exports.ɵcx = appIndeterminateCheckBoxIcon;
+    exports.ɵcy = appRadioButtonCheckedIcon;
+    exports.ɵcz = appRadioButtonUncheckedIcon;
     exports.ɵd = OverlayTemplateComponent;
     exports.ɵe = OptionComponent;
     exports.ɵf = SearchService;
