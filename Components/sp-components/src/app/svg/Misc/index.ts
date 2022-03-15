@@ -11,19 +11,27 @@ import { appLinkIcon } from './link';
 import { appHelpIcon } from './help';
 import { appAccountBalanceIcon } from './account_balance';
 import { appCreditCard } from './credit_card';
+import { appAnalyticsIcon } from './analytics';
+import { appConnectIcon } from './connect';
+import { appLoyaltyIcon } from './loyalty';
+import { appPaymentsIcon } from './payments';
 
 export const miscIcons = [
   appAccountBalanceIcon,
+  appAnalyticsIcon,
   appCalendarIcon,
   appCalendarDateRangeIcon,
   appCalendarTodayIcon,
+  appConnectIcon,
   appCreditCard,
-  appDownloadIcon,
-  appScheduleIcon,
-  appSettingsSuggestIcon,
   appDeleteIcon,
-  appFileCopyIcon,
   appDesktopIcon,
+  appDownloadIcon,
+  appFileCopyIcon,
+  appHelpIcon,
   appLinkIcon,
-  appHelpIcon
+  appLoyaltyIcon,
+  appPaymentsIcon,
+  appScheduleIcon,
+  appSettingsSuggestIcon
 ];
