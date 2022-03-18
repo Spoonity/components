@@ -43,6 +43,9 @@ export class MenuComponent implements OnInit {
   @Input() selectedItems: string[] = [];
   @Output() selectedItemsChange: EventEmitter<string[]> = new EventEmitter<string[]>();
 
+  /* on menu hide */
+  @Output() onMenuHide: EventEmitter<void> = new EventEmitter<void>();
+
   /* search input element */
   @ViewChild('searchEl')
   public searchEl: ElementRef;
@@ -105,6 +108,7 @@ export class MenuComponent implements OnInit {
     this.menu.hide();
     this.searchModel = '';
     this.searchModelChange.emit(this.searchModel);
+    this.onMenuHide.emit();
   }
 
   /**
