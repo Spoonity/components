@@ -11,7 +11,7 @@ export declare class MenuComponent implements OnInit {
     toggleSelectAll: EventEmitter<any>;
     searchModel: string;
     searchModelChange: EventEmitter<any>;
-    selectedItems: string[];
+    selectedItems: any[];
     selectedItemsChange: EventEmitter<any>;
     searchEl: ElementRef;
     menu: OverlayTemplateComponent;
