@@ -21,6 +21,9 @@ export class MenuItemComponent implements OnInit {
   /* checkbox model (for multiple selections) */
   @Input() public checkboxModel: boolean;
 
+  /* for multiple selection: a menu item that has no checkbox **/
+  @Input() public unselectable: boolean;
+
   /* bind class.active */
   @HostBinding('class.active')
   public active = false;

@@ -1,4 +1,4 @@
-<div class="menu-item" [ngClass]="{'multiple-menu-item': isMultiple(), 'single-menu-item': !isMultiple(), 'selected-item': isMultiple() && checkboxModel}">
+<div class="menu-item" [ngClass]="{'multiple-menu-item': isMultiple(), 'single-menu-item': !isMultiple(), 'selected-item': isMultiple() && checkboxModel && !unselectable}">
 
     <!---- start icon ---->
     <div class="menu-icon" *ngIf="!!startIcon">
@@ -6,7 +6,7 @@
     </div>
 
     <!---- left checkbox (if there is no start icon) ---->
-    <div *ngIf="isMultiple() && !startIcon">
+    <div *ngIf="isMultiple() && !startIcon && !unselectable">
         <label nz-checkbox nzValue="{{checkboxModel}}" [(ngModel)]="checkboxModel" (ngModelChange)="selectItem()"></label>
     </div>
 
@@ -14,7 +14,7 @@
     <div [ngClass]="{'label': !!startIcon || isMultiple()}"><ng-content></ng-content></div>
 
     <!---- right checkbox (if there is a start icon) ---->
-    <div *ngIf="isMultiple() && !!startIcon" class="right-checkbox">
+    <div *ngIf="isMultiple() && !!startIcon && !unselectable" class="right-checkbox">
         <label nz-checkbox nzValue="{{checkboxModel}}" [(ngModel)]="checkboxModel" (ngModelChange)="selectItem()"></label>
     </div>
 </div>

@@ -135,6 +135,10 @@ export class MenuComponent implements OnInit {
         this.hideMenu();
       }
     } else {
+      if (item.unselectable) {
+        this.hideMenu();
+        return;
+      }
       if (item.checkboxModel) {
         if (!this.selectedItems.includes(item.itemId)) {
           this.selectedItems.push(item.itemId);

@@ -82,6 +82,7 @@
                 <spt-button text="menu" [spMenuTrigger]="menu5"></spt-button>
                 <spt-menu #menu5 [multiple]="true" [(selectedItems)]="selectedItems1">
                     <spt-menu-item itemId="{{f.id}}" *ngFor="let f of menuItems">{{f.text}}</spt-menu-item>
+                    <spt-menu-item unselectable="true" startIcon="favorite"><em>save</em></spt-menu-item>
                 </spt-menu>
             </div>
             <div class="spt-spacing--2 spt-elevation--1 menu-action">
