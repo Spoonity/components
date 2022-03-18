@@ -10,7 +10,7 @@ import {error} from 'util';
 })
 export class MenuItemComponent implements OnInit {
   /* item id */
-  @Input() public itemId: string;
+  @Input() public itemId: any;
 
   /* start icon */
   @Input() public startIcon: string;
