@@ -6,6 +6,7 @@ export declare class MenuItemComponent implements OnInit {
     startIcon: string;
     preventClose: boolean;
     checkboxModel: boolean;
+    unselectable: boolean;
     active: boolean;
     private menu;
     onClick(event: UIEvent): void;

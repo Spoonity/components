@@ -1353,7 +1353,7 @@
     MenuItemComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-menu-item',
-                    template: "<div class=\"menu-item\" [ngClass]=\"{'multiple-menu-item': isMultiple(), 'single-menu-item': !isMultiple(), 'selected-item': isMultiple() && checkboxModel}\">\n\n    <!---- start icon ---->\n    <div class=\"menu-icon\" *ngIf=\"!!startIcon\">\n        <svg-icon *ngIf=\"!!startIcon\" nz-icon [name]=\"startIcon\" [svgStyle]=\"{ 'width.px':20, 'height.px':20 }\"></svg-icon>\n    </div>\n\n    <!---- left checkbox (if there is no start icon) ---->\n    <div *ngIf=\"isMultiple() && !startIcon\">\n        <label nz-checkbox nzValue=\"{{checkboxModel}}\" [(ngModel)]=\"checkboxModel\" (ngModelChange)=\"selectItem()\"></label>\n    </div>\n\n    <!---- label ---->\n    <div [ngClass]=\"{'label': !!startIcon || isMultiple()}\"><ng-content></ng-content></div>\n\n    <!---- right checkbox (if there is a start icon) ---->\n    <div *ngIf=\"isMultiple() && !!startIcon\" class=\"right-checkbox\">\n        <label nz-checkbox nzValue=\"{{checkboxModel}}\" [(ngModel)]=\"checkboxModel\" (ngModelChange)=\"selectItem()\"></label>\n    </div>\n</div>\n",
+                    template: "<div class=\"menu-item\" [ngClass]=\"{'multiple-menu-item': isMultiple(), 'single-menu-item': !isMultiple(), 'selected-item': isMultiple() && checkboxModel && !unselectable}\">\n\n    <!---- start icon ---->\n    <div class=\"menu-icon\" *ngIf=\"!!startIcon\">\n        <svg-icon *ngIf=\"!!startIcon\" nz-icon [name]=\"startIcon\" [svgStyle]=\"{ 'width.px':20, 'height.px':20 }\"></svg-icon>\n    </div>\n\n    <!---- left checkbox (if there is no start icon) ---->\n    <div *ngIf=\"isMultiple() && !startIcon && !unselectable\">\n        <label nz-checkbox nzValue=\"{{checkboxModel}}\" [(ngModel)]=\"checkboxModel\" (ngModelChange)=\"selectItem()\"></label>\n    </div>\n\n    <!---- label ---->\n    <div [ngClass]=\"{'label': !!startIcon || isMultiple()}\"><ng-content></ng-content></div>\n\n    <!---- right checkbox (if there is a start icon) ---->\n    <div *ngIf=\"isMultiple() && !!startIcon && !unselectable\" class=\"right-checkbox\">\n        <label nz-checkbox nzValue=\"{{checkboxModel}}\" [(ngModel)]=\"checkboxModel\" (ngModelChange)=\"selectItem()\"></label>\n    </div>\n</div>\n",
                     styles: [".options-container{display:block;height:2.5rem;line-height:2.5rem;color:#4f4e4d;background-color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-webkit-user-select:none;-moz-user-select:none;user-select:none;cursor:pointer}.options-container div{padding:0 5px}.option-item-active{background-color:#f3f3f3;outline:none}@media screen and (-ms-high-contrast:active){.option-item-active{background-color:#f3f3f3}}.menu-item{display:block;height:2.5rem;line-height:2.5rem;color:#4f4e4d;background-color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-webkit-user-select:none;-moz-user-select:none;user-select:none;cursor:pointer}.menu-item div{padding:0 5px}.menu-item.selected,.menu-item:hover{background-color:#f3f3f3;outline:none}@media screen and (-ms-high-contrast:active){.menu-item.selected,.menu-item:hover{background-color:#f3f3f3}}.menu-item.selected{font-weight:700}.menu-item.active,.menu-item:hover{background-color:#f3f3f3;outline:none}@media screen and (-ms-high-contrast:active){.menu-item.active,.menu-item:hover{background-color:#f3f3f3}}.menu-item:active{background-color:#e2e2e2;outline:none}@media screen and (-ms-high-contrast:active){.menu-item:active{background-color:#e2e2e2}}.menu-item.multiple-menu-item:active{background-color:#ffe1b4!important}.menu-item.selected-item{background-color:#fff3e0}.menu-item.disabled{color:#93a1aa;cursor:auto}.menu-item.disabled:focus,.menu-item.disabled:hover{outline:none;background-color:#fff}@media screen and (-ms-high-contrast:active){.menu-item.disabled:focus,.menu-item.disabled:hover{background-color:#fff}}.menu-item .menu-icon svg path:last-child{fill:#706f6e}.menu-item .label{margin-left:10px}.menu-icon,.menu-item{display:flex;align-items:center}.right-checkbox{margin-left:auto}"]
                 },] }
     ];
@@ -1365,6 +1365,7 @@
         startIcon: [{ type: core.Input }],
         preventClose: [{ type: core.Input }],
         checkboxModel: [{ type: core.Input }],
+        unselectable: [{ type: core.Input }],
         active: [{ type: core.HostBinding, args: ['class.active',] }],
         onClick: [{ type: core.HostListener, args: ['click', ['$event'],] }]
     };
@@ -1444,6 +1445,10 @@
                 }
             }
             else {
+                if (item.unselectable) {
+                    this.hideMenu();
+                    return;
+                }
                 if (item.checkboxModel) {
                     if (!this.selectedItems.includes(item.itemId)) {
                         this.selectedItems.push(item.itemId);
