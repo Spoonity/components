@@ -81,8 +81,8 @@
             <div>
                 <spt-button text="menu" [spMenuTrigger]="menu5"></spt-button>
                 <spt-menu #menu5 [multiple]="true" [(selectedItems)]="selectedItems1">
-                    <spt-menu-item itemId="{{f.id}}" *ngFor="let f of menuItems">{{f.text}}</spt-menu-item>
-                    <spt-menu-item unselectable="true" startIcon="favorite"><em>save</em></spt-menu-item>
+                    <spt-menu-item itemId="{{f.id}}" *ngFor="let f of menuItems" [isChecked]="selectedItems1 && selectedItems1.includes(f.id.toString())">{{f.text}}</spt-menu-item>
+                    <spt-menu-item itemId="999" unselectable="true" startIcon="favorite"><em>save</em></spt-menu-item>
                 </spt-menu>
             </div>
             <div class="spt-spacing--2 spt-elevation--1 menu-action">
@@ -148,7 +148,7 @@
                     <spt-menu-item *ngFor="let f of filteredMenuItems4"
                                   startIcon="favorite"
                                   itemId="{{f.id}}"
-                                  [checkboxModel]="selectedItems4 && selectedItems4.includes(f.id.toString())">{{f.text}}</spt-menu-item>
+                                  [isChecked]="selectedItems4 && selectedItems4.includes(f.id.toString())">{{f.text}}</spt-menu-item>
                 </spt-menu>
             </div>
             <div class="spt-spacing--2 spt-elevation--1 menu-action">
@@ -176,7 +176,7 @@
                          (toggleSelectAll)="toggleSelectAll($event)">
                     <spt-menu-item *ngFor="let f of filteredMenuItems5"
                                   itemId="{{f.id}}"
-                                  [checkboxModel]="selectedItems5 && selectedItems5.includes(f.id.toString())">{{f.text}}</spt-menu-item>
+                                  [isChecked]="selectedItems5 && selectedItems5.includes(f.id.toString())">{{f.text}}</spt-menu-item>
                 </spt-menu>
             </div>
             <div class="spt-spacing--2 spt-elevation--1 menu-action">

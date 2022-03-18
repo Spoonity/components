@@ -10,7 +10,7 @@ import {error} from 'util';
 })
 export class MenuItemComponent implements OnInit {
   /* item id */
-  @Input() public itemId: any;
+  @Input() public itemId: string;
 
   /* start icon */
   @Input() public startIcon: string;
@@ -19,7 +19,7 @@ export class MenuItemComponent implements OnInit {
   @Input() public preventClose: boolean;
 
   /* checkbox model (for multiple selections) */
-  @Input() public checkboxModel: boolean;
+  @Input() public isChecked: boolean;
 
   /* for multiple selection: a menu item that has no checkbox **/
   @Input() public unselectable: boolean;
@@ -36,7 +36,7 @@ export class MenuItemComponent implements OnInit {
   public onClick(event: UIEvent) {
     event.preventDefault();
     event.stopPropagation();
-    this.checkboxModel = !this.checkboxModel;
+    this.isChecked = !this.isChecked;
     this.menu.selectMenuItem(this);
   }
 

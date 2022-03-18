@@ -17,11 +17,11 @@ export class MenuExampleComponent implements OnInit {
   searchModel4: string;
   searchModel5: string;
 
-  selectedItems1: string[] = [];
-  selectedItems2: string[] = [];
-  selectedItems3: string[] = [];
-  selectedItems4: string[] = [];
-  selectedItems5: string[] = [];
+  selectedItems1 = ['0', '1'];
+  selectedItems2 = [];
+  selectedItems3 = [];
+  selectedItems4 = [];
+  selectedItems5 = [];
 
   menuItems = [
     {id: 0, text: 'A - option 1', icon: 'favorite'},

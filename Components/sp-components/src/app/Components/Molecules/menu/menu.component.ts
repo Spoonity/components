@@ -40,8 +40,8 @@ export class MenuComponent implements OnInit {
   @Output() searchModelChange: EventEmitter<any> = new EventEmitter<any>();
 
   /* selected items list (two-way binding) */
-  @Input() selectedItems: any[] = [];
-  @Output() selectedItemsChange: EventEmitter<any> = new EventEmitter<any>();
+  @Input() selectedItems: string[] = [];
+  @Output() selectedItemsChange: EventEmitter<string[]> = new EventEmitter<string[]>();
 
   /* search input element */
   @ViewChild('searchEl')
@@ -139,12 +139,12 @@ export class MenuComponent implements OnInit {
         this.hideMenu();
         return;
       }
-      if (item.checkboxModel) {
-        if (!this.selectedItems.includes(item.itemId)) {
-          this.selectedItems.push(item.itemId);
+      if (item.isChecked) {
+        if (!this.selectedItems.includes(item.itemId.toString())) {
+          this.selectedItems.push(item.itemId.toString());
         }
       } else {
-        this.selectedItems = Array.from(this.selectedItems.filter((s: string) => s !== item.itemId));
+        this.selectedItems = Array.from(this.selectedItems.filter(s => s.toString() !== item.itemId.toString()));
         if (this.selectAllOption) {
           this.selectAll = false;
         }
