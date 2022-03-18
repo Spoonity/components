@@ -2,10 +2,10 @@ import { OnInit } from '@angular/core';
 import { MenuService } from '../menu.service';
 export declare class MenuItemComponent implements OnInit {
     private _menuService;
-    itemId: any;
+    itemId: string;
     startIcon: string;
     preventClose: boolean;
-    checkboxModel: boolean;
+    isChecked: boolean;
     unselectable: boolean;
     active: boolean;
     private menu;
