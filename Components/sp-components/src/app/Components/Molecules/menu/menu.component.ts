@@ -40,7 +40,7 @@ export class MenuComponent implements OnInit {
   @Output() searchModelChange: EventEmitter<any> = new EventEmitter<any>();
 
   /* selected items list (two-way binding) */
-  @Input() selectedItems: string[] = [];
+  @Input() selectedItems: any[] = [];
   @Output() selectedItemsChange: EventEmitter<any> = new EventEmitter<any>();
 
   /* search input element */
