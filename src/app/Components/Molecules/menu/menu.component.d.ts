@@ -13,6 +13,7 @@ export declare class MenuComponent implements OnInit {
     searchModelChange: EventEmitter<any>;
     selectedItems: string[];
     selectedItemsChange: EventEmitter<string[]>;
+    onMenuHide: EventEmitter<void>;
     searchEl: ElementRef;
     menu: OverlayTemplateComponent;
     menuItems: QueryList<MenuItemComponent>;

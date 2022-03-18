@@ -1069,6 +1069,8 @@ class MenuComponent {
         /* selected items list (two-way binding) */
         this.selectedItems = [];
         this.selectedItemsChange = new EventEmitter();
+        /* on menu hide */
+        this.onMenuHide = new EventEmitter();
         /* is the menu showing */
         this._menuShowing = false;
         this._menuService.register(this);
@@ -1106,6 +1108,7 @@ class MenuComponent {
         this.menu.hide();
         this.searchModel = '';
         this.searchModelChange.emit(this.searchModel);
+        this.onMenuHide.emit();
     }
     /**
      * visibility state of the overlay template
@@ -1192,6 +1195,7 @@ MenuComponent.propDecorators = {
     searchModelChange: [{ type: Output }],
     selectedItems: [{ type: Input }],
     selectedItemsChange: [{ type: Output }],
+    onMenuHide: [{ type: Output }],
     searchEl: [{ type: ViewChild, args: ['searchEl',] }],
     menu: [{ type: ViewChild, args: [OverlayTemplateComponent,] }],
     menuItems: [{ type: ContentChildren, args: [MenuItemComponent,] }]

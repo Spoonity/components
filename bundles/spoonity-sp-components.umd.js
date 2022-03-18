@@ -1381,6 +1381,8 @@
             /* selected items list (two-way binding) */
             this.selectedItems = [];
             this.selectedItemsChange = new core.EventEmitter();
+            /* on menu hide */
+            this.onMenuHide = new core.EventEmitter();
             /* is the menu showing */
             this._menuShowing = false;
             this._menuService.register(this);
@@ -1418,6 +1420,7 @@
             this.menu.hide();
             this.searchModel = '';
             this.searchModelChange.emit(this.searchModel);
+            this.onMenuHide.emit();
         };
         /**
          * visibility state of the overlay template
@@ -1505,6 +1508,7 @@
         searchModelChange: [{ type: core.Output }],
         selectedItems: [{ type: core.Input }],
         selectedItemsChange: [{ type: core.Output }],
+        onMenuHide: [{ type: core.Output }],
         searchEl: [{ type: core.ViewChild, args: ['searchEl',] }],
         menu: [{ type: core.ViewChild, args: [OverlayTemplateComponent,] }],
         menuItems: [{ type: core.ContentChildren, args: [MenuItemComponent,] }]
