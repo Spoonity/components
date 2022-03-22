@@ -832,10 +832,10 @@
             var _this = this;
             setTimeout(function () {
                 if (_this.selectMultiple) {
-                    _this._updateValueOnMultiple();
+                    _this._initializeValueOnMultiple();
                 }
                 else {
-                    _this._updateValueOnSingle();
+                    _this._initializeValueOnSingle();
                     _this.keyManager = new a11y.ActiveDescendantKeyManager(_this.options)
                         .withHorizontalOrientation('ltr')
                         .withVerticalOrientation()
@@ -844,18 +844,24 @@
                 _this.checkDirty();
             }, 100);
         };
-        DropdownComponent.prototype._updateValueOnMultiple = function () {
+        DropdownComponent.prototype._initializeValueOnMultiple = function () {
             var _this = this;
             this.options.toArray().forEach(function (o) {
                 if (_this.multiple_selected.includes(o.value)) {
-                    _this.selectOption(o);
+                    if (!_this.multiple_selected.includes(o.value)) {
+                        _this.multiple_selected.push(o.value);
+                    }
+                    if (!_this.multiple_selectedOptions.find(function (o1) { return o1.value === o.value; })) {
+                        _this.multiple_selectedOptions.push(o);
+                        o.checkboxModel = true;
+                    }
                 }
             });
             this.value = this.multiple_selectedOptions.length ?
                 Array.from(this.multiple_selectedOptions, function (o) { return o.text; }).join(', ')
                 : '';
         };
-        DropdownComponent.prototype._updateValueOnSingle = function () {
+        DropdownComponent.prototype._initializeValueOnSingle = function () {
             var _this = this;
             this.single_selectedOption = this.options.toArray().find(function (option) { return option.value === _this.single_selected; });
             this.value = this.single_selectedOption ? this.single_selectedOption.text : '';
@@ -868,16 +874,16 @@
             if (obj !== undefined) {
                 if (this.selectMultiple) {
                     if (Array.isArray(obj)) {
-                        this.multiple_selected = obj;
+                        this.multiple_selected = __spread(obj);
                         if (this.options) {
-                            this._updateValueOnMultiple();
+                            this._initializeValueOnMultiple();
                         }
                     }
                 }
                 else {
                     this.single_selected = obj;
                     if (this.options) {
-                        this._updateValueOnSingle();
+                        this._initializeValueOnSingle();
                     }
                 }
                 this.checkDirty();
