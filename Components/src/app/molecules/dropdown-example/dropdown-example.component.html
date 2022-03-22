@@ -276,7 +276,7 @@
             </div>
 
             <div class="spt-spacing-bottom--4">
-                <spt-dropdown label="ngModel 2 (multiple)" [(ngModel)]="model3" [ngModelOptions]="{standalone: true}" [selectMultiple]="true">
+                <spt-dropdown label="ngModel 2 (multiple)" [(ngModel)]="model3" [ngModelOptions]="{standalone: true}" [selectMultiple]="true" hint="initialized with ngModel">
                     <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
                 </spt-dropdown>
             </div>

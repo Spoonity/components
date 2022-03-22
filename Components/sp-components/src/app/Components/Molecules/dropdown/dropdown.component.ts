@@ -70,9 +70,9 @@ export class DropdownComponent extends FormFieldManager implements AfterViewInit
   public ngAfterViewInit(): void {
     setTimeout(() => {
       if (this.selectMultiple) {
-        this._updateValueOnMultiple();
+        this._initializeValueOnMultiple();
       } else {
-        this._updateValueOnSingle();
+        this._initializeValueOnSingle();
         this.keyManager = new ActiveDescendantKeyManager(this.options)
           .withHorizontalOrientation('ltr')
           .withVerticalOrientation()
@@ -82,18 +82,26 @@ export class DropdownComponent extends FormFieldManager implements AfterViewInit
     }, 100);
   }
 
-  private _updateValueOnMultiple() {
+  private _initializeValueOnMultiple() {
     this.options.toArray().forEach((o: OptionComponent) => {
       if (this.multiple_selected.includes(o.value)) {
-        this.selectOption(o);
+        if (!this.multiple_selected.includes(o.value)) {
+          this.multiple_selected.push(o.value);
+        }
+
+        if (!this.multiple_selectedOptions.find((o1: OptionComponent) => o1.value === o.value)) {
+          this.multiple_selectedOptions.push(o);
+          o.checkboxModel = true;
+        }
       }
     });
+
     this.value = this.multiple_selectedOptions.length ?
       Array.from(this.multiple_selectedOptions, (o: OptionComponent) => o.text).join(', ')
       : '';
   }
 
-  private _updateValueOnSingle() {
+  private _initializeValueOnSingle() {
     this.single_selectedOption = this.options.toArray().find(option => option.value === this.single_selected);
     this.value = this.single_selectedOption ? this.single_selectedOption.text : '';
   }
@@ -106,15 +114,15 @@ export class DropdownComponent extends FormFieldManager implements AfterViewInit
     if (obj !== undefined) {
       if (this.selectMultiple) {
         if (Array.isArray(obj)) {
-          this.multiple_selected = obj;
+          this.multiple_selected = [...obj];
           if (this.options) {
-            this._updateValueOnMultiple();
+            this._initializeValueOnMultiple();
           }
         }
       } else {
         this.single_selected = obj;
         if (this.options) {
-          this._updateValueOnSingle();
+          this._initializeValueOnSingle();
         }
       }
       this.checkDirty();
