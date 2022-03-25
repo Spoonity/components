@@ -2651,6 +2651,21 @@
         name: 'lock'
     };
 
+    var appGavelIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path fill=\"none\" d=\"M0 0h24v24H0z\"/><path d=\"M5.25 8.069l2.83-2.827 14.134 14.15-2.83 2.827zM9.486 3.827L12.314.998l5.657 5.656-2.828 2.83zM.999 12.315l2.828-2.829 5.657 5.657-2.828 2.828zM1 21h12v2H1z\"/></svg>",
+        name: 'gavel'
+    };
+
+    var appPrivacyTipIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path fill=\"none\" d=\"M0 0h24v24H0z\"/><path d=\"M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 6h2v2h-2V7zm0 4h2v6h-2v-6z\"/></svg>",
+        name: 'privacy-tip'
+    };
+
+    var appQuizIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"/><path d=\"M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6z\"/><path d=\"M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5.99 13c-.59 0-1.05-.47-1.05-1.05 0-.59.47-1.04 1.05-1.04.59 0 1.04.45 1.04 1.04-.01.58-.45 1.05-1.04 1.05zm2.5-6.17c-.63.93-1.23 1.21-1.56 1.81-.13.24-.18.4-.18 1.18h-1.52c0-.41-.06-1.08.26-1.65.41-.73 1.18-1.16 1.63-1.8.48-.68.21-1.94-1.14-1.94-.88 0-1.32.67-1.5 1.23l-1.37-.57C11.51 5.96 12.52 5 13.99 5c1.23 0 2.08.56 2.51 1.26.37.61.58 1.73.01 2.57z\"/></svg>",
+        name: 'quiz'
+    };
+
     var miscIcons = [
         appAccountBalanceIcon,
         appAnalyticsIcon,
@@ -2663,11 +2678,14 @@
         appDesktopIcon,
         appDownloadIcon,
         appFileCopyIcon,
+        appGavelIcon,
         appHelpIcon,
         appLinkIcon,
         appLockIcon,
         appLoyaltyIcon,
         appPaymentsIcon,
+        appPrivacyTipIcon,
+        appQuizIcon,
         appScheduleIcon,
         appSettingsSuggestIcon
     ];
@@ -3118,39 +3136,42 @@
     exports.ɵbt = appDesktopIcon;
     exports.ɵbu = appDownloadIcon;
     exports.ɵbv = appFileCopyIcon;
-    exports.ɵbw = appHelpIcon;
-    exports.ɵbx = appLinkIcon;
-    exports.ɵby = appLockIcon;
-    exports.ɵbz = appLoyaltyIcon;
+    exports.ɵbw = appGavelIcon;
+    exports.ɵbx = appHelpIcon;
+    exports.ɵby = appLinkIcon;
+    exports.ɵbz = appLockIcon;
     exports.ɵc = DropdownService;
-    exports.ɵca = appPaymentsIcon;
-    exports.ɵcb = appScheduleIcon;
-    exports.ɵcc = appSettingsSuggestIcon;
-    exports.ɵcd = appArrowBackIcon;
-    exports.ɵce = appArrowDownwardIcon;
-    exports.ɵcf = appArrowForwardIcon;
-    exports.ɵcg = appArrowUpwardIcon;
-    exports.ɵch = appCancelBlackIcon;
-    exports.ɵci = appCheckIcon;
-    exports.ɵcj = appChevronLeftIcon;
-    exports.ɵck = appChevronRightIcon;
-    exports.ɵcl = appClearIcon;
-    exports.ɵcm = appEastIcon;
-    exports.ɵcn = appExpandLessIcon;
-    exports.ɵco = appExpandMoreIcon;
-    exports.ɵcp = appFirstPageIcon;
-    exports.ɵcq = appLastPageIcon;
-    exports.ɵcr = appMoreVertIcon;
-    exports.ɵcs = appRefreshIcon;
-    exports.ɵct = appPriorityHighIcon;
-    exports.ɵcu = appSmsIcon;
-    exports.ɵcv = appPeopleIcon;
-    exports.ɵcw = appCheckBoxOutlineBlankIcon;
-    exports.ɵcx = appCheckBoxIcon;
-    exports.ɵcy = appIndeterminateCheckBoxIcon;
-    exports.ɵcz = appRadioButtonCheckedIcon;
+    exports.ɵca = appLoyaltyIcon;
+    exports.ɵcb = appPaymentsIcon;
+    exports.ɵcc = appPrivacyTipIcon;
+    exports.ɵcd = appQuizIcon;
+    exports.ɵce = appScheduleIcon;
+    exports.ɵcf = appSettingsSuggestIcon;
+    exports.ɵcg = appArrowBackIcon;
+    exports.ɵch = appArrowDownwardIcon;
+    exports.ɵci = appArrowForwardIcon;
+    exports.ɵcj = appArrowUpwardIcon;
+    exports.ɵck = appCancelBlackIcon;
+    exports.ɵcl = appCheckIcon;
+    exports.ɵcm = appChevronLeftIcon;
+    exports.ɵcn = appChevronRightIcon;
+    exports.ɵco = appClearIcon;
+    exports.ɵcp = appEastIcon;
+    exports.ɵcq = appExpandLessIcon;
+    exports.ɵcr = appExpandMoreIcon;
+    exports.ɵcs = appFirstPageIcon;
+    exports.ɵct = appLastPageIcon;
+    exports.ɵcu = appMoreVertIcon;
+    exports.ɵcv = appRefreshIcon;
+    exports.ɵcw = appPriorityHighIcon;
+    exports.ɵcx = appSmsIcon;
+    exports.ɵcy = appPeopleIcon;
+    exports.ɵcz = appCheckBoxOutlineBlankIcon;
     exports.ɵd = OverlayTemplateComponent;
-    exports.ɵda = appRadioButtonUncheckedIcon;
+    exports.ɵda = appCheckBoxIcon;
+    exports.ɵdb = appIndeterminateCheckBoxIcon;
+    exports.ɵdc = appRadioButtonCheckedIcon;
+    exports.ɵdd = appRadioButtonUncheckedIcon;
     exports.ɵe = OptionComponent;
     exports.ɵf = SearchService;
     exports.ɵg = SearchOptionComponent;

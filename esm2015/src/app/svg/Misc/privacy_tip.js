@@ -1,0 +1,5 @@
+export const appPrivacyTipIcon = {
+    data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 6h2v2h-2V7zm0 4h2v6h-2v-6z"/></svg>`,
+    name: 'privacy-tip'
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJpdmFjeV90aXAuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi9zcmMvYXBwL3N2Zy9NaXNjL3ByaXZhY3lfdGlwLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE1BQU0sQ0FBQyxNQUFNLGlCQUFpQixHQUFHO0lBQzdCLElBQUksRUFBRSxtTkFBbU47SUFDek4sSUFBSSxFQUFFLGFBQWE7Q0FDdEIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjb25zdCBhcHBQcml2YWN5VGlwSWNvbiA9IHtcbiAgICBkYXRhOiBgPHN2ZyB4bWxucz1cImh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnXCIgdmlld0JveD1cIjAgMCAyNCAyNFwiPjxwYXRoIGZpbGw9XCJub25lXCIgZD1cIk0wIDBoMjR2MjRIMHpcIi8+PHBhdGggZD1cIk0xMiAxTDMgNXY2YzAgNS41NSAzLjg0IDEwLjc0IDkgMTIgNS4xNi0xLjI2IDktNi40NSA5LTEyVjVsLTktNHptLTEgNmgydjJoLTJWN3ptMCA0aDJ2NmgtMnYtNnpcIi8+PC9zdmc+YCxcbiAgICBuYW1lOiAncHJpdmFjeS10aXAnXG59OyJdfQ==
