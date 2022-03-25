@@ -2666,6 +2666,11 @@
         name: 'quiz'
     };
 
+    var appOpenWithIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z\"/></svg>",
+        name: 'open-with'
+    };
+
     var miscIcons = [
         appAccountBalanceIcon,
         appAnalyticsIcon,
@@ -2683,6 +2688,7 @@
         appLinkIcon,
         appLockIcon,
         appLoyaltyIcon,
+        appOpenWithIcon,
         appPaymentsIcon,
         appPrivacyTipIcon,
         appQuizIcon,
@@ -3142,36 +3148,37 @@
     exports.ɵbz = appLockIcon;
     exports.ɵc = DropdownService;
     exports.ɵca = appLoyaltyIcon;
-    exports.ɵcb = appPaymentsIcon;
-    exports.ɵcc = appPrivacyTipIcon;
-    exports.ɵcd = appQuizIcon;
-    exports.ɵce = appScheduleIcon;
-    exports.ɵcf = appSettingsSuggestIcon;
-    exports.ɵcg = appArrowBackIcon;
-    exports.ɵch = appArrowDownwardIcon;
-    exports.ɵci = appArrowForwardIcon;
-    exports.ɵcj = appArrowUpwardIcon;
-    exports.ɵck = appCancelBlackIcon;
-    exports.ɵcl = appCheckIcon;
-    exports.ɵcm = appChevronLeftIcon;
-    exports.ɵcn = appChevronRightIcon;
-    exports.ɵco = appClearIcon;
-    exports.ɵcp = appEastIcon;
-    exports.ɵcq = appExpandLessIcon;
-    exports.ɵcr = appExpandMoreIcon;
-    exports.ɵcs = appFirstPageIcon;
-    exports.ɵct = appLastPageIcon;
-    exports.ɵcu = appMoreVertIcon;
-    exports.ɵcv = appRefreshIcon;
-    exports.ɵcw = appPriorityHighIcon;
-    exports.ɵcx = appSmsIcon;
-    exports.ɵcy = appPeopleIcon;
-    exports.ɵcz = appCheckBoxOutlineBlankIcon;
+    exports.ɵcb = appOpenWithIcon;
+    exports.ɵcc = appPaymentsIcon;
+    exports.ɵcd = appPrivacyTipIcon;
+    exports.ɵce = appQuizIcon;
+    exports.ɵcf = appScheduleIcon;
+    exports.ɵcg = appSettingsSuggestIcon;
+    exports.ɵch = appArrowBackIcon;
+    exports.ɵci = appArrowDownwardIcon;
+    exports.ɵcj = appArrowForwardIcon;
+    exports.ɵck = appArrowUpwardIcon;
+    exports.ɵcl = appCancelBlackIcon;
+    exports.ɵcm = appCheckIcon;
+    exports.ɵcn = appChevronLeftIcon;
+    exports.ɵco = appChevronRightIcon;
+    exports.ɵcp = appClearIcon;
+    exports.ɵcq = appEastIcon;
+    exports.ɵcr = appExpandLessIcon;
+    exports.ɵcs = appExpandMoreIcon;
+    exports.ɵct = appFirstPageIcon;
+    exports.ɵcu = appLastPageIcon;
+    exports.ɵcv = appMoreVertIcon;
+    exports.ɵcw = appRefreshIcon;
+    exports.ɵcx = appPriorityHighIcon;
+    exports.ɵcy = appSmsIcon;
+    exports.ɵcz = appPeopleIcon;
     exports.ɵd = OverlayTemplateComponent;
-    exports.ɵda = appCheckBoxIcon;
-    exports.ɵdb = appIndeterminateCheckBoxIcon;
-    exports.ɵdc = appRadioButtonCheckedIcon;
-    exports.ɵdd = appRadioButtonUncheckedIcon;
+    exports.ɵda = appCheckBoxOutlineBlankIcon;
+    exports.ɵdb = appCheckBoxIcon;
+    exports.ɵdc = appIndeterminateCheckBoxIcon;
+    exports.ɵdd = appRadioButtonCheckedIcon;
+    exports.ɵde = appRadioButtonUncheckedIcon;
     exports.ɵe = OptionComponent;
     exports.ɵf = SearchService;
     exports.ɵg = SearchOptionComponent;
