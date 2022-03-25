@@ -19,6 +19,7 @@ import { appLockIcon } from './lock';
 import { appGavelIcon } from './gavel';
 import { appPrivacyTipIcon } from './privacy_tip';
 import { appQuizIcon } from './quiz';
+import {appOpenWithIcon} from './open_with';
 
 export const miscIcons = [
   appAccountBalanceIcon,
@@ -37,6 +38,7 @@ export const miscIcons = [
   appLinkIcon,
   appLockIcon,
   appLoyaltyIcon,
+  appOpenWithIcon,
   appPaymentsIcon,
   appPrivacyTipIcon,
   appQuizIcon,
