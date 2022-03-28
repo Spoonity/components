@@ -22,6 +22,8 @@ import {appQuizIcon} from './quiz';
 import {appOpenWithIcon} from './open_with';
 import {appAutorenewIcon} from './autorenew';
 import {appHighlightOffIcon} from './highlight_off';
+import {appCallMergeIcon} from './call_merge';
+import {appCorporateFareIcon} from './corporate_fare';
 
 export const miscIcons = [
   appAccountBalanceIcon,
@@ -30,7 +32,9 @@ export const miscIcons = [
   appCalendarIcon,
   appCalendarDateRangeIcon,
   appCalendarTodayIcon,
+  appCallMergeIcon,
   appConnectIcon,
+  appCorporateFareIcon,
   appCreditCard,
   appDeleteIcon,
   appDesktopIcon,
