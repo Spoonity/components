@@ -2493,7 +2493,23 @@
         name: 'settings'
     };
 
-    var actionIcons = [appAccountBoxIcon, appCheckCircleIcon, appExpandIcon, appFavoriteIcon, appHomeIcon, appLogoutIcon, appRedeemIcon, appSearchIcon, appSettingsIcon];
+    var appCheckCircleOutlineIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0V0zm0 0h24v24H0V0z\" fill=\"none\"/><path d=\"M16.59 7.58L10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z\"/></svg>",
+        name: 'check-circle-outline'
+    };
+
+    var actionIcons = [
+        appAccountBoxIcon,
+        appCheckCircleIcon,
+        appCheckCircleOutlineIcon,
+        appExpandIcon,
+        appFavoriteIcon,
+        appHomeIcon,
+        appLogoutIcon,
+        appRedeemIcon,
+        appSearchIcon,
+        appSettingsIcon
+    ];
 
     var appErrorIcon = {
         data: "<svg fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 11c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1s1 .45 1 1v4c0 .55-.45 1-1 1zm0 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z\" fill=\"#0D0C0B\"/></svg>",
@@ -2671,9 +2687,20 @@
         name: 'open-with'
     };
 
+    var appAutorenewIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8A5.87 5.87 0 016 12c0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z\"/></svg>",
+        name: 'autorenew'
+    };
+
+    var appHighlightOffIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z\"/></svg>",
+        name: 'highlight-off'
+    };
+
     var miscIcons = [
         appAccountBalanceIcon,
         appAnalyticsIcon,
+        appAutorenewIcon,
         appCalendarIcon,
         appCalendarDateRangeIcon,
         appCalendarTodayIcon,
@@ -2685,6 +2712,7 @@
         appFileCopyIcon,
         appGavelIcon,
         appHelpIcon,
+        appHighlightOffIcon,
         appLinkIcon,
         appLockIcon,
         appLoyaltyIcon,
@@ -3120,65 +3148,68 @@
     exports.ɵ0 = ɵ0;
     exports.ɵa = FormFieldManager;
     exports.ɵb = BannerComponent;
-    exports.ɵba = appEmailIcon;
-    exports.ɵbb = appAddCircleOutlineIcon;
-    exports.ɵbc = appAddIcon;
-    exports.ɵbd = appReportIcon;
-    exports.ɵbe = appSendIcon;
-    exports.ɵbf = appUploadFileIcon;
-    exports.ɵbg = appKeyboardTabIcon;
-    exports.ɵbh = appSmartphoneIcon;
-    exports.ɵbi = appEditIcon;
-    exports.ɵbj = appWbIncandescentIcon;
-    exports.ɵbk = appPlaceIcon;
-    exports.ɵbl = appAccountBalanceIcon;
-    exports.ɵbm = appAnalyticsIcon;
-    exports.ɵbn = appCalendarIcon;
-    exports.ɵbo = appCalendarDateRangeIcon;
-    exports.ɵbp = appCalendarTodayIcon;
-    exports.ɵbq = appConnectIcon;
-    exports.ɵbr = appCreditCard;
-    exports.ɵbs = appDeleteIcon;
-    exports.ɵbt = appDesktopIcon;
-    exports.ɵbu = appDownloadIcon;
-    exports.ɵbv = appFileCopyIcon;
-    exports.ɵbw = appGavelIcon;
-    exports.ɵbx = appHelpIcon;
-    exports.ɵby = appLinkIcon;
-    exports.ɵbz = appLockIcon;
+    exports.ɵba = appCallIcon;
+    exports.ɵbb = appEmailIcon;
+    exports.ɵbc = appAddCircleOutlineIcon;
+    exports.ɵbd = appAddIcon;
+    exports.ɵbe = appReportIcon;
+    exports.ɵbf = appSendIcon;
+    exports.ɵbg = appUploadFileIcon;
+    exports.ɵbh = appKeyboardTabIcon;
+    exports.ɵbi = appSmartphoneIcon;
+    exports.ɵbj = appEditIcon;
+    exports.ɵbk = appWbIncandescentIcon;
+    exports.ɵbl = appPlaceIcon;
+    exports.ɵbm = appAccountBalanceIcon;
+    exports.ɵbn = appAnalyticsIcon;
+    exports.ɵbo = appAutorenewIcon;
+    exports.ɵbp = appCalendarIcon;
+    exports.ɵbq = appCalendarDateRangeIcon;
+    exports.ɵbr = appCalendarTodayIcon;
+    exports.ɵbs = appConnectIcon;
+    exports.ɵbt = appCreditCard;
+    exports.ɵbu = appDeleteIcon;
+    exports.ɵbv = appDesktopIcon;
+    exports.ɵbw = appDownloadIcon;
+    exports.ɵbx = appFileCopyIcon;
+    exports.ɵby = appGavelIcon;
+    exports.ɵbz = appHelpIcon;
     exports.ɵc = DropdownService;
-    exports.ɵca = appLoyaltyIcon;
-    exports.ɵcb = appOpenWithIcon;
-    exports.ɵcc = appPaymentsIcon;
-    exports.ɵcd = appPrivacyTipIcon;
-    exports.ɵce = appQuizIcon;
-    exports.ɵcf = appScheduleIcon;
-    exports.ɵcg = appSettingsSuggestIcon;
-    exports.ɵch = appArrowBackIcon;
-    exports.ɵci = appArrowDownwardIcon;
-    exports.ɵcj = appArrowForwardIcon;
-    exports.ɵck = appArrowUpwardIcon;
-    exports.ɵcl = appCancelBlackIcon;
-    exports.ɵcm = appCheckIcon;
-    exports.ɵcn = appChevronLeftIcon;
-    exports.ɵco = appChevronRightIcon;
-    exports.ɵcp = appClearIcon;
-    exports.ɵcq = appEastIcon;
-    exports.ɵcr = appExpandLessIcon;
-    exports.ɵcs = appExpandMoreIcon;
-    exports.ɵct = appFirstPageIcon;
-    exports.ɵcu = appLastPageIcon;
-    exports.ɵcv = appMoreVertIcon;
-    exports.ɵcw = appRefreshIcon;
-    exports.ɵcx = appPriorityHighIcon;
-    exports.ɵcy = appSmsIcon;
-    exports.ɵcz = appPeopleIcon;
+    exports.ɵca = appHighlightOffIcon;
+    exports.ɵcb = appLinkIcon;
+    exports.ɵcc = appLockIcon;
+    exports.ɵcd = appLoyaltyIcon;
+    exports.ɵce = appOpenWithIcon;
+    exports.ɵcf = appPaymentsIcon;
+    exports.ɵcg = appPrivacyTipIcon;
+    exports.ɵch = appQuizIcon;
+    exports.ɵci = appScheduleIcon;
+    exports.ɵcj = appSettingsSuggestIcon;
+    exports.ɵck = appArrowBackIcon;
+    exports.ɵcl = appArrowDownwardIcon;
+    exports.ɵcm = appArrowForwardIcon;
+    exports.ɵcn = appArrowUpwardIcon;
+    exports.ɵco = appCancelBlackIcon;
+    exports.ɵcp = appCheckIcon;
+    exports.ɵcq = appChevronLeftIcon;
+    exports.ɵcr = appChevronRightIcon;
+    exports.ɵcs = appClearIcon;
+    exports.ɵct = appEastIcon;
+    exports.ɵcu = appExpandLessIcon;
+    exports.ɵcv = appExpandMoreIcon;
+    exports.ɵcw = appFirstPageIcon;
+    exports.ɵcx = appLastPageIcon;
+    exports.ɵcy = appMoreVertIcon;
+    exports.ɵcz = appRefreshIcon;
     exports.ɵd = OverlayTemplateComponent;
-    exports.ɵda = appCheckBoxOutlineBlankIcon;
-    exports.ɵdb = appCheckBoxIcon;
-    exports.ɵdc = appIndeterminateCheckBoxIcon;
-    exports.ɵdd = appRadioButtonCheckedIcon;
-    exports.ɵde = appRadioButtonUncheckedIcon;
+    exports.ɵda = appPriorityHighIcon;
+    exports.ɵdb = appSmsIcon;
+    exports.ɵdc = appPeopleIcon;
+    exports.ɵdd = appCheckBoxOutlineBlankIcon;
+    exports.ɵde = appCheckBoxIcon;
+    exports.ɵdf = appIndeterminateCheckBoxIcon;
+    exports.ɵdg = appRadioButtonCheckedIcon;
+    exports.ɵdh = appRadioButtonUncheckedIcon;
     exports.ɵe = OptionComponent;
     exports.ɵf = SearchService;
     exports.ɵg = SearchOptionComponent;
@@ -3190,17 +3221,17 @@
     exports.ɵm = NZMODULES;
     exports.ɵn = appAccountBoxIcon;
     exports.ɵo = appCheckCircleIcon;
-    exports.ɵp = appExpandIcon;
-    exports.ɵq = appFavoriteIcon;
-    exports.ɵr = appHomeIcon;
-    exports.ɵs = appLogoutIcon;
-    exports.ɵt = appRedeemIcon;
-    exports.ɵu = appSearchIcon;
-    exports.ɵv = appSettingsIcon;
-    exports.ɵw = appErrorIcon;
-    exports.ɵx = appWarningIcon;
-    exports.ɵy = appRecentActorsIcon;
-    exports.ɵz = appCallIcon;
+    exports.ɵp = appCheckCircleOutlineIcon;
+    exports.ɵq = appExpandIcon;
+    exports.ɵr = appFavoriteIcon;
+    exports.ɵs = appHomeIcon;
+    exports.ɵt = appLogoutIcon;
+    exports.ɵu = appRedeemIcon;
+    exports.ɵv = appSearchIcon;
+    exports.ɵw = appSettingsIcon;
+    exports.ɵx = appErrorIcon;
+    exports.ɵy = appWarningIcon;
+    exports.ɵz = appRecentActorsIcon;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
