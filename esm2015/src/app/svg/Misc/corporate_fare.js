@@ -1,0 +1,5 @@
+export const appCorporateFareIcon = {
+    data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 7V3H2v18h20V7H12zm-2 12H4v-2h6v2zm0-4H4v-2h6v2zm0-4H4V9h6v2zm0-4H4V5h6v2zm10 12h-8V9h8v10zm-2-8h-4v2h4v-2zm0 4h-4v2h4v-2z"/></svg>`,
+    name: 'corporate-fare'
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29ycG9yYXRlX2ZhcmUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi9zcmMvYXBwL3N2Zy9NaXNjL2NvcnBvcmF0ZV9mYXJlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE1BQU0sQ0FBQyxNQUFNLG9CQUFvQixHQUFHO0lBQ2hDLElBQUksRUFBRSxrUEFBa1A7SUFDeFAsSUFBSSxFQUFFLGdCQUFnQjtDQUN6QixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGNvbnN0IGFwcENvcnBvcmF0ZUZhcmVJY29uID0ge1xuICAgIGRhdGE6IGA8c3ZnIHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIiB2aWV3Qm94PVwiMCAwIDI0IDI0XCI+PHBhdGggZmlsbD1cIm5vbmVcIiBkPVwiTTAgMGgyNHYyNEgwelwiLz48cGF0aCBkPVwiTTEyIDdWM0gydjE4aDIwVjdIMTJ6bS0yIDEySDR2LTJoNnYyem0wLTRINHYtMmg2djJ6bTAtNEg0VjloNnYyem0wLTRINFY1aDZ2MnptMTAgMTJoLThWOWg4djEwem0tMi04aC00djJoNHYtMnptMCA0aC00djJoNHYtMnpcIi8+PC9zdmc+YCxcbiAgICBuYW1lOiAnY29ycG9yYXRlLWZhcmUnXG59OyJdfQ==
