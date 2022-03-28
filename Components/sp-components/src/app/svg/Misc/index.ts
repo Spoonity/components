@@ -1,29 +1,32 @@
-import { appCalendarIcon } from './calendar';
-import { appCalendarDateRangeIcon } from './calendar_date_range';
-import { appCalendarTodayIcon } from './calendar_today';
-import { appDownloadIcon } from './download';
-import { appScheduleIcon } from './schedule';
-import { appSettingsSuggestIcon } from './settings_suggest';
-import { appDeleteIcon } from './delete';
-import { appFileCopyIcon } from './file_copy';
-import { appDesktopIcon } from './desktop';
-import { appLinkIcon } from './link';
-import { appHelpIcon } from './help';
-import { appAccountBalanceIcon } from './account_balance';
-import { appCreditCard } from './credit_card';
-import { appAnalyticsIcon } from './analytics';
-import { appConnectIcon } from './connect';
-import { appLoyaltyIcon } from './loyalty';
-import { appPaymentsIcon } from './payments';
-import { appLockIcon } from './lock';
-import { appGavelIcon } from './gavel';
-import { appPrivacyTipIcon } from './privacy_tip';
-import { appQuizIcon } from './quiz';
+import {appCalendarIcon} from './calendar';
+import {appCalendarDateRangeIcon} from './calendar_date_range';
+import {appCalendarTodayIcon} from './calendar_today';
+import {appDownloadIcon} from './download';
+import {appScheduleIcon} from './schedule';
+import {appSettingsSuggestIcon} from './settings_suggest';
+import {appDeleteIcon} from './delete';
+import {appFileCopyIcon} from './file_copy';
+import {appDesktopIcon} from './desktop';
+import {appLinkIcon} from './link';
+import {appHelpIcon} from './help';
+import {appAccountBalanceIcon} from './account_balance';
+import {appCreditCard} from './credit_card';
+import {appAnalyticsIcon} from './analytics';
+import {appConnectIcon} from './connect';
+import {appLoyaltyIcon} from './loyalty';
+import {appPaymentsIcon} from './payments';
+import {appLockIcon} from './lock';
+import {appGavelIcon} from './gavel';
+import {appPrivacyTipIcon} from './privacy_tip';
+import {appQuizIcon} from './quiz';
 import {appOpenWithIcon} from './open_with';
+import {appAutorenewIcon} from './autorenew';
+import {appHighlightOffIcon} from './highlight_off';
 
 export const miscIcons = [
   appAccountBalanceIcon,
   appAnalyticsIcon,
+  appAutorenewIcon,
   appCalendarIcon,
   appCalendarDateRangeIcon,
   appCalendarTodayIcon,
@@ -35,6 +38,7 @@ export const miscIcons = [
   appFileCopyIcon,
   appGavelIcon,
   appHelpIcon,
+  appHighlightOffIcon,
   appLinkIcon,
   appLockIcon,
   appLoyaltyIcon,
