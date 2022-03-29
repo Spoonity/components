@@ -1729,7 +1729,7 @@ DialogsComponent.propDecorators = {
 };
 
 const appExpandMoreIcon = {
-    data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.71 9.29l3.88 3.88 3.88-3.88a.996.996 0 111.41 1.41l-4.59 4.59a.996.996 0 01-1.41 0L6.29 10.7a.996.996 0 010-1.41c.39-.38 1.03-.39 1.42 0z" fill="#0D0C0B"/></svg>`,
+    data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>`,
     name: 'expand-more'
 };
 
@@ -1744,7 +1744,7 @@ const appAccountBoxIcon = {
 };
 
 const appExpandLessIcon = {
-    data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.71 15.29l3.88-3.88 3.88 3.88a.996.996 0 101.41-1.41l-4.59-4.59a.996.996 0 00-1.41 0l-4.59 4.59a.996.996 0 000 1.41c.39.38 1.03.39 1.42 0z" fill="#0D0C0B"/></svg>`,
+    data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/></svg>`,
     name: 'expand-less'
 };
 
