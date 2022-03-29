@@ -1,4 +1,9 @@
-import { appCallIcon } from "./call";
-import { appEmailIcon } from "./email";
+import {appCallIcon} from './call';
+import {appEmailIcon} from './email';
+import {appDraftsIcon} from './drafts';
 
-export const communicationIcons = [appCallIcon, appEmailIcon];
+export const communicationIcons = [
+  appCallIcon,
+  appDraftsIcon,
+  appEmailIcon
+];
