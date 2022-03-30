@@ -1,9 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'spt-progress-circle',
   templateUrl: './progress-circle.component.html',
-  styleUrls: ['./progress-circle.component.less']
+  styleUrls: ['./progress-circle.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ProgressCircleComponent implements OnInit {
   @Input() percent: number;

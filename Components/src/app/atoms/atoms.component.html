@@ -47,7 +47,14 @@
 
     <div class="section spt-spacing-y--1">
         <h2>PROGRESS CIRCLE</h2>
-        <spt-progress-circle [percent]="70" [showPercent]="true"></spt-progress-circle>
+        <div class="spt-spacing--y--1">
+            <p>default:</p>
+            <spt-progress-circle [percent]="70" [showPercent]="true"></spt-progress-circle>
+        </div>
+        <div class="spt-spacing--y--1">
+            <p>colored:</p>
+            <spt-progress-circle [percent]="70" [showPercent]="true" color="#7E57C2"></spt-progress-circle>
+        </div>
     </div>
 
     <div class="section">
