@@ -2639,8 +2639,9 @@ class ProgressCircleComponent {
 ProgressCircleComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-progress-circle',
-                template: "<nz-progress [nzPercent]=\"percent\"\n             [nzShowInfo]=\"showPercent\"\n             [nzStrokeColor]=\"color\"\n             [nzWidth]=\"width\"\n             [nzStrokeWidth]=\"strokeWidth\"\n             nzType=\"circle\">\n</nz-progress>\n",
-                styles: [""]
+                template: "<nz-progress [ngClass]=\"{'colored': color != '#FF9900'}\" [nzPercent]=\"percent\"\n             [nzShowInfo]=\"showPercent\"\n             [nzStrokeColor]=\"color\"\n             [nzWidth]=\"width\"\n             [nzStrokeWidth]=\"strokeWidth\"\n             nzType=\"circle\">\n</nz-progress>\n",
+                encapsulation: ViewEncapsulation.None,
+                styles: ["nz-progress.colored svg path.ant-progress-circle-trail{stroke:hsla(0,0%,100%,.7)!important}"]
             },] }
 ];
 ProgressCircleComponent.ctorParameters = () => [];
