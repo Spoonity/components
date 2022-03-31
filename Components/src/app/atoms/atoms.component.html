@@ -102,7 +102,14 @@
 
     <div class="section">
         <h2>TABS</h2>
-        <spt-tab [tabs]="tabs"></spt-tab>
+        <div class="spt-spacing-y--1">
+            <h3>basic tabs:</h3>
+            <spt-tab [tabs]="tabs"></spt-tab>
+        </div>
+        <div class="spt-spacing-y--1">
+            <h3>tabs with icon:</h3>
+            <spt-tab [tabs]="tabsWithIcon"></spt-tab>
+        </div>
     </div>
 
     <div class="section">

@@ -55,6 +55,22 @@ export class AtomsComponent implements OnInit {
     }
   ];
 
+  tabsWithIcon = [
+    {
+      name: 'Tab 1',
+      disabled: false,
+      icon: 'circle'
+    },
+    {
+      name: 'Tab 2',
+      disabled: true
+    },
+    {
+      name: 'Tab 3',
+      disabled: false
+    }
+  ];
+
   spacing: ISpacing[] = [
     {
       sectionName: '8px',
