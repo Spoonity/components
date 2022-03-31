@@ -11,6 +11,7 @@ export declare class ChipComponent implements OnInit {
     styles: {
         'width.px': number;
         'height.px': number;
+        fill: string;
     };
     constructor();
     ngOnInit(): void;

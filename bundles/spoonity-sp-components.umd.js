@@ -419,7 +419,7 @@
             this.onCheckEvent = new core.EventEmitter();
         }
         ChipComponent.prototype.ngOnInit = function () {
-            this.styles = { 'width.px': 20, 'height.px': 20 };
+            this.styles = { 'width.px': 20, 'height.px': 20, fill: '#0D0C0B' };
         };
         ChipComponent.prototype.onClose = function () {
             this.onCloseEvent.emit(true);
@@ -1963,7 +1963,7 @@
     IconComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-icon',
-                    template: "<span nz-tooltip [nzTooltipTitle]=\"toolTipTitle\">\n  <svg-icon class=\"icons\" nz-icon [name]=\"name\" [svgStyle]=\"{'height':size + 'px', 'width':size + 'px', 'fill':color}\">\n  </svg-icon>\n</span>\n",
+                    template: "<span nz-tooltip [nzTooltipTitle]=\"toolTipTitle\">\n  <svg-icon class=\"icons\" nz-icon [name]=\"name\" [svgStyle]=\"{'height':size + 'px', 'width':size + 'px', 'fill':(color || '#0D0C0B')}\">\n  </svg-icon>\n</span>\n",
                     styles: [""]
                 },] }
     ];
