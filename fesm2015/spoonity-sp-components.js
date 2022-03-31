@@ -1500,8 +1500,8 @@ class TabComponent {
 TabComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-tab',
-                template: "<nz-tabset [nzSelectedIndex]=\"index\" (nzSelectedIndexChange)=\"selectedIndexChange.emit($event)\">\n    <nz-tab *ngFor=\"let tab of tabs\" [nzTitle]=\"tab.name\" [nzDisabled]=\"tab.disabled\"></nz-tab>\n</nz-tabset>\n",
-                styles: [""]
+                template: "<nz-tabset [nzSelectedIndex]=\"index\" (nzSelectedIndexChange)=\"selectedIndexChange.emit($event)\">\n    <nz-tab *ngFor=\"let tab of tabs\" [nzTitle]=\"titleTemplate\" [nzDisabled]=\"tab.disabled\">\n        <ng-template #titleTemplate>\n            <div class=\"title-container\">\n                <div *ngIf=\"tab.icon\" class=\"icon\">\n                    <spt-icon *ngIf=\"tab.icon\" [name]=\"tab.icon\" [size]=\"16\" color=\"#FF9900\"></spt-icon>\n                </div>\n                <div>{{ tab.name }}</div>\n            </div>\n        </ng-template>\n    </nz-tab>\n</nz-tabset>\n",
+                styles: [".icon{transform:translateY(1px)}.title-container{display:flex;align-items:center}"]
             },] }
 ];
 TabComponent.ctorParameters = () => [];
