@@ -1,0 +1,5 @@
+export const appVerticalSplitIcon = {
+    data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 15h8v-2H3v2zm0 4h8v-2H3v2zm0-8h8V9H3v2zm0-6v2h8V5H3zm10 0h8v14h-8V5z"/></svg>`,
+    name: 'vertical-split'
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidmVydGljYWxfc3BsaXQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi9zcmMvYXBwL3N2Zy9NaXNjL3ZlcnRpY2FsX3NwbGl0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE1BQU0sQ0FBQyxNQUFNLG9CQUFvQixHQUFHO0lBQ2hDLElBQUksRUFBRSw4TEFBOEw7SUFDcE0sSUFBSSxFQUFFLGdCQUFnQjtDQUN6QixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGNvbnN0IGFwcFZlcnRpY2FsU3BsaXRJY29uID0ge1xuICAgIGRhdGE6IGA8c3ZnIHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIiB2aWV3Qm94PVwiMCAwIDI0IDI0XCI+PHBhdGggZD1cIk0wIDBoMjR2MjRIMFYwelwiIGZpbGw9XCJub25lXCIvPjxwYXRoIGQ9XCJNMyAxNWg4di0ySDN2MnptMCA0aDh2LTJIM3Yyem0wLThoOFY5SDN2MnptMC02djJoOFY1SDN6bTEwIDBoOHYxNGgtOFY1elwiLz48L3N2Zz5gLFxuICAgIG5hbWU6ICd2ZXJ0aWNhbC1zcGxpdCdcbn07Il19
