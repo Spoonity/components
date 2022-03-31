@@ -25,6 +25,9 @@ import {appHighlightOffIcon} from './highlight_off';
 import {appCallMergeIcon} from './call_merge';
 import {appCorporateFareIcon} from './corporate_fare';
 import {appCircleIcon} from './circle';
+import {appRemoveIcon} from './remove';
+import {appRemoveRedEyeIcon} from './remove_red_eye';
+import {appVerticalSplitIcon} from './vertical_split';
 
 export const miscIcons = [
   appAccountBalanceIcon,
@@ -52,6 +55,9 @@ export const miscIcons = [
   appPaymentsIcon,
   appPrivacyTipIcon,
   appQuizIcon,
+  appRemoveIcon,
+  appRemoveRedEyeIcon,
   appScheduleIcon,
-  appSettingsSuggestIcon
+  appSettingsSuggestIcon,
+  appVerticalSplitIcon
 ];
