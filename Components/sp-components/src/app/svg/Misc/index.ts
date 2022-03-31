@@ -28,6 +28,7 @@ import {appCircleIcon} from './circle';
 import {appRemoveIcon} from './remove';
 import {appRemoveRedEyeIcon} from './remove_red_eye';
 import {appVerticalSplitIcon} from './vertical_split';
+import {appOpenInNew} from './open_in_new';
 
 export const miscIcons = [
   appAccountBalanceIcon,
@@ -52,6 +53,7 @@ export const miscIcons = [
   appLockIcon,
   appLoyaltyIcon,
   appOpenWithIcon,
+  appOpenInNew,
   appPaymentsIcon,
   appPrivacyTipIcon,
   appQuizIcon,
