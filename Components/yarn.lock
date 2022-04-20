@@ -270,7 +270,7 @@
   "resolved" "https://registry.npmjs.org/@angular/compiler/-/compiler-9.0.0.tgz"
   "version" "9.0.0"
 
-"@angular/core@^11.0.4":
+"@angular/core@^11.0.0", "@angular/core@^11.0.4":
   "integrity" "sha512-vpR4XqBGitk1Faph37CSpemwIYTmJ3pdIVNoHKP6jLonpWu+0azkchf0f7oD8/2ivj2F81opcIw0tcsy/D/5Vg=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-11.2.14.tgz"
   "version" "11.2.14"
@@ -2380,7 +2380,7 @@
     "prop-types" "^15.7.2"
     "regenerator-runtime" "^0.13.7"
 
-"@storybook/addons@^6.3.0-beta.5", "@storybook/addons@6.3.0-beta.5":
+"@storybook/addons@^6.3.0-beta.5", "@storybook/addons@^6.3.6", "@storybook/addons@6.3.0-beta.5":
   "integrity" "sha512-WWCQlkGSk76UutTwwqiqaMBxDAPz6PZUi9jLBiWu0s67wfhI3I5z0J7uMU95rsj7MlRsphU7+nWB3DacDgOVnA=="
   "resolved" "https://registry.npmjs.org/@storybook/addons/-/addons-6.3.0-beta.5.tgz"
   "version" "6.3.0-beta.5"
@@ -2425,7 +2425,7 @@
     "util-deprecate" "^1.0.2"
     "webpack" "4"
 
-"@storybook/api@6.3.0-beta.5":
+"@storybook/api@^6.3.6", "@storybook/api@6.3.0-beta.5":
   "integrity" "sha512-p90DtFP6vVFdVRwG8gGUWT0fYVjZTYrGwy53v/bsvcHeOFP9IUFuGL4N3whBhmstv5o7QwrxGiOTnBOr5JCiSw=="
   "resolved" "https://registry.npmjs.org/@storybook/api/-/api-6.3.0-beta.5.tgz"
   "version" "6.3.0-beta.5"
@@ -2630,7 +2630,7 @@
     "recast" "^0.19.0"
     "regenerator-runtime" "^0.13.7"
 
-"@storybook/components@6.3.0-beta.5":
+"@storybook/components@^6.3.6", "@storybook/components@6.3.0-beta.5":
   "integrity" "sha512-0d+224GsaOZkF5Kc2K5T2+rRbgLkaK6fGGs/7yv0N2jhLANDM7Yj8zf5cSHJyiWl9R4vESDpdG7+H6iPNJuUGw=="
   "resolved" "https://registry.npmjs.org/@storybook/components/-/components-6.3.0-beta.5.tgz"
   "version" "6.3.0-beta.5"
@@ -2737,7 +2737,7 @@
     "util-deprecate" "^1.0.2"
     "webpack" "4"
 
-"@storybook/core-events@6.3.0-beta.5":
+"@storybook/core-events@^6.3.6", "@storybook/core-events@6.3.0-beta.5":
   "integrity" "sha512-djsk/0dZ3KHeOuYv2vykbeLwpg9yEtF9lY3ThRxLLpfsS+5OsXI+PDmA+AWsv3ceaGseS6pq7bKNqZ4xlxzUeQ=="
   "resolved" "https://registry.npmjs.org/@storybook/core-events/-/core-events-6.3.0-beta.5.tgz"
   "version" "6.3.0-beta.5"
@@ -2924,7 +2924,7 @@
     "prettier" "~2.2.1"
     "regenerator-runtime" "^0.13.7"
 
-"@storybook/theming@^6.3.0-beta.5", "@storybook/theming@6.3.0-beta.5":
+"@storybook/theming@^6.3.0-beta.5", "@storybook/theming@^6.3.6", "@storybook/theming@6.3.0-beta.5":
   "integrity" "sha512-lwC5YxfN4DeTwB7WzZwEDkoavAoHncBioU5eR97O4Y7mM79C9+zlJvPmSdXV0yj95RKIn5FqQpe+G5nMgTD+1g=="
   "resolved" "https://registry.npmjs.org/@storybook/theming/-/theming-6.3.0-beta.5.tgz"
   "version" "6.3.0-beta.5"
@@ -5017,9 +5017,9 @@
     "lodash.uniq" "^4.5.0"
 
 "caniuse-lite@^1.0.0", "caniuse-lite@^1.0.30001032", "caniuse-lite@^1.0.30001109", "caniuse-lite@^1.0.30001125", "caniuse-lite@^1.0.30001181", "caniuse-lite@^1.0.30001219":
-  "integrity" "sha512-e4Gyp7P8vqC2qV2iHA+cJNf/yqUKOShXQOJHQt81OHxlIZl/j/j3soEA0adAQi8CPUQgvOdDENyQ5kd6a6mNSg=="
-  "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001232.tgz"
-  "version" "1.0.30001232"
+  "integrity" "sha512-10T30NYOEQtN6C11YGg411yebhvpnC6Z102+B95eAsN0oB6KUs01ivE8u+G6FMIRtIrVlYXhL+LUwQ3/hXwDWw=="
+  "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001332.tgz"
+  "version" "1.0.30001332"
 
 "canonical-path@1.0.0":
   "integrity" "sha512-feylzsbDxi1gPZ1IjystzIQZagYYLvfKrSuygUCgf7z6x790VEzze5QEkdSV1U58RA7Hi0+v6fv4K54atOzATg=="
@@ -11932,7 +11932,7 @@
     "sync-rpc" "^1.3.6"
     "terser" "^5.5.1"
 
-"ng-zorro-antd@^11.4.1":
+"ng-zorro-antd@^11.4.0", "ng-zorro-antd@^11.4.1":
   "integrity" "sha512-YxoPIGz6JMF9uqSSBZRtr1TlrqT49xk7zInZoN7uvNFc7dGW2fb8syskzJ+Pe83QMC/rnbuPWz1VMRf2HtCHvw=="
   "resolved" "https://registry.npmjs.org/ng-zorro-antd/-/ng-zorro-antd-11.4.1.tgz"
   "version" "11.4.1"
@@ -14253,7 +14253,7 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
-"react-dom@16.14.0":
+"react-dom@^16.8.0 || ^17.0.0", "react-dom@16.14.0":
   "integrity" "sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-16.14.0.tgz"
   "version" "16.14.0"
@@ -14376,7 +14376,7 @@
     "use-composed-ref" "^1.0.0"
     "use-latest" "^1.0.0"
 
-"react@16.14.0":
+"react@^16.8.0 || ^17.0.0", "react@16.14.0":
   "integrity" "sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g=="
   "resolved" "https://registry.npmjs.org/react/-/react-16.14.0.tgz"
   "version" "16.14.0"
