@@ -12,34 +12,38 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      source: {
-        code: `<sp-checkbox [value]="value" [indeterminate]="indeterminate" [check]="check">A</sp-checkbox>`
-      }
-    }
   }
 } as Meta;
 
 const Template: Story<CheckboxComponent> = (args: CheckboxComponent) => ({
   props: args,
+  template: `
+    <spt-checkbox 
+        [indeterminate]="indeterminate"
+        [text]="text" 
+        [check]="check" 
+        (onChangeEvent)="onChecked()">
+    </spt-checkbox>
+  `
 });
 
-export const Default = Template.bind({});
-Default.args = {
-    indeterminate: false,
-    check: false,
-    value: 'A'
-};
-export const Indeterminate = Template.bind({});
-Indeterminate.args = {
-    indeterminate: true,
-    check: false,
-    value: 'A'
-};
-export const Checked = Template.bind({});
-Checked.args = {
-    indeterminate: false,
-    check: true,
-    value: 'A'
-};
+// export const defaultArgs_ = {
+//   indeterminate: false,
+//   check: false,
+//   text: 'test',
+//   onChecked: () => {
+//     // DO CHECK
+//   }
+// };
 
+export const Checkbox = Template.bind({});
+Checkbox.args = {
+  indeterminate: false,
+  check: false,
+  text: 'test',
+  checked: false,
+  onChecked: (value: boolean) => {
+    // DO CHECK
+    // this.checked = value;
+  }
+};

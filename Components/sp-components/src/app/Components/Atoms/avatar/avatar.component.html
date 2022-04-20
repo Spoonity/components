@@ -1,1 +1,8 @@
-<nz-avatar [nzText]="text" [nzSize]="size" [ngStyle]="styles"></nz-avatar>
+<div class="avatar-container"
+     [style.width.px]="size < 30 ? 30 : size"
+     [style.height.px]="size < 30 ? 30 : size"
+     [style.background-color]="backgroundColor">
+    <div class="avatar-text"
+         [style.font-size.px]="size <= 45 ? 15 : size - 30"
+         [style.color]="textColor">{{text[0] | uppercase}}</div>
+</div>

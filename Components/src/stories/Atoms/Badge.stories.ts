@@ -12,23 +12,23 @@ export default {
     }),
   ],
   argTypes: {
-    backgroundColor: { control: 'color' },
+    color: { control: 'color' },
   },
   parameters: {
     docs: {
       source: {
-        code: `<sp-badge [color]="coler" [name]="name"></sp-badge>`
+        code: `<spt-badge [color]="color" [name]="name"></spt-badge>`
       }
     }
   }
 } as Meta;
 
 const Template: Story<BadgeComponent> = (args: BadgeComponent) => ({
-  props: args,
+  props: args
 });
 
-export const Color = Template.bind({});
-Color.args = {
+export const Badge = Template.bind({});
+Badge.args = {
     name: 'Badge',
-    color: '#42A5F5',
+    color: '#FF9900'
 };

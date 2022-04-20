@@ -7,7 +7,7 @@ import { appEastIcon } from '../../../svg/Navigation/east';
 import { appMoreVertIcon } from '../../../svg/Navigation/more_vert';
 import { appSmsIcon } from '../../../svg/Notification/sms';
 import { appPeopleIcon } from '../../../svg/Social/people';
-import { AvatarSize, ButtonSize, ButtonType } from '../../../utils/enums';
+import { ButtonSize, ButtonType } from '../../../utils/enums';
 
 
 export interface ICampaign {
@@ -95,8 +95,6 @@ export class CardComponent implements OnInit {
   grey = '#e0e0e0';
   orange = '#FFB300';
   campaignColor;
-
-  avatarSize: AvatarSize = AvatarSize.large;
 
   btnType: ButtonType = ButtonType.secondary;
   buttonSize: ButtonSize = ButtonSize.medium;

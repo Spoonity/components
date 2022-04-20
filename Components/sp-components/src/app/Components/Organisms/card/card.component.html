@@ -19,9 +19,9 @@
       <spt-avatar
         [hidden]="customer.isSelect || (!disableCheckbox && isMouseOver)"
         [text]="(customer.first_name | uppercase | slice: 0:1) + (customer.last_name | uppercase | slice: 0:1)"
-        [size]="avatarSize"
+        [size]="40"
         [backgroundColor]="customer.isSelect ? '#FFF4E0' : white"
-        [color]="red"
+        [textColor]="red"
       ></spt-avatar>
       <spt-checkbox
         [hidden]="!customer.isSelect && (disableCheckbox || !isMouseOver)"
@@ -99,7 +99,6 @@
       <div class="sub-content3" *ngIf="campaign">
         <div class="sub-content1">
           <spt-badge
-            [fontSize]="12"
             class="badge"
             [color]="campaignColor"
             [name]="getCampaignStatus(campaign)"
@@ -176,7 +175,6 @@
       <div class="content">
         <div class="sub-content1">
           <spt-badge
-            [fontSize]="12"
             class="badge"
             [name]="giftManagement.deliverProcess | uppercase"
             color="#66BB6A"

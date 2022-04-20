@@ -1,1 +1,1 @@
-<div nz-col [nzSpan]="span"><label nz-checkbox [nzIndeterminate]="indeterminate" [ngModel]="check" (ngModelChange)="onChange($event)" [nzValue]="value">{{value}}</label></div>
+<div nz-col [nzSpan]="8"><label nz-checkbox [nzIndeterminate]="indeterminate" [ngModel]="check" (ngModelChange)="onChange($event)" [nzValue]="value || text">{{value || text}}</label></div>

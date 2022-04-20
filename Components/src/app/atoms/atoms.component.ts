@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as ic from 'sp-components/src/app/utils/icons';
-import { AvatarSize, DividerType, ProgressType } from 'sp-components/src/app/utils/enums';
+import { DividerType, ProgressType } from 'sp-components/src/app/utils/enums';
 
 interface ISpacing {
   sectionName: string;
@@ -13,8 +13,6 @@ interface ISpacing {
   styleUrls: ['./atoms.component.less']
 })
 export class AtomsComponent implements OnInit {
-
-  avatarS = AvatarSize;
 
   dividerT = DividerType;
 

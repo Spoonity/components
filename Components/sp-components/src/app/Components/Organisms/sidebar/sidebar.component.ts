@@ -3,7 +3,7 @@ import { appLogoutIcon } from '../../../svg/Action/logout';
 import { appAccountBoxIcon } from '../../../svg/Action/account_box';
 import { appExpandLessIcon } from '../../../svg/Navigation/expand_less';
 import { appKeyboardTabIcon } from '../../../svg/Hardware/keyboard_tab';
-import { AvatarSize, ButtonSize, ButtonType } from '../../../utils/enums';
+import { ButtonSize, ButtonType } from '../../../utils/enums';
 import { Component, Input, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -42,8 +42,6 @@ export class SidebarComponent implements OnInit {
   AccountsDisplay: IUserData[] = this.otherAccounts;
 
   multipleAccounts = false;
-
-  avatarSize: AvatarSize = AvatarSize.medium;
 
   keyboarTab = appKeyboardTabIcon.name;
   expandLess = appExpandLessIcon.name;

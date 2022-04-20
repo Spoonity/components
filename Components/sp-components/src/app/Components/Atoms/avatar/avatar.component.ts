@@ -1,26 +1,22 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AvatarSize } from '../../../utils/enums';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'spt-avatar',
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.less']
 })
-export class AvatarComponent implements OnInit {
+export class AvatarComponent {
+  /** avatar component size (default: 40) */
+  @Input() size: number = 40;
 
-  @Input() size: AvatarSize;
+  /** the text to get the initial from (only displays the first character) */
   @Input() text: string;
-  @Input() color: string;
-  @Input() backgroundColor: string;
 
-  styles: { 'background-color': string; color: string; };
+  /** font color (default: #0D0C0B) */
+  @Input() textColor: string = '#0D0C0B';
+
+  /** background color (default: #FF9900) */
+  @Input() backgroundColor: string = '#FF9900';
 
   constructor() { }
-
-  ngOnInit() {
-    this.styles = {
-      'background-color': this.backgroundColor || '#FF9900',
-      color : this.color || '#0D0C0B'
-    };
-  }
 }

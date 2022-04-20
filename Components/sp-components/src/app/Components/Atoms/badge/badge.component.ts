@@ -1,19 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'spt-badge',
   templateUrl: './badge.component.html',
   styleUrls: ['./badge.component.less']
 })
-export class BadgeComponent implements OnInit {
+export class BadgeComponent {
+  /** badge text */
+  @Input() name: string;
+
+  /** badge color */
+  @Input() color: string;
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
-  @Input() name: string;
-  @Input() color: string;
-  @Input() fontSize = 14;
-
 }
