@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'spt-date-picker-example',
-  templateUrl: './date-picker-example.component.html'
+  templateUrl: './date-picker-example.component.html',
+  styleUrls: ['../text-field-example/text-field-example.component.less']
 })
 export class DatePickerExampleComponent implements OnInit {
 
@@ -11,6 +12,9 @@ export class DatePickerExampleComponent implements OnInit {
   date: Date;
   date2: Date;
   date3: Date;
+
+  rangeStart: Date = new Date();
+  rangeEnd: Date = new Date();
 
   minDate: Date;
   maxDate: Date;
@@ -21,4 +25,12 @@ export class DatePickerExampleComponent implements OnInit {
     this.maxDate = new Date(1624914813000);
   }
 
+  rangeChanged(range: Date[]): void {
+    try {
+      this.rangeStart = range[0];
+      this.rangeEnd = range[1];
+    } catch {
+
+    }
+  }
 }

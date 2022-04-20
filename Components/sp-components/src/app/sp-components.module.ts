@@ -53,12 +53,13 @@ import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
 import { DatePickerComponent } from './Components/Molecules/date-picker/date-picker.component';
 import {NzNoAnimationModule} from 'ng-zorro-antd/core/no-animation';
 import { ProgressCircleComponent } from './Components/Atoms/progress-circle/progress-circle.component';
+import { RangeCalendarComponent } from './Components/Molecules/range-calendar/range-calendar.component';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    SpComponentsComponent,
+    // SpComponentsComponent,
     ChipComponent,
     ButtonComponent,
     TextFieldComponent,
@@ -99,10 +100,11 @@ registerLocaleData(en);
     UploadComponent,
     HeaderComponent,
     CardComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    RangeCalendarComponent
   ],
   exports: [
-    SpComponentsComponent,
+    // SpComponentsComponent,
     ChipComponent,
     ButtonComponent,
     TextFieldComponent,
@@ -143,7 +145,8 @@ registerLocaleData(en);
     UploadComponent,
     HeaderComponent,
     CardComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    RangeCalendarComponent
   ],
   imports: [
     CommonModule,

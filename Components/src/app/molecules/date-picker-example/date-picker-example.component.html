@@ -24,4 +24,22 @@
     </div>
 
     <p>date object: {{date3}}</p>
+
+    <!--- RANGE CALENDAR --->
+    <div class="spt-spacing-y--1">
+        <div class="text-field-row">
+            <!-- start date -->
+            <div class="spt-spacing-x--1">
+                <spt-date-picker [(ngModel)]="rangeStart" label="Start Date" size="large" [max]="rangeEnd"></spt-date-picker>
+            </div>
+
+            <!-- end date -->
+            <div class="spt-spacing-x--1">
+                <spt-date-picker [(ngModel)]="rangeEnd" label="EndDate" size="large" [min]="rangeStart"></spt-date-picker>
+            </div>
+        </div>
+        <div class="spt-spacing-top--1">
+            <spt-range-calendar [startDate]="rangeStart" [endDate]="rangeEnd" (onChange)="rangeChanged($event)"></spt-range-calendar>
+        </div>
+    </div>
 </div>
