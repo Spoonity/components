@@ -1,5 +1,5 @@
 import { EventEmitter, OnInit } from '@angular/core';
-import { AvatarSize, ButtonSize, ButtonType } from '../../../utils/enums';
+import { ButtonSize, ButtonType } from '../../../utils/enums';
 export interface ICampaign {
     id: number;
     notification_template: any;
@@ -67,7 +67,6 @@ export declare class CardComponent implements OnInit {
     grey: string;
     orange: string;
     campaignColor: any;
-    avatarSize: AvatarSize;
     btnType: ButtonType;
     buttonSize: ButtonSize;
     constructor();

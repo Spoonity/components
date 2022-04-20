@@ -1,14 +1,11 @@
-import { OnInit } from '@angular/core';
-import { AvatarSize } from '../../../utils/enums';
-export declare class AvatarComponent implements OnInit {
-    size: AvatarSize;
+export declare class AvatarComponent {
+    /** avatar component size (default: 40) */
+    size: number;
+    /** the text to get the initial from (only displays the first character) */
     text: string;
-    color: string;
+    /** font color (default: #0D0C0B) */
+    textColor: string;
+    /** background color (default: #FF9900) */
     backgroundColor: string;
-    styles: {
-        'background-color': string;
-        color: string;
-    };
     constructor();
-    ngOnInit(): void;
 }

@@ -1,8 +1,7 @@
-import { OnInit } from '@angular/core';
-export declare class BadgeComponent implements OnInit {
-    constructor();
-    ngOnInit(): void;
+export declare class BadgeComponent {
+    /** badge text */
     name: string;
+    /** badge color */
     color: string;
-    fontSize: number;
+    constructor();
 }

@@ -1633,50 +1633,46 @@
 
     var AvatarComponent = /** @class */ (function () {
         function AvatarComponent() {
+            /** avatar component size (default: 40) */
+            this.size = 40;
+            /** font color (default: #0D0C0B) */
+            this.textColor = '#0D0C0B';
+            /** background color (default: #FF9900) */
+            this.backgroundColor = '#FF9900';
         }
-        AvatarComponent.prototype.ngOnInit = function () {
-            this.styles = {
-                'background-color': this.backgroundColor || '#FF9900',
-                color: this.color || '#0D0C0B'
-            };
-        };
         return AvatarComponent;
     }());
     AvatarComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-avatar',
-                    template: "<nz-avatar [nzText]=\"text\" [nzSize]=\"size\" [ngStyle]=\"styles\"></nz-avatar>\n",
-                    styles: ["nz-avatar{margin:10px}"]
+                    template: "<div class=\"avatar-container\"\n     [style.width.px]=\"size < 30 ? 30 : size\"\n     [style.height.px]=\"size < 30 ? 30 : size\"\n     [style.background-color]=\"backgroundColor\">\n    <div class=\"avatar-text\"\n         [style.font-size.px]=\"size <= 45 ? 15 : size - 30\"\n         [style.color]=\"textColor\">{{text[0] | uppercase}}</div>\n</div>\n",
+                    styles: [".avatar-container{border-radius:100px;display:flex;align-items:center;justify-content:center}.avatar-text{height:-webkit-fit-content;height:-moz-fit-content;height:fit-content}"]
                 },] }
     ];
     AvatarComponent.ctorParameters = function () { return []; };
     AvatarComponent.propDecorators = {
         size: [{ type: core.Input }],
         text: [{ type: core.Input }],
-        color: [{ type: core.Input }],
+        textColor: [{ type: core.Input }],
         backgroundColor: [{ type: core.Input }]
     };
 
     var BadgeComponent = /** @class */ (function () {
         function BadgeComponent() {
-            this.fontSize = 14;
         }
-        BadgeComponent.prototype.ngOnInit = function () {
-        };
         return BadgeComponent;
     }());
     BadgeComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-badge',
-                    template: "\n<nz-tag class=\"badges\" nzStandalone [nzColor]=\"color\" [style.font-size]=\"fontSize + 'px'\" [style.line-height]=\"(fontSize + 2) + 'px'\">{{name}}</nz-tag>\n",
+                    template: "\n<nz-tag class=\"badges\" [nzColor]=\"color\" [style.font-size]=\"'14px'\" [style.line-height]=\"'16px'\">{{name}}</nz-tag>\n",
                     styles: [".badges{display:flex}nz-tag{width:-webkit-fit-content!important;width:-moz-fit-content!important;width:fit-content!important;padding:3px 12px!important;height:-webkit-fit-content!important;height:-moz-fit-content!important;height:fit-content!important;border:none!important;font-size:12px!important}"]
                 },] }
     ];
     BadgeComponent.ctorParameters = function () { return []; };
     BadgeComponent.propDecorators = {
         name: [{ type: core.Input }],
-        color: [{ type: core.Input }],
-        fontSize: [{ type: core.Input }]
+        color: [{ type: core.Input }]
     };
 
     var DividerComponent = /** @class */ (function () {
@@ -1723,11 +1719,9 @@
 
     var CheckboxComponent = /** @class */ (function () {
         function CheckboxComponent() {
-            this.span = 8;
+            /** emits the current boolean statys of the checkbox */
             this.onChangeEvent = new core.EventEmitter();
         }
-        CheckboxComponent.prototype.ngOnInit = function () {
-        };
         CheckboxComponent.prototype.onChange = function (e) {
             this.onChangeEvent.emit(e);
         };
@@ -1736,7 +1730,7 @@
     CheckboxComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-checkbox',
-                    template: "<div nz-col [nzSpan]=\"span\"><label nz-checkbox [nzIndeterminate]=\"indeterminate\" [ngModel]=\"check\" (ngModelChange)=\"onChange($event)\" [nzValue]=\"value\">{{value}}</label></div>",
+                    template: "<div nz-col [nzSpan]=\"8\"><label nz-checkbox [nzIndeterminate]=\"indeterminate\" [ngModel]=\"check\" (ngModelChange)=\"onChange($event)\" [nzValue]=\"value || text\">{{value || text}}</label></div>\n",
                     styles: [""]
                 },] }
     ];
@@ -1745,6 +1739,7 @@
         indeterminate: [{ type: core.Input }],
         check: [{ type: core.Input }],
         value: [{ type: core.Input }],
+        text: [{ type: core.Input }],
         onChangeEvent: [{ type: core.Output }]
     };
 
@@ -2103,7 +2098,6 @@
             this.otherAccounts = [];
             this.AccountsDisplay = this.otherAccounts;
             this.multipleAccounts = false;
-            this.avatarSize = exports.AvatarSize.medium;
             this.keyboarTab = appKeyboardTabIcon.name;
             this.expandLess = appExpandLessIcon.name;
             this.accountBox = appAccountBoxIcon.name;
@@ -2386,7 +2380,6 @@
             this.green = '#66BB6A';
             this.grey = '#e0e0e0';
             this.orange = '#FFB300';
-            this.avatarSize = exports.AvatarSize.large;
             this.btnType = exports.ButtonType.secondary;
             this.buttonSize = exports.ButtonSize.medium;
         }
@@ -2449,7 +2442,7 @@
     CardComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-card',
-                    template: "<div\n  [ngClass]=\"{ card: campaign || giftManagement, customerCard: customer }\"\n  (mouseover)=\"isMouseOver = true\"\n  (mouseout)=\"isMouseOver = false\"\n  [ngStyle]=\"{ 'background-color': customer?.isSelect ? '#FFF' : '' }\"\n>\n  <!-- Start Customer Card -->\n  <div class=\"col customer-col\" *ngIf=\"customer\">\n    <div\n      class=\"body\"\n      [ngStyle]=\"{\n        'background-color': !isMouseOver\n          ? customer.isSelect\n            ? '#FFF4E0'\n            : white\n          : null\n      }\"\n    >\n      <spt-avatar\n        [hidden]=\"customer.isSelect || (!disableCheckbox && isMouseOver)\"\n        [text]=\"(customer.first_name | uppercase | slice: 0:1) + (customer.last_name | uppercase | slice: 0:1)\"\n        [size]=\"avatarSize\"\n        [backgroundColor]=\"customer.isSelect ? '#FFF4E0' : white\"\n        [color]=\"red\"\n      ></spt-avatar>\n      <spt-checkbox\n        [hidden]=\"!customer.isSelect && (disableCheckbox || !isMouseOver)\"\n        [check]=\"customer.isSelect\"\n        (onChangeEvent)=\"onSelectEvent($event)\"\n      ></spt-checkbox>\n    </div>\n    <div class=\"content\">\n      <div class=\"sub-content3\">\n        <div class=\"content-space spt-spacing-x--3 user-content\">\n          <span class=\" spt-spacing-y--1 subTitle1\">{{ customer.first_name + \" \" + customer.last_name }}</span>\n          <span class=\"shadow-text date body2\"\n            >Member Since: {{ customer.date_created * 1000 | date:'mediumDate' }}</span\n          >\n        </div>\n      </div>\n      <div class=\"sub-content3\">\n        <div class=\"content-space \">\n          <div class=\"content-icon\">\n            <spt-icon\n              class=\"icons\"\n              [color]=\"'#4f4e4d'\"\n              [name]=\"email\"\n            ></spt-icon>\n            <span class=\"spt-spacing-y--1 shadow-text padding-left body2\">Email</span>\n          </div>\n          <div class=\"sub-content4 text-email body1\">\n            <span class=\"padding-left\">{{ customer.email }}</span>\n          </div>\n        </div>\n      </div>\n      <div class=\"content-space spt-spacing-x--3 sub-content3 \">\n        <div class=\"content-icon\">\n          <spt-icon\n            class=\"icons\"\n            [color]=\"'#4f4e4d'\"\n            [name]=\"call\"\n          ></spt-icon>\n          <span class=\"spt-spacing-y--1 shadow-text padding-left body2\">Phone</span>\n        </div>\n        <div class=\"sub-content4 body1\">\n          <span class=\"padding-left\">{{ customer.phone || '---' }}</span>\n        </div>\n      </div>\n    </div>\n  </div>\n  <!-- End Customer Card -->\n\n  <!-- Start Campaign Card -->\n  <div class=\"col campaign-col\" *ngIf=\"campaign\">\n    <div class=\"body campaign-body\">\n      <div class=\"campaign-icon\">\n        <spt-icon\n          [size]=\"32\"\n          color=\"#4F4E4D\"\n          [name]=\"\n            campaign.notification_template.medium.id == 1\n              ? email\n              : campaign.notification_template.medium.id == 3\n              ? smartphone\n              : sms\n          \"\n        ></spt-icon>\n        <span class=\"shadow-text\">\n          <b *ngIf=\"campaign.notification_template.medium.name === 'sms'\">{{\n            campaign.notification_template.medium.name | uppercase\n          }}</b>\n          <b *ngIf=\"campaign.notification_template.medium.name !== 'sms'\">{{\n            campaign.notification_template.medium.name | titlecase\n          }}</b>\n        </span>\n      </div>\n    </div>\n    <div class=\"content campaign-content\">\n      <div class=\"sub-content3\" *ngIf=\"campaign\">\n        <div class=\"sub-content1\">\n          <spt-badge\n            [fontSize]=\"12\"\n            class=\"badge\"\n            [color]=\"campaignColor\"\n            [name]=\"getCampaignStatus(campaign)\"\n          ></spt-badge>\n          <span class=\"shadow-text date padding-left\"\n            >Created:\n            {{ campaign.date_created * 1000 | date: \"MMM d, y\" }}</span\n          >\n        </div>\n        <span>{{ campaign.name }}</span>\n        <div class=\"sub-content2 shadow-text\">\n          <ng-content select=\"div.target-group\"></ng-content>\n        </div>\n      </div>\n    </div>\n    <div class=\"content campaign-content\">\n      <span\n        *ngIf=\"campaign.status.id != CAMPAIGN_STATUS.INACTIVE\"\n        style=\"display: flex\"\n      >\n        <div class=\"printer-container\">\n          <span class=\"shadow-text\">Send</span>\n          <div class=\"printer\">\n            <span>{{ getCampaignMetric(\"Send\", campaign) }}</span>\n          </div>\n        </div>\n        <div class=\"sendIcon\">\n          <spt-icon [name]=\"send\"></spt-icon>\n        </div>\n        <div class=\"printer-container\">\n          <span class=\"shadow-text\">Open</span>\n          <div class=\"printer\">\n            <span>{{ getCampaignMetric(\"Open\", campaign) }}</span>\n          </div>\n        </div>\n        <div class=\"sendIcon\">\n          <spt-icon [name]=\"send\"></spt-icon>\n        </div>\n        <div class=\"printer-container\">\n          <span class=\"shadow-text\">Visit</span>\n          <div class=\"printer\">\n            <span>{{ getCampaignMetric(\"Visit\", campaign) }}</span>\n          </div>\n        </div>\n        <div class=\"sendIcon\">\n          <spt-icon [name]=\"send\"></spt-icon>\n        </div>\n        <div class=\"printer-container\">\n          <span class=\"shadow-text\">Spend</span>\n          <div class=\"printer\">\n            <span>{{ getCampaignMetric(\"Spend\", campaign) }}</span>\n          </div>\n        </div>\n      </span>\n      <div class=\"menu-content\">\n        <ng-content select=\"div.menu\"></ng-content>\n      </div>\n    </div>\n  </div>\n  <!-- End Campaign Card -->\n\n  <!-- Start Gift Card -->\n  <div class=\"col gift-col\" *ngIf=\"giftManagement\">\n    <div class=\"body gift-body\">\n      <div class=\"campaign\">\n        <spt-icon\n          class=\"icons\"\n          [toolTipTitle]=\"redeem\"\n          [name]=\"redeem\"\n        ></spt-icon>\n      </div>\n    </div>\n    <div class=\"content gift-content\">\n      <div class=\"content\">\n        <div class=\"sub-content1\">\n          <spt-badge\n            [fontSize]=\"12\"\n            class=\"badge\"\n            [name]=\"giftManagement.deliverProcess | uppercase\"\n            color=\"#66BB6A\"\n          ></spt-badge>\n          <span class=\"shadow-text date padding-left\"\n            >Created: {{ giftManagement.dateCreated }}</span\n          >\n        </div>\n        <span\n          ><b>ID: {{ giftManagement.id }}</b></span\n        >\n      </div>\n    </div>\n    <div class=\"content gift-content\">\n      <div class=\"sub-content3\">\n        <div>\n          <spt-icon\n            class=\"icons\"\n            [toolTipTitle]=\"email\"\n            [name]=\"email\"\n          ></spt-icon>\n          <span class=\"shadow-text padding-left\">Email</span>\n        </div>\n        <div class=\"sub-content4\">\n          <span>{{ giftManagement.email }}</span>\n        </div>\n      </div>\n      <div class=\"sub-content3\">\n        <div>\n          <spt-icon\n            class=\"icons\"\n            [toolTipTitle]=\"call\"\n            [name]=\"call\"\n          ></spt-icon>\n          <span class=\"shadow-text padding-left\">Phone</span>\n        </div>\n        <div class=\"sub-content4\">\n          <span>{{ giftManagement.phone }}</span>\n        </div>\n      </div>\n    </div>\n    <div class=\"col3\">\n      <spt-button\n        [size]=\"buttonSize\"\n        [type]=\"btnType\"\n        [text]=\"'CANCEL'\"\n        (click)=\"cancel()\"\n      ></spt-button>\n      <spt-button\n        [size]=\"buttonSize\"\n        [type]=\"btnType\"\n        [text]=\"'GO TO GUEST'\"\n        (click)=\"goToGuest()\"\n      ></spt-button>\n    </div>\n  </div>\n  <!-- End Gift Card -->\n</div>\n",
+                    template: "<div\n  [ngClass]=\"{ card: campaign || giftManagement, customerCard: customer }\"\n  (mouseover)=\"isMouseOver = true\"\n  (mouseout)=\"isMouseOver = false\"\n  [ngStyle]=\"{ 'background-color': customer?.isSelect ? '#FFF' : '' }\"\n>\n  <!-- Start Customer Card -->\n  <div class=\"col customer-col\" *ngIf=\"customer\">\n    <div\n      class=\"body\"\n      [ngStyle]=\"{\n        'background-color': !isMouseOver\n          ? customer.isSelect\n            ? '#FFF4E0'\n            : white\n          : null\n      }\"\n    >\n      <spt-avatar\n        [hidden]=\"customer.isSelect || (!disableCheckbox && isMouseOver)\"\n        [text]=\"(customer.first_name | uppercase | slice: 0:1) + (customer.last_name | uppercase | slice: 0:1)\"\n        [size]=\"40\"\n        [backgroundColor]=\"customer.isSelect ? '#FFF4E0' : white\"\n        [textColor]=\"red\"\n      ></spt-avatar>\n      <spt-checkbox\n        [hidden]=\"!customer.isSelect && (disableCheckbox || !isMouseOver)\"\n        [check]=\"customer.isSelect\"\n        (onChangeEvent)=\"onSelectEvent($event)\"\n      ></spt-checkbox>\n    </div>\n    <div class=\"content\">\n      <div class=\"sub-content3\">\n        <div class=\"content-space spt-spacing-x--3 user-content\">\n          <span class=\" spt-spacing-y--1 subTitle1\">{{ customer.first_name + \" \" + customer.last_name }}</span>\n          <span class=\"shadow-text date body2\"\n            >Member Since: {{ customer.date_created * 1000 | date:'mediumDate' }}</span\n          >\n        </div>\n      </div>\n      <div class=\"sub-content3\">\n        <div class=\"content-space \">\n          <div class=\"content-icon\">\n            <spt-icon\n              class=\"icons\"\n              [color]=\"'#4f4e4d'\"\n              [name]=\"email\"\n            ></spt-icon>\n            <span class=\"spt-spacing-y--1 shadow-text padding-left body2\">Email</span>\n          </div>\n          <div class=\"sub-content4 text-email body1\">\n            <span class=\"padding-left\">{{ customer.email }}</span>\n          </div>\n        </div>\n      </div>\n      <div class=\"content-space spt-spacing-x--3 sub-content3 \">\n        <div class=\"content-icon\">\n          <spt-icon\n            class=\"icons\"\n            [color]=\"'#4f4e4d'\"\n            [name]=\"call\"\n          ></spt-icon>\n          <span class=\"spt-spacing-y--1 shadow-text padding-left body2\">Phone</span>\n        </div>\n        <div class=\"sub-content4 body1\">\n          <span class=\"padding-left\">{{ customer.phone || '---' }}</span>\n        </div>\n      </div>\n    </div>\n  </div>\n  <!-- End Customer Card -->\n\n  <!-- Start Campaign Card -->\n  <div class=\"col campaign-col\" *ngIf=\"campaign\">\n    <div class=\"body campaign-body\">\n      <div class=\"campaign-icon\">\n        <spt-icon\n          [size]=\"32\"\n          color=\"#4F4E4D\"\n          [name]=\"\n            campaign.notification_template.medium.id == 1\n              ? email\n              : campaign.notification_template.medium.id == 3\n              ? smartphone\n              : sms\n          \"\n        ></spt-icon>\n        <span class=\"shadow-text\">\n          <b *ngIf=\"campaign.notification_template.medium.name === 'sms'\">{{\n            campaign.notification_template.medium.name | uppercase\n          }}</b>\n          <b *ngIf=\"campaign.notification_template.medium.name !== 'sms'\">{{\n            campaign.notification_template.medium.name | titlecase\n          }}</b>\n        </span>\n      </div>\n    </div>\n    <div class=\"content campaign-content\">\n      <div class=\"sub-content3\" *ngIf=\"campaign\">\n        <div class=\"sub-content1\">\n          <spt-badge\n            class=\"badge\"\n            [color]=\"campaignColor\"\n            [name]=\"getCampaignStatus(campaign)\"\n          ></spt-badge>\n          <span class=\"shadow-text date padding-left\"\n            >Created:\n            {{ campaign.date_created * 1000 | date: \"MMM d, y\" }}</span\n          >\n        </div>\n        <span>{{ campaign.name }}</span>\n        <div class=\"sub-content2 shadow-text\">\n          <ng-content select=\"div.target-group\"></ng-content>\n        </div>\n      </div>\n    </div>\n    <div class=\"content campaign-content\">\n      <span\n        *ngIf=\"campaign.status.id != CAMPAIGN_STATUS.INACTIVE\"\n        style=\"display: flex\"\n      >\n        <div class=\"printer-container\">\n          <span class=\"shadow-text\">Send</span>\n          <div class=\"printer\">\n            <span>{{ getCampaignMetric(\"Send\", campaign) }}</span>\n          </div>\n        </div>\n        <div class=\"sendIcon\">\n          <spt-icon [name]=\"send\"></spt-icon>\n        </div>\n        <div class=\"printer-container\">\n          <span class=\"shadow-text\">Open</span>\n          <div class=\"printer\">\n            <span>{{ getCampaignMetric(\"Open\", campaign) }}</span>\n          </div>\n        </div>\n        <div class=\"sendIcon\">\n          <spt-icon [name]=\"send\"></spt-icon>\n        </div>\n        <div class=\"printer-container\">\n          <span class=\"shadow-text\">Visit</span>\n          <div class=\"printer\">\n            <span>{{ getCampaignMetric(\"Visit\", campaign) }}</span>\n          </div>\n        </div>\n        <div class=\"sendIcon\">\n          <spt-icon [name]=\"send\"></spt-icon>\n        </div>\n        <div class=\"printer-container\">\n          <span class=\"shadow-text\">Spend</span>\n          <div class=\"printer\">\n            <span>{{ getCampaignMetric(\"Spend\", campaign) }}</span>\n          </div>\n        </div>\n      </span>\n      <div class=\"menu-content\">\n        <ng-content select=\"div.menu\"></ng-content>\n      </div>\n    </div>\n  </div>\n  <!-- End Campaign Card -->\n\n  <!-- Start Gift Card -->\n  <div class=\"col gift-col\" *ngIf=\"giftManagement\">\n    <div class=\"body gift-body\">\n      <div class=\"campaign\">\n        <spt-icon\n          class=\"icons\"\n          [toolTipTitle]=\"redeem\"\n          [name]=\"redeem\"\n        ></spt-icon>\n      </div>\n    </div>\n    <div class=\"content gift-content\">\n      <div class=\"content\">\n        <div class=\"sub-content1\">\n          <spt-badge\n            class=\"badge\"\n            [name]=\"giftManagement.deliverProcess | uppercase\"\n            color=\"#66BB6A\"\n          ></spt-badge>\n          <span class=\"shadow-text date padding-left\"\n            >Created: {{ giftManagement.dateCreated }}</span\n          >\n        </div>\n        <span\n          ><b>ID: {{ giftManagement.id }}</b></span\n        >\n      </div>\n    </div>\n    <div class=\"content gift-content\">\n      <div class=\"sub-content3\">\n        <div>\n          <spt-icon\n            class=\"icons\"\n            [toolTipTitle]=\"email\"\n            [name]=\"email\"\n          ></spt-icon>\n          <span class=\"shadow-text padding-left\">Email</span>\n        </div>\n        <div class=\"sub-content4\">\n          <span>{{ giftManagement.email }}</span>\n        </div>\n      </div>\n      <div class=\"sub-content3\">\n        <div>\n          <spt-icon\n            class=\"icons\"\n            [toolTipTitle]=\"call\"\n            [name]=\"call\"\n          ></spt-icon>\n          <span class=\"shadow-text padding-left\">Phone</span>\n        </div>\n        <div class=\"sub-content4\">\n          <span>{{ giftManagement.phone }}</span>\n        </div>\n      </div>\n    </div>\n    <div class=\"col3\">\n      <spt-button\n        [size]=\"buttonSize\"\n        [type]=\"btnType\"\n        [text]=\"'CANCEL'\"\n        (click)=\"cancel()\"\n      ></spt-button>\n      <spt-button\n        [size]=\"buttonSize\"\n        [type]=\"btnType\"\n        [text]=\"'GO TO GUEST'\"\n        (click)=\"goToGuest()\"\n      ></spt-button>\n    </div>\n  </div>\n  <!-- End Gift Card -->\n</div>\n",
                     styles: [".card,.customerCard{display:flex;justify-content:flex-start;border:1px solid #e2e2e2;border-radius:4px;font-family:Nunito Sans;font-style:normal;font-weight:700;font-size:14px;background:#fff;min-width:-webkit-fit-content;min-width:-moz-fit-content;min-width:fit-content;overflow:hidden;height:100%;margin-bottom:24px}.card:hover{cursor:pointer}.card:active,.customerCard:active{background-color:#f3f3f3}.col,.content{display:flex;flex-direction:row;width:100%}.content{justify-content:space-around}.body{flex-direction:row;align-items:center;background-color:#ffebee;height:88px;min-width:88px}.body,.sub-content3{display:flex;justify-content:center}.sub-content3{height:100%;flex:1;flex-direction:column}.sub-content4{margin-left:20px}.campaign-col{display:flex;flex-direction:row;width:100%}.campaign-body{height:120px;min-width:120px}.campaign-icon{display:flex;flex-direction:column}.gift-col{display:flex;flex-direction:row;width:100%}.gift-content{align-items:center}.gift-body{height:120px;min-width:120px}.col1{display:flex;flex-direction:row}.sub-content1{display:flex;padding-bottom:10px}.sub-content1 nz-tag{margin:0}.sub-content2{display:flex;align-items:center}.shadow-text{color:#4f4e4d}.date{color:#909090}.padding-left{padding-left:16px}.col2{display:flex;flex-direction:row;align-items:center}.printer-container{display:flex;flex-direction:column;justify-content:center}.printer{display:flex;align-items:center;min-width:80px;height:48px;background-color:#f3f3f3;border-radius:4px;padding:10px}.sendIcon{padding-top:30px;margin:0 15px 0 10px}.menu-content{padding-bottom:60px}.col3{display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:0 15px}.text-email{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}spt-badge{font-weight:400}.subTitle1{font-family:Nunito Sans;font-style:normal;font-weight:700;font-size:16px;line-height:24px}.body1{font-size:14px}.body1,.body2{font-family:Nunito Sans;font-style:normal;font-weight:400;line-height:24px}.body2{font-size:12px}.content-icon{display:flex;flex-direction:row;align-items:center}.user-content{min-width:220px;display:flex;flex-direction:column}spt-icon{transform:translateY(-2px)}"]
                 },] }
     ];
@@ -3056,6 +3049,37 @@
         strokeWidth: [{ type: core.Input }]
     };
 
+    var RangeCalendarComponent = /** @class */ (function () {
+        function RangeCalendarComponent() {
+            /** range start date **/
+            this.startDate = new Date();
+            /** range end date **/
+            this.endDate = new Date();
+            this.onChange = new core.EventEmitter();
+        }
+        RangeCalendarComponent.prototype.ngOnInit = function () {
+        };
+        RangeCalendarComponent.prototype.ngOnChanges = function (changes) {
+            if (changes.startDate || changes.endDate) {
+                this.range = [this.startDate, this.endDate];
+            }
+        };
+        return RangeCalendarComponent;
+    }());
+    RangeCalendarComponent.decorators = [
+        { type: core.Component, args: [{
+                    selector: 'spt-range-calendar',
+                    template: "<nz-range-picker nzInline [(ngModel)]=\"range\" [nzInputReadOnly]=\"true\" (ngModelChange)=\"onChange.emit($event)\"></nz-range-picker>\n",
+                    styles: [".form-field{color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #b1b1b1!important}.form-field.large{padding:14px 10px;height:50px}.form-field.large+label.label{top:14px}.form-field.medium{padding:10px;height:42px}.form-field.medium+label.label{top:10px}.form-field.small{padding:8px 10px;height:34px}.form-field.small+label.label{top:8px}.form-field.error,.form-field.has-right-icon{padding-right:45px}.form-field.error{border:1px solid #ef5350!important}.form-field.error~label{color:#ef5350!important}.form-field.error.ant-picker-focused,.form-field.error:focus,.form-field.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.form-field.has-left-icon{padding-left:45px}.form-field.has-left-icon+label.label{left:45px}.form-field:hover{border:1px solid #000!important}.form-field.ant-picker-focused,.form-field.item-focus,.form-field:focus{border:1px solid #f90!important;caret-color:#f90}.form-field.ant-picker-focused+label.label,.form-field.item-focus+label.label,.form-field:focus+label.label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.text-field-container input::-moz-placeholder, .text-field-container nz-date-picker::-moz-placeholder{visibility:hidden;opacity:0;-moz-transition:visibility .1s ease-out,opacity .1s ease-out;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input::placeholder,.text-field-container nz-date-picker::placeholder{visibility:hidden;opacity:0;transition:visibility .1s ease-out,opacity .1s ease-out;padding:0 4px}.text-field-container input.show-placeholder::-moz-placeholder, .text-field-container nz-date-picker.show-placeholder::-moz-placeholder{visibility:visible!important;opacity:1!important}.text-field-container input.show-placeholder::placeholder,.text-field-container nz-date-picker.show-placeholder::placeholder{visibility:visible!important;opacity:1!important}.text-field-container input.ant-picker-focused::-moz-placeholder, .text-field-container input:focus::-moz-placeholder, .text-field-container nz-date-picker.ant-picker-focused::-moz-placeholder, .text-field-container nz-date-picker:focus::-moz-placeholder{visibility:visible;opacity:1}.text-field-container input.ant-picker-focused::placeholder,.text-field-container input:focus::placeholder,.text-field-container nz-date-picker.ant-picker-focused::placeholder,.text-field-container nz-date-picker:focus::placeholder{visibility:visible;opacity:1}.text-field-container input.disabled-state,.text-field-container nz-date-picker.disabled-state{cursor:not-allowed!important}.spt-input-container{margin:0;position:relative}.spt-input-container input,.spt-input-container nz-date-picker{text-overflow:ellipsis;box-shadow:none;outline:none;min-height:24px;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #b1b1b1!important}.spt-input-container input.large,.spt-input-container nz-date-picker.large{padding:14px 10px;height:50px}.spt-input-container input.large+label.label,.spt-input-container nz-date-picker.large+label.label{top:14px}.spt-input-container input.medium,.spt-input-container nz-date-picker.medium{padding:10px;height:42px}.spt-input-container input.medium+label.label,.spt-input-container nz-date-picker.medium+label.label{top:10px}.spt-input-container input.small,.spt-input-container nz-date-picker.small{padding:8px 10px;height:34px}.spt-input-container input.small+label.label,.spt-input-container nz-date-picker.small+label.label{top:8px}.spt-input-container input.error,.spt-input-container input.has-right-icon,.spt-input-container nz-date-picker.error,.spt-input-container nz-date-picker.has-right-icon{padding-right:45px}.spt-input-container input.error,.spt-input-container nz-date-picker.error{border:1px solid #ef5350!important}.spt-input-container input.error~label,.spt-input-container nz-date-picker.error~label{color:#ef5350!important}.spt-input-container input.error.ant-picker-focused,.spt-input-container input.error:focus,.spt-input-container input.error:hover,.spt-input-container nz-date-picker.error.ant-picker-focused,.spt-input-container nz-date-picker.error:focus,.spt-input-container nz-date-picker.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.spt-input-container input.has-left-icon,.spt-input-container nz-date-picker.has-left-icon{padding-left:45px}.spt-input-container input.has-left-icon+label.label,.spt-input-container nz-date-picker.has-left-icon+label.label{left:45px}.spt-input-container input:hover,.spt-input-container nz-date-picker:hover{border:1px solid #000!important}.spt-input-container input.ant-picker-focused,.spt-input-container input.item-focus,.spt-input-container input:focus,.spt-input-container nz-date-picker.ant-picker-focused,.spt-input-container nz-date-picker.item-focus,.spt-input-container nz-date-picker:focus{border:1px solid #f90!important;caret-color:#f90}.spt-input-container input.ant-picker-focused+label.label,.spt-input-container input.item-focus+label.label,.spt-input-container input:focus+label.label,.spt-input-container nz-date-picker.ant-picker-focused+label.label,.spt-input-container nz-date-picker.item-focus+label.label,.spt-input-container nz-date-picker:focus+label.label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input.disabled-state,.spt-input-container input[disabled],.spt-input-container nz-date-picker.disabled-state,.spt-input-container nz-date-picker[disabled]{background-color:#fff!important;color:#b1b1b1!important;border:1px solid #b1b1b1!important;cursor:not-allowed}.spt-input-container input.disabled-state~label,.spt-input-container input[disabled]~label,.spt-input-container nz-date-picker.disabled-state~label,.spt-input-container nz-date-picker[disabled]~label{color:#b1b1b1!important}.spt-input-container input.disabled-state:hover,.spt-input-container input[disabled]:hover,.spt-input-container nz-date-picker.disabled-state:hover,.spt-input-container nz-date-picker[disabled]:hover{border:1px solid #b1b1b1!important}.spt-input-container input.dirty+label.label,.spt-input-container nz-date-picker.dirty+label.label{color:#909090}.spt-input-container input.dirty:hover+label.label,.spt-input-container nz-date-picker.dirty:hover+label.label{color:#000}.spt-input-container input.dirty.ant-picker-focused+label.label,.spt-input-container input.dirty:focus+label.label,.spt-input-container nz-date-picker.dirty.ant-picker-focused+label.label,.spt-input-container nz-date-picker.dirty:focus+label.label{color:#f90}.spt-input-container input.dirty+label.label,.spt-input-container nz-date-picker.dirty+label.label{font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.spt-input-container input+label.label,.spt-input-container nz-date-picker+label.label{position:absolute;left:12px;font-size:14px;color:#909090;background-color:hsla(0,0%,100%,0);pointer-events:none;transition:all .2s ease,background-color .2s ease-in}.spt-input-container .text-field-icon{position:absolute;height:24px;top:50%;transform:translateY(-50%)}.spt-input-container .error-icon,.spt-input-container .right-icon{right:12px}.spt-input-container .left-icon{left:12px}.spt-input-container .left-icon svg path:last-child,.spt-input-container .right-icon svg path:last-child{fill:#706f6e}.spt-input-container .error-icon svg path:last-child{fill:#ef5350}.spt-input-container label.text-field-bottom-label{font-size:12px;margin-top:10px;position:absolute;bottom:-20px;width:80%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.spt-input-container label.text-field-label{max-width:80%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.spt-input-container label.error-label,.spt-input-container label.hint-label{left:12px}.spt-input-container label.length-label{right:12px;width:-webkit-fit-content!important;width:-moz-fit-content!important;width:fit-content!important}.spt-input-container label.error-label{color:#ef5350}.spt-input-container label.hint-label,.spt-input-container label.length-label{color:#4f4e4d}.spt-input-container.disabled-container .text-field-bottom-label{color:#b1b1b1!important}.spt-input-container.disabled-container .text-field-icon svg path:last-child{fill:#b1b1b1}.search-wrapper{display:flex;align-items:center;background-color:#fff;color:#0d0c0b;font-size:14px;height:inherit;width:100%;border-radius:4px;border:1px solid #b1b1b1!important}.search-wrapper.large{padding:14px 10px;height:50px}.search-wrapper.large+label.label{top:14px}.search-wrapper.medium{padding:10px;height:42px}.search-wrapper.medium+label.label{top:10px}.search-wrapper.small{padding:8px 10px;height:34px}.search-wrapper.small+label.label{top:8px}.search-wrapper.error,.search-wrapper.has-right-icon{padding-right:45px}.search-wrapper.error{border:1px solid #ef5350!important}.search-wrapper.error~label{color:#ef5350!important}.search-wrapper.error.ant-picker-focused,.search-wrapper.error:focus,.search-wrapper.error:hover{border:1px solid #ef5350!important;caret-color:#ef5350}.search-wrapper.has-left-icon{padding-left:45px}.search-wrapper.has-left-icon+label.label{left:45px}.search-wrapper:hover{border:1px solid #000!important}.search-wrapper.ant-picker-focused,.search-wrapper.item-focus,.search-wrapper:focus{border:1px solid #f90!important;caret-color:#f90}.search-wrapper.ant-picker-focused+label.label,.search-wrapper.item-focus+label.label,.search-wrapper:focus+label.label{color:#f90;font-size:11px;top:-8px;left:8px;padding:0 4px;background-color:#fff}.search-wrapper input{border:none!important;height:calc(100% - 2px)}.search-wrapper input:focus,.search-wrapper input:hover{border:none!important}.search-wrapper .search-icon{height:24px}.search-wrapper.large .search-icon,.search-wrapper.medium .search-icon{margin-left:10px;margin-right:10px}.search-wrapper.small{padding:4px 10px}.search-wrapper.small .search-icon{margin-left:10px;margin-right:10px}.search-wrapper .selected-items{display:flex;flex-wrap:wrap}.search-wrapper .selected-items .selected-item{margin:1px}.date-picker-close{cursor:pointer}"]
+                },] }
+    ];
+    RangeCalendarComponent.ctorParameters = function () { return []; };
+    RangeCalendarComponent.propDecorators = {
+        startDate: [{ type: core.Input }],
+        endDate: [{ type: core.Input }],
+        onChange: [{ type: core.Output }]
+    };
+
     common.registerLocaleData(en__default['default']);
     var ɵ0 = i18n.en_US;
     var SpComponentsModule = /** @class */ (function () {
@@ -3107,7 +3131,8 @@
                         UploadComponent,
                         HeaderComponent,
                         CardComponent,
-                        DatePickerComponent
+                        DatePickerComponent,
+                        RangeCalendarComponent
                     ],
                     exports: [
                         SpComponentsComponent,
@@ -3151,7 +3176,8 @@
                         UploadComponent,
                         HeaderComponent,
                         CardComponent,
-                        DatePickerComponent
+                        DatePickerComponent,
+                        RangeCalendarComponent
                     ],
                     imports: __spread([
                         common.CommonModule,
@@ -3226,77 +3252,78 @@
     exports.ɵ0 = ɵ0;
     exports.ɵa = FormFieldManager;
     exports.ɵb = BannerComponent;
-    exports.ɵba = appCallIcon;
-    exports.ɵbb = appDraftsIcon;
-    exports.ɵbc = appEmailIcon;
-    exports.ɵbd = appAddCircleOutlineIcon;
-    exports.ɵbe = appAddIcon;
-    exports.ɵbf = appReportIcon;
-    exports.ɵbg = appSendIcon;
-    exports.ɵbh = appUploadFileIcon;
-    exports.ɵbi = appKeyboardTabIcon;
-    exports.ɵbj = appSmartphoneIcon;
-    exports.ɵbk = appEditIcon;
-    exports.ɵbl = appWbIncandescentIcon;
-    exports.ɵbm = appPlaceIcon;
-    exports.ɵbn = appAccountBalanceIcon;
-    exports.ɵbo = appAnalyticsIcon;
-    exports.ɵbp = appAutorenewIcon;
-    exports.ɵbq = appCalendarIcon;
-    exports.ɵbr = appCalendarDateRangeIcon;
-    exports.ɵbs = appCalendarTodayIcon;
-    exports.ɵbt = appCallMergeIcon;
-    exports.ɵbu = appCircleIcon;
-    exports.ɵbv = appConnectIcon;
-    exports.ɵbw = appCorporateFareIcon;
-    exports.ɵbx = appCreditCard;
-    exports.ɵby = appDeleteIcon;
-    exports.ɵbz = appDesktopIcon;
+    exports.ɵba = appRecentActorsIcon;
+    exports.ɵbb = appCallIcon;
+    exports.ɵbc = appDraftsIcon;
+    exports.ɵbd = appEmailIcon;
+    exports.ɵbe = appAddCircleOutlineIcon;
+    exports.ɵbf = appAddIcon;
+    exports.ɵbg = appReportIcon;
+    exports.ɵbh = appSendIcon;
+    exports.ɵbi = appUploadFileIcon;
+    exports.ɵbj = appKeyboardTabIcon;
+    exports.ɵbk = appSmartphoneIcon;
+    exports.ɵbl = appEditIcon;
+    exports.ɵbm = appWbIncandescentIcon;
+    exports.ɵbn = appPlaceIcon;
+    exports.ɵbo = appAccountBalanceIcon;
+    exports.ɵbp = appAnalyticsIcon;
+    exports.ɵbq = appAutorenewIcon;
+    exports.ɵbr = appCalendarIcon;
+    exports.ɵbs = appCalendarDateRangeIcon;
+    exports.ɵbt = appCalendarTodayIcon;
+    exports.ɵbu = appCallMergeIcon;
+    exports.ɵbv = appCircleIcon;
+    exports.ɵbw = appConnectIcon;
+    exports.ɵbx = appCorporateFareIcon;
+    exports.ɵby = appCreditCard;
+    exports.ɵbz = appDeleteIcon;
     exports.ɵc = DropdownService;
-    exports.ɵca = appDownloadIcon;
-    exports.ɵcb = appFileCopyIcon;
-    exports.ɵcc = appGavelIcon;
-    exports.ɵcd = appHelpIcon;
-    exports.ɵce = appHighlightOffIcon;
-    exports.ɵcf = appLinkIcon;
-    exports.ɵcg = appLockIcon;
-    exports.ɵch = appLoyaltyIcon;
-    exports.ɵci = appOpenWithIcon;
-    exports.ɵcj = appOpenInNew;
-    exports.ɵck = appPaymentsIcon;
-    exports.ɵcl = appPrivacyTipIcon;
-    exports.ɵcm = appQuizIcon;
-    exports.ɵcn = appRemoveIcon;
-    exports.ɵco = appRemoveRedEyeIcon;
-    exports.ɵcp = appScheduleIcon;
-    exports.ɵcq = appSettingsSuggestIcon;
-    exports.ɵcr = appVerticalSplitIcon;
-    exports.ɵcs = appArrowBackIcon;
-    exports.ɵct = appArrowDownwardIcon;
-    exports.ɵcu = appArrowForwardIcon;
-    exports.ɵcv = appArrowUpwardIcon;
-    exports.ɵcw = appCancelBlackIcon;
-    exports.ɵcx = appCheckIcon;
-    exports.ɵcy = appChevronLeftIcon;
-    exports.ɵcz = appChevronRightIcon;
+    exports.ɵca = appDesktopIcon;
+    exports.ɵcb = appDownloadIcon;
+    exports.ɵcc = appFileCopyIcon;
+    exports.ɵcd = appGavelIcon;
+    exports.ɵce = appHelpIcon;
+    exports.ɵcf = appHighlightOffIcon;
+    exports.ɵcg = appLinkIcon;
+    exports.ɵch = appLockIcon;
+    exports.ɵci = appLoyaltyIcon;
+    exports.ɵcj = appOpenWithIcon;
+    exports.ɵck = appOpenInNew;
+    exports.ɵcl = appPaymentsIcon;
+    exports.ɵcm = appPrivacyTipIcon;
+    exports.ɵcn = appQuizIcon;
+    exports.ɵco = appRemoveIcon;
+    exports.ɵcp = appRemoveRedEyeIcon;
+    exports.ɵcq = appScheduleIcon;
+    exports.ɵcr = appSettingsSuggestIcon;
+    exports.ɵcs = appVerticalSplitIcon;
+    exports.ɵct = appArrowBackIcon;
+    exports.ɵcu = appArrowDownwardIcon;
+    exports.ɵcv = appArrowForwardIcon;
+    exports.ɵcw = appArrowUpwardIcon;
+    exports.ɵcx = appCancelBlackIcon;
+    exports.ɵcy = appCheckIcon;
+    exports.ɵcz = appChevronLeftIcon;
     exports.ɵd = OverlayTemplateComponent;
-    exports.ɵda = appClearIcon;
-    exports.ɵdb = appEastIcon;
-    exports.ɵdc = appExpandLessIcon;
-    exports.ɵdd = appExpandMoreIcon;
-    exports.ɵde = appFirstPageIcon;
-    exports.ɵdf = appLastPageIcon;
-    exports.ɵdg = appMoreVertIcon;
-    exports.ɵdh = appMoreHorizIcon;
-    exports.ɵdi = appRefreshIcon;
-    exports.ɵdj = appPriorityHighIcon;
-    exports.ɵdk = appSmsIcon;
-    exports.ɵdl = appPeopleIcon;
-    exports.ɵdm = appCheckBoxOutlineBlankIcon;
-    exports.ɵdn = appCheckBoxIcon;
-    exports.ɵdo = appIndeterminateCheckBoxIcon;
-    exports.ɵdp = appRadioButtonCheckedIcon;
-    exports.ɵdq = appRadioButtonUncheckedIcon;
+    exports.ɵda = appChevronRightIcon;
+    exports.ɵdb = appClearIcon;
+    exports.ɵdc = appEastIcon;
+    exports.ɵdd = appExpandLessIcon;
+    exports.ɵde = appExpandMoreIcon;
+    exports.ɵdf = appFirstPageIcon;
+    exports.ɵdg = appLastPageIcon;
+    exports.ɵdh = appMoreVertIcon;
+    exports.ɵdi = appMoreHorizIcon;
+    exports.ɵdj = appRefreshIcon;
+    exports.ɵdk = appPriorityHighIcon;
+    exports.ɵdl = appSmsIcon;
+    exports.ɵdm = appPeopleIcon;
+    exports.ɵdn = appCheckBoxOutlineBlankIcon;
+    exports.ɵdo = appCheckBoxIcon;
+    exports.ɵdp = appIndeterminateCheckBoxIcon;
+    exports.ɵdq = appRadioButtonCheckedIcon;
+    exports.ɵdr = appRadioButtonUncheckedIcon;
     exports.ɵe = OptionComponent;
     exports.ɵf = SearchService;
     exports.ɵg = SearchOptionComponent;
@@ -3305,20 +3332,20 @@
     exports.ɵj = MenuItemComponent;
     exports.ɵk = MenuTriggerDirective;
     exports.ɵl = IconComponent;
-    exports.ɵm = NZMODULES;
-    exports.ɵn = appAccountBoxIcon;
-    exports.ɵo = appCheckCircleIcon;
-    exports.ɵp = appCheckCircleOutlineIcon;
-    exports.ɵq = appExpandIcon;
-    exports.ɵr = appFavoriteIcon;
-    exports.ɵs = appHomeIcon;
-    exports.ɵt = appLogoutIcon;
-    exports.ɵu = appRedeemIcon;
-    exports.ɵv = appSearchIcon;
-    exports.ɵw = appSettingsIcon;
-    exports.ɵx = appErrorIcon;
-    exports.ɵy = appWarningIcon;
-    exports.ɵz = appRecentActorsIcon;
+    exports.ɵm = RangeCalendarComponent;
+    exports.ɵn = NZMODULES;
+    exports.ɵo = appAccountBoxIcon;
+    exports.ɵp = appCheckCircleIcon;
+    exports.ɵq = appCheckCircleOutlineIcon;
+    exports.ɵr = appExpandIcon;
+    exports.ɵs = appFavoriteIcon;
+    exports.ɵt = appHomeIcon;
+    exports.ɵu = appLogoutIcon;
+    exports.ɵv = appRedeemIcon;
+    exports.ɵw = appSearchIcon;
+    exports.ɵx = appSettingsIcon;
+    exports.ɵy = appErrorIcon;
+    exports.ɵz = appWarningIcon;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

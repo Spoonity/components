@@ -1,4 +1,4 @@
-import { AvatarSize, ButtonSize, ButtonType } from '../../../utils/enums';
+import { ButtonSize, ButtonType } from '../../../utils/enums';
 import { OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 export interface IUserData {
@@ -27,7 +27,6 @@ export declare class SidebarComponent implements OnInit {
     otherAccounts: IUserData[];
     AccountsDisplay: IUserData[];
     multipleAccounts: boolean;
-    avatarSize: AvatarSize;
     keyboarTab: string;
     expandLess: string;
     accountBox: string;
