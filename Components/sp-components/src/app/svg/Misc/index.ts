@@ -30,6 +30,7 @@ import {appRemoveRedEyeIcon} from './remove_red_eye';
 import {appVerticalSplitIcon} from './vertical_split';
 import {appOpenInNew} from './open_in_new';
 import {appLabelIcon} from './label';
+import {appInfoIcon} from './info';
 
 export const miscIcons = [
   appAccountBalanceIcon,
@@ -50,6 +51,7 @@ export const miscIcons = [
   appGavelIcon,
   appHelpIcon,
   appHighlightOffIcon,
+  appInfoIcon,
   appLinkIcon,
   appLabelIcon,
   appLockIcon,
