@@ -160,7 +160,7 @@ export class SearchComponent extends FormFieldManager implements AfterViewInit {
   /**
    * on close item
    */
-  public onClose(selection: any): void {
+  public onClose(selection: {id: string; icon?: string; color?: string; text: string}): void {
     this.itemRemoved.emit(selection);
   }
 }
