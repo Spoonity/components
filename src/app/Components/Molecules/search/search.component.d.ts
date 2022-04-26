@@ -59,5 +59,10 @@ export declare class SearchComponent extends FormFieldManager implements AfterVi
     /**
      * on close item
      */
-    onClose(selection: any): void;
+    onClose(selection: {
+        id: string;
+        icon?: string;
+        color?: string;
+        text: string;
+    }): void;
 }
