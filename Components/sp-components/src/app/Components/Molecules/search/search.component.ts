@@ -15,6 +15,14 @@ import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {SearchOptionComponent} from './search-option/search-option.component';
 
 
+export interface ISearchChip {
+  id: string;
+  text: string;
+  icon?: string;
+  color?: string;
+  tooltip?: string;
+}
+
 @Component({
   selector: 'spt-search',
   templateUrl: './search.component.html',
@@ -34,7 +42,7 @@ export class SearchComponent extends FormFieldManager implements AfterViewInit {
   @Input() placeholder;
 
   /* selected items (chips) */
-  @Input() selectedItems: {id: string; icon?: string; color?: string; text: string}[] = [];
+  @Input() selectedItems: ISearchChip[] = [];
 
   /* optional maximum selected items */
   @Input() maximumSelection?: number;
@@ -52,7 +60,10 @@ export class SearchComponent extends FormFieldManager implements AfterViewInit {
   @Output() itemSelected: EventEmitter<any> = new EventEmitter<any>();
 
   /* item removed action */
-  @Output() itemRemoved: EventEmitter<any> = new EventEmitter<any>();
+  @Output() itemRemoved: EventEmitter<ISearchChip> = new EventEmitter<ISearchChip>();
+
+  /* chip clicked */
+  @Output() chipClicked: EventEmitter<ISearchChip> = new EventEmitter<ISearchChip>();
 
   /* overlay template component */
   @ViewChild(OverlayTemplateComponent)
@@ -159,8 +170,17 @@ export class SearchComponent extends FormFieldManager implements AfterViewInit {
 
   /**
    * on close item
+   * @param selection
    */
-  public onClose(selection: {id: string; icon?: string; color?: string; text: string}): void {
+  public onClose(selection: ISearchChip): void {
     this.itemRemoved.emit(selection);
+  }
+
+  /**
+   * chip item clicked
+   * @param selection
+   */
+  public onChipSelected(selection: ISearchChip): void {
+    this.chipClicked.emit(selection);
   }
 }

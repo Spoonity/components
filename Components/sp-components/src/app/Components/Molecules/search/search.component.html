@@ -9,10 +9,13 @@
         <!-- selected items (chips) -->
         <div class="selected-items spt-spacing-x--1" *ngIf="selectedItems.length">
             <div class="selected-item" *ngFor="let s of selectedItems">
-                <spt-chip [text]="s.text"
-                         [icon]="s.icon" mode="closeable"
-                         [color]="s.color"
-                         (onCloseEvent)="onClose(s)"></spt-chip>
+                <spt-tooltip [title]="s.tooltip">
+                    <spt-chip [text]="s.text"
+                              [icon]="s.icon" mode="closeable"
+                              [color]="s.color"
+                              (click)="onChipSelected(s)"
+                              (onCloseEvent)="onClose(s)"></spt-chip>
+                </spt-tooltip>
             </div>
         </div>
         <input #input *ngIf="(maximumSelection ? selectedItems.length < maximumSelection : true) && !readonly"

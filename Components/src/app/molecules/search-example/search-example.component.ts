@@ -17,7 +17,7 @@ export class SearchExampleComponent implements OnInit {
   largeSelectedItems: {id: string; icon: string; text: string}[] = [];
   largeSelectedItemsReadonly: {id: string; icon: string; text: string}[] = [];
   mediumSelectedItems: {id: string; icon: string; text: string}[] = [];
-  smallSelectedItems: {id: string; icon: string; text: string}[] = [];
+  smallSelectedItems: {id: string; icon: string; text: string; tooltip?: string}[] = [];
 
   /* search model (by example type) */
   largeSearchModel: string;
@@ -157,7 +157,8 @@ export class SearchExampleComponent implements OnInit {
     this.smallSelectedItems.push({
       id: selectedItem.id.toString(),
       text: selectedItem.name,
-      icon: 'favorite'
+      icon: 'favorite',
+      tooltip: `tooltip - ${selectedItem.name}`
     });
 
     // clear model
