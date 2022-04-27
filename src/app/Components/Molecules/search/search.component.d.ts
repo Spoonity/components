@@ -3,21 +3,24 @@ import { FormFieldManager } from '../../shared/form-field.manager';
 import { OverlayTemplateComponent } from '../../shared/overlay-template/overlay-template.component';
 import { SearchService } from './search.service';
 import { SearchOptionComponent } from './search-option/search-option.component';
+export interface ISearchChip {
+    id: string;
+    text: string;
+    icon?: string;
+    color?: string;
+    tooltip?: string;
+}
 export declare class SearchComponent extends FormFieldManager implements AfterViewInit {
     private _searchService;
     placeholder: any;
-    selectedItems: {
-        id: string;
-        icon?: string;
-        color?: string;
-        text: string;
-    }[];
+    selectedItems: ISearchChip[];
     maximumSelection?: number;
     launchOnFocus?: boolean;
     hideSearchIcon: boolean;
     filter: EventEmitter<any>;
     itemSelected: EventEmitter<any>;
-    itemRemoved: EventEmitter<any>;
+    itemRemoved: EventEmitter<ISearchChip>;
+    chipClicked: EventEmitter<ISearchChip>;
     search: OverlayTemplateComponent;
     options: QueryList<SearchOptionComponent>;
     selected: SearchOptionComponent;
@@ -58,11 +61,12 @@ export declare class SearchComponent extends FormFieldManager implements AfterVi
     filterAction(): void;
     /**
      * on close item
+     * @param selection
      */
-    onClose(selection: {
-        id: string;
-        icon?: string;
-        color?: string;
-        text: string;
-    }): void;
+    onClose(selection: ISearchChip): void;
+    /**
+     * chip item clicked
+     * @param selection
+     */
+    onChipSelected(selection: ISearchChip): void;
 }
