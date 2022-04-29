@@ -5,9 +5,10 @@ import { theme } from './theme';
 setCompodocJson(docJson);
 import { SpComponentsComponent } from 'sp-components/public_api';
 import { componentWrapperDecorator, moduleMetadata } from '@storybook/angular';
+import {IconGalleryComponent} from "../src/app/atoms/icon-gallery/icon-gallery.component";
 
 export const decorators = [
-  moduleMetadata({ declarations: [SpComponentsComponent] }),
+  moduleMetadata({ declarations: [IconGalleryComponent] }),
   componentWrapperDecorator((story) => `<sp-components></sp-components>${story}`)
 ];
 

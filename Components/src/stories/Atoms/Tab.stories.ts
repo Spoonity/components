@@ -39,8 +39,8 @@ const tabs = [
     }
   ];
 
-export const On = Template.bind({});
-On.args = {
+export const Tabs = Template.bind({});
+Tabs.args = {
     tabs
 };
 

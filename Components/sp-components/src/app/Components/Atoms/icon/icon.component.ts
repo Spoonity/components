@@ -5,7 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.less']
 })
-export class IconComponent implements OnInit {
+export class IconComponent {
 
   @Input() toolTipTitle: string;
   @Input() name: string;
@@ -13,6 +13,4 @@ export class IconComponent implements OnInit {
   @Input() size = 20;
 
   constructor() {}
-
-  ngOnInit() {}
 }

@@ -14,7 +14,7 @@ export default {
   parameters: {
     docs: {
       source: {
-        // code: ``
+        code: `<div class="spt-spading-y--1"></div>`
       }
     }
   }
@@ -24,7 +24,7 @@ const Template: Story<SpacingComponent> = (args: SpacingComponent) => ({
   props: args,
 });
 
-export const Default = Template.bind({});
-Default.args = {
+export const Spacing = Template.bind({});
+Spacing.args = {
 
 };

@@ -26,6 +26,7 @@ import { MenuStoryExampleComponent } from './molecules/menu-story-example/menu-s
 import { SearchStoryExampleComponent } from './molecules/search-story-example/search-story-example.component';
 import { TextFieldStoryExampleComponent } from './molecules/text-field-story-example/text-field-story-example.component';
 import { DropdownStoryExampleComponent } from './molecules/dropdown-story-example/dropdown-story-example.component';
+import { IconGalleryComponent } from './atoms/icon-gallery/icon-gallery.component';
 
 registerLocaleData(en);
 
@@ -47,6 +48,7 @@ registerLocaleData(en);
     MenuStoryExampleComponent,
     SearchStoryExampleComponent,
     TextFieldStoryExampleComponent,
+    IconGalleryComponent,
   ],
   imports: [
     FormsModule,

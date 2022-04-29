@@ -1,18 +1,13 @@
-import { DividerType } from './../../../utils/enums';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'spt-divider',
   templateUrl: './divider.component.html',
   styleUrls: ['./divider.component.less']
 })
-export class DividerComponent implements OnInit {
+export class DividerComponent {
+  /* divider type */
+  @Input() type: 'horizontal'|'vertical' = 'horizontal';
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
-  @Input() type: string = DividerType.horizontal;
-
 }

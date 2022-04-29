@@ -27,15 +27,6 @@ const Template: Story<CheckboxComponent> = (args: CheckboxComponent) => ({
   `
 });
 
-// export const defaultArgs_ = {
-//   indeterminate: false,
-//   check: false,
-//   text: 'test',
-//   onChecked: () => {
-//     // DO CHECK
-//   }
-// };
-
 export const Checkbox = Template.bind({});
 Checkbox.args = {
   indeterminate: false,

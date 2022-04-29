@@ -24,11 +24,7 @@ const Template: Story<SwitchComponent> = (args: SwitchComponent) => ({
   props: args,
 });
 
-export const On = Template.bind({});
-On.args = {
+export const Switch = Template.bind({});
+Switch.args = {
     on: true
-};
-export const Off = Template.bind({});
-Off.args = {
-    on: false
 };

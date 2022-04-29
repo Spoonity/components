@@ -1,0 +1,5 @@
+<nz-radio-group [(ngModel)]="value" (ngModelChange)="changeAction($event)">
+    <div [class]="direction">
+        <label *ngFor="let o of options" nz-radio [nzValue]="o.value">{{ o.text }}</label>
+    </div>
+</nz-radio-group>

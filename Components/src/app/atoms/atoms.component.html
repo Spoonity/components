@@ -28,14 +28,12 @@
     <div class="section">
         <h2>DIVIDERS</h2>
         <spt-divider></spt-divider>
-        <spt-divider [type]="dividerT.vertical"></spt-divider>
+        <spt-divider type="vertical"></spt-divider>
     </div>
 
     <div class="section">
         <h2>ICONS</h2>
-        <span class="icons" *ngFor="let icon of icons">
-            <spt-icon [toolTipTitle]="icon.name" [name]="icon.name" color="#F7AD00"></spt-icon>
-        </span>
+        <app-icon-gallery></app-icon-gallery>
     </div>
 
     <div class="section spt-spacing-y--1">
@@ -72,9 +70,34 @@
         </div>
 
         <h2>RADIO BUTTONS</h2>
-        <spt-radio-button model="B"></spt-radio-button>
-        <br />
-        <spt-radio-button model="A"></spt-radio-button>
+        <!----- horizontal radio buttons ----->
+        <div class="spt-spacing-y--1">
+            <div class="spt-spacing-bottom--1">
+                <h3>horizontal options (default)</h3>
+            </div>
+            <spt-radio [(ngModel)]="radioValueHorizontal"
+                       [options]="radioOptions">
+            </spt-radio>
+
+            <div class="spt-spacing-y--1">
+                value: {{ radioValueHorizontal }}
+            </div>
+        </div>
+
+        <!----- horizontal radio buttons ----->
+        <div class="spt-spacing-y--1">
+            <div class="spt-spacing-bottom--1">
+                <h3>vertical options</h3>
+            </div>
+            <spt-radio direction="vertical"
+                       [(ngModel)]="radioValueVertical"
+                       [options]="radioOptions">
+            </spt-radio>
+
+            <div class="spt-spacing-y--1">
+                value: {{ radioValueVertical }}
+            </div>
+        </div>
 
         <h2>SWITCHES</h2>
 

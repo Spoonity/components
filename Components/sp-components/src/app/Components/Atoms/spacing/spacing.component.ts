@@ -21,10 +21,10 @@ export class SpacingComponent implements OnInit {
         { label: '8px (around)', className: 'spt-spacing--1' },
         { label: '8px (vertical)', className: 'spt-spacing-y--1' },
         { label: '8px (horizontal)', className: 'spt-spacing-x--1' },
-        { label: '8px (top)', className: 'spt-spacing-y-top--1' },
-        { label: '8px (bottom)', className: 'spt-spacing-y-bottom--1' },
-        { label: '8px (left)', className: 'spt-spacing-y-left--1' },
-        { label: '8px (right)', className: 'spt-spacing-y-right--1' },
+        { label: '8px (top)', className: 'spt-spacing-top--1' },
+        { label: '8px (bottom)', className: 'spt-spacing-bottom--1' },
+        { label: '8px (left)', className: 'spt-spacing-left--1' },
+        { label: '8px (right)', className: 'spt-spacing-right--1' },
       ]
     },
     {
@@ -32,12 +32,12 @@ export class SpacingComponent implements OnInit {
       sectionClassName: 'spacing--16',
       sections: [
         { label: '16px (around)', className: 'spt-spacing--2' },
-        { label: '16px (top)', className: 'spt-spacing-y-top--2' },
+        { label: '16px (top)', className: 'spt-spacing-top--2' },
         { label: '8px (vertical)', className: 'spt-spacing-y--2' },
         { label: '8px (horizontal)', className: 'spt-spacing-x--2' },
-        { label: '16px (bottom)', className: 'spt-spacing-y-bottom--2' },
-        { label: '16px (left)', className: 'spt-spacing-y-left--2' },
-        { label: '16px (right)', className: 'spt-spacing-y-right--2' },
+        { label: '16px (bottom)', className: 'spt-spacing-bottom--2' },
+        { label: '16px (left)', className: 'spt-spacing-left--2' },
+        { label: '16px (right)', className: 'spt-spacing-right--2' },
       ]
     }
   ];
@@ -57,10 +57,10 @@ export class SpacingComponent implements OnInit {
       { label: '(around)', className: 'spt-spacing' },
       { label: '(vertical)', className: 'spt-spacing-y'},
       { label: '(horizontal)', className: 'spt-spacing-x' },
-      { label: '(top)', className: 'spt-spacing-y-top' },
-      { label: '(bottom)', className: 'spt-spacing-y-bottom' },
-      { label: '(left)', className: 'spt-spacing-y-left' },
-      { label: '(right)', className: 'spt-spacing-y-right' },
+      { label: '(top)', className: 'spt-spacing-top' },
+      { label: '(bottom)', className: 'spt-spacing-bottom' },
+      { label: '(left)', className: 'spt-spacing-left' },
+      { label: '(right)', className: 'spt-spacing-right' },
     ];
 
     offsetArr.forEach((offset: number, i: number) => {

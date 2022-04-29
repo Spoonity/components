@@ -1,0 +1,8 @@
+<div class="icon-list">
+    <div *ngFor="let icon of icons" class="icon-container spt-spacing--1">
+        <div class="icon spt-spacing--1">
+            <spt-icon [name]="icon.name" color="#0C0D0B" [size]="40"></spt-icon>
+            <p class="spt-spacing-top--1">{{icon.name}}</p>
+        </div>
+    </div>
+</div>

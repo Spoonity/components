@@ -8,7 +8,7 @@ export default {
   title: 'Atoms/Icon',
   component: IconComponent,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    color: { control: 'color' }
   },
   decorators: [
     moduleMetadata({
@@ -19,7 +19,7 @@ export default {
   parameters: {
     docs: {
       source: {
-        code: `<sp-icon [toolTipTittle]="name" [name]="name"></sp-icon>`
+        code: `<spt-icon [toolTipTitle]="name" [name]="name" [color]="color"></spt-icon>`
       }
     }
   }
@@ -31,7 +31,8 @@ const Template: Story<IconComponent> = (args: IconComponent) => ({
 
 const smsIcon = appSmsIcon.name;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Icon = Template.bind({});
+Icon.args = {
   name: smsIcon,
+  color: '#0C0D0B'
 };

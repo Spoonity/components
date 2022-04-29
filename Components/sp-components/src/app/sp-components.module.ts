@@ -30,7 +30,7 @@ import { BadgeComponent } from './Components/Atoms/badge/badge.component';
 import { DividerComponent } from './Components/Atoms/divider/divider.component';
 import { ProgressBarComponent } from './Components/Atoms/progress-bar/progress-bar.component';
 import { CheckboxComponent } from './Components/Atoms/checkbox/checkbox.component';
-import { RadioButtonComponent } from './Components/Atoms/radio-button/radio-button.component';
+import { RadioComponent } from './Components/Atoms/radio/radio.component';
 import { SwitchComponent } from './Components/Atoms/switch/switch.component';
 import { SliderComponent } from './Components/Atoms/slider/slider.component';
 import { TabComponent } from './Components/Atoms/tab/tab.component';
@@ -85,7 +85,7 @@ registerLocaleData(en);
     ProgressBarComponent,
     ProgressCircleComponent,
     CheckboxComponent,
-    RadioButtonComponent,
+    RadioComponent,
     SwitchComponent,
     SliderComponent,
     TabComponent,
@@ -130,7 +130,7 @@ registerLocaleData(en);
     ProgressBarComponent,
     ProgressCircleComponent,
     CheckboxComponent,
-    RadioButtonComponent,
+    RadioComponent,
     SwitchComponent,
     SliderComponent,
     TabComponent,

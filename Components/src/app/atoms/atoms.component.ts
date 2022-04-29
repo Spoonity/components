@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as ic from 'sp-components/src/app/utils/icons';
-import { DividerType, ProgressType } from 'sp-components/src/app/utils/enums';
 
 interface ISpacing {
   sectionName: string;
@@ -13,13 +12,7 @@ interface ISpacing {
   styleUrls: ['./atoms.component.less']
 })
 export class AtomsComponent implements OnInit {
-
-  dividerT = DividerType;
-
-  progressT = ProgressType;
-
   icons = [];
-
   title = 'Components';
 
   colors = [
@@ -98,6 +91,16 @@ export class AtomsComponent implements OnInit {
     }
   ];
 
+  /** radio model **/
+  radioValueHorizontal: string;
+  radioValueVertical: string;
+
+  radioOptions: {value: string; text: string}[] = [
+    {value: 'A', text: 'option A'},
+    {value: 'B', text: 'option B'},
+    {value: 'C', text: 'option C'},
+    {value: 'D', text: 'option D'}
+  ];
 
   constructor() {
 

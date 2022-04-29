@@ -14,7 +14,7 @@ export default {
   parameters: {
     docs: {
       source: {
-        code: `<sp-slider [max]="max" [step]="step" [start]="start" [disable]="disable"></sp-slider>`
+        code: `<spt-slider [max]="max" [step]="step" [start]="start" [disable]="disable"></spt-slider>`
       }
     }
   }
@@ -24,17 +24,10 @@ const Template: Story<SliderComponent> = (args: SliderComponent) => ({
   props: args,
 });
 
-export const Default = Template.bind({});
-Default.args = {
+export const Slider = Template.bind({});
+Slider.args = {
     max: 100,
     disable: false,
     step: 10,
     start: 0
-};
-export const Disable = Template.bind({});
-Disable.args = {
-    max: 100,
-    disable: true,
-    step: 10,
-    start: 50
 };

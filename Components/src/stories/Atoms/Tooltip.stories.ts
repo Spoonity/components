@@ -14,7 +14,7 @@ export default {
   parameters: {
     docs: {
       source: {
-        code: `<sp-tooltip [title]="title" [content]="content"></sp-tooltip>`
+        code: `<sp-tooltip [title]="title">This is some text</sp-tooltip>`
       }
     }
   }
@@ -24,8 +24,8 @@ const Template: Story<TooltipComponent> = (args: TooltipComponent) => ({
   props: args,
 });
 
-export const Default = Template.bind({});
-Default.args = {
+export const Tooltip = Template.bind({});
+Tooltip.args = {
     title: 'And this is a tooltip',
-    content: 'This is sonme text'
+    content: 'This is some text'
 };

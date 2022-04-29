@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'spt-progress-circle',
@@ -6,7 +6,7 @@ import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./progress-circle.component.less'],
   encapsulation: ViewEncapsulation.None
 })
-export class ProgressCircleComponent implements OnInit {
+export class ProgressCircleComponent {
   @Input() percent: number;
   @Input() showPercent = true;
   @Input() color = '#FF9900';
@@ -14,8 +14,4 @@ export class ProgressCircleComponent implements OnInit {
   @Input() strokeWidth = 9;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

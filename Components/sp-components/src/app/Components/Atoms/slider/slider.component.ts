@@ -5,16 +5,18 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.less']
 })
-export class SliderComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class SliderComponent {
+  /* maximum value */
   @Input() max: number;
+
+  /* disabled state */
   @Input() disable: boolean;
+
+  /* amount to jump when sliding */
   @Input() step: number;
+
+  /* starting value */
   @Input() start: number;
 
+  constructor() { }
 }
