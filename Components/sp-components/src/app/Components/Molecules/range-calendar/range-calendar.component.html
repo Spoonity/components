@@ -1,1 +1,6 @@
-<nz-range-picker nzInline [(ngModel)]="range" [nzInputReadOnly]="true" (ngModelChange)="onChange.emit($event)"></nz-range-picker>
+<nz-range-picker nzInline
+                 [(ngModel)]="range"
+                 [nzInputReadOnly]="true"
+                 (ngModelChange)="onChange.emit($event)"
+                 [nzDisabledDate]="disabledDate">
+</nz-range-picker>
