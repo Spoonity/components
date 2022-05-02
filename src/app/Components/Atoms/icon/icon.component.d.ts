@@ -1,9 +1,7 @@
-import { OnInit } from '@angular/core';
-export declare class IconComponent implements OnInit {
+export declare class IconComponent {
     toolTipTitle: string;
     name: string;
     color: string;
     size: number;
     constructor();
-    ngOnInit(): void;
 }

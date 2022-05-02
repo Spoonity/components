@@ -121,22 +121,6 @@ var TagType;
     TagType["default"] = "default";
     TagType["checkable"] = "checkable";
 })(TagType || (TagType = {}));
-var AvatarSize;
-(function (AvatarSize) {
-    AvatarSize[AvatarSize["large"] = 48] = "large";
-    AvatarSize[AvatarSize["medium"] = 40] = "medium";
-    AvatarSize[AvatarSize["small"] = 32] = "small";
-})(AvatarSize || (AvatarSize = {}));
-var DividerType;
-(function (DividerType) {
-    DividerType["vertical"] = "vertical";
-    DividerType["horizontal"] = "horizontal";
-})(DividerType || (DividerType = {}));
-var ProgressType;
-(function (ProgressType) {
-    ProgressType["line"] = "line";
-    ProgressType["circle"] = "circle";
-})(ProgressType || (ProgressType = {}));
 var ICardType;
 (function (ICardType) {
     ICardType["sms"] = "sms";
@@ -1240,12 +1224,12 @@ class BackNavigationComponent {
     constructor(_location, _router) {
         this._location = _location;
         this._router = _router;
+        /* text beside the arrow */
+        this.text = 'Back';
     }
-    ngOnInit() {
-    }
-    onBack(route) {
-        if (route) {
-            this._router.navigate([route]);
+    onBack() {
+        if (this.route) {
+            this._router.navigate([this.route]);
         }
         else {
             this._location.back();
@@ -1255,8 +1239,8 @@ class BackNavigationComponent {
 BackNavigationComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-back-navigation',
-                template: "<nz-page-header class=\"site-page-header\" (nzBack)=\"onBack(route)\" nzBackIcon [nzTitle]=\"title\" [nzSubtitle]=\"subTitle\">\n</nz-page-header>\n",
-                styles: [".site-page-header{padding:0}"]
+                template: "<div class=\"back-navigation\" (click)=\"onBack()\">\n    <div class=\"back-icon spt-spacing-right--2\"><spt-icon name=\"arrow-back\"></spt-icon></div>\n    <div class=\"text\">{{text}}</div>\n</div>\n",
+                styles: [".back-navigation{display:flex;align-items:center;cursor:pointer;transition:opacity 5ms ease-in-out;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}.back-icon{transform:translateY(2px)}.back-navigation:hover{opacity:.7}"]
             },] }
 ];
 BackNavigationComponent.ctorParameters = () => [
@@ -1264,8 +1248,7 @@ BackNavigationComponent.ctorParameters = () => [
     { type: Router }
 ];
 BackNavigationComponent.propDecorators = {
-    title: [{ type: Input }],
-    subTitle: [{ type: Input }],
+    text: [{ type: Input }],
     route: [{ type: Input }]
 };
 
@@ -1365,9 +1348,8 @@ BadgeComponent.propDecorators = {
 
 class DividerComponent {
     constructor() {
-        this.type = DividerType.horizontal;
-    }
-    ngOnInit() {
+        /* divider type */
+        this.type = 'horizontal';
     }
 }
 DividerComponent.decorators = [
@@ -1383,24 +1365,19 @@ DividerComponent.propDecorators = {
 };
 
 class ProgressBarComponent {
-    constructor() {
-        this.type = 'line';
-    }
-    ngOnInit() {
-    }
+    constructor() { }
 }
 ProgressBarComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-progress-bar',
-                template: "<nz-progress [nzPercent]=\"percent\" [nzShowInfo]=\"info\" [nzType]=\"type\"></nz-progress>\n",
+                template: "<nz-progress [nzPercent]=\"percent\" [nzShowInfo]=\"info\" nzType=\"line\"></nz-progress>\n",
                 styles: [""]
             },] }
 ];
 ProgressBarComponent.ctorParameters = () => [];
 ProgressBarComponent.propDecorators = {
     percent: [{ type: Input }],
-    info: [{ type: Input }],
-    type: [{ type: Input }]
+    info: [{ type: Input }]
 };
 
 class CheckboxComponent {
@@ -1428,27 +1405,35 @@ CheckboxComponent.propDecorators = {
     onChangeEvent: [{ type: Output }]
 };
 
-class RadioButtonComponent {
-    constructor() {
-        this.radioButtons = [
-            { radioName: 'A', disable: false },
-            { radioName: 'B', disable: true },
-            { radioName: 'C', disable: false },
-            { radioName: 'D', disable: false },
-        ];
+class RadioComponent extends FormFieldManager {
+    constructor(_renderer) {
+        super(_renderer);
+        /* display direction */
+        this.direction = 'horizontal';
+        /* radio button options */
+        this.options = [];
     }
-    ngOnInit() { }
 }
-RadioButtonComponent.decorators = [
+RadioComponent.decorators = [
     { type: Component, args: [{
-                selector: 'spt-radio-button',
-                template: "<nz-radio-group \n[ngModel]=\"model\"\n>\n    <label\n    *ngFor=\"let btn of radioButtons\" \n    nz-radio \n    [nzValue]=\"btn.radioName\"\n    [nzDisabled]=\"btn.disable\"\n    >{{btn.radioName}}</label>\n</nz-radio-group>",
-                styles: [""]
+                selector: 'spt-radio',
+                template: "<nz-radio-group [(ngModel)]=\"value\" (ngModelChange)=\"changeAction($event)\">\n    <div [class]=\"direction\">\n        <label *ngFor=\"let o of options\" nz-radio [nzValue]=\"o.value\">{{ o.text }}</label>\n    </div>\n</nz-radio-group>\n",
+                providers: [
+                    {
+                        provide: NG_VALUE_ACCESSOR,
+                        useExisting: forwardRef(() => RadioComponent),
+                        multi: true
+                    }
+                ],
+                styles: [".horizontal{display:flex}.vertical [nz-radio]{display:block}"]
             },] }
 ];
-RadioButtonComponent.ctorParameters = () => [];
-RadioButtonComponent.propDecorators = {
-    model: [{ type: Input }]
+RadioComponent.ctorParameters = () => [
+    { type: Renderer2 }
+];
+RadioComponent.propDecorators = {
+    direction: [{ type: Input }],
+    options: [{ type: Input }]
 };
 
 class SwitchComponent {
@@ -1477,13 +1462,11 @@ SwitchComponent.propDecorators = {
 
 class SliderComponent {
     constructor() { }
-    ngOnInit() {
-    }
 }
 SliderComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-slider',
-                template: "<nz-slider [nzMax]=\"max\" [nzDisabled]=\"disable\" [nzStep]=\"step\" [ngModel]=\"start\"></nz-slider>",
+                template: "<nz-slider [nzMax]=\"max\" [nzDisabled]=\"disable\" [nzStep]=\"step\" [ngModel]=\"start\" nzTooltipVisible=\"never\"></nz-slider>\n",
                 styles: [""]
             },] }
 ];
@@ -1559,10 +1542,10 @@ class SpacingComponent {
                     { label: '8px (around)', className: 'spt-spacing--1' },
                     { label: '8px (vertical)', className: 'spt-spacing-y--1' },
                     { label: '8px (horizontal)', className: 'spt-spacing-x--1' },
-                    { label: '8px (top)', className: 'spt-spacing-y-top--1' },
-                    { label: '8px (bottom)', className: 'spt-spacing-y-bottom--1' },
-                    { label: '8px (left)', className: 'spt-spacing-y-left--1' },
-                    { label: '8px (right)', className: 'spt-spacing-y-right--1' },
+                    { label: '8px (top)', className: 'spt-spacing-top--1' },
+                    { label: '8px (bottom)', className: 'spt-spacing-bottom--1' },
+                    { label: '8px (left)', className: 'spt-spacing-left--1' },
+                    { label: '8px (right)', className: 'spt-spacing-right--1' },
                 ]
             },
             {
@@ -1570,12 +1553,12 @@ class SpacingComponent {
                 sectionClassName: 'spacing--16',
                 sections: [
                     { label: '16px (around)', className: 'spt-spacing--2' },
-                    { label: '16px (top)', className: 'spt-spacing-y-top--2' },
+                    { label: '16px (top)', className: 'spt-spacing-top--2' },
                     { label: '8px (vertical)', className: 'spt-spacing-y--2' },
                     { label: '8px (horizontal)', className: 'spt-spacing-x--2' },
-                    { label: '16px (bottom)', className: 'spt-spacing-y-bottom--2' },
-                    { label: '16px (left)', className: 'spt-spacing-y-left--2' },
-                    { label: '16px (right)', className: 'spt-spacing-y-right--2' },
+                    { label: '16px (bottom)', className: 'spt-spacing-bottom--2' },
+                    { label: '16px (left)', className: 'spt-spacing-left--2' },
+                    { label: '16px (right)', className: 'spt-spacing-right--2' },
                 ]
             }
         ];
@@ -1590,10 +1573,10 @@ class SpacingComponent {
             { label: '(around)', className: 'spt-spacing' },
             { label: '(vertical)', className: 'spt-spacing-y' },
             { label: '(horizontal)', className: 'spt-spacing-x' },
-            { label: '(top)', className: 'spt-spacing-y-top' },
-            { label: '(bottom)', className: 'spt-spacing-y-bottom' },
-            { label: '(left)', className: 'spt-spacing-y-left' },
-            { label: '(right)', className: 'spt-spacing-y-right' },
+            { label: '(top)', className: 'spt-spacing-top' },
+            { label: '(bottom)', className: 'spt-spacing-bottom' },
+            { label: '(left)', className: 'spt-spacing-left' },
+            { label: '(right)', className: 'spt-spacing-right' },
         ];
         offsetArr.forEach((offset, i) => {
             const size = 8 * offset;
@@ -1627,7 +1610,6 @@ class IconComponent {
         this.color = '#0D0C0B';
         this.size = 20;
     }
-    ngOnInit() { }
 }
 IconComponent.decorators = [
     { type: Component, args: [{
@@ -2407,9 +2389,21 @@ const appInfoIcon = {
     name: 'info'
 };
 
+const appArrowDropDownIcon = {
+    data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg>`,
+    name: 'arrow-drop-down'
+};
+
+const appArrowDropUpIcon = {
+    data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 14l5-5 5 5z"/></svg>`,
+    name: 'arrow-drop-up'
+};
+
 const miscIcons = [
     appAccountBalanceIcon,
     appAnalyticsIcon,
+    appArrowDropDownIcon,
+    appArrowDropUpIcon,
     appAutorenewIcon,
     appCalendarIcon,
     appCalendarDateRangeIcon,
@@ -2696,8 +2690,6 @@ class ProgressCircleComponent {
         this.width = 45;
         this.strokeWidth = 9;
     }
-    ngOnInit() {
-    }
 }
 ProgressCircleComponent.decorators = [
     { type: Component, args: [{
@@ -2779,7 +2771,7 @@ SpComponentsModule.decorators = [
                     ProgressBarComponent,
                     ProgressCircleComponent,
                     CheckboxComponent,
-                    RadioButtonComponent,
+                    RadioComponent,
                     SwitchComponent,
                     SliderComponent,
                     TabComponent,
@@ -2824,7 +2816,7 @@ SpComponentsModule.decorators = [
                     ProgressBarComponent,
                     ProgressCircleComponent,
                     CheckboxComponent,
-                    RadioButtonComponent,
+                    RadioComponent,
                     SwitchComponent,
                     SliderComponent,
                     TabComponent,
@@ -2863,5 +2855,5 @@ SpComponentsModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { AvatarComponent, AvatarSize, BackNavigationComponent, BadgeComponent, BreadcrumbComponent, ButtonComponent, ButtonSize, ButtonType, CardComponent, ChartComponent, ChartType, CheckboxComponent, ChipComponent, DataVisualizationComponent, DatePickerComponent, DialogsComponent, DividerComponent, DividerType, DropdownComponent, ElevationComponent, HeaderComponent, ICardType, MenuComponent, ProgressBarComponent, ProgressCircleComponent, ProgressType, RadioButtonComponent, SearchComponent, SideNavigationComponent, SideNavigationType, SidebarComponent, SliderComponent, SnackbarComponent, SpComponentsComponent, SpComponentsModule, SpacingComponent, StepsComponent, SwitchComponent, TabComponent, TableComponent, TagType, TextFieldComponent, TooltipComponent, UploadComponent, actionIcons, alertIcons, avIcons, communicationIcons, contentIcons, fileIcons, hardwareIcons, imageIcons, mapsIcons, miscIcons, navigationIcons, notificationIcons, socialIcons, toggleIcons, ɵ0, FormFieldManager as ɵa, BannerComponent as ɵb, appRecentActorsIcon as ɵba, appCallIcon as ɵbb, appDraftsIcon as ɵbc, appEmailIcon as ɵbd, appAddCircleOutlineIcon as ɵbe, appAddIcon as ɵbf, appReportIcon as ɵbg, appSendIcon as ɵbh, appUploadFileIcon as ɵbi, appKeyboardTabIcon as ɵbj, appSmartphoneIcon as ɵbk, appEditIcon as ɵbl, appWbIncandescentIcon as ɵbm, appPlaceIcon as ɵbn, appAccountBalanceIcon as ɵbo, appAnalyticsIcon as ɵbp, appAutorenewIcon as ɵbq, appCalendarIcon as ɵbr, appCalendarDateRangeIcon as ɵbs, appCalendarTodayIcon as ɵbt, appCallMergeIcon as ɵbu, appCircleIcon as ɵbv, appConnectIcon as ɵbw, appCorporateFareIcon as ɵbx, appCreditCard as ɵby, appDeleteIcon as ɵbz, DropdownService as ɵc, appDesktopIcon as ɵca, appDownloadIcon as ɵcb, appFileCopyIcon as ɵcc, appGavelIcon as ɵcd, appHelpIcon as ɵce, appHighlightOffIcon as ɵcf, appInfoIcon as ɵcg, appLinkIcon as ɵch, appLabelIcon as ɵci, appLockIcon as ɵcj, appLoyaltyIcon as ɵck, appOpenWithIcon as ɵcl, appOpenInNew as ɵcm, appPaymentsIcon as ɵcn, appPrivacyTipIcon as ɵco, appQuizIcon as ɵcp, appRemoveIcon as ɵcq, appRemoveRedEyeIcon as ɵcr, appScheduleIcon as ɵcs, appSettingsSuggestIcon as ɵct, appVerticalSplitIcon as ɵcu, appArrowBackIcon as ɵcv, appArrowDownwardIcon as ɵcw, appArrowForwardIcon as ɵcx, appArrowUpwardIcon as ɵcy, appCancelBlackIcon as ɵcz, OverlayTemplateComponent as ɵd, appCheckIcon as ɵda, appChevronLeftIcon as ɵdb, appChevronRightIcon as ɵdc, appClearIcon as ɵdd, appEastIcon as ɵde, appExpandLessIcon as ɵdf, appExpandMoreIcon as ɵdg, appFirstPageIcon as ɵdh, appLastPageIcon as ɵdi, appMoreVertIcon as ɵdj, appMoreHorizIcon as ɵdk, appRefreshIcon as ɵdl, appPriorityHighIcon as ɵdm, appSmsIcon as ɵdn, appPeopleIcon as ɵdo, appCheckBoxOutlineBlankIcon as ɵdp, appCheckBoxIcon as ɵdq, appIndeterminateCheckBoxIcon as ɵdr, appRadioButtonCheckedIcon as ɵds, appRadioButtonUncheckedIcon as ɵdt, OptionComponent as ɵe, SearchService as ɵf, SearchOptionComponent as ɵg, SearchTemplateComponent as ɵh, MenuService as ɵi, MenuItemComponent as ɵj, MenuTriggerDirective as ɵk, IconComponent as ɵl, RangeCalendarComponent as ɵm, NZMODULES as ɵn, appAccountBoxIcon as ɵo, appCheckCircleIcon as ɵp, appCheckCircleOutlineIcon as ɵq, appExpandIcon as ɵr, appFavoriteIcon as ɵs, appHomeIcon as ɵt, appLogoutIcon as ɵu, appRedeemIcon as ɵv, appSearchIcon as ɵw, appSettingsIcon as ɵx, appErrorIcon as ɵy, appWarningIcon as ɵz };
+export { AvatarComponent, BackNavigationComponent, BadgeComponent, BreadcrumbComponent, ButtonComponent, ButtonSize, ButtonType, CardComponent, ChartComponent, ChartType, CheckboxComponent, ChipComponent, DataVisualizationComponent, DatePickerComponent, DialogsComponent, DividerComponent, DropdownComponent, ElevationComponent, HeaderComponent, ICardType, MenuComponent, ProgressBarComponent, ProgressCircleComponent, RadioComponent, SearchComponent, SideNavigationComponent, SideNavigationType, SidebarComponent, SliderComponent, SnackbarComponent, SpComponentsComponent, SpComponentsModule, SpacingComponent, StepsComponent, SwitchComponent, TabComponent, TableComponent, TagType, TextFieldComponent, TooltipComponent, UploadComponent, actionIcons, alertIcons, avIcons, communicationIcons, contentIcons, fileIcons, hardwareIcons, imageIcons, mapsIcons, miscIcons, navigationIcons, notificationIcons, socialIcons, toggleIcons, ɵ0, FormFieldManager as ɵa, BannerComponent as ɵb, appRecentActorsIcon as ɵba, appCallIcon as ɵbb, appDraftsIcon as ɵbc, appEmailIcon as ɵbd, appAddCircleOutlineIcon as ɵbe, appAddIcon as ɵbf, appReportIcon as ɵbg, appSendIcon as ɵbh, appUploadFileIcon as ɵbi, appKeyboardTabIcon as ɵbj, appSmartphoneIcon as ɵbk, appEditIcon as ɵbl, appWbIncandescentIcon as ɵbm, appPlaceIcon as ɵbn, appAccountBalanceIcon as ɵbo, appAnalyticsIcon as ɵbp, appArrowDropDownIcon as ɵbq, appArrowDropUpIcon as ɵbr, appAutorenewIcon as ɵbs, appCalendarIcon as ɵbt, appCalendarDateRangeIcon as ɵbu, appCalendarTodayIcon as ɵbv, appCallMergeIcon as ɵbw, appCircleIcon as ɵbx, appConnectIcon as ɵby, appCorporateFareIcon as ɵbz, DropdownService as ɵc, appCreditCard as ɵca, appDeleteIcon as ɵcb, appDesktopIcon as ɵcc, appDownloadIcon as ɵcd, appFileCopyIcon as ɵce, appGavelIcon as ɵcf, appHelpIcon as ɵcg, appHighlightOffIcon as ɵch, appInfoIcon as ɵci, appLinkIcon as ɵcj, appLabelIcon as ɵck, appLockIcon as ɵcl, appLoyaltyIcon as ɵcm, appOpenWithIcon as ɵcn, appOpenInNew as ɵco, appPaymentsIcon as ɵcp, appPrivacyTipIcon as ɵcq, appQuizIcon as ɵcr, appRemoveIcon as ɵcs, appRemoveRedEyeIcon as ɵct, appScheduleIcon as ɵcu, appSettingsSuggestIcon as ɵcv, appVerticalSplitIcon as ɵcw, appArrowBackIcon as ɵcx, appArrowDownwardIcon as ɵcy, appArrowForwardIcon as ɵcz, OverlayTemplateComponent as ɵd, appArrowUpwardIcon as ɵda, appCancelBlackIcon as ɵdb, appCheckIcon as ɵdc, appChevronLeftIcon as ɵdd, appChevronRightIcon as ɵde, appClearIcon as ɵdf, appEastIcon as ɵdg, appExpandLessIcon as ɵdh, appExpandMoreIcon as ɵdi, appFirstPageIcon as ɵdj, appLastPageIcon as ɵdk, appMoreVertIcon as ɵdl, appMoreHorizIcon as ɵdm, appRefreshIcon as ɵdn, appPriorityHighIcon as ɵdo, appSmsIcon as ɵdp, appPeopleIcon as ɵdq, appCheckBoxOutlineBlankIcon as ɵdr, appCheckBoxIcon as ɵds, appIndeterminateCheckBoxIcon as ɵdt, appRadioButtonCheckedIcon as ɵdu, appRadioButtonUncheckedIcon as ɵdv, OptionComponent as ɵe, SearchService as ɵf, SearchOptionComponent as ɵg, SearchTemplateComponent as ɵh, MenuService as ɵi, MenuItemComponent as ɵj, MenuTriggerDirective as ɵk, IconComponent as ɵl, RangeCalendarComponent as ɵm, NZMODULES as ɵn, appAccountBoxIcon as ɵo, appCheckCircleIcon as ɵp, appCheckCircleOutlineIcon as ɵq, appExpandIcon as ɵr, appFavoriteIcon as ɵs, appHomeIcon as ɵt, appLogoutIcon as ɵu, appRedeemIcon as ɵv, appSearchIcon as ɵw, appSettingsIcon as ɵx, appErrorIcon as ɵy, appWarningIcon as ɵz };
 //# sourceMappingURL=spoonity-sp-components.js.map

@@ -1,9 +1,7 @@
-import { OnInit } from '@angular/core';
-export declare class SliderComponent implements OnInit {
-    constructor();
-    ngOnInit(): void;
+export declare class SliderComponent {
     max: number;
     disable: boolean;
     step: number;
     start: number;
+    constructor();
 }

@@ -1,6 +1,4 @@
-import { OnInit } from '@angular/core';
-export declare class DividerComponent implements OnInit {
+export declare class DividerComponent {
+    type: 'horizontal' | 'vertical';
     constructor();
-    ngOnInit(): void;
-    type: string;
 }

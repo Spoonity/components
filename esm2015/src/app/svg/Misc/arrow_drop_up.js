@@ -1,0 +1,5 @@
+export const appArrowDropUpIcon = {
+    data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 14l5-5 5 5z"/></svg>`,
+    name: 'arrow-drop-up'
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXJyb3dfZHJvcF91cC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3NyYy9hcHAvc3ZnL01pc2MvYXJyb3dfZHJvcF91cC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxNQUFNLENBQUMsTUFBTSxrQkFBa0IsR0FBRztJQUM5QixJQUFJLEVBQUUsbUlBQW1JO0lBQ3pJLElBQUksRUFBRSxlQUFlO0NBQ3hCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY29uc3QgYXBwQXJyb3dEcm9wVXBJY29uID0ge1xuICAgIGRhdGE6IGA8c3ZnIHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIiB2aWV3Qm94PVwiMCAwIDI0IDI0XCI+PHBhdGggZD1cIk0wIDBoMjR2MjRIMHpcIiBmaWxsPVwibm9uZVwiLz48cGF0aCBkPVwiTTcgMTRsNS01IDUgNXpcIi8+PC9zdmc+YCxcbiAgICBuYW1lOiAnYXJyb3ctZHJvcC11cCdcbn07Il19

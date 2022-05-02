@@ -20,19 +20,6 @@ export declare enum TagType {
     default = "default",
     checkable = "checkable"
 }
-export declare enum AvatarSize {
-    large = 48,
-    medium = 40,
-    small = 32
-}
-export declare enum DividerType {
-    vertical = "vertical",
-    horizontal = "horizontal"
-}
-export declare enum ProgressType {
-    line = "line",
-    circle = "circle"
-}
 export declare enum ICardType {
     sms = "sms",
     customer = "customer",

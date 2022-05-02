@@ -389,22 +389,6 @@
         TagType["default"] = "default";
         TagType["checkable"] = "checkable";
     })(exports.TagType || (exports.TagType = {}));
-    exports.AvatarSize = void 0;
-    (function (AvatarSize) {
-        AvatarSize[AvatarSize["large"] = 48] = "large";
-        AvatarSize[AvatarSize["medium"] = 40] = "medium";
-        AvatarSize[AvatarSize["small"] = 32] = "small";
-    })(exports.AvatarSize || (exports.AvatarSize = {}));
-    exports.DividerType = void 0;
-    (function (DividerType) {
-        DividerType["vertical"] = "vertical";
-        DividerType["horizontal"] = "horizontal";
-    })(exports.DividerType || (exports.DividerType = {}));
-    exports.ProgressType = void 0;
-    (function (ProgressType) {
-        ProgressType["line"] = "line";
-        ProgressType["circle"] = "circle";
-    })(exports.ProgressType || (exports.ProgressType = {}));
     exports.ICardType = void 0;
     (function (ICardType) {
         ICardType["sms"] = "sms";
@@ -1556,12 +1540,12 @@
         function BackNavigationComponent(_location, _router) {
             this._location = _location;
             this._router = _router;
+            /* text beside the arrow */
+            this.text = 'Back';
         }
-        BackNavigationComponent.prototype.ngOnInit = function () {
-        };
-        BackNavigationComponent.prototype.onBack = function (route) {
-            if (route) {
-                this._router.navigate([route]);
+        BackNavigationComponent.prototype.onBack = function () {
+            if (this.route) {
+                this._router.navigate([this.route]);
             }
             else {
                 this._location.back();
@@ -1572,8 +1556,8 @@
     BackNavigationComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-back-navigation',
-                    template: "<nz-page-header class=\"site-page-header\" (nzBack)=\"onBack(route)\" nzBackIcon [nzTitle]=\"title\" [nzSubtitle]=\"subTitle\">\n</nz-page-header>\n",
-                    styles: [".site-page-header{padding:0}"]
+                    template: "<div class=\"back-navigation\" (click)=\"onBack()\">\n    <div class=\"back-icon spt-spacing-right--2\"><spt-icon name=\"arrow-back\"></spt-icon></div>\n    <div class=\"text\">{{text}}</div>\n</div>\n",
+                    styles: [".back-navigation{display:flex;align-items:center;cursor:pointer;transition:opacity 5ms ease-in-out;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}.back-icon{transform:translateY(2px)}.back-navigation:hover{opacity:.7}"]
                 },] }
     ];
     BackNavigationComponent.ctorParameters = function () { return [
@@ -1581,8 +1565,7 @@
         { type: router.Router }
     ]; };
     BackNavigationComponent.propDecorators = {
-        title: [{ type: core.Input }],
-        subTitle: [{ type: core.Input }],
+        text: [{ type: core.Input }],
         route: [{ type: core.Input }]
     };
 
@@ -1688,10 +1671,9 @@
 
     var DividerComponent = /** @class */ (function () {
         function DividerComponent() {
-            this.type = exports.DividerType.horizontal;
+            /* divider type */
+            this.type = 'horizontal';
         }
-        DividerComponent.prototype.ngOnInit = function () {
-        };
         return DividerComponent;
     }());
     DividerComponent.decorators = [
@@ -1708,24 +1690,20 @@
 
     var ProgressBarComponent = /** @class */ (function () {
         function ProgressBarComponent() {
-            this.type = 'line';
         }
-        ProgressBarComponent.prototype.ngOnInit = function () {
-        };
         return ProgressBarComponent;
     }());
     ProgressBarComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-progress-bar',
-                    template: "<nz-progress [nzPercent]=\"percent\" [nzShowInfo]=\"info\" [nzType]=\"type\"></nz-progress>\n",
+                    template: "<nz-progress [nzPercent]=\"percent\" [nzShowInfo]=\"info\" nzType=\"line\"></nz-progress>\n",
                     styles: [""]
                 },] }
     ];
     ProgressBarComponent.ctorParameters = function () { return []; };
     ProgressBarComponent.propDecorators = {
         percent: [{ type: core.Input }],
-        info: [{ type: core.Input }],
-        type: [{ type: core.Input }]
+        info: [{ type: core.Input }]
     };
 
     var CheckboxComponent = /** @class */ (function () {
@@ -1754,28 +1732,38 @@
         onChangeEvent: [{ type: core.Output }]
     };
 
-    var RadioButtonComponent = /** @class */ (function () {
-        function RadioButtonComponent() {
-            this.radioButtons = [
-                { radioName: 'A', disable: false },
-                { radioName: 'B', disable: true },
-                { radioName: 'C', disable: false },
-                { radioName: 'D', disable: false },
-            ];
+    var RadioComponent = /** @class */ (function (_super) {
+        __extends(RadioComponent, _super);
+        function RadioComponent(_renderer) {
+            var _this = _super.call(this, _renderer) || this;
+            /* display direction */
+            _this.direction = 'horizontal';
+            /* radio button options */
+            _this.options = [];
+            return _this;
         }
-        RadioButtonComponent.prototype.ngOnInit = function () { };
-        return RadioButtonComponent;
-    }());
-    RadioButtonComponent.decorators = [
+        return RadioComponent;
+    }(FormFieldManager));
+    RadioComponent.decorators = [
         { type: core.Component, args: [{
-                    selector: 'spt-radio-button',
-                    template: "<nz-radio-group \n[ngModel]=\"model\"\n>\n    <label\n    *ngFor=\"let btn of radioButtons\" \n    nz-radio \n    [nzValue]=\"btn.radioName\"\n    [nzDisabled]=\"btn.disable\"\n    >{{btn.radioName}}</label>\n</nz-radio-group>",
-                    styles: [""]
+                    selector: 'spt-radio',
+                    template: "<nz-radio-group [(ngModel)]=\"value\" (ngModelChange)=\"changeAction($event)\">\n    <div [class]=\"direction\">\n        <label *ngFor=\"let o of options\" nz-radio [nzValue]=\"o.value\">{{ o.text }}</label>\n    </div>\n</nz-radio-group>\n",
+                    providers: [
+                        {
+                            provide: forms.NG_VALUE_ACCESSOR,
+                            useExisting: core.forwardRef(function () { return RadioComponent; }),
+                            multi: true
+                        }
+                    ],
+                    styles: [".horizontal{display:flex}.vertical [nz-radio]{display:block}"]
                 },] }
     ];
-    RadioButtonComponent.ctorParameters = function () { return []; };
-    RadioButtonComponent.propDecorators = {
-        model: [{ type: core.Input }]
+    RadioComponent.ctorParameters = function () { return [
+        { type: core.Renderer2 }
+    ]; };
+    RadioComponent.propDecorators = {
+        direction: [{ type: core.Input }],
+        options: [{ type: core.Input }]
     };
 
     var SwitchComponent = /** @class */ (function () {
@@ -1806,14 +1794,12 @@
     var SliderComponent = /** @class */ (function () {
         function SliderComponent() {
         }
-        SliderComponent.prototype.ngOnInit = function () {
-        };
         return SliderComponent;
     }());
     SliderComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-slider',
-                    template: "<nz-slider [nzMax]=\"max\" [nzDisabled]=\"disable\" [nzStep]=\"step\" [ngModel]=\"start\"></nz-slider>",
+                    template: "<nz-slider [nzMax]=\"max\" [nzDisabled]=\"disable\" [nzStep]=\"step\" [ngModel]=\"start\" nzTooltipVisible=\"never\"></nz-slider>\n",
                     styles: [""]
                 },] }
     ];
@@ -1894,10 +1880,10 @@
                         { label: '8px (around)', className: 'spt-spacing--1' },
                         { label: '8px (vertical)', className: 'spt-spacing-y--1' },
                         { label: '8px (horizontal)', className: 'spt-spacing-x--1' },
-                        { label: '8px (top)', className: 'spt-spacing-y-top--1' },
-                        { label: '8px (bottom)', className: 'spt-spacing-y-bottom--1' },
-                        { label: '8px (left)', className: 'spt-spacing-y-left--1' },
-                        { label: '8px (right)', className: 'spt-spacing-y-right--1' },
+                        { label: '8px (top)', className: 'spt-spacing-top--1' },
+                        { label: '8px (bottom)', className: 'spt-spacing-bottom--1' },
+                        { label: '8px (left)', className: 'spt-spacing-left--1' },
+                        { label: '8px (right)', className: 'spt-spacing-right--1' },
                     ]
                 },
                 {
@@ -1905,12 +1891,12 @@
                     sectionClassName: 'spacing--16',
                     sections: [
                         { label: '16px (around)', className: 'spt-spacing--2' },
-                        { label: '16px (top)', className: 'spt-spacing-y-top--2' },
+                        { label: '16px (top)', className: 'spt-spacing-top--2' },
                         { label: '8px (vertical)', className: 'spt-spacing-y--2' },
                         { label: '8px (horizontal)', className: 'spt-spacing-x--2' },
-                        { label: '16px (bottom)', className: 'spt-spacing-y-bottom--2' },
-                        { label: '16px (left)', className: 'spt-spacing-y-left--2' },
-                        { label: '16px (right)', className: 'spt-spacing-y-right--2' },
+                        { label: '16px (bottom)', className: 'spt-spacing-bottom--2' },
+                        { label: '16px (left)', className: 'spt-spacing-left--2' },
+                        { label: '16px (right)', className: 'spt-spacing-right--2' },
                     ]
                 }
             ];
@@ -1925,10 +1911,10 @@
                 { label: '(around)', className: 'spt-spacing' },
                 { label: '(vertical)', className: 'spt-spacing-y' },
                 { label: '(horizontal)', className: 'spt-spacing-x' },
-                { label: '(top)', className: 'spt-spacing-y-top' },
-                { label: '(bottom)', className: 'spt-spacing-y-bottom' },
-                { label: '(left)', className: 'spt-spacing-y-left' },
-                { label: '(right)', className: 'spt-spacing-y-right' },
+                { label: '(top)', className: 'spt-spacing-top' },
+                { label: '(bottom)', className: 'spt-spacing-bottom' },
+                { label: '(left)', className: 'spt-spacing-left' },
+                { label: '(right)', className: 'spt-spacing-right' },
             ];
             offsetArr.forEach(function (offset, i) {
                 var size = 8 * offset;
@@ -1963,7 +1949,6 @@
             this.color = '#0D0C0B';
             this.size = 20;
         }
-        IconComponent.prototype.ngOnInit = function () { };
         return IconComponent;
     }());
     IconComponent.decorators = [
@@ -2758,9 +2743,21 @@
         name: 'info'
     };
 
+    var appArrowDropDownIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M7 10l5 5 5-5z\"/></svg>",
+        name: 'arrow-drop-down'
+    };
+
+    var appArrowDropUpIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M7 14l5-5 5 5z\"/></svg>",
+        name: 'arrow-drop-up'
+    };
+
     var miscIcons = [
         appAccountBalanceIcon,
         appAnalyticsIcon,
+        appArrowDropDownIcon,
+        appArrowDropUpIcon,
         appAutorenewIcon,
         appCalendarIcon,
         appCalendarDateRangeIcon,
@@ -3051,8 +3048,6 @@
             this.width = 45;
             this.strokeWidth = 9;
         }
-        ProgressCircleComponent.prototype.ngOnInit = function () {
-        };
         return ProgressCircleComponent;
     }());
     ProgressCircleComponent.decorators = [
@@ -3139,7 +3134,7 @@
                         ProgressBarComponent,
                         ProgressCircleComponent,
                         CheckboxComponent,
-                        RadioButtonComponent,
+                        RadioComponent,
                         SwitchComponent,
                         SliderComponent,
                         TabComponent,
@@ -3184,7 +3179,7 @@
                         ProgressBarComponent,
                         ProgressCircleComponent,
                         CheckboxComponent,
-                        RadioButtonComponent,
+                        RadioComponent,
                         SwitchComponent,
                         SliderComponent,
                         TabComponent,
@@ -3242,7 +3237,7 @@
     exports.MenuComponent = MenuComponent;
     exports.ProgressBarComponent = ProgressBarComponent;
     exports.ProgressCircleComponent = ProgressCircleComponent;
-    exports.RadioButtonComponent = RadioButtonComponent;
+    exports.RadioComponent = RadioComponent;
     exports.SearchComponent = SearchComponent;
     exports.SideNavigationComponent = SideNavigationComponent;
     exports.SidebarComponent = SidebarComponent;
@@ -3291,64 +3286,66 @@
     exports.ɵbn = appPlaceIcon;
     exports.ɵbo = appAccountBalanceIcon;
     exports.ɵbp = appAnalyticsIcon;
-    exports.ɵbq = appAutorenewIcon;
-    exports.ɵbr = appCalendarIcon;
-    exports.ɵbs = appCalendarDateRangeIcon;
-    exports.ɵbt = appCalendarTodayIcon;
-    exports.ɵbu = appCallMergeIcon;
-    exports.ɵbv = appCircleIcon;
-    exports.ɵbw = appConnectIcon;
-    exports.ɵbx = appCorporateFareIcon;
-    exports.ɵby = appCreditCard;
-    exports.ɵbz = appDeleteIcon;
+    exports.ɵbq = appArrowDropDownIcon;
+    exports.ɵbr = appArrowDropUpIcon;
+    exports.ɵbs = appAutorenewIcon;
+    exports.ɵbt = appCalendarIcon;
+    exports.ɵbu = appCalendarDateRangeIcon;
+    exports.ɵbv = appCalendarTodayIcon;
+    exports.ɵbw = appCallMergeIcon;
+    exports.ɵbx = appCircleIcon;
+    exports.ɵby = appConnectIcon;
+    exports.ɵbz = appCorporateFareIcon;
     exports.ɵc = DropdownService;
-    exports.ɵca = appDesktopIcon;
-    exports.ɵcb = appDownloadIcon;
-    exports.ɵcc = appFileCopyIcon;
-    exports.ɵcd = appGavelIcon;
-    exports.ɵce = appHelpIcon;
-    exports.ɵcf = appHighlightOffIcon;
-    exports.ɵcg = appInfoIcon;
-    exports.ɵch = appLinkIcon;
-    exports.ɵci = appLabelIcon;
-    exports.ɵcj = appLockIcon;
-    exports.ɵck = appLoyaltyIcon;
-    exports.ɵcl = appOpenWithIcon;
-    exports.ɵcm = appOpenInNew;
-    exports.ɵcn = appPaymentsIcon;
-    exports.ɵco = appPrivacyTipIcon;
-    exports.ɵcp = appQuizIcon;
-    exports.ɵcq = appRemoveIcon;
-    exports.ɵcr = appRemoveRedEyeIcon;
-    exports.ɵcs = appScheduleIcon;
-    exports.ɵct = appSettingsSuggestIcon;
-    exports.ɵcu = appVerticalSplitIcon;
-    exports.ɵcv = appArrowBackIcon;
-    exports.ɵcw = appArrowDownwardIcon;
-    exports.ɵcx = appArrowForwardIcon;
-    exports.ɵcy = appArrowUpwardIcon;
-    exports.ɵcz = appCancelBlackIcon;
+    exports.ɵca = appCreditCard;
+    exports.ɵcb = appDeleteIcon;
+    exports.ɵcc = appDesktopIcon;
+    exports.ɵcd = appDownloadIcon;
+    exports.ɵce = appFileCopyIcon;
+    exports.ɵcf = appGavelIcon;
+    exports.ɵcg = appHelpIcon;
+    exports.ɵch = appHighlightOffIcon;
+    exports.ɵci = appInfoIcon;
+    exports.ɵcj = appLinkIcon;
+    exports.ɵck = appLabelIcon;
+    exports.ɵcl = appLockIcon;
+    exports.ɵcm = appLoyaltyIcon;
+    exports.ɵcn = appOpenWithIcon;
+    exports.ɵco = appOpenInNew;
+    exports.ɵcp = appPaymentsIcon;
+    exports.ɵcq = appPrivacyTipIcon;
+    exports.ɵcr = appQuizIcon;
+    exports.ɵcs = appRemoveIcon;
+    exports.ɵct = appRemoveRedEyeIcon;
+    exports.ɵcu = appScheduleIcon;
+    exports.ɵcv = appSettingsSuggestIcon;
+    exports.ɵcw = appVerticalSplitIcon;
+    exports.ɵcx = appArrowBackIcon;
+    exports.ɵcy = appArrowDownwardIcon;
+    exports.ɵcz = appArrowForwardIcon;
     exports.ɵd = OverlayTemplateComponent;
-    exports.ɵda = appCheckIcon;
-    exports.ɵdb = appChevronLeftIcon;
-    exports.ɵdc = appChevronRightIcon;
-    exports.ɵdd = appClearIcon;
-    exports.ɵde = appEastIcon;
-    exports.ɵdf = appExpandLessIcon;
-    exports.ɵdg = appExpandMoreIcon;
-    exports.ɵdh = appFirstPageIcon;
-    exports.ɵdi = appLastPageIcon;
-    exports.ɵdj = appMoreVertIcon;
-    exports.ɵdk = appMoreHorizIcon;
-    exports.ɵdl = appRefreshIcon;
-    exports.ɵdm = appPriorityHighIcon;
-    exports.ɵdn = appSmsIcon;
-    exports.ɵdo = appPeopleIcon;
-    exports.ɵdp = appCheckBoxOutlineBlankIcon;
-    exports.ɵdq = appCheckBoxIcon;
-    exports.ɵdr = appIndeterminateCheckBoxIcon;
-    exports.ɵds = appRadioButtonCheckedIcon;
-    exports.ɵdt = appRadioButtonUncheckedIcon;
+    exports.ɵda = appArrowUpwardIcon;
+    exports.ɵdb = appCancelBlackIcon;
+    exports.ɵdc = appCheckIcon;
+    exports.ɵdd = appChevronLeftIcon;
+    exports.ɵde = appChevronRightIcon;
+    exports.ɵdf = appClearIcon;
+    exports.ɵdg = appEastIcon;
+    exports.ɵdh = appExpandLessIcon;
+    exports.ɵdi = appExpandMoreIcon;
+    exports.ɵdj = appFirstPageIcon;
+    exports.ɵdk = appLastPageIcon;
+    exports.ɵdl = appMoreVertIcon;
+    exports.ɵdm = appMoreHorizIcon;
+    exports.ɵdn = appRefreshIcon;
+    exports.ɵdo = appPriorityHighIcon;
+    exports.ɵdp = appSmsIcon;
+    exports.ɵdq = appPeopleIcon;
+    exports.ɵdr = appCheckBoxOutlineBlankIcon;
+    exports.ɵds = appCheckBoxIcon;
+    exports.ɵdt = appIndeterminateCheckBoxIcon;
+    exports.ɵdu = appRadioButtonCheckedIcon;
+    exports.ɵdv = appRadioButtonUncheckedIcon;
     exports.ɵe = OptionComponent;
     exports.ɵf = SearchService;
     exports.ɵg = SearchOptionComponent;

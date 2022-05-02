@@ -1,8 +1,5 @@
-import { OnInit } from '@angular/core';
-export declare class ProgressBarComponent implements OnInit {
+export declare class ProgressBarComponent {
     percent: number;
     info: boolean;
-    type: 'line' | 'circle';
     constructor();
-    ngOnInit(): void;
 }

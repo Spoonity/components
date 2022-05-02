@@ -1,0 +1,5 @@
+export const appArrowDropDownIcon = {
+    data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg>`,
+    name: 'arrow-drop-down'
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXJyb3dfZHJvcF9kb3duLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vc3JjL2FwcC9zdmcvTWlzYy9hcnJvd19kcm9wX2Rvd24udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsTUFBTSxDQUFDLE1BQU0sb0JBQW9CLEdBQUc7SUFDaEMsSUFBSSxFQUFFLG1JQUFtSTtJQUN6SSxJQUFJLEVBQUUsaUJBQWlCO0NBQzFCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY29uc3QgYXBwQXJyb3dEcm9wRG93bkljb24gPSB7XG4gICAgZGF0YTogYDxzdmcgeG1sbnM9XCJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Z1wiIHZpZXdCb3g9XCIwIDAgMjQgMjRcIj48cGF0aCBkPVwiTTAgMGgyNHYyNEgwelwiIGZpbGw9XCJub25lXCIvPjxwYXRoIGQ9XCJNNyAxMGw1IDUgNS01elwiLz48L3N2Zz5gLFxuICAgIG5hbWU6ICdhcnJvdy1kcm9wLWRvd24nXG59OyJdfQ==

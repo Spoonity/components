@@ -5,7 +5,7 @@ export { DividerComponent } from '../Components/Atoms/divider/divider.component'
 export { ElevationComponent } from '../Components/Atoms/elevation/elevation.component';
 export { ProgressBarComponent } from '../Components/Atoms/progress-bar/progress-bar.component';
 export { ProgressCircleComponent } from '../Components/Atoms/progress-circle/progress-circle.component';
-export { RadioButtonComponent } from '../Components/Atoms/radio-button/radio-button.component';
+export { RadioComponent } from '../Components/Atoms/radio/radio.component';
 export { SliderComponent } from '../Components/Atoms/slider/slider.component';
 export { SpacingComponent } from '../Components/Atoms/spacing/spacing.component';
 export { SwitchComponent } from '../Components/Atoms/switch/switch.component';
