@@ -31,10 +31,14 @@ import {appVerticalSplitIcon} from './vertical_split';
 import {appOpenInNew} from './open_in_new';
 import {appLabelIcon} from './label';
 import {appInfoIcon} from './info';
+import {appArrowDropDownIcon} from './arrow_drop_down';
+import {appArrowDropUpIcon} from './arrow_drop_up';
 
 export const miscIcons = [
   appAccountBalanceIcon,
   appAnalyticsIcon,
+  appArrowDropDownIcon,
+  appArrowDropUpIcon,
   appAutorenewIcon,
   appCalendarIcon,
   appCalendarDateRangeIcon,
