@@ -4,7 +4,7 @@ import { ProgressBarComponent } from '../../../sp-components/src/app/Components/
 import { SpComponentsModule } from 'sp-components/public_api';
 
 export default {
-  title: 'Atoms/ProgressBar',
+  title: 'Atoms/Progress Bar',
   component: ProgressBarComponent,
   decorators: [
     moduleMetadata({

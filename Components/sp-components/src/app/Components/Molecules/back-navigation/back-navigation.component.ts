@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,20 +7,18 @@ import { Router } from '@angular/router';
   templateUrl: './back-navigation.component.html',
   styleUrls: ['./back-navigation.component.less']
 })
-export class BackNavigationComponent implements OnInit {
+export class BackNavigationComponent {
+  /* text beside the arrow */
+  @Input() text: string = 'Back';
+
+  /* route to navigate to when clicked */
+  @Input() route: string;
 
   constructor(private _location: Location, private _router: Router) { }
 
-  @Input() title: string;
-  @Input() subTitle: string;
-  @Input() route: string;
-
-  ngOnInit() {
-  }
-
-  onBack(route): void {
-    if (route) {
-      this._router.navigate([route]);
+  onBack(): void {
+    if (this.route) {
+      this._router.navigate([this.route]);
     } else {
       this._location.back();
     }

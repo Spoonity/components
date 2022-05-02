@@ -1430,7 +1430,7 @@
         },
         {
             "name": "BackNavigationComponent",
-            "id": "component-BackNavigationComponent-5de44520d8e309e22eebf2af7f3734b5",
+            "id": "component-BackNavigationComponent-973c6f71fcc2c23ffb50e873b233483a",
             "file": "sp-components/src/app/Components/Molecules/back-navigation/back-navigation.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1449,17 +1449,13 @@
             "inputsClass": [
                 {
                     "name": "route",
-                    "line": 16,
-                    "type": "string"
-                },
-                {
-                    "name": "subTitle",
                     "line": 15,
                     "type": "string"
                 },
                 {
-                    "name": "title",
-                    "line": 14,
+                    "name": "text",
+                    "defaultValue": "'Back'",
+                    "line": 12,
                     "type": "string"
                 }
             ],
@@ -1467,34 +1463,12 @@
             "propertiesClass": [],
             "methodsClass": [
                 {
-                    "name": "ngOnInit",
+                    "name": "onBack",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 18
-                },
-                {
-                    "name": "onBack",
-                    "args": [
-                        {
-                            "name": "route",
-                            "type": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 21,
-                    "jsdoctags": [
-                        {
-                            "name": "route",
-                            "type": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
+                    "line": 19
                 }
             ],
             "hostBindings": [],
@@ -1502,11 +1476,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Location } from '@angular/common';\nimport { Component, Input, OnInit } from '@angular/core';\nimport { Router } from '@angular/router';\n\n@Component({\n  selector: 'spt-back-navigation',\n  templateUrl: './back-navigation.component.html',\n  styleUrls: ['./back-navigation.component.less']\n})\nexport class BackNavigationComponent implements OnInit {\n\n  constructor(private _location: Location, private _router: Router) { }\n\n  @Input() title: string;\n  @Input() subTitle: string;\n  @Input() route: string;\n\n  ngOnInit() {\n  }\n\n  onBack(route): void {\n    if (route) {\n      this._router.navigate([route]);\n    } else {\n      this._location.back();\n    }\n  }\n}\n",
+            "sourceCode": "import { Location } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { Router } from '@angular/router';\n\n@Component({\n  selector: 'spt-back-navigation',\n  templateUrl: './back-navigation.component.html',\n  styleUrls: ['./back-navigation.component.less']\n})\nexport class BackNavigationComponent {\n  /* text beside the arrow */\n  @Input() text: string = 'Back';\n\n  /* route to navigate to when clicked */\n  @Input() route: string;\n\n  constructor(private _location: Location, private _router: Router) { }\n\n  onBack(): void {\n    if (this.route) {\n      this._router.navigate([this.route]);\n    } else {\n      this._location.back();\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".site-page-header {\n    padding: 0;\n}",
+                    "data": ".back-navigation {\n    display: flex;\n    align-items: center;\n    cursor: pointer;\n    transition: opacity 5ms ease-in-out;\n    width: fit-content;\n}\n\n.back-icon {\n    transform: translateY(2px);\n}\n\n.back-navigation:hover {\n    opacity: 0.7;\n}\n",
                     "styleUrl": "./back-navigation.component.less"
                 }
             ],
@@ -1524,7 +1498,7 @@
                         "type": "Router"
                     }
                 ],
-                "line": 10,
+                "line": 15,
                 "jsdoctags": [
                     {
                         "name": "_location",
@@ -1542,10 +1516,7 @@
                     }
                 ]
             },
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<nz-page-header class=\"site-page-header\" (nzBack)=\"onBack(route)\" nzBackIcon [nzTitle]=\"title\" [nzSubtitle]=\"subTitle\">\n</nz-page-header>\n"
+            "templateData": "<div class=\"back-navigation\" (click)=\"onBack()\">\n    <div class=\"back-icon spt-spacing-right--2\"><spt-icon name=\"arrow-back\"></spt-icon></div>\n    <div class=\"text\">{{text}}</div>\n</div>\n"
         },
         {
             "name": "BadgeComponent",
@@ -10792,6 +10763,14 @@
                 "defaultValue": "[appRecentActorsIcon]"
             },
             {
+                "name": "BackNavigation",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Molecules/BackNavigation.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Badge",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -10971,7 +10950,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Organisms/SideBar.stories.ts",
+                "file": "src/stories/Organisms/Header.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -10979,7 +10958,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Organisms/Header.stories.ts",
+                "file": "src/stories/Organisms/SideBar.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -11003,7 +10982,15 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/BackNavigation.stories.ts",
+                "file": "src/stories/Molecules/Banner.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Molecules/Breadcrumbs.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -11027,15 +11014,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Banner.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Molecules/Breadcrumbs.stories.ts",
+                "file": "src/stories/Molecules/Step.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -11044,14 +11023,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Molecules/SnackBar.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Molecules/Step.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -11075,7 +11046,7 @@
                 "name": "Disable",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Button.stories.ts",
+                "file": "src/stories/Molecules/Chip.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -11083,7 +11054,7 @@
                 "name": "Disable",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Chip.stories.ts",
+                "file": "src/stories/Molecules/Button.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -11786,22 +11757,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Icons/IconGallery.stories.ts",
-                "type": "Story<IconGalleryComponent>",
-                "defaultValue": "(args: IconGalleryComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Atoms/Badge.stories.ts",
-                "type": "Story<BadgeComponent>",
-                "defaultValue": "(args: BadgeComponent) => ({\n  props: args\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Atoms/Avatar.stories.ts",
                 "type": "Story<AvatarComponent>",
                 "defaultValue": "(args: AvatarComponent) => ({\n  props: args,\n})"
@@ -11813,6 +11768,14 @@
                 "file": "src/stories/Atoms/Checkbox.stories.ts",
                 "type": "Story<CheckboxComponent>",
                 "defaultValue": "(args: CheckboxComponent) => ({\n  props: args,\n  template: `\n    <spt-checkbox \n        [indeterminate]=\"indeterminate\"\n        [text]=\"text\" \n        [check]=\"check\" \n        (onChangeEvent)=\"onChecked()\">\n    </spt-checkbox>\n  `\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Atoms/Badge.stories.ts",
+                "type": "Story<BadgeComponent>",
+                "defaultValue": "(args: BadgeComponent) => ({\n  props: args\n})"
             },
             {
                 "name": "Template",
@@ -11850,14 +11813,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Atoms/ProgressCircle.stories.ts",
-                "type": "Story<ProgressCircleComponent>",
-                "defaultValue": "(args: ProgressCircleComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Atoms/Radio.stories.ts",
                 "type": "Story<RadioComponent>",
                 "defaultValue": "(args: RadioComponent) => ({\n  props: args,\n})"
@@ -11874,9 +11829,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Atoms/Spacing.stories.ts",
-                "type": "Story<SpacingComponent>",
-                "defaultValue": "(args: SpacingComponent) => ({\n  props: args,\n})"
+                "file": "src/stories/Atoms/ProgressCircle.stories.ts",
+                "type": "Story<ProgressCircleComponent>",
+                "defaultValue": "(args: ProgressCircleComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -11893,6 +11848,14 @@
                 "file": "src/stories/Atoms/Tab.stories.ts",
                 "type": "Story<TabComponent>",
                 "defaultValue": "(args: TabComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Atoms/Spacing.stories.ts",
+                "type": "Story<SpacingComponent>",
+                "defaultValue": "(args: SpacingComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -11938,17 +11901,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Organisms/SideBar.stories.ts",
-                "type": "Story<SidebarComponent>",
-                "defaultValue": "(args: SidebarComponent) => ({\n  props: args,\n})"
+                "file": "src/stories/Organisms/Header.stories.ts",
+                "type": "Story<HeaderComponent>",
+                "defaultValue": "(args: HeaderComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Organisms/Header.stories.ts",
-                "type": "Story<HeaderComponent>",
-                "defaultValue": "(args: HeaderComponent) => ({\n  props: args,\n})"
+                "file": "src/stories/Organisms/SideBar.stories.ts",
+                "type": "Story<SidebarComponent>",
+                "defaultValue": "(args: SidebarComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -11970,6 +11933,14 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/Molecules/Banner.stories.ts",
+                "type": "Story<BannerComponent>",
+                "defaultValue": "(args: BannerComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/Molecules/BackNavigation.stories.ts",
                 "type": "Story<BackNavigationComponent>",
                 "defaultValue": "(args: BackNavigationComponent) => ({\n  props: args,\n})"
@@ -11978,9 +11949,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Button.stories.ts",
-                "type": "Story<ButtonComponent>",
-                "defaultValue": "(args: ButtonComponent) => ({\n  props: args,\n})"
+                "file": "src/stories/Molecules/Breadcrumbs.stories.ts",
+                "type": "Story<BreadcrumbComponent>",
+                "defaultValue": "(args: BreadcrumbComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -12002,9 +11973,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Banner.stories.ts",
-                "type": "Story<BannerComponent>",
-                "defaultValue": "(args: BannerComponent) => ({\n  props: args,\n})"
+                "file": "src/stories/Molecules/Button.stories.ts",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args: ButtonComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -12018,9 +11989,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/Breadcrumbs.stories.ts",
-                "type": "Story<BreadcrumbComponent>",
-                "defaultValue": "(args: BreadcrumbComponent) => ({\n  props: args,\n})"
+                "file": "src/stories/Molecules/Search.stories.ts",
+                "type": "Story<SearchStoryExampleComponent>",
+                "defaultValue": "(args: SearchStoryExampleComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -12034,22 +12005,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Molecules/SnackBar.stories.ts",
-                "type": "Story<SnackBarExampleComponent>",
-                "defaultValue": "(args: SnackBarExampleComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Molecules/Search.stories.ts",
-                "type": "Story<SearchStoryExampleComponent>",
-                "defaultValue": "(args: SearchStoryExampleComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Molecules/Step.stories.ts",
                 "type": "Story<StepsComponent>",
                 "defaultValue": "(args: StepsComponent) => ({\n  props: args,\n})"
@@ -12058,9 +12013,25 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/Molecules/SnackBar.stories.ts",
+                "type": "Story<SnackBarExampleComponent>",
+                "defaultValue": "(args: SnackBarExampleComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/Molecules/TextField.stories.ts",
                 "type": "Story<TextFieldStoryExampleComponent>",
                 "defaultValue": "(args: TextFieldStoryExampleComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Icons/IconGallery.stories.ts",
+                "type": "Story<IconGalleryComponent>",
+                "defaultValue": "(args: IconGalleryComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Tertiary",
@@ -13239,6 +13210,24 @@
                     "defaultValue": "[appRecentActorsIcon]"
                 }
             ],
+            "src/stories/Molecules/BackNavigation.stories.ts": [
+                {
+                    "name": "BackNavigation",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Molecules/BackNavigation.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Molecules/BackNavigation.stories.ts",
+                    "type": "Story<BackNavigationComponent>",
+                    "defaultValue": "(args: BackNavigationComponent) => ({\n  props: args,\n})"
+                }
+            ],
             "src/stories/Atoms/Badge.stories.ts": [
                 {
                     "name": "Badge",
@@ -13750,24 +13739,6 @@
                     "defaultValue": "(args: UploadExampleComponent) => ({\n  props: args,\n})"
                 }
             ],
-            "src/stories/Molecules/BackNavigation.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Molecules/BackNavigation.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Molecules/BackNavigation.stories.ts",
-                    "type": "Story<BackNavigationComponent>",
-                    "defaultValue": "(args: BackNavigationComponent) => ({\n  props: args,\n})"
-                }
-            ],
             "src/stories/Molecules/DatePicker.stories.ts": [
                 {
                     "name": "Default",
@@ -13784,24 +13755,6 @@
                     "file": "src/stories/Molecules/DatePicker.stories.ts",
                     "type": "Story<DatePickerComponent>",
                     "defaultValue": "(args: DatePickerComponent) => ({\n  props: args,\n})"
-                }
-            ],
-            "src/stories/Molecules/SnackBar.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Molecules/SnackBar.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Molecules/SnackBar.stories.ts",
-                    "type": "Story<SnackBarExampleComponent>",
-                    "defaultValue": "(args: SnackBarExampleComponent) => ({\n  props: args,\n})"
                 }
             ],
             "src/stories/Molecules/Step.stories.ts": [
@@ -13828,6 +13781,24 @@
                     "file": "src/stories/Molecules/Step.stories.ts",
                     "type": "Story<StepsComponent>",
                     "defaultValue": "(args: StepsComponent) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/stories/Molecules/SnackBar.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Molecules/SnackBar.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Molecules/SnackBar.stories.ts",
+                    "type": "Story<SnackBarExampleComponent>",
+                    "defaultValue": "(args: SnackBarExampleComponent) => ({\n  props: args,\n})"
                 }
             ],
             "src/stories/Molecules/Button.stories.ts": [
@@ -15093,7 +15064,7 @@
                 "linktype": "component",
                 "name": "BackNavigationComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -17034,7 +17005,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Default",
+                "name": "BackNavigation",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

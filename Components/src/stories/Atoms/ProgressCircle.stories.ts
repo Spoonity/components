@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/angular/types-6-0';
 import { ProgressCircleComponent, SpComponentsModule } from 'sp-components/public_api';
 
 export default {
-  title: 'Atoms/ProgressCircle',
+  title: 'Atoms/Progress Circle',
   component: ProgressCircleComponent,
   decorators: [
     moduleMetadata({

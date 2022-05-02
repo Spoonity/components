@@ -1,2 +1,4 @@
-<nz-page-header class="site-page-header" (nzBack)="onBack(route)" nzBackIcon [nzTitle]="title" [nzSubtitle]="subTitle">
-</nz-page-header>
+<div class="back-navigation" (click)="onBack()">
+    <div class="back-icon spt-spacing-right--2"><spt-icon name="arrow-back"></spt-icon></div>
+    <div class="text">{{text}}</div>
+</div>
