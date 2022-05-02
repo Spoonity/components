@@ -30,6 +30,10 @@ const exec = promisify(execAsync);
   // console.log('deploying changes...');
   await exec('git add ../')
     .catch(() => {});
+  await exec('git add ../src -f')
+    .catch(() => {});
+  await exec('git add ../esm2015 -f')
+    .catch(() => {});
   await exec('git commit -m "Publish sp-components"')
     .catch(() => {});
   await exec('git push')
