@@ -1557,7 +1557,7 @@
         { type: core.Component, args: [{
                     selector: 'spt-back-navigation',
                     template: "<div class=\"back-navigation\" (click)=\"onBack()\">\n    <div class=\"back-icon spt-spacing-right--2\"><spt-icon name=\"arrow-back\"></spt-icon></div>\n    <div class=\"text\">{{text}}</div>\n</div>\n",
-                    styles: [".back-navigation{display:flex;align-items:center;cursor:pointer;transition:opacity 5ms ease-in-out;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}.back-icon{transform:translateY(2px)}.back-navigation:hover{opacity:.7}"]
+                    styles: [".back-navigation{display:flex;align-items:center;cursor:pointer;transition:opacity 5ms ease-in-out;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}.back-icon{transform:translateY(-1px)}.back-navigation:hover{opacity:.7}"]
                 },] }
     ];
     BackNavigationComponent.ctorParameters = function () { return [
