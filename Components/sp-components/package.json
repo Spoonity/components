@@ -4,9 +4,7 @@
     "peerDependencies": {
         "@angular/core": "^11.0.0",
         "ng-zorro-antd": "^11.4.0",
-        "angular-svg-icon": "^11.2.0",
-        "ng2-charts": "^2.4.2",
-        "chart.js": "^2.9.4"
+        "angular-svg-icon": "^11.2.0"
     },
     "ngPackage": {
         "assets": [
@@ -17,7 +15,6 @@
             "umdModuleIds": {
                 "ng-zorro-antd": "ng-zorro-antd",
                 "angular-svg-icon": "angular-svg-icon",
-                "ng2-charts": "ng2-charts",
                 "ng-zorro-antd/affix": "affix",
                 "ng-zorro-antd/alert": "alert",
                 "ng-zorro-antd/auto-complete": "auto-complete",

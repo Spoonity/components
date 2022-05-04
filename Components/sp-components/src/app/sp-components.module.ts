@@ -39,7 +39,6 @@ import { ElevationComponent } from './Components/Atoms/elevation/elevation.compo
 import { SpacingComponent } from './Components/Atoms/spacing/spacing.component';
 import { IconComponent } from './Components/Atoms/icon/icon.component';
 import { DataVisualizationComponent } from './Components/Organisms/data-visualization/data-visualization.component';
-import { ChartsModule, ThemeService } from 'ng2-charts';
 import { DialogsComponent } from './Components/Organisms/dialogs/dialogs.component';
 import { SidebarComponent } from './Components/Organisms/sidebar/sidebar.component';
 import { TableComponent } from './Components/Organisms/table/table.component';
@@ -147,7 +146,6 @@ registerLocaleData(en);
   ],
   imports: [
     CommonModule,
-    ChartsModule,
     FormsModule,
     HttpClientModule,
     RouterModule,
@@ -158,7 +156,7 @@ registerLocaleData(en);
     ...NZMODULES,
     NzNoAnimationModule,
   ],
-   providers: [{ provide: NZ_I18N, useValue: en_US}, ThemeService],
+   providers: [{ provide: NZ_I18N, useValue: en_US}],
 
 })
 export class SpComponentsModule { }
