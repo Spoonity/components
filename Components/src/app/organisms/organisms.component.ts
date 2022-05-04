@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { IBreadCrumbItem } from "sp-components/src/app/Components/Molecules/breadcrumb/breadcrumb.component";
 import { ICampaign, ICustomer, IGiftManagement } from "sp-components/src/app/Components/Organisms/card/card.component";
-import { ChartType } from "sp-components/src/app/Components/Organisms/chart/chart.component";
 import { DialogsComponent } from "sp-components/src/app/Components/Organisms/dialogs/dialogs.component";
 import { IUserData, ISidebar } from "sp-components/src/app/Components/Organisms/sidebar/sidebar.component";
 import { IDataSet } from "sp-components/src/app/Components/Organisms/table/table.component";
@@ -20,14 +19,6 @@ import { appPeopleIcon } from "sp-components/src/app/svg/Social/people";
   styleUrls: ['./organisms.component.less']
 })
 export class OrganismsComponent implements OnInit {
-  chartData = [
-    { data: [330, 600, 260, 700], label: 'Account A' },
-    { data: [120, 455, 100, 340], label: 'Account B' }
-  ];
-
-  chartLabels = ['January', 'February', 'Mars', 'April'];
-  type1: ChartType = ChartType.line;
-
   @ViewChild(DialogsComponent) dialog?: DialogsComponent;
   @ViewChild(UploadComponent) upload?: UploadComponent;
 

@@ -39,7 +39,6 @@ import { ElevationComponent } from './Components/Atoms/elevation/elevation.compo
 import { SpacingComponent } from './Components/Atoms/spacing/spacing.component';
 import { IconComponent } from './Components/Atoms/icon/icon.component';
 import { DataVisualizationComponent } from './Components/Organisms/data-visualization/data-visualization.component';
-import { ChartComponent } from './Components/Organisms/chart/chart.component';
 import { ChartsModule, ThemeService } from 'ng2-charts';
 import { DialogsComponent } from './Components/Organisms/dialogs/dialogs.component';
 import { SidebarComponent } from './Components/Organisms/sidebar/sidebar.component';
@@ -94,7 +93,6 @@ registerLocaleData(en);
     SpacingComponent,
     IconComponent,
     DataVisualizationComponent,
-    ChartComponent,
     DialogsComponent,
     TableComponent,
     UploadComponent,
@@ -139,7 +137,6 @@ registerLocaleData(en);
     SpacingComponent,
     IconComponent,
     DataVisualizationComponent,
-    ChartComponent,
     DialogsComponent,
     TableComponent,
     UploadComponent,
