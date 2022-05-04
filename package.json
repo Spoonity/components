@@ -4,9 +4,7 @@
   "peerDependencies": {
     "@angular/core": "^11.0.0",
     "ng-zorro-antd": "^11.4.0",
-    "angular-svg-icon": "^11.2.0",
-    "ng2-charts": "^2.4.2",
-    "chart.js": "^2.9.4"
+    "angular-svg-icon": "^11.2.0"
   },
   "main": "bundles/spoonity-sp-components.umd.js",
   "module": "fesm2015/spoonity-sp-components.js",

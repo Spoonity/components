@@ -47,7 +47,6 @@ import { CdkPortal, PortalModule } from '@angular/cdk/portal';
 import { OverlayConfig, Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { ActiveDescendantKeyManager } from '@angular/cdk/a11y';
 import { Router, ActivatedRoute, RouterModule } from '@angular/router';
-import { ChartsModule, ThemeService } from 'ng2-charts';
 import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
 import { differenceInCalendarDays } from 'date-fns';
 import { NzNoAnimationModule } from 'ng-zorro-antd/core/no-animation';
@@ -2815,7 +2814,6 @@ SpComponentsModule.decorators = [
                 ],
                 imports: [
                     CommonModule,
-                    ChartsModule,
                     FormsModule,
                     HttpClientModule,
                     RouterModule,
@@ -2826,7 +2824,7 @@ SpComponentsModule.decorators = [
                     ...NZMODULES,
                     NzNoAnimationModule,
                 ],
-                providers: [{ provide: NZ_I18N, useValue: ɵ0 }, ThemeService],
+                providers: [{ provide: NZ_I18N, useValue: ɵ0 }],
             },] }
 ];
 
