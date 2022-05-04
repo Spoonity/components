@@ -1986,41 +1986,6 @@
         description: [{ type: core.Input }]
     };
 
-    var ChartComponent = /** @class */ (function () {
-        function ChartComponent() {
-            this.options = {};
-            this.data = [];
-            this.labels = [];
-        }
-        ChartComponent.prototype.ngOnInit = function () {
-        };
-        return ChartComponent;
-    }());
-    ChartComponent.decorators = [
-        { type: core.Component, args: [{
-                    selector: 'spt-chart',
-                    template: "<div style=\"width: 100%;\">\n  <canvas\n    baseChart\n    [chartType]=\"type\"\n    [datasets]=\"data\"\n    [labels]=\"labels\"\n    [options]=\"options\"\n    [legend]=\"true\"\n  >\n  </canvas>\n</div>\n",
-                    styles: [""]
-                },] }
-    ];
-    ChartComponent.ctorParameters = function () { return []; };
-    ChartComponent.propDecorators = {
-        options: [{ type: core.Input }],
-        data: [{ type: core.Input }],
-        labels: [{ type: core.Input }],
-        type: [{ type: core.Input }]
-    };
-    exports.ChartType = void 0;
-    (function (ChartType) {
-        ChartType["pie"] = "pie";
-        ChartType["doughnut"] = "doughnut";
-        ChartType["bar"] = "bar";
-        ChartType["line"] = "line";
-        ChartType["polarArea"] = "polarArea";
-        ChartType["radar"] = "radar";
-        ChartType["horizontalBar"] = "horizontalBar";
-    })(exports.ChartType || (exports.ChartType = {}));
-
     var DialogsComponent = /** @class */ (function () {
         function DialogsComponent(modal, viewContainerRef) {
             this.modal = modal;
@@ -3159,7 +3124,6 @@
                         SpacingComponent,
                         IconComponent,
                         DataVisualizationComponent,
-                        ChartComponent,
                         DialogsComponent,
                         TableComponent,
                         UploadComponent,
@@ -3204,7 +3168,6 @@
                         SpacingComponent,
                         IconComponent,
                         DataVisualizationComponent,
-                        ChartComponent,
                         DialogsComponent,
                         TableComponent,
                         UploadComponent,
@@ -3240,7 +3203,6 @@
     exports.BreadcrumbComponent = BreadcrumbComponent;
     exports.ButtonComponent = ButtonComponent;
     exports.CardComponent = CardComponent;
-    exports.ChartComponent = ChartComponent;
     exports.CheckboxComponent = CheckboxComponent;
     exports.ChipComponent = ChipComponent;
     exports.DataVisualizationComponent = DataVisualizationComponent;

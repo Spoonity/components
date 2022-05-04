@@ -24,7 +24,6 @@ export { SnackbarComponent, ISnackbar } from '../Components/Molecules/snackbar/s
 export { StepsComponent, ISteps } from '../Components/Molecules/steps/steps.component';
 export { TextFieldComponent } from '../Components/Molecules/text-field/text-field.component';
 export { CardComponent, ICampaign, ICustomer, IGiftManagement } from '../Components/Organisms/card/card.component';
-export { ChartComponent, ChartType, IChart, IData } from '../Components/Organisms/chart/chart.component';
 export { DataVisualizationComponent } from '../Components/Organisms/data-visualization/data-visualization.component';
 export { DialogsComponent, IModal } from '../Components/Organisms/dialogs/dialogs.component';
 export { HeaderComponent } from '../Components/Organisms/header/header.component';
