@@ -1,10 +1,11 @@
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 export declare class BackNavigationComponent {
     private _location;
     private _router;
+    private _route;
     text: string;
     route: string;
-    constructor(_location: Location, _router: Router);
+    constructor(_location: Location, _router: Router, _route: ActivatedRoute);
     onBack(): void;
 }

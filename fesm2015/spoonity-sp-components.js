@@ -1220,15 +1220,16 @@ MenuTriggerDirective.propDecorators = {
 };
 
 class BackNavigationComponent {
-    constructor(_location, _router) {
+    constructor(_location, _router, _route) {
         this._location = _location;
         this._router = _router;
+        this._route = _route;
         /* text beside the arrow */
         this.text = 'Back';
     }
     onBack() {
         if (this.route) {
-            this._router.navigate([this.route]);
+            this._router.navigate([this.route], { relativeTo: this._route });
         }
         else {
             this._location.back();
@@ -1244,7 +1245,8 @@ BackNavigationComponent.decorators = [
 ];
 BackNavigationComponent.ctorParameters = () => [
     { type: Location },
-    { type: Router }
+    { type: Router },
+    { type: ActivatedRoute }
 ];
 BackNavigationComponent.propDecorators = {
     text: [{ type: Input }],

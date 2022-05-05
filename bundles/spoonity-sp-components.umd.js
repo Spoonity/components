@@ -1537,15 +1537,16 @@
     };
 
     var BackNavigationComponent = /** @class */ (function () {
-        function BackNavigationComponent(_location, _router) {
+        function BackNavigationComponent(_location, _router, _route) {
             this._location = _location;
             this._router = _router;
+            this._route = _route;
             /* text beside the arrow */
             this.text = 'Back';
         }
         BackNavigationComponent.prototype.onBack = function () {
             if (this.route) {
-                this._router.navigate([this.route]);
+                this._router.navigate([this.route], { relativeTo: this._route });
             }
             else {
                 this._location.back();
@@ -1562,7 +1563,8 @@
     ];
     BackNavigationComponent.ctorParameters = function () { return [
         { type: common.Location },
-        { type: router.Router }
+        { type: router.Router },
+        { type: router.ActivatedRoute }
     ]; };
     BackNavigationComponent.propDecorators = {
         text: [{ type: core.Input }],
