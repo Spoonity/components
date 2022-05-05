@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'spt-back-navigation',
@@ -14,11 +14,15 @@ export class BackNavigationComponent {
   /* route to navigate to when clicked */
   @Input() route: string;
 
-  constructor(private _location: Location, private _router: Router) { }
+  constructor(
+    private _location: Location,
+    private _router: Router,
+    private _route: ActivatedRoute
+  ) { }
 
   onBack(): void {
     if (this.route) {
-      this._router.navigate([this.route]);
+      this._router.navigate([this.route], {relativeTo: this._route});
     } else {
       this._location.back();
     }
