@@ -3,7 +3,7 @@ export declare class ChipComponent implements OnInit {
     text: string;
     color: string;
     icon: string;
-    mode: string;
+    mode: 'default' | 'closeable' | 'checkable';
     checked: boolean;
     disabled: boolean;
     onCloseEvent: EventEmitter<any>;

@@ -3,8 +3,8 @@ export declare class StepsComponent implements OnInit {
     constructor();
     current: number;
     steps: Array<ISteps>;
-    type: string;
-    direction: string;
+    type: 'default' | 'navigation';
+    direction: 'horizontal' | 'vertical';
     preventFutureSteps: boolean;
     onIndexChangeEvent: EventEmitter<number>;
     ngOnInit(): void;

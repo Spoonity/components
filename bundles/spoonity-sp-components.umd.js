@@ -8,7 +8,7 @@
 
     var en__default = /*#__PURE__*/_interopDefaultLegacy(en);
 
-    /*! *****************************************************************************
+    /******************************************************************************
     Copyright (c) Microsoft Corporation.
 
     Permission to use, copy, modify, and/or distribute this software for any
@@ -170,7 +170,11 @@
     var __createBinding = Object.create ? (function (o, m, k, k2) {
         if (k2 === undefined)
             k2 = k;
-        Object.defineProperty(o, k2, { enumerable: true, get: function () { return m[k]; } });
+        var desc = Object.getOwnPropertyDescriptor(m, k);
+        if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+            desc = { enumerable: true, get: function () { return m[k]; } };
+        }
+        Object.defineProperty(o, k2, desc);
     }) : (function (o, m, k, k2) {
         if (k2 === undefined)
             k2 = k;
@@ -234,10 +238,16 @@
                 r[k] = a[j];
         return r;
     }
-    function __spreadArray(to, from) {
-        for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-            to[j] = from[i];
-        return to;
+    function __spreadArray(to, from, pack) {
+        if (pack || arguments.length === 2)
+            for (var i = 0, l = from.length, ar; i < l; i++) {
+                if (ar || !(i in from)) {
+                    if (!ar)
+                        ar = Array.prototype.slice.call(from, 0, i);
+                    ar[i] = from[i];
+                }
+            }
+        return to.concat(ar || Array.prototype.slice.call(from));
     }
     function __await(v) {
         return this instanceof __await ? (this.v = v, this) : new __await(v);
@@ -319,6 +329,11 @@
             throw new TypeError("Cannot write private member to an object whose class did not declare it");
         return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
     }
+    function __classPrivateFieldIn(state, receiver) {
+        if (receiver === null || (typeof receiver !== "object" && typeof receiver !== "function"))
+            throw new TypeError("Cannot use 'in' operator on non-object");
+        return typeof state === "function" ? receiver === state : state.has(receiver);
+    }
 
     var NZMODULES = [
         affix.NzAffixModule,
@@ -363,43 +378,13 @@
         message.NzMessageModule,
     ];
 
-    exports.ButtonType = void 0;
-    (function (ButtonType) {
-        ButtonType["primary"] = "primary";
-        ButtonType["secondary"] = "default";
-        ButtonType["tertiary"] = "link";
-        ButtonType["inverted"] = "inverted";
-    })(exports.ButtonType || (exports.ButtonType = {}));
-    exports.ButtonSize = void 0;
-    (function (ButtonSize) {
-        ButtonSize["large"] = "large";
-        ButtonSize["medium"] = "medium";
-        ButtonSize["small"] = "small";
-    })(exports.ButtonSize || (exports.ButtonSize = {}));
-    exports.SideNavigationType = void 0;
-    (function (SideNavigationType) {
-        SideNavigationType["menu"] = "menu";
-        SideNavigationType["subMenu"] = "subMenu";
-        SideNavigationType["menuGroup"] = "menuGroup";
-        SideNavigationType["menuItem"] = "menuItem";
-    })(exports.SideNavigationType || (exports.SideNavigationType = {}));
-    exports.TagType = void 0;
-    (function (TagType) {
-        TagType["closeable"] = "closeable";
-        TagType["default"] = "default";
-        TagType["checkable"] = "checkable";
-    })(exports.TagType || (exports.TagType = {}));
-    exports.ICardType = void 0;
-    (function (ICardType) {
-        ICardType["sms"] = "sms";
-        ICardType["customer"] = "customer";
-        ICardType["gift"] = "giftManagement";
-    })(exports.ICardType || (exports.ICardType = {}));
-
     var ChipComponent = /** @class */ (function () {
         function ChipComponent() {
-            this.mode = exports.TagType.default;
+            /* chip mode*/
+            this.mode = 'default';
+            /* emit action if the close button is clicked */
             this.onCloseEvent = new core.EventEmitter();
+            /* emit action if the chip is checked */
             this.onCheckEvent = new core.EventEmitter();
         }
         ChipComponent.prototype.ngOnInit = function () {
@@ -435,10 +420,10 @@
 
     var ButtonComponent = /** @class */ (function () {
         function ButtonComponent() {
-            this.type = exports.ButtonType.primary;
-            this.size = exports.ButtonSize.medium;
-            this.B = exports.ButtonType;
-            this.S = exports.ButtonSize;
+            /* button type (default: primary) */
+            this.type = 'primary';
+            /* button size (default: medium) */
+            this.size = 'medium';
         }
         ButtonComponent.prototype.ngOnInit = function () {
         };
@@ -447,7 +432,7 @@
     ButtonComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-button',
-                    template: "<button nz-button nzNoAnimation [nzType]=\"type\" [nzSize]=\"size\" [disabled]=\"disabled\"\n        [ngClass]=\"{\n          'ant-btn-secondary': type === B.secondary,\n          'ant-btn-tertiary': type === B.tertiary,\n          'with-text': text != null,\n          'button-sm': size === S.small,\n          'button-md': size === S.medium,\n          'button-lg': size === S.large\n        }\"\n        [style.color]=\"type === B.inverted ? '#FFFFFF' : '#0D0C0B'\"\n        [style.backgroundColor]=\"color\"\n        [style.borderColor]=\"type === B.inverted ? '#FFFFFF' : color\">\n  <spt-icon *ngIf=\"leftIcon\" [name]=\"leftIcon\" [color]=\"iconColor\"></spt-icon>\n  <span *ngIf=\"text\" [ngClass]=\"{leftIcon: leftIcon,rightIcon: rightIcon}\">{{ text }}</span>\n  <spt-icon *ngIf=\"rightIcon\" [name]=\"rightIcon\" [color]=\"iconColor\"></spt-icon>\n</button>\n",
+                    template: "<button nz-button nzNoAnimation [disabled]=\"disabled\"\n        [nzType]=\"type === 'secondary' ? 'default' : (type == 'inverted' ? 'primary' : type)\"\n        [ngClass]=\"{\n          'ant-btn-secondary': type == 'default' || type == 'secondary',\n          'ant-btn-tertiary': type == 'link',\n          'with-text': text != null,\n          'button-sm': size === 'small',\n          'button-md': size === 'medium',\n          'button-lg': size == 'large'\n        }\"\n        [style.color]=\"type == 'inverted' ? '#FFFFFF' : '#0D0C0B'\"\n        [style.backgroundColor]=\"color\"\n        [style.borderColor]=\"type == 'inverted' ? '#FFFFFF' : color\">\n  <spt-icon *ngIf=\"leftIcon\" [name]=\"leftIcon\" [color]=\"iconColor\"></spt-icon>\n  <span *ngIf=\"text\" [ngClass]=\"{leftIcon: leftIcon,rightIcon: rightIcon}\">{{ text }}</span>\n  <spt-icon *ngIf=\"rightIcon\" [name]=\"rightIcon\" [color]=\"iconColor\"></spt-icon>\n</button>\n",
                     styles: [".leftIcon{margin-left:10px}.rightIcon{margin-right:10px}.ant-btn[disabled]{background-color:transparent}.ant-btn[disabled] span{color:#b1b1b1!important}.button-sm{height:34px!important;padding-top:4px!important;padding-bottom:4px!important;box-shadow:none}.button-md{height:42px!important;padding-top:8px!important;padding-bottom:8px!important;box-shadow:none}.button-lg{height:50px!important;padding-top:12px!important;padding-bottom:12px!important;box-shadow:none}"]
                 },] }
     ];
@@ -1260,8 +1245,11 @@
 
     var StepsComponent = /** @class */ (function () {
         function StepsComponent() {
+            /* type */
             this.type = 'navigation';
+            /* steps direction */
             this.direction = 'horizontal';
+            /* action when the step item has changed */
             this.onIndexChangeEvent = new core.EventEmitter();
         }
         StepsComponent.prototype.ngOnInit = function () {
@@ -1378,9 +1366,11 @@
             this.closeOnItemClick = true;
             /* toggle select all */
             this.toggleSelectAll = new core.EventEmitter();
+            /* searchModel change event (two-way binding) */
             this.searchModelChange = new core.EventEmitter();
             /* selected items list (two-way binding) */
             this.selectedItems = [];
+            /* selected items list change event (two-way binding) */
             this.selectedItemsChange = new core.EventEmitter();
             /* on menu hide */
             this.onMenuHide = new core.EventEmitter();
@@ -2051,6 +2041,39 @@
         data: "<svg fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M11.71 8.12L8.83 11H21c.55 0 1 .45 1 1s-.45 1-1 1H8.83l2.88 2.88a.996.996 0 11-1.41 1.41L5.71 12.7a.996.996 0 010-1.41L10.3 6.7a.996.996 0 011.41 0c.38.39.39 1.03 0 1.42zM4 7v10c0 .55-.45 1-1 1s-1-.45-1-1V7c0-.55.45-1 1-1s1 .45 1 1z\"/></svg>",
         name: 'keyboard-tab'
     };
+
+    exports.ButtonType = void 0;
+    (function (ButtonType) {
+        ButtonType["primary"] = "primary";
+        ButtonType["secondary"] = "default";
+        ButtonType["tertiary"] = "link";
+        ButtonType["inverted"] = "inverted";
+    })(exports.ButtonType || (exports.ButtonType = {}));
+    exports.ButtonSize = void 0;
+    (function (ButtonSize) {
+        ButtonSize["large"] = "large";
+        ButtonSize["medium"] = "medium";
+        ButtonSize["small"] = "small";
+    })(exports.ButtonSize || (exports.ButtonSize = {}));
+    exports.SideNavigationType = void 0;
+    (function (SideNavigationType) {
+        SideNavigationType["menu"] = "menu";
+        SideNavigationType["subMenu"] = "subMenu";
+        SideNavigationType["menuGroup"] = "menuGroup";
+        SideNavigationType["menuItem"] = "menuItem";
+    })(exports.SideNavigationType || (exports.SideNavigationType = {}));
+    exports.TagType = void 0;
+    (function (TagType) {
+        TagType["closeable"] = "closeable";
+        TagType["default"] = "default";
+        TagType["checkable"] = "checkable";
+    })(exports.TagType || (exports.TagType = {}));
+    exports.ICardType = void 0;
+    (function (ICardType) {
+        ICardType["sms"] = "sms";
+        ICardType["customer"] = "customer";
+        ICardType["gift"] = "giftManagement";
+    })(exports.ICardType || (exports.ICardType = {}));
 
     var SidebarComponent = /** @class */ (function () {
         function SidebarComponent(_route, _router) {
@@ -2961,7 +2984,7 @@
         __extends(DatePickerComponent, _super);
         function DatePickerComponent(_renderer) {
             var _this = _super.call(this, _renderer) || this;
-            /** date format (and acceptable inputs). default: 'dd/MM/yyyy **/
+            /* date format (and acceptable inputs). default: 'dd\/MM\/yyyy */
             _this.dateFormat = 'dd/MM/yyyy';
             _this.disabledDate = function (current) {
                 if (_this.min && _this.max == null) {

@@ -1,16 +1,13 @@
 import { OnInit } from '@angular/core';
-import { ButtonSize, ButtonType } from '../../../utils/enums';
 export declare class ButtonComponent implements OnInit {
-    type: ButtonType;
-    size: ButtonSize;
+    type: 'primary' | 'secondary' | 'link' | 'inverted' | 'default';
+    size: 'large' | 'medium' | 'small';
     leftIcon: string;
     rightIcon: string;
     text: string;
     disabled: boolean;
     color: string;
     iconColor: string;
-    B: typeof ButtonType;
-    S: typeof ButtonSize;
     constructor();
     ngOnInit(): void;
 }

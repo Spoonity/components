@@ -94,43 +94,13 @@ const NZMODULES = [
     NzMessageModule,
 ];
 
-var ButtonType;
-(function (ButtonType) {
-    ButtonType["primary"] = "primary";
-    ButtonType["secondary"] = "default";
-    ButtonType["tertiary"] = "link";
-    ButtonType["inverted"] = "inverted";
-})(ButtonType || (ButtonType = {}));
-var ButtonSize;
-(function (ButtonSize) {
-    ButtonSize["large"] = "large";
-    ButtonSize["medium"] = "medium";
-    ButtonSize["small"] = "small";
-})(ButtonSize || (ButtonSize = {}));
-var SideNavigationType;
-(function (SideNavigationType) {
-    SideNavigationType["menu"] = "menu";
-    SideNavigationType["subMenu"] = "subMenu";
-    SideNavigationType["menuGroup"] = "menuGroup";
-    SideNavigationType["menuItem"] = "menuItem";
-})(SideNavigationType || (SideNavigationType = {}));
-var TagType;
-(function (TagType) {
-    TagType["closeable"] = "closeable";
-    TagType["default"] = "default";
-    TagType["checkable"] = "checkable";
-})(TagType || (TagType = {}));
-var ICardType;
-(function (ICardType) {
-    ICardType["sms"] = "sms";
-    ICardType["customer"] = "customer";
-    ICardType["gift"] = "giftManagement";
-})(ICardType || (ICardType = {}));
-
 class ChipComponent {
     constructor() {
-        this.mode = TagType.default;
+        /* chip mode*/
+        this.mode = 'default';
+        /* emit action if the close button is clicked */
         this.onCloseEvent = new EventEmitter();
+        /* emit action if the chip is checked */
         this.onCheckEvent = new EventEmitter();
     }
     ngOnInit() {
@@ -165,10 +135,10 @@ ChipComponent.propDecorators = {
 
 class ButtonComponent {
     constructor() {
-        this.type = ButtonType.primary;
-        this.size = ButtonSize.medium;
-        this.B = ButtonType;
-        this.S = ButtonSize;
+        /* button type (default: primary) */
+        this.type = 'primary';
+        /* button size (default: medium) */
+        this.size = 'medium';
     }
     ngOnInit() {
     }
@@ -176,7 +146,7 @@ class ButtonComponent {
 ButtonComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-button',
-                template: "<button nz-button nzNoAnimation [nzType]=\"type\" [nzSize]=\"size\" [disabled]=\"disabled\"\n        [ngClass]=\"{\n          'ant-btn-secondary': type === B.secondary,\n          'ant-btn-tertiary': type === B.tertiary,\n          'with-text': text != null,\n          'button-sm': size === S.small,\n          'button-md': size === S.medium,\n          'button-lg': size === S.large\n        }\"\n        [style.color]=\"type === B.inverted ? '#FFFFFF' : '#0D0C0B'\"\n        [style.backgroundColor]=\"color\"\n        [style.borderColor]=\"type === B.inverted ? '#FFFFFF' : color\">\n  <spt-icon *ngIf=\"leftIcon\" [name]=\"leftIcon\" [color]=\"iconColor\"></spt-icon>\n  <span *ngIf=\"text\" [ngClass]=\"{leftIcon: leftIcon,rightIcon: rightIcon}\">{{ text }}</span>\n  <spt-icon *ngIf=\"rightIcon\" [name]=\"rightIcon\" [color]=\"iconColor\"></spt-icon>\n</button>\n",
+                template: "<button nz-button nzNoAnimation [disabled]=\"disabled\"\n        [nzType]=\"type === 'secondary' ? 'default' : (type == 'inverted' ? 'primary' : type)\"\n        [ngClass]=\"{\n          'ant-btn-secondary': type == 'default' || type == 'secondary',\n          'ant-btn-tertiary': type == 'link',\n          'with-text': text != null,\n          'button-sm': size === 'small',\n          'button-md': size === 'medium',\n          'button-lg': size == 'large'\n        }\"\n        [style.color]=\"type == 'inverted' ? '#FFFFFF' : '#0D0C0B'\"\n        [style.backgroundColor]=\"color\"\n        [style.borderColor]=\"type == 'inverted' ? '#FFFFFF' : color\">\n  <spt-icon *ngIf=\"leftIcon\" [name]=\"leftIcon\" [color]=\"iconColor\"></spt-icon>\n  <span *ngIf=\"text\" [ngClass]=\"{leftIcon: leftIcon,rightIcon: rightIcon}\">{{ text }}</span>\n  <spt-icon *ngIf=\"rightIcon\" [name]=\"rightIcon\" [color]=\"iconColor\"></spt-icon>\n</button>\n",
                 styles: [".leftIcon{margin-left:10px}.rightIcon{margin-right:10px}.ant-btn[disabled]{background-color:transparent}.ant-btn[disabled] span{color:#b1b1b1!important}.button-sm{height:34px!important;padding-top:4px!important;padding-bottom:4px!important;box-shadow:none}.button-md{height:42px!important;padding-top:8px!important;padding-bottom:8px!important;box-shadow:none}.button-lg{height:50px!important;padding-top:12px!important;padding-bottom:12px!important;box-shadow:none}"]
             },] }
 ];
@@ -952,8 +922,11 @@ SearchTemplateComponent.ctorParameters = () => [];
 
 class StepsComponent {
     constructor() {
+        /* type */
         this.type = 'navigation';
+        /* steps direction */
         this.direction = 'horizontal';
+        /* action when the step item has changed */
         this.onIndexChangeEvent = new EventEmitter();
     }
     ngOnInit() {
@@ -1065,9 +1038,11 @@ class MenuComponent {
         this.closeOnItemClick = true;
         /* toggle select all */
         this.toggleSelectAll = new EventEmitter();
+        /* searchModel change event (two-way binding) */
         this.searchModelChange = new EventEmitter();
         /* selected items list (two-way binding) */
         this.selectedItems = [];
+        /* selected items list change event (two-way binding) */
         this.selectedItemsChange = new EventEmitter();
         /* on menu hide */
         this.onMenuHide = new EventEmitter();
@@ -1707,6 +1682,39 @@ const appKeyboardTabIcon = {
     data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.71 8.12L8.83 11H21c.55 0 1 .45 1 1s-.45 1-1 1H8.83l2.88 2.88a.996.996 0 11-1.41 1.41L5.71 12.7a.996.996 0 010-1.41L10.3 6.7a.996.996 0 011.41 0c.38.39.39 1.03 0 1.42zM4 7v10c0 .55-.45 1-1 1s-1-.45-1-1V7c0-.55.45-1 1-1s1 .45 1 1z"/></svg>`,
     name: 'keyboard-tab'
 };
+
+var ButtonType;
+(function (ButtonType) {
+    ButtonType["primary"] = "primary";
+    ButtonType["secondary"] = "default";
+    ButtonType["tertiary"] = "link";
+    ButtonType["inverted"] = "inverted";
+})(ButtonType || (ButtonType = {}));
+var ButtonSize;
+(function (ButtonSize) {
+    ButtonSize["large"] = "large";
+    ButtonSize["medium"] = "medium";
+    ButtonSize["small"] = "small";
+})(ButtonSize || (ButtonSize = {}));
+var SideNavigationType;
+(function (SideNavigationType) {
+    SideNavigationType["menu"] = "menu";
+    SideNavigationType["subMenu"] = "subMenu";
+    SideNavigationType["menuGroup"] = "menuGroup";
+    SideNavigationType["menuItem"] = "menuItem";
+})(SideNavigationType || (SideNavigationType = {}));
+var TagType;
+(function (TagType) {
+    TagType["closeable"] = "closeable";
+    TagType["default"] = "default";
+    TagType["checkable"] = "checkable";
+})(TagType || (TagType = {}));
+var ICardType;
+(function (ICardType) {
+    ICardType["sms"] = "sms";
+    ICardType["customer"] = "customer";
+    ICardType["gift"] = "giftManagement";
+})(ICardType || (ICardType = {}));
 
 class SidebarComponent {
     constructor(_route, _router) {
@@ -2605,7 +2613,7 @@ SpComponentsComponent.ctorParameters = () => [
 class DatePickerComponent extends FormFieldManager {
     constructor(_renderer) {
         super(_renderer);
-        /** date format (and acceptable inputs). default: 'dd/MM/yyyy **/
+        /* date format (and acceptable inputs). default: 'dd\/MM\/yyyy */
         this.dateFormat = 'dd/MM/yyyy';
         this.disabledDate = (current) => {
             if (this.min && this.max == null) {
