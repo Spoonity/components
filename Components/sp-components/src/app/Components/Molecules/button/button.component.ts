@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
   /* button type (default: primary) */
-  @Input() type: 'primary' | 'secondary' | 'link' | 'inverted' = 'primary';
+  @Input() type: 'primary' | 'secondary' | 'link' | 'inverted' | 'default' = 'primary';
 
   /* button size (default: medium) */
   @Input() size: 'large' | 'medium' | 'small' = 'medium';
