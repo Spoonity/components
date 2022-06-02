@@ -14,7 +14,10 @@ export default {
   parameters: {
     docs: {
       source: {
-        code: `<sp-banner [bannerList]="banners"></sp-banner>`
+        code: `<spt-banner [bannerList]="{ id: 0, message: 'Error', type: 'error' },
+                  { id: 1, message: 'Warning', type: 'warning' },
+                  { id: 2, message: 'Success', type: 'success' },
+                  { id: 3, message: 'Informational', type: 'info' }"></spt-banner>`
       }
     }
   }
@@ -31,7 +34,7 @@ const banners = [
   { id: 3, message: 'Informational', type: 'info' }
 ];
 
-export const Default = Template.bind({});
-Default.args = {
+export const Banner = Template.bind({});
+Banner.args = {
   bannerList: banners,
 };

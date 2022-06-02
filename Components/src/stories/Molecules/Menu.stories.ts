@@ -1,7 +1,6 @@
 import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
-import { MenuComponent } from '../../../sp-components/src/app/Components/Molecules/menu/menu.component';
-import { MenuStoryExampleComponent } from '../../../src/app/molecules/menu-story-example/menu-story-example.component';
+import { MenuStoryExampleComponent } from '../../app/molecules/menu-story-example/menu-story-example.component';
 import { SpComponentsModule } from 'sp-components/public_api';
 
 export default {
@@ -12,19 +11,101 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  argTypes: {
+    multiple: {
+      table: {
+        disable: true
+      }
+    },
+    selectAllOption: {
+      table: {
+        disable: true
+      }
+    },
+    closeOnItemClick: {
+      table: {
+        disable: true
+      }
+    },
+    iconName: {
+      table: {
+        disable: true
+      }
+    },
+    menuItems: {
+      table: {
+        disable: true
+      }
+    },
+    selectedItems: {
+      table: {
+        disable: true
+      }
+    },
+    actionText: {
+      table: {
+        disable: true
+      }
+    },
+    filteredMenuItems: {
+      table: {
+        disable: true
+      }
+    },
+    items: {
+      table: {
+        disable: true
+      }
+    },
+    searchModel: {
+      table: {
+        disable: true
+      }
+    },
+    _addSelectedItems: {
+      table: {
+        disable: true
+      }
+    },
+    _filter: {
+      table: {
+        disable: true
+      }
+    },
+    actionSelected: {
+      table: {
+        disable: true
+      }
+    },
+    filter: {
+      table: {
+        disable: true
+      }
+    },
+    ngOnInit: {
+      table: {
+        disable: true
+      }
+    },
+    toggleSelectAll: {
+      table: {
+        disable: true
+      }
+    }
+  },
   parameters: {
     docs: {
       source: {
         code: `
-        <sp-button text="menu" [spMenuTrigger]="menu"></sp-button>
-        <sp-menu #menu [multiple]="multiple" [search]="search"
+        <sp-button text="MENU" [spMenuTrigger]="menu"></sp-button>
+        <spt-menu #menu multiple="true" [search]="search"
           [(selectedItems)]="selectedItems"
           [(searchModel)]="searchModel"
           [selectAllOption]="selectAllOption"
           (searchModelChange)="filter()"
           (toggleSelectAll)="toggleSelectAll($event)">
-          <sp-menu-item [startIcon]="iconName" *ngFor="let f of filteredMenuItems" (click)="actionSelected(f.text, 3)">{{f.text}}</sp-menu-item>
-        </sp-menu>`
+          <spt-menu-item [itemId]="f" startIcon="favorite" *ngFor="let f of filteredMenuItems" (click)="actionSelected(f.text, 3)">{{f.text}}</spt-menu-item>
+        </spt-menu>`
       }
     }
   }
@@ -35,93 +116,20 @@ const Template: Story<MenuStoryExampleComponent> = (args: MenuStoryExampleCompon
 });
 
 
-export const SingleSelection = Template.bind({});
-SingleSelection.args = {
-  // multiple: false,
-  // closeOnItemClick: true,
-  // search: false,
-  // selectAllOption: false,
-  // searchModel: 'Example',
-  // selectedItems: []
+export const Single = Template.bind({});
+Single.args = {
+  multiple: false,
+  search: false,
+  selectAllOption: false,
+  searchModel: 'Example',
+  selectedItems: []
 };
 
-export const SingleSelectionWithIcon = Template.bind({});
-SingleSelectionWithIcon.args = {
-  iconName: 'favorite'
-  // multiple: false,
-  // closeOnItemClick: true,
-  // search: false,
-  // selectAllOption: false,
-  // searchModel: 'Example',
-  // selectedItems: []
-};
-
-export const SingleSelectionWithSearch = Template.bind({});
-SingleSelectionWithSearch.args = {
-  search: true
-  // multiple: false,
-  // closeOnItemClick: true,
-  // search: false,
-  // selectAllOption: false,
-  // searchModel: 'Example',
-  // selectedItems: []
-};
-
-export const SingleSelectionWithSearchAndIcon = Template.bind({});
-SingleSelectionWithSearchAndIcon.args = {
-  iconName: 'favorite',
-  search: true
-  // multiple: false,
-  // closeOnItemClick: true,
-  // search: false,
-  // selectAllOption: false,
-  // searchModel: 'Example',
-  // selectedItems: []
-};
-
-export const MultipleSelection = Template.bind({});
-MultipleSelection.args = {
-  multiple: true
-  // closeOnItemClick: true,
-  // search: false,
-  // selectAllOption: false,
-  // searchModel: 'Example',
-  // selectedItems: []
-};
-
-
-export const MultipleSelectionWithIcon = Template.bind({});
-MultipleSelectionWithIcon.args = {
-  iconName: 'favorite',
-  multiple: true
-  // closeOnItemClick: true,
-  // search: false,
-  // selectAllOption: false,
-  // searchModel: 'Example',
-  // selectedItems: []
-};
-
-export const MultipleSelectionWithSearchAndIcon = Template.bind({});
-MultipleSelectionWithSearchAndIcon.args = {
-  iconName: 'favorite',
-  search: true,
-  multiple: true
-  // closeOnItemClick: true,
-  // search: false,
-  // selectAllOption: false,
-  // searchModel: 'Example',
-  // selectedItems: []
-};
-
-export const MultipleSelectionWithSearchAndSelectAll = Template.bind({});
-MultipleSelectionWithSearchAndSelectAll.args = {
-  search: true,
+export const Multiple = Template.bind({});
+Multiple.args = {
   multiple: true,
-  selectAllOption: true
-  // closeOnItemClick: true,
-  // search: false,
-  // selectAllOption: false,
-  // searchModel: 'Example',
-  // selectedItems: []
+  search: false,
+  selectAllOption: false,
+  searchModel: 'Example',
+  selectedItems: []
 };
-

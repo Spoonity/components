@@ -9,19 +9,30 @@ export class StepsComponent implements OnInit {
 
   constructor() { }
 
+  /* current step index */
   @Input() current: number;
+
+  /* list of steps */
   @Input() steps: Array<ISteps>;
-  @Input() type: string = 'navigation';
-  @Input() direction: string = 'horizontal';
+
+  /* type */
+  @Input() type: 'default' | 'navigation' = 'navigation';
+
+  /* steps direction */
+  @Input() direction: 'horizontal' | 'vertical' = 'horizontal';
+
+  /* if steps after the current should be disabled */
   @Input() preventFutureSteps: boolean;
+
+  /* action when the step item has changed */
   @Output() onIndexChangeEvent = new EventEmitter<number>();
 
-    ngOnInit() {
-    }
+  ngOnInit() {
+  }
 
-    onIndexChange(event: number): void {
-      this.onIndexChangeEvent.emit(event);
-    }
+  onIndexChange(event: number): void {
+    this.onIndexChangeEvent.emit(event);
+  }
 }
 
 export interface ISteps {

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ButtonSize, ButtonType } from '../../../utils/enums';
 
 @Component({
   selector: 'spt-button',
@@ -7,18 +6,29 @@ import { ButtonSize, ButtonType } from '../../../utils/enums';
   styleUrls: ['./button.component.less']
 })
 export class ButtonComponent implements OnInit {
+  /* button type (default: primary) */
+  @Input() type: 'primary' | 'secondary' | 'link' | 'inverted' = 'primary';
 
-  @Input() type: ButtonType = ButtonType.primary;
-  @Input() size: ButtonSize = ButtonSize.medium;
+  /* button size (default: medium) */
+  @Input() size: 'large' | 'medium' | 'small' = 'medium';
+
+  /* left icon (optional) */
   @Input() leftIcon: string;
-  @Input() rightIcon: string;
-  @Input() text: string;
-  @Input() disabled: boolean;
-  @Input() color: string;
-  @Input() iconColor: string;
 
-  B = ButtonType;
-  S = ButtonSize;
+  /* right icon (optional) */
+  @Input() rightIcon: string;
+
+  /* button text */
+  @Input() text: string;
+
+  /* if the button should be disanled */
+  @Input() disabled: boolean;
+
+  /* background color */
+  @Input() color: string;
+
+  /* icon color */
+  @Input() iconColor: string;
 
   constructor() { }
 

@@ -37,10 +37,14 @@ export class MenuComponent implements OnInit {
 
   /* searchModel (two-way binding) */
   @Input() searchModel: string;
+
+  /* searchModel change event (two-way binding) */
   @Output() searchModelChange: EventEmitter<any> = new EventEmitter<any>();
 
   /* selected items list (two-way binding) */
   @Input() selectedItems: string[] = [];
+
+  /* selected items list change event (two-way binding) */
   @Output() selectedItemsChange: EventEmitter<string[]> = new EventEmitter<string[]>();
 
   /* on menu hide */

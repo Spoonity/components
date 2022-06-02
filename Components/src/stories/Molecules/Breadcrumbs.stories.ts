@@ -14,7 +14,9 @@ export default {
   parameters: {
     docs: {
       source: {
-        code: `<sp-breadcrumb [items]="items"></sp-breadcrumb>`
+        code: `<spt-breadcrumb [items]="{ label: 'Page1', route: ''},
+                    { label: 'Page2', route: ''},
+                    { label: 'Page3', route: ''}"></spt-breadcrumb>`
       }
     }
   }
@@ -28,9 +30,9 @@ const breadcrumbItems = [
   { label: 'Page1', route: ''},
   { label: 'Page2', route: ''},
   { label: 'Page3', route: ''}
-]
+];
 
-export const Default = Template.bind({});
-Default.args = {
+export const Breadcrumbs = Template.bind({});
+Breadcrumbs.args = {
   items: breadcrumbItems
 };

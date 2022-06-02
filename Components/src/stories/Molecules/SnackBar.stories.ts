@@ -1,23 +1,35 @@
 import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
-// import { SnackbarComponent } from '../../../sp-components/src/app/Components/Molecules/snackbar/snackbar.component';
 import { SnackBarExampleComponent } from '../../../src/app/molecules/snack-bar-example/snack-bar-example.component';
 import { SpComponentsModule } from 'sp-components/public_api';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 export default {
-  title: 'Molecules/SnackBar',
+  title: 'Molecules/Snackbar',
   component: SnackBarExampleComponent,
   decorators: [
     moduleMetadata({
-      imports: [SpComponentsModule],
+      imports: [SpComponentsModule, BrowserAnimationsModule],
     }),
   ],
+  argTypes: {
+    snackbar: {
+      table: {
+        disable: true
+      }
+    },
+    ngOnInit: {
+      table: {
+        disable: true
+      }
+    }
+  },
   parameters: {
     docs: {
       source: {
         code: `
         <sp-snackbar></sp-snackbar>
-      <sp-button type="primary" text='Open Snackbar' (click)="OnOpenSnackbar()"></sp-button>`
+        <spt-button type="primary" text='Open Snackbar' (click)="OnOpenSnackbar()"></spt-button>`
       }
     }
   }
@@ -27,7 +39,7 @@ const Template: Story<SnackBarExampleComponent> = (args: SnackBarExampleComponen
   props: args,
 });
 
-export const Default = Template.bind({});
-Default.args = {
+export const Snackbar = Template.bind({});
+Snackbar.args = {
 
 };

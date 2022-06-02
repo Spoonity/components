@@ -6,6 +6,32 @@ import { SpComponentsModule } from 'sp-components/public_api';
 export default {
   title: 'Molecules/Steps',
   component: StepsComponent,
+  argTypes: {
+    direction: {
+      options: ['horizontal', 'vertical'],
+      control: { type: 'select' }
+    },
+    current: {
+      table: {
+        disable: true
+      }
+    },
+    navigation: {
+      table: {
+        disable: true
+      }
+    },
+    ngOnInit: {
+      table: {
+        disable: true
+      }
+    },
+    onIndexChange: {
+      table: {
+        disable: true
+      }
+    }
+  },
   decorators: [
     moduleMetadata({
       imports: [SpComponentsModule],
@@ -14,8 +40,8 @@ export default {
   parameters: {
     docs: {
       source: {
-        code: `<sp-steps [current]="current" [steps]="steps" [type]="'type'"
-        (onIndexChangeEvent)="onIndexChange($event)" [direction]="direction"></sp-steps>`
+        code: `<spt-steps [current]="current" [steps]="steps" [type]="'type'"
+        (onIndexChangeEvent)="onIndexChange($event)" [direction]="direction"></spt-steps>`
       }
     }
   }
@@ -33,10 +59,11 @@ const stepsList = [
   { title: 'Step 5', description: '' }
 ];
 
-export const Default = Template.bind({});
-Default.args = {
+export const Steps = Template.bind({});
+Steps.args = {
   current: 0,
   steps: stepsList,
   type: 'navigation',
   direction: 'horizontal',
+  preventFutureSteps: true
 };

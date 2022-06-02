@@ -17,13 +17,13 @@ import {NzDatePickerComponent} from 'ng-zorro-antd/date-picker';
   ]
 })
 export class DatePickerComponent extends FormFieldManager {
+  /* date format (and acceptable inputs). default: 'dd\/MM\/yyyy */
+  @Input() dateFormat: 'dd/MM/yyyy' | 'dd/MM' | 'MM/yyy' = 'dd/MM/yyyy';
+
   /**
    * string formatted date
    */
   formattedDate: string;
-
-  /** date format (and acceptable inputs). default: 'dd/MM/yyyy **/
-  @Input() dateFormat: 'dd/MM/yyyy' | 'dd/MM' | 'MM/yyy' = 'dd/MM/yyyy';
 
   @ViewChild(NzDatePickerComponent) nzDatePickerComponent: NzDatePickerComponent;
 

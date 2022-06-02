@@ -12,11 +12,16 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  argTypes: {
+    mode: {
+      options: ['default', 'closeable', 'checkable'],
+      control: {type: 'select'},
+    }
+  },
   parameters: {
     docs: {
       source: {
-        code: `<sp-chip [text]="text" [icon]="icon" [mode]="mode" [checked]="checked" (onCloseEvent)="onClose()"
-        [disabled]="disabled"></sp-chip>`
+        code: `<spt-chip text="Example" icon="favorite" (onCloseEvent)="onClose()" [disabled]="disabled"></spt-chip>`
       }
     }
   }
@@ -26,57 +31,11 @@ const Template: Story<ChipComponent> = (args: ChipComponent) => ({
   props: args,
 });
 
-export const Default = Template.bind({});
-Default.args = {
+export const Chip = Template.bind({});
+Chip.args = {
   text: 'Example',
-  icon: null,
   mode: TagType.default,
   checked: false,
   disabled: false,
+  icon: 'favorite'
 };
-
-export const Closable = Template.bind({});
-Closable.args = {
-  text: 'Example',
-  icon: null,
-  mode: TagType.closeable,
-  checked: false,
-  disabled: false,
-};
-
-export const Checkable = Template.bind({});
-Checkable.args = {
-  text: 'Example',
-  icon: null,
-  mode: TagType.checkable,
-  checked: false,
-  disabled: false,
-};
-
-export const WithIcon = Template.bind({});
-WithIcon.args = {
-  text: 'Example',
-  icon: 'favorite',
-  mode: TagType.default,
-  checked: false,
-  disabled: false,
-};
-
-export const Checked = Template.bind({});
-Checked.args = {
-  text: 'Example',
-  icon: 'favorite',
-  mode: TagType.default,
-  checked: true,
-  disabled: false,
-};
-
-export const Disable = Template.bind({});
-Disable.args = {
-  text: 'Example',
-  icon: 'favorite',
-  mode: TagType.default,
-  checked: false,
-  disabled: true,
-};
-

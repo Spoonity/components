@@ -1,15 +1,16 @@
-<button nz-button nzNoAnimation [nzType]="type" [nzSize]="size" [disabled]="disabled"
+<button nz-button nzNoAnimation [disabled]="disabled"
+        [nzType]="type === 'secondary' ? 'default' : (type == 'inverted' ? 'primary' : type)"
         [ngClass]="{
-          'ant-btn-secondary': type === B.secondary,
-          'ant-btn-tertiary': type === B.tertiary,
+          'ant-btn-secondary': type == 'default' || type == 'secondary',
+          'ant-btn-tertiary': type == 'link',
           'with-text': text != null,
-          'button-sm': size === S.small,
-          'button-md': size === S.medium,
-          'button-lg': size === S.large
+          'button-sm': size === 'small',
+          'button-md': size == 'default' || size === 'medium',
+          'button-lg': size == 'large'
         }"
-        [style.color]="type === B.inverted ? '#FFFFFF' : '#0D0C0B'"
+        [style.color]="type == 'inverted' ? '#FFFFFF' : '#0D0C0B'"
         [style.backgroundColor]="color"
-        [style.borderColor]="type === B.inverted ? '#FFFFFF' : color">
+        [style.borderColor]="type == 'inverted' ? '#FFFFFF' : color">
   <spt-icon *ngIf="leftIcon" [name]="leftIcon" [color]="iconColor"></spt-icon>
   <span *ngIf="text" [ngClass]="{leftIcon: leftIcon,rightIcon: rightIcon}">{{ text }}</span>
   <spt-icon *ngIf="rightIcon" [name]="rightIcon" [color]="iconColor"></spt-icon>

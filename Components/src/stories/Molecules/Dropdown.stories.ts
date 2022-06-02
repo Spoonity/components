@@ -14,19 +14,38 @@ export default {
       imports: [SpComponentsModule],
     }),
   ],
+  argTypes: {
+    size: {
+      options: ['large', 'medium', 'small'],
+      control: { type: 'select' }
+    },
+    options: {
+      table: {
+        disable: true
+      }
+    },
+    selectMultiple: {
+      table: {
+        disable: true
+      }
+    },
+    ngOnInit: {
+      table: {
+        disable: true
+      }
+    }
+  },
   parameters: {
     docs: {
       source: {
         code: `
-        <sp-dropdown 
-        [label]="label" 
-        [size]="size" 
-        [error]="error" 
-        [isDisabled]="isDisabled" 
-        [startIcon]="startIcon" 
-        [selectMultiple]="selectMultiple">
+        <spt-dropdown 
+          label="Dropdown Example" 
+          size="medium"
+          startIcon="favorite" 
+          selectMultiple="false">
         <sp-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></sp-option>
-        </sp-dropdown>`
+        </spt-dropdown>`
       }
     }
   }
@@ -36,104 +55,17 @@ const Template: Story<DropdownStoryExampleComponent> = (args: DropdownStoryExamp
   props: args,
 });
 
-export const Large = Template.bind({});
-Large.args = {
-  label: 'No Icon',
-  size: 'large',
-  
-};
-
-export const LargeWithIcon = Template.bind({});
-LargeWithIcon.args = {
-  label: 'No Icon',
-  size: 'large',
-  startIcon: 'favorite',
-  
-};
-
-export const LargeError = Template.bind({});
-LargeError.args = {
-  label: 'No Icon',
-  size: 'large',
-  error: 'error Message',
-
-};
-
-export const LargeDisabled = Template.bind({});
-LargeDisabled.args = {
-  label: 'No Icon',
-  size: 'large',
-  isDisables: true
-
-};
-
-export const Medium = Template.bind({});
-Medium.args = {
-  label: 'No Icon',
-  size: 'large',
-  
-};
-
-export const MediumWithIcon = Template.bind({});
-MediumWithIcon.args = {
-  label: 'No Icon',
-  size: 'large',
-  startIcon: 'favorite',
-  
-};
-
-export const MediumError = Template.bind({});
-MediumError.args = {
-  label: 'No Icon',
-  size: 'large',
-  error: 'error Message',
-
-};
-
-export const MediumDisabled = Template.bind({});
-MediumDisabled.args = {
-  label: 'No Icon',
-  size: 'large',
-  isDisables: true
-
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  label: 'No Icon',
-  size: 'large',
-  
-};
-
-export const SmallWithIcon = Template.bind({});
-SmallWithIcon.args = {
-  label: 'No Icon',
-  size: 'large',
-  startIcon: 'favorite',
-  
-};
-
-export const SmallError = Template.bind({});
-SmallError.args = {
-  label: 'No Icon',
-  size: 'large',
-  error: 'error Message',
-
-};
-
-export const SmallDisabled = Template.bind({});
-SmallDisabled.args = {
-  label: 'No Icon',
-  size: 'large',
-  isDisables: true
-
+export const Single = Template.bind({});
+Single.args = {
+  label: 'Dropdown Example',
+  size: 'medium',
+  isDisabled: false
 };
 
 export const Multiple = Template.bind({});
 Multiple.args = {
-  label: 'No Icon',
-  size: 'large',
+  label: 'Dropdown Example',
+  size: 'medium',
+  isDisabled: false,
   selectMultiple: true
-
 };
-

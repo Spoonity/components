@@ -31,7 +31,6 @@ export class DropdownComponent extends FormFieldManager implements AfterViewInit
   /* flag if multiple selection is allowed */
   @Input() selectMultiple: boolean;
 
-
   @ViewChild('input')
   public input: ElementRef;
 
@@ -47,7 +46,6 @@ export class DropdownComponent extends FormFieldManager implements AfterViewInit
 
   /* single selection: selected option value */
   public single_selected: any;
-
 
   /* multiple selection: list of selected OptionComponent */
   public multiple_selectedOptions: OptionComponent[] = [];
