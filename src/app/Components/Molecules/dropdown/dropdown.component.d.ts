@@ -1,4 +1,4 @@
-import { AfterViewInit, ElementRef, QueryList, Renderer2 } from '@angular/core';
+import { AfterViewInit, ElementRef, EventEmitter, QueryList, Renderer2 } from '@angular/core';
 import { FormFieldManager } from '../../shared/form-field.manager';
 import { OverlayTemplateComponent } from '../../shared/overlay-template/overlay-template.component';
 import { OptionComponent } from './option/option.component';
@@ -6,6 +6,7 @@ import { DropdownService } from './dropdown.service';
 export declare class DropdownComponent extends FormFieldManager implements AfterViewInit {
     private _dropdownService;
     selectMultiple: boolean;
+    dropdownChange: EventEmitter<any>;
     input: ElementRef;
     dropdown: OverlayTemplateComponent;
     options: QueryList<OptionComponent>;
@@ -46,4 +47,8 @@ export declare class DropdownComponent extends FormFieldManager implements After
      * @param event
      */
     onKeyDown(event: KeyboardEvent): void;
+    /**
+     * on change action
+     */
+    changeAction_($event: any): void;
 }

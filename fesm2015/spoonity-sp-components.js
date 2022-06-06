@@ -487,6 +487,8 @@ class DropdownComponent extends FormFieldManager {
     constructor(_dropdownService, _renderer) {
         super(_renderer);
         this._dropdownService = _dropdownService;
+        /* dropdown selection has changed */
+        this.dropdownChange = new EventEmitter();
         /* multiple selection: list of selected OptionComponent */
         this.multiple_selectedOptions = [];
         /* multiple selection: list of selected option values */
@@ -621,6 +623,7 @@ class DropdownComponent extends FormFieldManager {
         }
         this.checkDirty();
         this.onChange(this.selectMultiple ? this.multiple_selected : option.value);
+        this.dropdownChange.emit(this.value);
     }
     /**
      * keydown event (applies only to single selection items)
@@ -662,6 +665,13 @@ class DropdownComponent extends FormFieldManager {
             }
         }
     }
+    /**
+     * on change action
+     */
+    changeAction_($event) {
+        this.changeAction($event);
+        this.dropdownChange.emit($event);
+    }
 }
 DropdownComponent.decorators = [
     { type: Component, args: [{
@@ -684,6 +694,7 @@ DropdownComponent.ctorParameters = () => [
 ];
 DropdownComponent.propDecorators = {
     selectMultiple: [{ type: Input }],
+    dropdownChange: [{ type: Output }],
     input: [{ type: ViewChild, args: ['input',] }],
     dropdown: [{ type: ViewChild, args: [OverlayTemplateComponent,] }],
     options: [{ type: ContentChildren, args: [OptionComponent,] }]
@@ -1465,7 +1476,7 @@ class TabComponent {
 TabComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-tab',
-                template: "<nz-tabset [nzSelectedIndex]=\"index\" (nzSelectedIndexChange)=\"selectedIndexChange.emit($event)\">\n    <nz-tab *ngFor=\"let tab of tabs\" [nzTitle]=\"titleTemplate\" [nzDisabled]=\"tab.disabled\">\n        <ng-template #titleTemplate>\n            <div class=\"title-container\">\n                <div *ngIf=\"tab.icon\" class=\"icon\">\n                    <spt-icon *ngIf=\"tab.icon\" [name]=\"tab.icon\" [size]=\"16\" color=\"#FF9900\"></spt-icon>\n                </div>\n                <div>{{ tab.name }}</div>\n            </div>\n        </ng-template>\n    </nz-tab>\n</nz-tabset>\n",
+                template: "<nz-tabset [nzSelectedIndex]=\"index\" (nzSelectedIndexChange)=\"selectedIndexChange.emit($event)\">\n    <nz-tab *ngFor=\"let tab of tabs\" [nzTitle]=\"titleTemplate\" [nzDisabled]=\"tab.disabled\">\n        <ng-template #titleTemplate>\n            <spt-tooltip [title]=\"tab.tooltip\">\n                <div class=\"title-container\">\n                    <div *ngIf=\"tab.icon\" class=\"icon\">\n                        <spt-icon *ngIf=\"tab.icon\" [name]=\"tab.icon\" [size]=\"16\" color=\"#FF9900\"></spt-icon>\n                    </div>\n                    <div>{{ tab.name }}</div>\n                </div>\n            </spt-tooltip>\n        </ng-template>\n    </nz-tab>\n</nz-tabset>\n",
                 styles: [".icon{transform:translateY(1px)}.title-container{display:flex;align-items:center}"]
             },] }
 ];
