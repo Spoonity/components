@@ -10,7 +10,7 @@
             <p>No Icon</p>
             <div class="spt-spacing-y--1 dropdown-row">
                 <div class="spt-spacing-x--1">
-                    <spt-dropdown label="no icon" size="large">
+                    <spt-dropdown label="no icon" size="large" (dropdownChange)="changeExample($event)">
                         <spt-option *ngFor="let o of options" [value]="o.id" [text]="o.value"></spt-option>
                     </spt-dropdown>
                 </div>

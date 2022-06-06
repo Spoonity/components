@@ -1,12 +1,14 @@
 <nz-tabset [nzSelectedIndex]="index" (nzSelectedIndexChange)="selectedIndexChange.emit($event)">
     <nz-tab *ngFor="let tab of tabs" [nzTitle]="titleTemplate" [nzDisabled]="tab.disabled">
         <ng-template #titleTemplate>
-            <div class="title-container">
-                <div *ngIf="tab.icon" class="icon">
-                    <spt-icon *ngIf="tab.icon" [name]="tab.icon" [size]="16" color="#FF9900"></spt-icon>
+            <spt-tooltip [title]="tab.tooltip">
+                <div class="title-container">
+                    <div *ngIf="tab.icon" class="icon">
+                        <spt-icon *ngIf="tab.icon" [name]="tab.icon" [size]="16" color="#FF9900"></spt-icon>
+                    </div>
+                    <div>{{ tab.name }}</div>
                 </div>
-                <div>{{ tab.name }}</div>
-            </div>
+            </spt-tooltip>
         </ng-template>
     </nz-tab>
 </nz-tabset>

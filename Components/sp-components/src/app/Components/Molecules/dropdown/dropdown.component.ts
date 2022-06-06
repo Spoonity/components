@@ -2,8 +2,8 @@ import {
   AfterViewInit,
   Component,
   ContentChildren,
-  ElementRef,
-  forwardRef, Input,
+  ElementRef, EventEmitter,
+  forwardRef, Input, Output,
   QueryList, Renderer2,
   ViewChild
 } from '@angular/core';
@@ -30,6 +30,9 @@ import {ActiveDescendantKeyManager} from '@angular/cdk/a11y';
 export class DropdownComponent extends FormFieldManager implements AfterViewInit {
   /* flag if multiple selection is allowed */
   @Input() selectMultiple: boolean;
+
+  /* dropdown selection has changed */
+  @Output() dropdownChange: EventEmitter<any> = new EventEmitter<any>();
 
   @ViewChild('input')
   public input: ElementRef;
@@ -201,6 +204,7 @@ export class DropdownComponent extends FormFieldManager implements AfterViewInit
 
     this.checkDirty();
     this.onChange(this.selectMultiple ? this.multiple_selected : option.value);
+    this.dropdownChange.emit(this.value);
   }
 
   /**
@@ -242,5 +246,13 @@ export class DropdownComponent extends FormFieldManager implements AfterViewInit
         event.preventDefault();
       }
     }
+  }
+
+  /**
+   * on change action
+   */
+  changeAction_($event) {
+    this.changeAction($event);
+    this.dropdownChange.emit($event);
   }
 }

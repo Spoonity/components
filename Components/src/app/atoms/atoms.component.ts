@@ -34,7 +34,8 @@ export class AtomsComponent implements OnInit {
   tabs = [
     {
       name: 'Tab 1',
-      disabled: false
+      disabled: false,
+      tooltip: 'tab 1'
     },
     {
       name: 'Tab 2',

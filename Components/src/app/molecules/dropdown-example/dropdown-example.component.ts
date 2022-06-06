@@ -82,4 +82,8 @@ export class DropdownExampleComponent implements OnInit {
   updateField6() {
     this.sampleForm2.get('field6').setValue(['opt1', 'opt2', 'opt3']);
   }
+
+  changeExample(event: any) {
+    console.log(event);
+  }
 }
