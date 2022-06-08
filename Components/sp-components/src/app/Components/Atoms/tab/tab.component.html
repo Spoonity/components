@@ -1,4 +1,5 @@
-<nz-tabset [nzSelectedIndex]="index" (nzSelectedIndexChange)="selectedIndexChange.emit($event)">
+<nz-tabset [nzSelectedIndex]="index" (nzSelectedIndexChange)="selectedIndexChange.emit($event)"
+           [nzTabPosition]="TAB_POSITION[orientation]">
     <nz-tab *ngFor="let tab of tabs" [nzTitle]="titleTemplate" [nzDisabled]="tab.disabled">
         <ng-template #titleTemplate>
             <spt-tooltip [title]="tab.tooltip">
