@@ -1818,6 +1818,11 @@
         function TabComponent() {
             this.index = 0;
             this.selectedIndexChange = new core.EventEmitter();
+            this.orientation = 'horizontal';
+            this.TAB_POSITION = {
+                vertical: 'left',
+                horizontal: 'top'
+            };
         }
         TabComponent.prototype.ngOnInit = function () {
         };
@@ -1826,7 +1831,7 @@
     TabComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-tab',
-                    template: "<nz-tabset [nzSelectedIndex]=\"index\" (nzSelectedIndexChange)=\"selectedIndexChange.emit($event)\">\n    <nz-tab *ngFor=\"let tab of tabs\" [nzTitle]=\"titleTemplate\" [nzDisabled]=\"tab.disabled\">\n        <ng-template #titleTemplate>\n            <spt-tooltip [title]=\"tab.tooltip\">\n                <div class=\"title-container\">\n                    <div *ngIf=\"tab.icon\" class=\"icon\">\n                        <spt-icon *ngIf=\"tab.icon\" [name]=\"tab.icon\" [size]=\"16\" color=\"#FF9900\"></spt-icon>\n                    </div>\n                    <div>{{ tab.name }}</div>\n                </div>\n            </spt-tooltip>\n        </ng-template>\n    </nz-tab>\n</nz-tabset>\n",
+                    template: "<nz-tabset [nzSelectedIndex]=\"index\" (nzSelectedIndexChange)=\"selectedIndexChange.emit($event)\"\n           [nzTabPosition]=\"TAB_POSITION[orientation]\">\n    <nz-tab *ngFor=\"let tab of tabs\" [nzTitle]=\"titleTemplate\" [nzDisabled]=\"tab.disabled\">\n        <ng-template #titleTemplate>\n            <spt-tooltip [title]=\"tab.tooltip\">\n                <div class=\"title-container\">\n                    <div *ngIf=\"tab.icon\" class=\"icon\">\n                        <spt-icon *ngIf=\"tab.icon\" [name]=\"tab.icon\" [size]=\"16\" color=\"#FF9900\"></spt-icon>\n                    </div>\n                    <div>{{ tab.name }}</div>\n                </div>\n            </spt-tooltip>\n        </ng-template>\n    </nz-tab>\n</nz-tabset>\n",
                     styles: [".icon{transform:translateY(1px)}.title-container{display:flex;align-items:center}"]
                 },] }
     ];
@@ -1834,7 +1839,8 @@
     TabComponent.propDecorators = {
         tabs: [{ type: core.Input }],
         index: [{ type: core.Input }],
-        selectedIndexChange: [{ type: core.Output }]
+        selectedIndexChange: [{ type: core.Output }],
+        orientation: [{ type: core.Input }]
     };
 
     var TooltipComponent = /** @class */ (function () {

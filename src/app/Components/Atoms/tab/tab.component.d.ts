@@ -8,6 +8,10 @@ export declare class TabComponent implements OnInit {
     }[];
     index: number;
     selectedIndexChange: EventEmitter<any>;
+    orientation: 'vertical' | 'horizontal';
+    TAB_POSITION: {
+        [orientation: string]: 'top' | 'left';
+    };
     constructor();
     ngOnInit(): void;
 }
