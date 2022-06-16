@@ -1,0 +1,5 @@
+export const appFileUploadIcon = {
+    data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>`,
+    name: 'file-upload'
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZmlsZV91cGxvYWQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi9zcmMvYXBwL3N2Zy9NaXNjL2ZpbGVfdXBsb2FkLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE1BQU0sQ0FBQyxNQUFNLGlCQUFpQixHQUFHO0lBQzdCLElBQUksRUFBRSwwSkFBMEo7SUFDaEssSUFBSSxFQUFFLGFBQWE7Q0FDdEIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjb25zdCBhcHBGaWxlVXBsb2FkSWNvbiA9IHtcbiAgICBkYXRhOiBgPHN2ZyB4bWxucz1cImh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnXCIgdmlld0JveD1cIjAgMCAyNCAyNFwiPjxwYXRoIGQ9XCJNMCAwaDI0djI0SDB6XCIgZmlsbD1cIm5vbmVcIi8+PHBhdGggZD1cIk05IDE2aDZ2LTZoNGwtNy03LTcgN2g0em0tNCAyaDE0djJINXpcIi8+PC9zdmc+YCxcbiAgICBuYW1lOiAnZmlsZS11cGxvYWQnXG59OyJdfQ==
