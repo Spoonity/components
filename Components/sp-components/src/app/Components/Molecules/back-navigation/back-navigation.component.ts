@@ -14,6 +14,9 @@ export class BackNavigationComponent {
   /* route to navigate to when clicked */
   @Input() route: string;
 
+  /* route query params */
+  @Input() queryParams: {};
+
   constructor(
     private _location: Location,
     private _router: Router,
@@ -22,7 +25,11 @@ export class BackNavigationComponent {
 
   onBack(): void {
     if (this.route) {
-      this._router.navigate([this.route], {relativeTo: this._route});
+      const extras = {relativeTo: this._route};
+      if (this.queryParams != null) {
+        extras['queryParams'] = this.queryParams;
+      }
+      this._router.navigate([this.route], extras);
     } else {
       this._location.back();
     }
