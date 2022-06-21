@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, NavigationExtras, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'spt-back-navigation',
@@ -14,8 +14,8 @@ export class BackNavigationComponent {
   /* route to navigate to when clicked */
   @Input() route: string;
 
-  /* route query params */
-  @Input() queryParams: {};
+  /* override back action */
+  @Input() backAction: Function;
 
   constructor(
     private _location: Location,
@@ -24,14 +24,14 @@ export class BackNavigationComponent {
   ) { }
 
   onBack(): void {
-    if (this.route) {
-      const extras = {relativeTo: this._route};
-      if (this.queryParams != null) {
-        extras['queryParams'] = this.queryParams;
-      }
-      this._router.navigate([this.route], extras);
+    if (this.backAction) {
+      this.backAction();
     } else {
-      this._location.back();
+      if (this.route) {
+        this._router.navigate([this.route], {relativeTo: this._route});
+      } else {
+        this._location.back();
+      }
     }
   }
 }

@@ -108,5 +108,9 @@ export class MoleculesComponent implements OnInit {
     this.currentStep1 = event;
   }
 
+  backAction(): void {
+    console.log('back pressed');
+  }
+
 }
 
