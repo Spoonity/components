@@ -1547,7 +1547,11 @@
         }
         BackNavigationComponent.prototype.onBack = function () {
             if (this.route) {
-                this._router.navigate([this.route], { relativeTo: this._route });
+                var extras = { relativeTo: this._route };
+                if (this.queryParams != null) {
+                    extras['queryParams'] = this.queryParams;
+                }
+                this._router.navigate([this.route], extras);
             }
             else {
                 this._location.back();
@@ -1569,7 +1573,8 @@
     ]; };
     BackNavigationComponent.propDecorators = {
         text: [{ type: core.Input }],
-        route: [{ type: core.Input }]
+        route: [{ type: core.Input }],
+        queryParams: [{ type: core.Input }]
     };
 
     var BreadcrumbComponent = /** @class */ (function () {

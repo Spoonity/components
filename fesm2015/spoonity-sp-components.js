@@ -1215,7 +1215,11 @@ class BackNavigationComponent {
     }
     onBack() {
         if (this.route) {
-            this._router.navigate([this.route], { relativeTo: this._route });
+            const extras = { relativeTo: this._route };
+            if (this.queryParams != null) {
+                extras['queryParams'] = this.queryParams;
+            }
+            this._router.navigate([this.route], extras);
         }
         else {
             this._location.back();
@@ -1236,7 +1240,8 @@ BackNavigationComponent.ctorParameters = () => [
 ];
 BackNavigationComponent.propDecorators = {
     text: [{ type: Input }],
-    route: [{ type: Input }]
+    route: [{ type: Input }],
+    queryParams: [{ type: Input }]
 };
 
 class BreadcrumbComponent {
