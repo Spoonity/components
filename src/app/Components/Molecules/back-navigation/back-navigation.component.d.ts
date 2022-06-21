@@ -6,7 +6,7 @@ export declare class BackNavigationComponent {
     private _route;
     text: string;
     route: string;
-    queryParams: {};
+    backAction: Function;
     constructor(_location: Location, _router: Router, _route: ActivatedRoute);
     onBack(): void;
 }
