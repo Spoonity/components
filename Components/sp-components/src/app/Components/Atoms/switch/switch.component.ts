@@ -12,6 +12,7 @@ export class SwitchComponent implements OnInit {
   ngOnInit() {
   }
   @Input() on: boolean = false;
+  @Input() disabled: boolean;
   @Output() onChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   change() {
