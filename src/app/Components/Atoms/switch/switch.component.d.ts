@@ -3,6 +3,7 @@ export declare class SwitchComponent implements OnInit {
     constructor();
     ngOnInit(): void;
     on: boolean;
+    disabled: boolean;
     onChanged: EventEmitter<boolean>;
     change(): void;
 }

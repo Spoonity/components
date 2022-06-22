@@ -1790,13 +1790,14 @@
     SwitchComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-switch',
-                    template: "<nz-switch [(ngModel)]=\"on\" (ngModelChange)=\"change()\"></nz-switch>\n",
+                    template: "<nz-switch [(ngModel)]=\"on\" (ngModelChange)=\"change()\" [nzDisabled]=\"disabled\"></nz-switch>\n",
                     styles: ["nz-switch{margin:10px}"]
                 },] }
     ];
     SwitchComponent.ctorParameters = function () { return []; };
     SwitchComponent.propDecorators = {
         on: [{ type: core.Input }],
+        disabled: [{ type: core.Input }],
         onChanged: [{ type: core.Output }]
     };
 
