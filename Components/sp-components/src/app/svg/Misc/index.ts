@@ -36,9 +36,9 @@ import {appArrowDropUpIcon} from './arrow_drop_up';
 import {appContentCopyIcon} from './content_copy';
 import {appFileUploadIcon} from './file_upload';
 import {appRestoreIcon} from './restore';
-import {appCustomerIcon} from './customer';
-import {appHandIcon} from './hand';
-import {appMoneyIcon} from './money';
+import {appCurrencyExchangeIcon} from './currency_exchange';
+import {appSellIcon} from './sell';
+import {appShoppingBagIcon} from './shopping_bag';
 
 export const miscIcons = [
   appAccountBalanceIcon,
@@ -55,14 +55,13 @@ export const miscIcons = [
   appContentCopyIcon,
   appCorporateFareIcon,
   appCreditCard,
-  appCustomerIcon,
+  appCurrencyExchangeIcon,
   appDeleteIcon,
   appDesktopIcon,
   appDownloadIcon,
   appFileCopyIcon,
   appFileUploadIcon,
   appGavelIcon,
-  appHandIcon,
   appHelpIcon,
   appHighlightOffIcon,
   appInfoIcon,
@@ -70,7 +69,6 @@ export const miscIcons = [
   appLabelIcon,
   appLockIcon,
   appLoyaltyIcon,
-  appMoneyIcon,
   appOpenWithIcon,
   appOpenInNew,
   appPaymentsIcon,
@@ -80,6 +78,8 @@ export const miscIcons = [
   appRemoveRedEyeIcon,
   appRestoreIcon,
   appScheduleIcon,
+  appSellIcon,
   appSettingsSuggestIcon,
+  appShoppingBagIcon,
   appVerticalSplitIcon
 ];
