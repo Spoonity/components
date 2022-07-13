@@ -36,6 +36,9 @@ import {appArrowDropUpIcon} from './arrow_drop_up';
 import {appContentCopyIcon} from './content_copy';
 import {appFileUploadIcon} from './file_upload';
 import {appRestoreIcon} from './restore';
+import {appCustomerIcon} from './customer';
+import {appHandIcon} from './hand';
+import {appMoneyIcon} from './money';
 
 export const miscIcons = [
   appAccountBalanceIcon,
@@ -52,12 +55,14 @@ export const miscIcons = [
   appContentCopyIcon,
   appCorporateFareIcon,
   appCreditCard,
+  appCustomerIcon,
   appDeleteIcon,
   appDesktopIcon,
   appDownloadIcon,
   appFileCopyIcon,
   appFileUploadIcon,
   appGavelIcon,
+  appHandIcon,
   appHelpIcon,
   appHighlightOffIcon,
   appInfoIcon,
@@ -65,6 +70,7 @@ export const miscIcons = [
   appLabelIcon,
   appLockIcon,
   appLoyaltyIcon,
+  appMoneyIcon,
   appOpenWithIcon,
   appOpenInNew,
   appPaymentsIcon,
