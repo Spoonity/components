@@ -39,6 +39,7 @@ import {appRestoreIcon} from './restore';
 import {appCurrencyExchangeIcon} from './currency_exchange';
 import {appSellIcon} from './sell';
 import {appShoppingBagIcon} from './shopping_bag';
+import {appStarIcon} from './star';
 
 export const miscIcons = [
   appAccountBalanceIcon,
@@ -81,5 +82,6 @@ export const miscIcons = [
   appSellIcon,
   appSettingsSuggestIcon,
   appShoppingBagIcon,
+  appStarIcon,
   appVerticalSplitIcon
 ];
