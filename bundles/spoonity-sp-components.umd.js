@@ -920,6 +920,7 @@
                 this.value = this.multiple_selectedOptions.length ?
                     Array.from(this.multiple_selectedOptions, function (o) { return o.text; }).join(', ')
                     : '';
+                this.dropdownChange.emit(Array.from(this.multiple_selectedOptions, function (o) { return o.value; }));
             }
             else {
                 this.keyManager.setActiveItem(option);
@@ -928,10 +929,10 @@
                 this.value = this.single_selectedOption ? this.single_selectedOption.text : '';
                 this.hideDropdown();
                 this.input.nativeElement.blur();
+                this.dropdownChange.emit(this.single_selected);
             }
             this.checkDirty();
             this.onChange(this.selectMultiple ? this.multiple_selected : option.value);
-            this.dropdownChange.emit(this.value);
         };
         /**
          * keydown event (applies only to single selection items)
