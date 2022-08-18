@@ -52,6 +52,8 @@ import { DatePickerComponent } from './Components/Molecules/date-picker/date-pic
 import {NzNoAnimationModule} from 'ng-zorro-antd/core/no-animation';
 import { ProgressCircleComponent } from './Components/Atoms/progress-circle/progress-circle.component';
 import { RangeCalendarComponent } from './Components/Molecules/range-calendar/range-calendar.component';
+import { EmptyComponent } from './Components/Atoms/empty/empty.component';
+import {NzEmptyModule} from 'ng-zorro-antd/empty';
 
 registerLocaleData(en);
 
@@ -98,7 +100,8 @@ registerLocaleData(en);
     HeaderComponent,
     CardComponent,
     DatePickerComponent,
-    RangeCalendarComponent
+    RangeCalendarComponent,
+    EmptyComponent
   ],
   exports: [
     SpComponentsComponent,
@@ -142,7 +145,8 @@ registerLocaleData(en);
     HeaderComponent,
     CardComponent,
     DatePickerComponent,
-    RangeCalendarComponent
+    RangeCalendarComponent,
+    EmptyComponent
   ],
   imports: [
     CommonModule,
@@ -155,6 +159,7 @@ registerLocaleData(en);
     OverlayModule,
     ...NZMODULES,
     NzNoAnimationModule,
+    NzEmptyModule,
   ],
    providers: [{ provide: NZ_I18N, useValue: en_US}],
 
