@@ -92,6 +92,7 @@ export class OrganismsComponent implements OnInit {
   getCustomers(): ICustomer[] {
     return [
       {
+        id: 10000001,
         type: 'customer',
         first_name: 'Andres',
         last_name: 'Mann',
@@ -101,6 +102,7 @@ export class OrganismsComponent implements OnInit {
         phone: '(123) 456-7890'
       },
       {
+        id: 10000002,
         type: 'customer',
         first_name: 'Andres',
         last_name: 'Mann',
@@ -110,6 +112,7 @@ export class OrganismsComponent implements OnInit {
         phone: '(123) 456-7890'
       },
       {
+        id: 10000003,
         type: 'customer',
         first_name: 'Andres',
         last_name: 'Mann',

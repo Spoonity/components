@@ -42,6 +42,21 @@
         <div class="content-space ">
           <div class="content-icon">
             <spt-icon
+                    class="icons"
+                    [color]="'#4f4e4d'"
+                    name="account-box"
+            ></spt-icon>
+            <span class="spt-spacing-y--1 shadow-text padding-left body2">Customer ID</span>
+          </div>
+          <div class="sub-content4 text-email body1">
+            <span class="padding-left">{{ customer.id }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="sub-content3">
+        <div class="content-space ">
+          <div class="content-icon">
+            <spt-icon
               class="icons"
               [color]="'#4f4e4d'"
               [name]="email"
@@ -53,7 +68,7 @@
           </div>
         </div>
       </div>
-      <div class="content-space spt-spacing-x--3 sub-content3 ">
+      <div class="content-space spt-spacing-x--3 sub-content3">
         <div class="content-icon">
           <spt-icon
             class="icons"
