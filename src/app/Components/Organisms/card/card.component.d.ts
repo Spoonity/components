@@ -17,6 +17,7 @@ export interface ICampaign {
 }
 export interface ICustomer {
     type: string;
+    user_id: number;
     first_name: string;
     last_name: string;
     date_created: number;
