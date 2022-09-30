@@ -3,7 +3,7 @@ import { FormFieldManager } from '../../shared/form-field.manager';
 export declare class RadioComponent extends FormFieldManager {
     direction: 'vertical' | 'horizontal';
     options: {
-        value: string;
+        value: any;
         text: string;
     }[];
     constructor(_renderer: Renderer2);
