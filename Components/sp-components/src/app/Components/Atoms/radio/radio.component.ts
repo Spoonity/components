@@ -19,7 +19,7 @@ export class RadioComponent extends FormFieldManager {
   @Input() direction: 'vertical' | 'horizontal' = 'horizontal';
 
   /* radio button options */
-  @Input() options: {value: string; text: string}[] = []
+  @Input() options: {value: any; text: string}[] = [];
 
   constructor(_renderer: Renderer2) {
     super(_renderer);
