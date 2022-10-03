@@ -50,6 +50,9 @@ export class SearchComponent extends FormFieldManager implements AfterViewInit {
   /* optional: if the overlay should launch when the input is in focus */
   @Input() launchOnFocus?: boolean;
 
+  /* if the overlay is set to "always show" */
+  @Input() alwaysShowOverlay: boolean;
+
   /* if the search icon on the left should be hidden */
   @Input() hideSearchIcon: boolean;
 
@@ -141,8 +144,10 @@ export class SearchComponent extends FormFieldManager implements AfterViewInit {
    * hide options action
    */
   public hideDropdown(): void {
-    this.search.hide();
-    this.focus = false;
+    if (!this.alwaysShowOverlay) {
+      this.search.hide();
+      this.focus = false;
+    }
   }
 
   /**
