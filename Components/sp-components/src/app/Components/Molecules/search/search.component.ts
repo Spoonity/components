@@ -53,6 +53,9 @@ export class SearchComponent extends FormFieldManager implements AfterViewInit {
   /* if the search icon on the left should be hidden */
   @Input() hideSearchIcon: boolean;
 
+  /* overlay height (default: 200) */
+  @Input() overlayHeight: number = 200;
+
   /* filter action */
   @Output() filter: EventEmitter<any> = new EventEmitter();
 

@@ -32,7 +32,7 @@
     </div>
 
     <spt-overlay-template [reference]="searchReference" #searchComp>
-        <div class="search-options-container spt-elevation--5">
+        <div class="search-options-container spt-elevation--5" [style.max-height.px]="overlayHeight">
             <ng-content select="spt-search-option"></ng-content>
             <ng-content select="ng-container"></ng-content>
             <ng-content select="div.search-override"></ng-content>
