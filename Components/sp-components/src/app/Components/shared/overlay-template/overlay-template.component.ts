@@ -11,6 +11,9 @@ export class OverlayTemplateComponent implements OnInit {
   @Input()
   public reference: HTMLElement;
 
+  @Input()
+  public alwaysOn: boolean;
+
   @ViewChild(CdkPortal, {static: true})
   public contentTemplate: CdkPortal;
 
@@ -33,8 +36,10 @@ export class OverlayTemplateComponent implements OnInit {
   }
 
   public hide() {
-    this.overlayRef.detach();
-    this.showing = false;
+    if (!this.alwaysOn) {
+      this.overlayRef.detach();
+      this.showing = false;
+    }
   }
 
   @HostListener('window:resize')
