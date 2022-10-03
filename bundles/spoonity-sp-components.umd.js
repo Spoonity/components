@@ -635,8 +635,10 @@
             this.showing = true;
         };
         OverlayTemplateComponent.prototype.hide = function () {
-            this.overlayRef.detach();
-            this.showing = false;
+            if (!this.alwaysOn) {
+                this.overlayRef.detach();
+                this.showing = false;
+            }
         };
         OverlayTemplateComponent.prototype.onWinResize = function () {
             this.syncWidth();
@@ -694,6 +696,7 @@
     ]; };
     OverlayTemplateComponent.propDecorators = {
         reference: [{ type: core.Input }],
+        alwaysOn: [{ type: core.Input }],
         contentTemplate: [{ type: core.ViewChild, args: [portal.CdkPortal, { static: true },] }],
         onWinResize: [{ type: core.HostListener, args: ['window:resize',] }],
         visibilityChange: [{ type: core.HostListener, args: ['document:visibilitychange',] }],
@@ -1213,7 +1216,7 @@
     SearchComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-search',
-                    template: "<div #searchReference class=\"spt-input-container search-container\" [ngClass]=\"{'disabled-container': isDisabled}\" (click)=\"launchOnFocus ? focusAction() : null\">\n    <div class=\"search-wrapper {{size}} \" [ngClass]=\"{'item-focus': focus}\"\n         [style.background-color]=\"backgroundColor\">\n        <!-- search icon -->\n        <div class=\"search-icon left-icon\" *ngIf=\"!hideSearchIcon\">\n            <svg-icon name=\"search\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n        </div>\n\n        <!-- selected items (chips) -->\n        <div class=\"selected-items spt-spacing-x--1\" *ngIf=\"selectedItems.length\">\n            <div class=\"selected-item\" *ngFor=\"let s of selectedItems\">\n                <spt-tooltip [title]=\"s.tooltip\">\n                    <spt-chip [text]=\"s.text\"\n                              [icon]=\"s.icon\" mode=\"closeable\"\n                              [color]=\"s.color\"\n                              (click)=\"onChipSelected(s)\"\n                              (onCloseEvent)=\"onClose(s)\"></spt-chip>\n                </spt-tooltip>\n            </div>\n        </div>\n        <input #input *ngIf=\"(maximumSelection ? selectedItems.length < maximumSelection : true) && !readonly\"\n               (focus)=\"focusAction()\" (blur)=\"blurAction()\"\n               [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}\"\n               [style.background-color]=\"backgroundColor\"\n               [(ngModel)]=\"value\"\n               (ngModelChange)=\"changeAction($event)\"\n               (keydown)=\"onKeyDown($event)\"\n               placeholder=\"{{placeholder}}\" autocomplete=\"off\" [readonly]=\"readonly\">\n\n        <!-- because input is hidden on readonly mode display the placeholder separately -->\n        <p class=\"font-60\" *ngIf=\"readonly\" style=\"margin: 0; cursor: default\">{{placeholder}}</p>\n    </div>\n\n    <spt-overlay-template [reference]=\"searchReference\" #searchComp>\n        <div class=\"search-options-container spt-elevation--5\" [style.max-height.px]=\"overlayHeight\">\n            <ng-content select=\"spt-search-option\"></ng-content>\n            <ng-content select=\"ng-container\"></ng-content>\n            <ng-content select=\"div.search-override\"></ng-content>\n        </div>\n    </spt-overlay-template>\n\n</div>\n\n\n",
+                    template: "<div #searchReference class=\"spt-input-container search-container\" [ngClass]=\"{'disabled-container': isDisabled}\" (click)=\"launchOnFocus ? focusAction() : null\">\n    <div class=\"search-wrapper {{size}} \" [ngClass]=\"{'item-focus': focus}\"\n         [style.background-color]=\"backgroundColor\">\n        <!-- search icon -->\n        <div class=\"search-icon left-icon\" *ngIf=\"!hideSearchIcon\">\n            <svg-icon name=\"search\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n        </div>\n\n        <!-- selected items (chips) -->\n        <div class=\"selected-items spt-spacing-x--1\" *ngIf=\"selectedItems.length\">\n            <div class=\"selected-item\" *ngFor=\"let s of selectedItems\">\n                <spt-tooltip [title]=\"s.tooltip\">\n                    <spt-chip [text]=\"s.text\"\n                              [icon]=\"s.icon\" mode=\"closeable\"\n                              [color]=\"s.color\"\n                              (click)=\"onChipSelected(s)\"\n                              (onCloseEvent)=\"onClose(s)\"></spt-chip>\n                </spt-tooltip>\n            </div>\n        </div>\n        <input #input *ngIf=\"(maximumSelection ? selectedItems.length < maximumSelection : true) && !readonly\"\n               (focus)=\"focusAction()\" (blur)=\"blurAction()\"\n               [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}\"\n               [style.background-color]=\"backgroundColor\"\n               [(ngModel)]=\"value\"\n               (ngModelChange)=\"changeAction($event)\"\n               (keydown)=\"onKeyDown($event)\"\n               placeholder=\"{{placeholder}}\" autocomplete=\"off\" [readonly]=\"readonly\">\n\n        <!-- because input is hidden on readonly mode display the placeholder separately -->\n        <p class=\"font-60\" *ngIf=\"readonly\" style=\"margin: 0; cursor: default\">{{placeholder}}</p>\n    </div>\n\n    <spt-overlay-template [reference]=\"searchReference\" [alwaysOn]=\"alwaysShowOverlay\" #searchComp>\n        <div class=\"search-options-container spt-elevation--5\" [style.max-height.px]=\"overlayHeight\">\n            <ng-content select=\"spt-search-option\"></ng-content>\n            <ng-content select=\"ng-container\"></ng-content>\n            <ng-content select=\"div.search-override\"></ng-content>\n        </div>\n    </spt-overlay-template>\n\n</div>\n\n\n",
                     providers: [
                         SearchService,
                         {

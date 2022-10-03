@@ -4,6 +4,7 @@ import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 export declare class OverlayTemplateComponent implements OnInit {
     protected overlay: Overlay;
     reference: HTMLElement;
+    alwaysOn: boolean;
     contentTemplate: CdkPortal;
     protected overlayRef: OverlayRef;
     showing: boolean;
