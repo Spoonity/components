@@ -1166,8 +1166,10 @@
          * hide options action
          */
         SearchComponent.prototype.hideDropdown = function () {
-            this.search.hide();
-            this.focus = false;
+            if (!this.alwaysShowOverlay) {
+                this.search.hide();
+                this.focus = false;
+            }
         };
         /**
          * keydown event
@@ -1232,6 +1234,7 @@
         selectedItems: [{ type: core.Input }],
         maximumSelection: [{ type: core.Input }],
         launchOnFocus: [{ type: core.Input }],
+        alwaysShowOverlay: [{ type: core.Input }],
         hideSearchIcon: [{ type: core.Input }],
         overlayHeight: [{ type: core.Input }],
         filter: [{ type: core.Output }],

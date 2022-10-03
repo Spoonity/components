@@ -16,6 +16,7 @@ export declare class SearchComponent extends FormFieldManager implements AfterVi
     selectedItems: ISearchChip[];
     maximumSelection?: number;
     launchOnFocus?: boolean;
+    alwaysShowOverlay: boolean;
     hideSearchIcon: boolean;
     overlayHeight: number;
     filter: EventEmitter<any>;

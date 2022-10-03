@@ -847,8 +847,10 @@ class SearchComponent extends FormFieldManager {
      * hide options action
      */
     hideDropdown() {
-        this.search.hide();
-        this.focus = false;
+        if (!this.alwaysShowOverlay) {
+            this.search.hide();
+            this.focus = false;
+        }
     }
     /**
      * keydown event
@@ -912,6 +914,7 @@ SearchComponent.propDecorators = {
     selectedItems: [{ type: Input }],
     maximumSelection: [{ type: Input }],
     launchOnFocus: [{ type: Input }],
+    alwaysShowOverlay: [{ type: Input }],
     hideSearchIcon: [{ type: Input }],
     overlayHeight: [{ type: Input }],
     filter: [{ type: Output }],
