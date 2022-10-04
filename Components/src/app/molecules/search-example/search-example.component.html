@@ -60,7 +60,6 @@
                             placeholder="Search fruits or vegetables"
                             [(ngModel)]="largeSearchModel"
                             [selectedItems]="largeSelectedItemsReadonly"
-                            [alwaysShowOverlay]="true"
                             [launchOnFocus]="true"
                             (filter)="filter('large')"
                             (itemSelected)="largeItemSelectedReadonly($event)"
@@ -125,7 +124,7 @@
     <div class="input-large spt-spacing-y--2">
         <h3>Example without showing dropdown</h3>
 
-        <div class="spt-spacing-y--1 dropdown-row">
+        <div class="spt-spacing-y--1">
             <div class="spt-spacing-x--1">
                 <spt-search placeholder="Search fruits or vegetables"
                            size="small"

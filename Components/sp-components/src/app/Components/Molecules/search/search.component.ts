@@ -144,10 +144,8 @@ export class SearchComponent extends FormFieldManager implements AfterViewInit {
    * hide options action
    */
   public hideDropdown(): void {
-    if (!this.alwaysShowOverlay) {
       this.search.hide();
       this.focus = false;
-    }
   }
 
   /**
