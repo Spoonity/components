@@ -635,10 +635,8 @@
             this.showing = true;
         };
         OverlayTemplateComponent.prototype.hide = function () {
-            if (!this.alwaysOn) {
-                this.overlayRef.detach();
-                this.showing = false;
-            }
+            this.overlayRef.detach();
+            this.showing = false;
         };
         OverlayTemplateComponent.prototype.onWinResize = function () {
             this.syncWidth();
@@ -696,7 +694,6 @@
     ]; };
     OverlayTemplateComponent.propDecorators = {
         reference: [{ type: core.Input }],
-        alwaysOn: [{ type: core.Input }],
         contentTemplate: [{ type: core.ViewChild, args: [portal.CdkPortal, { static: true },] }],
         onWinResize: [{ type: core.HostListener, args: ['window:resize',] }],
         visibilityChange: [{ type: core.HostListener, args: ['document:visibilitychange',] }],
@@ -1169,10 +1166,8 @@
          * hide options action
          */
         SearchComponent.prototype.hideDropdown = function () {
-            if (!this.alwaysShowOverlay) {
-                this.search.hide();
-                this.focus = false;
-            }
+            this.search.hide();
+            this.focus = false;
         };
         /**
          * keydown event
@@ -1216,7 +1211,7 @@
     SearchComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-search',
-                    template: "<div #searchReference class=\"spt-input-container search-container\" [ngClass]=\"{'disabled-container': isDisabled}\" (click)=\"launchOnFocus ? focusAction() : null\">\n    <div class=\"search-wrapper {{size}} \" [ngClass]=\"{'item-focus': focus}\"\n         [style.background-color]=\"backgroundColor\">\n        <!-- search icon -->\n        <div class=\"search-icon left-icon\" *ngIf=\"!hideSearchIcon\">\n            <svg-icon name=\"search\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n        </div>\n\n        <!-- selected items (chips) -->\n        <div class=\"selected-items spt-spacing-x--1\" *ngIf=\"selectedItems.length\">\n            <div class=\"selected-item\" *ngFor=\"let s of selectedItems\">\n                <spt-tooltip [title]=\"s.tooltip\">\n                    <spt-chip [text]=\"s.text\"\n                              [icon]=\"s.icon\" mode=\"closeable\"\n                              [color]=\"s.color\"\n                              (click)=\"onChipSelected(s)\"\n                              (onCloseEvent)=\"onClose(s)\"></spt-chip>\n                </spt-tooltip>\n            </div>\n        </div>\n        <input #input *ngIf=\"(maximumSelection ? selectedItems.length < maximumSelection : true) && !readonly\"\n               (focus)=\"focusAction()\" (blur)=\"blurAction()\"\n               [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}\"\n               [style.background-color]=\"backgroundColor\"\n               [(ngModel)]=\"value\"\n               (ngModelChange)=\"changeAction($event)\"\n               (keydown)=\"onKeyDown($event)\"\n               placeholder=\"{{placeholder}}\" autocomplete=\"off\" [readonly]=\"readonly\">\n\n        <!-- because input is hidden on readonly mode display the placeholder separately -->\n        <p class=\"font-60\" *ngIf=\"readonly\" style=\"margin: 0; cursor: default\">{{placeholder}}</p>\n    </div>\n\n    <spt-overlay-template [reference]=\"searchReference\" [alwaysOn]=\"alwaysShowOverlay\" #searchComp>\n        <div class=\"search-options-container spt-elevation--5\" [style.max-height.px]=\"overlayHeight\">\n            <ng-content select=\"spt-search-option\"></ng-content>\n            <ng-content select=\"ng-container\"></ng-content>\n            <ng-content select=\"div.search-override\"></ng-content>\n        </div>\n    </spt-overlay-template>\n\n</div>\n\n\n",
+                    template: "<div #searchReference class=\"spt-input-container search-container\" [ngClass]=\"{'disabled-container': isDisabled}\" (click)=\"launchOnFocus ? focusAction() : null\">\n    <div class=\"search-wrapper {{size}} \" [ngClass]=\"{'item-focus': focus}\"\n         [style.background-color]=\"backgroundColor\">\n        <!-- search icon -->\n        <div class=\"search-icon left-icon\" *ngIf=\"!hideSearchIcon\">\n            <svg-icon name=\"search\" [svgStyle]=\"{ 'width.px':24 }\"></svg-icon>\n        </div>\n\n        <!-- selected items (chips) -->\n        <div class=\"selected-items spt-spacing-x--1\" *ngIf=\"selectedItems.length\">\n            <div class=\"selected-item\" *ngFor=\"let s of selectedItems\">\n                <spt-tooltip [title]=\"s.tooltip\">\n                    <spt-chip [text]=\"s.text\"\n                              [icon]=\"s.icon\" mode=\"closeable\"\n                              [color]=\"s.color\"\n                              (click)=\"onChipSelected(s)\"\n                              (onCloseEvent)=\"onClose(s)\"></spt-chip>\n                </spt-tooltip>\n            </div>\n        </div>\n        <input #input *ngIf=\"(maximumSelection ? selectedItems.length < maximumSelection : true) && !readonly\"\n               (focus)=\"focusAction()\" (blur)=\"blurAction()\"\n               [ngClass]=\"{'dirty': isDirty, 'error': !!error, 'disabled-state': isDisabled}\"\n               [style.background-color]=\"backgroundColor\"\n               [(ngModel)]=\"value\"\n               (ngModelChange)=\"changeAction($event)\"\n               (keydown)=\"onKeyDown($event)\"\n               placeholder=\"{{placeholder}}\" autocomplete=\"off\" [readonly]=\"readonly\">\n\n        <!-- because input is hidden on readonly mode display the placeholder separately -->\n        <p class=\"font-60\" *ngIf=\"readonly\" style=\"margin: 0; cursor: default\">{{placeholder}}</p>\n    </div>\n\n    <spt-overlay-template [reference]=\"searchReference\" #searchComp>\n        <div class=\"search-options-container spt-elevation--5\" [style.max-height.px]=\"overlayHeight\">\n            <ng-content select=\"spt-search-option\"></ng-content>\n            <ng-content select=\"ng-container\"></ng-content>\n            <ng-content select=\"div.search-override\"></ng-content>\n        </div>\n    </spt-overlay-template>\n\n</div>\n\n\n",
                     providers: [
                         SearchService,
                         {
@@ -2812,6 +2807,11 @@
         name: 'star'
     };
 
+    var appMenuIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z\"/></svg>",
+        name: 'menu'
+    };
+
     var miscIcons = [
         appAccountBalanceIcon,
         appAnalyticsIcon,
@@ -2841,6 +2841,7 @@
         appLabelIcon,
         appLockIcon,
         appLoyaltyIcon,
+        appMenuIcon,
         appOpenWithIcon,
         appOpenInNew,
         appPaymentsIcon,
@@ -3411,47 +3412,48 @@
     exports.ɵco = appLabelIcon;
     exports.ɵcp = appLockIcon;
     exports.ɵcq = appLoyaltyIcon;
-    exports.ɵcr = appOpenWithIcon;
-    exports.ɵcs = appOpenInNew;
-    exports.ɵct = appPaymentsIcon;
-    exports.ɵcu = appPrivacyTipIcon;
-    exports.ɵcv = appQuizIcon;
-    exports.ɵcw = appRemoveIcon;
-    exports.ɵcx = appRemoveRedEyeIcon;
-    exports.ɵcy = appRestoreIcon;
-    exports.ɵcz = appScheduleIcon;
+    exports.ɵcr = appMenuIcon;
+    exports.ɵcs = appOpenWithIcon;
+    exports.ɵct = appOpenInNew;
+    exports.ɵcu = appPaymentsIcon;
+    exports.ɵcv = appPrivacyTipIcon;
+    exports.ɵcw = appQuizIcon;
+    exports.ɵcx = appRemoveIcon;
+    exports.ɵcy = appRemoveRedEyeIcon;
+    exports.ɵcz = appRestoreIcon;
     exports.ɵd = OverlayTemplateComponent;
-    exports.ɵda = appSellIcon;
-    exports.ɵdb = appSettingsSuggestIcon;
-    exports.ɵdc = appShoppingBagIcon;
-    exports.ɵdd = appStarIcon;
-    exports.ɵde = appVerticalSplitIcon;
-    exports.ɵdf = appArrowBackIcon;
-    exports.ɵdg = appArrowDownwardIcon;
-    exports.ɵdh = appArrowForwardIcon;
-    exports.ɵdi = appArrowUpwardIcon;
-    exports.ɵdj = appCancelBlackIcon;
-    exports.ɵdk = appCheckIcon;
-    exports.ɵdl = appChevronLeftIcon;
-    exports.ɵdm = appChevronRightIcon;
-    exports.ɵdn = appClearIcon;
-    exports.ɵdo = appEastIcon;
-    exports.ɵdp = appExpandLessIcon;
-    exports.ɵdq = appExpandMoreIcon;
-    exports.ɵdr = appFirstPageIcon;
-    exports.ɵds = appLastPageIcon;
-    exports.ɵdt = appMoreVertIcon;
-    exports.ɵdu = appMoreHorizIcon;
-    exports.ɵdv = appRefreshIcon;
-    exports.ɵdw = appPriorityHighIcon;
-    exports.ɵdx = appSmsIcon;
-    exports.ɵdy = appPeopleIcon;
-    exports.ɵdz = appCheckBoxOutlineBlankIcon;
+    exports.ɵda = appScheduleIcon;
+    exports.ɵdb = appSellIcon;
+    exports.ɵdc = appSettingsSuggestIcon;
+    exports.ɵdd = appShoppingBagIcon;
+    exports.ɵde = appStarIcon;
+    exports.ɵdf = appVerticalSplitIcon;
+    exports.ɵdg = appArrowBackIcon;
+    exports.ɵdh = appArrowDownwardIcon;
+    exports.ɵdi = appArrowForwardIcon;
+    exports.ɵdj = appArrowUpwardIcon;
+    exports.ɵdk = appCancelBlackIcon;
+    exports.ɵdl = appCheckIcon;
+    exports.ɵdm = appChevronLeftIcon;
+    exports.ɵdn = appChevronRightIcon;
+    exports.ɵdo = appClearIcon;
+    exports.ɵdp = appEastIcon;
+    exports.ɵdq = appExpandLessIcon;
+    exports.ɵdr = appExpandMoreIcon;
+    exports.ɵds = appFirstPageIcon;
+    exports.ɵdt = appLastPageIcon;
+    exports.ɵdu = appMoreVertIcon;
+    exports.ɵdv = appMoreHorizIcon;
+    exports.ɵdw = appRefreshIcon;
+    exports.ɵdx = appPriorityHighIcon;
+    exports.ɵdy = appSmsIcon;
+    exports.ɵdz = appPeopleIcon;
     exports.ɵe = OptionComponent;
-    exports.ɵea = appCheckBoxIcon;
-    exports.ɵeb = appIndeterminateCheckBoxIcon;
-    exports.ɵec = appRadioButtonCheckedIcon;
-    exports.ɵed = appRadioButtonUncheckedIcon;
+    exports.ɵea = appCheckBoxOutlineBlankIcon;
+    exports.ɵeb = appCheckBoxIcon;
+    exports.ɵec = appIndeterminateCheckBoxIcon;
+    exports.ɵed = appRadioButtonCheckedIcon;
+    exports.ɵee = appRadioButtonUncheckedIcon;
     exports.ɵf = SearchService;
     exports.ɵg = SearchOptionComponent;
     exports.ɵh = SearchTemplateComponent;
