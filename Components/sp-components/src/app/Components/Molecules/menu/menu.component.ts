@@ -110,8 +110,9 @@ export class MenuComponent implements OnInit {
 
     // TODO: scroll to the top
     setTimeout(() => {
-      console.log('scrolling');
-      this.menuContainer.nativeElement.scrollTop = 0;
+      try {
+        this.menuContainer.nativeElement.scrollTop = 0;
+      } catch { }
     }, 100);
   }
 
