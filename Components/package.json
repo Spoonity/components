@@ -17,6 +17,9 @@
     "deploy": "ts-node -O '{\"module\": \"commonjs\"}' deploy.ts",
     "analyze": "NODE_OPTIONS=--no-experimental-fetch source-map-explorer 'build/static/js/*.js'"
   },
+  "resolutions": {
+    "source-map": "^0.8.0-beta.0"
+  },
   "private": true,
   "dependencies": {
     "@angular-devkit/core": "^11.2.13",
