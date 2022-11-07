@@ -1094,8 +1094,10 @@ class MenuComponent {
         }
         // TODO: scroll to the top
         setTimeout(() => {
-            console.log('scrolling');
-            this.menuContainer.nativeElement.scrollTop = 0;
+            try {
+                this.menuContainer.nativeElement.scrollTop = 0;
+            }
+            catch (_a) { }
         }, 100);
     }
     /**

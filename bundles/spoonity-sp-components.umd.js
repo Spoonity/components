@@ -1422,8 +1422,10 @@
             }
             // TODO: scroll to the top
             setTimeout(function () {
-                console.log('scrolling');
-                _this.menuContainer.nativeElement.scrollTop = 0;
+                try {
+                    _this.menuContainer.nativeElement.scrollTop = 0;
+                }
+                catch (_a) { }
             }, 100);
         };
         /**
