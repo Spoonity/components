@@ -16,6 +16,7 @@ export declare class MenuComponent implements OnInit {
     onMenuHide: EventEmitter<void>;
     searchEl: ElementRef;
     menu: OverlayTemplateComponent;
+    menuContainer: ElementRef;
     menuItems: QueryList<MenuItemComponent>;
     selectAll: boolean;
     selectedItem: MenuItemComponent;
