@@ -58,6 +58,10 @@ export class MenuComponent implements OnInit {
   @ViewChild(OverlayTemplateComponent)
   public menu: OverlayTemplateComponent;
 
+  /* menu container */
+  @ViewChild('menuContainer')
+  public menuContainer: ElementRef;
+
   /* menu items component */
   @ContentChildren(MenuItemComponent)
   public menuItems: QueryList<MenuItemComponent>;
@@ -103,6 +107,12 @@ export class MenuComponent implements OnInit {
         this.searchEl.nativeElement.focus();
       } catch (e) {}
     }
+
+    // TODO: scroll to the top
+    setTimeout(() => {
+      console.log('scrolling');
+      this.menuContainer.nativeElement.scrollTop = 0;
+    }, 100);
   }
 
   /**

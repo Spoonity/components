@@ -1,9 +1,9 @@
 <div #menuReference class="menu-wrapper" [ngClass]="{'show-menu': isShowing()}">
     <spt-overlay-template [reference]="menuReference" #menuComp>
-        <div class="menu-container spt-elevation--5">
+        <div class="menu-container spt-elevation--5" #menuContainer>
 
             <!---- search ---->
-            <div *ngIf="search" class="search-container spt-spacing--1 spt-spacing-top--2">
+            <div *ngIf="search" class="search-container spt-spacing--1">
                 <div class="search-input">
                     <input #searchEl
                            placeholder="Search"
