@@ -14,7 +14,8 @@
     "storybook": "yarn docs:json && start-storybook -p 6006",
     "build-storybook": "yarn docs:json && build-storybook",
     "storybook-cache": "start-storybook -p 6006 --no-manager-cache",
-    "deploy": "ts-node -O '{\"module\": \"commonjs\"}' deploy.ts"
+    "deploy": "ts-node -O '{\"module\": \"commonjs\"}' deploy.ts",
+    "analyze": "NODE_OPTIONS=--no-experimental-fetch source-map-explorer 'build/static/js/*.js'"
   },
   "private": true,
   "dependencies": {
