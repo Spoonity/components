@@ -4,11 +4,13 @@
 
             <!---- search ---->
             <div *ngIf="search" class="search-container spt-spacing--1">
-                <input #searchEl
-                       placeholder="Search"
-                       [(ngModel)]="searchModel"
-                       (ngModelChange)="change()"
-                       (keydown)="onKeyDown($event)"/>
+                <div class="search-input">
+                    <input #searchEl
+                           placeholder="Search"
+                           [(ngModel)]="searchModel"
+                           (ngModelChange)="change()"
+                           (keydown)="onKeyDown($event)"/>
+                </div>
             </div>
 
             <!---- select all ---->

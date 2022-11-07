@@ -28,6 +28,19 @@ export class MenuExampleComponent implements OnInit {
     {id: 1, text: 'B - option 2', icon: 'favorite'},
     {id: 2, text: 'C - option 3', icon: 'favorite'},
     {id: 3, text: 'D - option 4', icon: 'favorite'},
+    {id: 4, text: 'E - option 5', icon: 'favorite'},
+    {id: 5, text: 'F - option 6', icon: 'favorite'},
+    {id: 6, text: 'G - option 7', icon: 'favorite'},
+    {id: 7, text: 'H - option 8', icon: 'favorite'},
+    {id: 8, text: 'I - option 9', icon: 'favorite'},
+    {id: 9, text: 'J - option 10', icon: 'favorite'},
+    {id: 10, text: 'K - option 11', icon: 'favorite'},
+    {id: 11, text: 'L - option 12', icon: 'favorite'},
+    {id: 12, text: 'M - option 13', icon: 'favorite'},
+    {id: 13, text: 'N - option 14', icon: 'favorite'},
+    {id: 14, text: 'O - option 15', icon: 'favorite'},
+    {id: 15, text: 'P - option 16', icon: 'favorite'},
+    {id: 16, text: 'Q - option 17', icon: 'favorite'}
   ];
 
   filteredMenuItems1 = [];
