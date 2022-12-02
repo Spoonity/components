@@ -19,6 +19,7 @@ export class TableComponent implements OnInit {
   @Input() checkboxOn: boolean;
   @Input() rows: any[];
   @Input() dataSet: any[];
+  @Input() hideOuterBorder: boolean;
 
   constructor() { }
 
