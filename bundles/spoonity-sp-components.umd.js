@@ -2245,15 +2245,16 @@
     TableComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-table',
-                    template: "<nz-table class=\"table\"\n          [nzShowPagination]=\"false\"\n          [nzFrontPagination]=\"false\"\n          [nzData]=\"dataSet\">\n  <thead>\n    <tr>\n      <th *ngIf=\"checkboxOn\">\n        <spt-checkbox></spt-checkbox>\n      </th>\n      <th *ngFor=\"let title of rows\">\n        <b>{{ title }}</b>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-content select=\"tr\"></ng-content>\n  </tbody>\n</nz-table>\n",
-                    styles: [".table{font-family:Nunito Sans;font-style:normal;font-weight:400;font-size:14px;line-height:24px;border-radius:4px;border:1px solid #e2e2e2;border-bottom:none}thead,tr:hover{background-color:#fff}thead>tr>th{background:#fff}"]
+                    template: "<nz-table class=\"table\" [ngClass]=\"{'hide-border': hideOuterBorder}\"\n          [nzShowPagination]=\"false\"\n          [nzFrontPagination]=\"false\"\n          [nzData]=\"dataSet\">\n  <thead>\n    <tr>\n      <th *ngIf=\"checkboxOn\">\n        <spt-checkbox></spt-checkbox>\n      </th>\n      <th *ngFor=\"let title of rows\">\n        <b>{{ title }}</b>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-content select=\"tr\"></ng-content>\n  </tbody>\n</nz-table>\n",
+                    styles: [".table{font-family:Nunito Sans;font-style:normal;font-weight:400;font-size:14px;line-height:24px;border-radius:4px;border:1px solid #e2e2e2;border-bottom:none}.table.hide-border{border:none!important}thead,tr:hover{background-color:#fff}thead>tr>th{background:#fff}"]
                 },] }
     ];
     TableComponent.ctorParameters = function () { return []; };
     TableComponent.propDecorators = {
         checkboxOn: [{ type: core.Input }],
         rows: [{ type: core.Input }],
-        dataSet: [{ type: core.Input }]
+        dataSet: [{ type: core.Input }],
+        hideOuterBorder: [{ type: core.Input }]
     };
 
     var appUploadFileIcon = {
