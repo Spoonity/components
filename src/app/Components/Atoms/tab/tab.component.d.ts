@@ -4,6 +4,7 @@ export declare class TabComponent implements OnInit {
         name: string;
         disabled?: boolean;
         icon?: string;
+        iconColor?: string;
         tooltip?: string;
     }[];
     index: number;
