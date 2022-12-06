@@ -40,6 +40,7 @@ import {appCurrencyExchangeIcon} from './currency_exchange';
 import {appSellIcon} from './sell';
 import {appShoppingBagIcon} from './shopping_bag';
 import {appStarIcon} from './star';
+import {appThumbUpIcon} from "./thumb_up";
 import {appMenuIcon} from './menu';
 
 export const miscIcons = [
@@ -85,5 +86,6 @@ export const miscIcons = [
   appSettingsSuggestIcon,
   appShoppingBagIcon,
   appStarIcon,
+  appThumbUpIcon,
   appVerticalSplitIcon
 ];
