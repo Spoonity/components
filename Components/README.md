@@ -36,4 +36,4 @@ $ npm run generate-icons
 1. open `./sp-components/src/app/svg`
 2. drop the icon in the selected subdirectory (select Misc for general icons)
 3. update the index.ts for the selected subdirectory to export the icon
-4. re-deploy library
+4. re-deploy library 
