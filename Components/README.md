@@ -6,9 +6,22 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+---
+
 ## sp-components
 
-All components for the library should go inside the `Components/sp-component` directory. Components are classified by wither Atoms, Molecules, or Organisms.
+All components for the library should go inside the `Components/sp-component` directory. Components are classified by either Atoms, Molecules, or Organisms.
+
+---
+
+## installing the component library
+
+### Angular projects
+
+```shell script
+$ npm run generate-icons
+```
+
 
 ---
 
