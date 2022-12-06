@@ -5,7 +5,7 @@
             <spt-tooltip [title]="tab.tooltip">
                 <div class="title-container">
                     <div *ngIf="tab.icon" class="icon">
-                        <spt-icon *ngIf="tab.icon" [name]="tab.icon" [size]="16" color="#FF9900"></spt-icon>
+                        <spt-icon *ngIf="tab.icon" [name]="tab.icon" [size]="16" [color]="tab.iconColor || '#FF9900'"></spt-icon>
                     </div>
                     <div>{{ tab.name }}</div>
                 </div>

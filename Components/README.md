@@ -14,14 +14,13 @@ All components for the library should go inside the `Components/sp-component` di
 
 ---
 
-## installing the component library
+## Installing the component library
 
 ### Angular projects
 
 ```shell script
-$ npm run generate-icons
+$ npm install bitbucket:spoonity/components#packages/sp-components
 ```
-
 
 ---
 
