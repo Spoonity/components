@@ -6,22 +6,34 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## sp-components
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+All components for the library should go inside the `Components/sp-component` directory. Components are classified by wither Atoms, Molecules, or Organisms.
 
-## Build
+# Deploying the project
+1. go to the working branch for the library 'angular-library-v2' and make sure new changes are in there.
+2. make sure that your working tree is clean when you do `git status`. Commit your changes or stash/checkout any unwanted changes.
+3. run `npm run deploy`. This should now run the deployment process and build the library
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# ADDING NEW ICONS
 
-## Running unit tests
+## Download Icon
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. use this link to download icon SVG's:
+   https://fonts.google.com/icons?selected=Material+Icons
 
-## Running end-to-end tests
+2. add the svg on this folder `Components/src/assets/svg`
+3. make sure you name this icon properly: `<icon_name>.svg`. This is important as to how it will get called with `<spt-icon>`
+4. on the `Components/` directory, run this command:
+```shell script
+$ npm run generate-icons
+```
+5. get the generated ts for the icon located in `Components/src/app/svg`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+------
+# Adding the .ts to the library
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. open `./sp-components/src/app/svg`
+2. drop the icon in the selected subdirectory (select Misc for general icons)
+3. update the index.ts for the selected subdirectory to export the icon
+4. re-deploy library
