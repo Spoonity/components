@@ -13,7 +13,7 @@ $ npm run generate-icons
 4. get the generated ts for the icon located in `/src/app/svg`
 
 ------
-# Adding the .ts to the library
+## Adding the .ts to the library
 
 1. open `./sp-components/src/app/svg`
 2. drop the icon in the selected subdirectory (select Misc for general icons)

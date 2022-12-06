@@ -10,14 +10,23 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 All components for the library should go inside the `Components/sp-component` directory. Components are classified by wither Atoms, Molecules, or Organisms.
 
+---
+
 # Deploying the project
+**Note:** 
+Make sure you are able to do `git push` using the terminal
+* Go to the Bitbucket docs on how to [set up an ssh key](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/). If you are following these steps, make sure that you are also using SSH protocol on the git config of your local repository.
+
+**Steps:**
 1. go to the working branch for the library 'angular-library-v2' and make sure new changes are in there.
 2. make sure that your working tree is clean when you do `git status`. Commit your changes or stash/checkout any unwanted changes.
 3. run `npm run deploy`. This should now run the deployment process and build the library
 
-# ADDING NEW ICONS
+---
 
-## Download Icon
+## ADDING NEW ICONS
+
+### Download Icon
 
 1. use this link to download icon SVG's:
    https://fonts.google.com/icons?selected=Material+Icons
@@ -30,8 +39,7 @@ $ npm run generate-icons
 ```
 5. get the generated ts for the icon located in `Components/src/app/svg`
 
-------
-# Adding the .ts to the library
+### Adding the .ts to the library
 
 1. open `./sp-components/src/app/svg`
 2. drop the icon in the selected subdirectory (select Misc for general icons)
