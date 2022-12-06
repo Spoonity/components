@@ -1853,7 +1853,7 @@
         { type: core.Component, args: [{
                     selector: 'spt-tab',
                     template: "<nz-tabset [nzSelectedIndex]=\"index\" (nzSelectedIndexChange)=\"selectedIndexChange.emit($event)\"\n           [nzTabPosition]=\"TAB_POSITION[orientation]\">\n    <nz-tab *ngFor=\"let tab of tabs\" [nzTitle]=\"titleTemplate\" [nzDisabled]=\"tab.disabled\">\n        <ng-template #titleTemplate>\n            <spt-tooltip [title]=\"tab.tooltip\">\n                <div class=\"title-container\">\n                    <div *ngIf=\"tab.icon\" class=\"icon\">\n                        <spt-icon *ngIf=\"tab.icon\" [name]=\"tab.icon\" [size]=\"16\" color=\"#FF9900\"></spt-icon>\n                    </div>\n                    <div>{{ tab.name }}</div>\n                </div>\n            </spt-tooltip>\n        </ng-template>\n    </nz-tab>\n</nz-tabset>\n",
-                    styles: [".icon{transform:translateY(1px)}.title-container{display:flex;align-items:center}"]
+                    styles: [".icon{transform:translateY(-4px)}.title-container{display:flex;align-items:center}"]
                 },] }
     ];
     TabComponent.ctorParameters = function () { return []; };
@@ -2817,6 +2817,11 @@
         name: 'star'
     };
 
+    var appThumbUpIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"/><path d=\"M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z\"/></svg>",
+        name: 'thumb-up'
+    };
+
     var appMenuIcon = {
         data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z\"/></svg>",
         name: 'menu'
@@ -2865,6 +2870,7 @@
         appSettingsSuggestIcon,
         appShoppingBagIcon,
         appStarIcon,
+        appThumbUpIcon,
         appVerticalSplitIcon
     ];
 
@@ -3437,33 +3443,34 @@
     exports.ɵdc = appSettingsSuggestIcon;
     exports.ɵdd = appShoppingBagIcon;
     exports.ɵde = appStarIcon;
-    exports.ɵdf = appVerticalSplitIcon;
-    exports.ɵdg = appArrowBackIcon;
-    exports.ɵdh = appArrowDownwardIcon;
-    exports.ɵdi = appArrowForwardIcon;
-    exports.ɵdj = appArrowUpwardIcon;
-    exports.ɵdk = appCancelBlackIcon;
-    exports.ɵdl = appCheckIcon;
-    exports.ɵdm = appChevronLeftIcon;
-    exports.ɵdn = appChevronRightIcon;
-    exports.ɵdo = appClearIcon;
-    exports.ɵdp = appEastIcon;
-    exports.ɵdq = appExpandLessIcon;
-    exports.ɵdr = appExpandMoreIcon;
-    exports.ɵds = appFirstPageIcon;
-    exports.ɵdt = appLastPageIcon;
-    exports.ɵdu = appMoreVertIcon;
-    exports.ɵdv = appMoreHorizIcon;
-    exports.ɵdw = appRefreshIcon;
-    exports.ɵdx = appPriorityHighIcon;
-    exports.ɵdy = appSmsIcon;
-    exports.ɵdz = appPeopleIcon;
+    exports.ɵdf = appThumbUpIcon;
+    exports.ɵdg = appVerticalSplitIcon;
+    exports.ɵdh = appArrowBackIcon;
+    exports.ɵdi = appArrowDownwardIcon;
+    exports.ɵdj = appArrowForwardIcon;
+    exports.ɵdk = appArrowUpwardIcon;
+    exports.ɵdl = appCancelBlackIcon;
+    exports.ɵdm = appCheckIcon;
+    exports.ɵdn = appChevronLeftIcon;
+    exports.ɵdo = appChevronRightIcon;
+    exports.ɵdp = appClearIcon;
+    exports.ɵdq = appEastIcon;
+    exports.ɵdr = appExpandLessIcon;
+    exports.ɵds = appExpandMoreIcon;
+    exports.ɵdt = appFirstPageIcon;
+    exports.ɵdu = appLastPageIcon;
+    exports.ɵdv = appMoreVertIcon;
+    exports.ɵdw = appMoreHorizIcon;
+    exports.ɵdx = appRefreshIcon;
+    exports.ɵdy = appPriorityHighIcon;
+    exports.ɵdz = appSmsIcon;
     exports.ɵe = OptionComponent;
-    exports.ɵea = appCheckBoxOutlineBlankIcon;
-    exports.ɵeb = appCheckBoxIcon;
-    exports.ɵec = appIndeterminateCheckBoxIcon;
-    exports.ɵed = appRadioButtonCheckedIcon;
-    exports.ɵee = appRadioButtonUncheckedIcon;
+    exports.ɵea = appPeopleIcon;
+    exports.ɵeb = appCheckBoxOutlineBlankIcon;
+    exports.ɵec = appCheckBoxIcon;
+    exports.ɵed = appIndeterminateCheckBoxIcon;
+    exports.ɵee = appRadioButtonCheckedIcon;
+    exports.ɵef = appRadioButtonUncheckedIcon;
     exports.ɵf = SearchService;
     exports.ɵg = SearchOptionComponent;
     exports.ɵh = SearchTemplateComponent;
