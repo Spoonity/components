@@ -29,17 +29,29 @@ const exec = promisify(execAsync);
 
   // console.log('deploying changes...');
   await exec('git pull')
-    .catch(() => {});
+    .catch(() => {
+      console.log('error: \'git pull\' failed');
+    });
   await exec('git add ../')
-    .catch(() => {});
+    .catch(() => {
+      console.log('error: \'git add\' failed');
+    });
   await exec('git add ../src -f')
-    .catch(() => {});
+    .catch(() => {
+      console.log('error: \'git add ../src\' failed');
+    });
   await exec('git add ../esm2015 -f')
-    .catch(() => {});
+    .catch(() => {
+      console.log('error: \'git add ../esm2015\' failed');
+    });
   await exec('git commit -m "Publish sp-components"')
-    .catch(() => {});
+    .catch(() => {
+      console.log('error: \'git commit\' failed');
+    });
   await exec('git push')
-    .catch(() => {});
+    .catch(() => {
+      console.log('error: \'git push\' failed');
+    });
 
   console.log(`finishing....`);
   await exec(`git checkout ${branch}`);
