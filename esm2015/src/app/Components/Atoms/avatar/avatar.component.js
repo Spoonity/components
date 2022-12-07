@@ -13,7 +13,7 @@ AvatarComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-avatar',
                 template: "<div class=\"avatar-container\"\n     [style.width.px]=\"size < 30 ? 30 : size\"\n     [style.height.px]=\"size < 30 ? 30 : size\"\n     [style.background-color]=\"backgroundColor\">\n    <div class=\"avatar-text\"\n         [style.font-size.px]=\"size <= 45 ? 15 : size - 30\"\n         [style.color]=\"textColor\">{{text[0] | uppercase}}</div>\n</div>\n",
-                styles: [".avatar-container{border-radius:100px;display:flex;align-items:center;justify-content:center}.avatar-text{height:-moz-fit-content;height:fit-content}"]
+                styles: [".avatar-container{border-radius:100px;display:flex;align-items:center;justify-content:center}.avatar-text{height:-webkit-fit-content;height:-moz-fit-content;height:fit-content}"]
             },] }
 ];
 AvatarComponent.ctorParameters = () => [];
