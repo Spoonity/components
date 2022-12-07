@@ -28,6 +28,8 @@ const exec = promisify(execAsync);
   await exec('rm -rf ../temp/');
 
   // console.log('deploying changes...');
+  await exec('git pull')
+    .catch(() => {});
   await exec('git add ../')
     .catch(() => {});
   await exec('git add ../src -f')
