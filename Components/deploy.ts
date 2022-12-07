@@ -27,8 +27,7 @@ const exec = promisify(execAsync);
   await exec('cp -R ../temp/ ../');
   await exec('rm -rf ../temp/');
 
-  // console.log('deploying changes...');
-  await exec('git pull')
+  await exec('git pull -s recursive -X theirs packages/sp-components')
     .catch(() => {
       console.log('error: \'git pull\' failed');
     });
