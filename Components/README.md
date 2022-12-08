@@ -11,6 +11,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## sp-components
 
 All components for the library should go inside the `Components/sp-component` directory. Components are classified by either Atoms, Molecules, or Organisms.
+Most of the components in this library extends from [NgZorro Angular components](https://ng.ant.design/docs/introduce/en)
 
 ---
 
@@ -50,10 +51,11 @@ Make sure you are able to do `git push` using the terminal
 $ npm run generate-icons
 ```
 5. get the generated ts for the icon located in `Components/src/app/svg`
+6. if you are able to see the ts version of the icon in the directory in Step 5, you can now remove the svg you added to `Components/src/assets/svg`.
 
 ### Adding the .ts to the library
 
 1. open `./sp-components/src/app/svg`
 2. drop the icon in the selected subdirectory (select Misc for general icons)
 3. update the index.ts for the selected subdirectory to export the icon
-4. re-deploy library 
+4. [re-deploy](#deploying-the-project) library 
