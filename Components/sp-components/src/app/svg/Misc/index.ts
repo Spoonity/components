@@ -42,9 +42,11 @@ import {appShoppingBagIcon} from './shopping_bag';
 import {appStarIcon} from './star';
 import {appThumbUpIcon} from "./thumb_up";
 import {appMenuIcon} from './menu';
+import {appAlarmIcon} from "./alarm";
 
 export const miscIcons = [
   appAccountBalanceIcon,
+  appAlarmIcon,
   appAnalyticsIcon,
   appArrowDropDownIcon,
   appArrowDropUpIcon,
