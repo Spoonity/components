@@ -7,7 +7,7 @@
                     <div *ngIf="tab.icon" class="icon">
                         <spt-icon *ngIf="tab.icon" [name]="tab.icon" [size]="16" [color]="tab.iconColor || '#FF9900'"></spt-icon>
                     </div>
-                    <div>{{ tab.name }} <span *ngIf="tab.subtitle" style="padding-left: 4px;"><em>{{ tab.subtitle }}</em></span></div>
+                    <div>{{ tab.name }}<span *ngIf="tab.subtitle" style="padding-left: 4px;"><em>{{ tab.subtitle }}</em></span></div>
                 </div>
             </spt-tooltip>
         </ng-template>
