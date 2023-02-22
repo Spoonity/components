@@ -2,6 +2,7 @@ import { EventEmitter, OnInit } from '@angular/core';
 export declare class TabComponent implements OnInit {
     tabs: {
         name: string;
+        subtitle?: string;
         disabled?: boolean;
         icon?: string;
         iconColor?: string;
