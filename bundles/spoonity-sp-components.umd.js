@@ -2822,6 +2822,11 @@
         name: 'thumb-down'
     };
 
+    var appTuneIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z\"/></svg>",
+        name: 'tune'
+    };
+
     var miscIcons = [
         appAccountBalanceIcon,
         appAlarmIcon,
@@ -2868,6 +2873,7 @@
         appStarIcon,
         appThumbDownIcon,
         appThumbUpIcon,
+        appTuneIcon,
         appVerticalSplitIcon
     ];
 
@@ -3443,33 +3449,34 @@
     exports.ɵdf = appStarIcon;
     exports.ɵdg = appThumbDownIcon;
     exports.ɵdh = appThumbUpIcon;
-    exports.ɵdi = appVerticalSplitIcon;
-    exports.ɵdj = appArrowBackIcon;
-    exports.ɵdk = appArrowDownwardIcon;
-    exports.ɵdl = appArrowForwardIcon;
-    exports.ɵdm = appArrowUpwardIcon;
-    exports.ɵdn = appCancelBlackIcon;
-    exports.ɵdo = appCheckIcon;
-    exports.ɵdp = appChevronLeftIcon;
-    exports.ɵdq = appChevronRightIcon;
-    exports.ɵdr = appClearIcon;
-    exports.ɵds = appEastIcon;
-    exports.ɵdt = appExpandLessIcon;
-    exports.ɵdu = appExpandMoreIcon;
-    exports.ɵdv = appFirstPageIcon;
-    exports.ɵdw = appLastPageIcon;
-    exports.ɵdx = appMoreVertIcon;
-    exports.ɵdy = appMoreHorizIcon;
-    exports.ɵdz = appRefreshIcon;
+    exports.ɵdi = appTuneIcon;
+    exports.ɵdj = appVerticalSplitIcon;
+    exports.ɵdk = appArrowBackIcon;
+    exports.ɵdl = appArrowDownwardIcon;
+    exports.ɵdm = appArrowForwardIcon;
+    exports.ɵdn = appArrowUpwardIcon;
+    exports.ɵdo = appCancelBlackIcon;
+    exports.ɵdp = appCheckIcon;
+    exports.ɵdq = appChevronLeftIcon;
+    exports.ɵdr = appChevronRightIcon;
+    exports.ɵds = appClearIcon;
+    exports.ɵdt = appEastIcon;
+    exports.ɵdu = appExpandLessIcon;
+    exports.ɵdv = appExpandMoreIcon;
+    exports.ɵdw = appFirstPageIcon;
+    exports.ɵdx = appLastPageIcon;
+    exports.ɵdy = appMoreVertIcon;
+    exports.ɵdz = appMoreHorizIcon;
     exports.ɵe = OptionComponent;
-    exports.ɵea = appPriorityHighIcon;
-    exports.ɵeb = appSmsIcon;
-    exports.ɵec = appPeopleIcon;
-    exports.ɵed = appCheckBoxOutlineBlankIcon;
-    exports.ɵee = appCheckBoxIcon;
-    exports.ɵef = appIndeterminateCheckBoxIcon;
-    exports.ɵeg = appRadioButtonCheckedIcon;
-    exports.ɵeh = appRadioButtonUncheckedIcon;
+    exports.ɵea = appRefreshIcon;
+    exports.ɵeb = appPriorityHighIcon;
+    exports.ɵec = appSmsIcon;
+    exports.ɵed = appPeopleIcon;
+    exports.ɵee = appCheckBoxOutlineBlankIcon;
+    exports.ɵef = appCheckBoxIcon;
+    exports.ɵeg = appIndeterminateCheckBoxIcon;
+    exports.ɵeh = appRadioButtonCheckedIcon;
+    exports.ɵei = appRadioButtonUncheckedIcon;
     exports.ɵf = SearchService;
     exports.ɵg = SearchOptionComponent;
     exports.ɵh = SearchTemplateComponent;
