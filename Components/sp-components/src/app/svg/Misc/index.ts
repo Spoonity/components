@@ -44,6 +44,7 @@ import {appThumbUpIcon} from "./thumb_up";
 import {appMenuIcon} from './menu';
 import {appAlarmIcon} from "./alarm";
 import {appThumbDownIcon} from "./thumb_down";
+import {appTuneIcon} from "./tune";
 
 export const miscIcons = [
   appAccountBalanceIcon,
@@ -91,5 +92,6 @@ export const miscIcons = [
   appStarIcon,
   appThumbDownIcon,
   appThumbUpIcon,
+  appTuneIcon,
   appVerticalSplitIcon
 ];
