@@ -18,6 +18,12 @@ export class OptionComponent implements OnInit {
   /* of the selection should be disabled */
   @Input() public disabled: boolean;
 
+  /* option display icon */
+  @Input() public icon: boolean;
+  
+  /* Input for the click function */
+  @Input() clickFunction: any;
+
   /* bind class.selected */
   @HostBinding('class.selected')
   public get selected(): boolean {
@@ -83,5 +89,12 @@ export class OptionComponent implements OnInit {
   public selectItem() {
     this.select.selectOption(this);
   }
-
+  /**
+   * click handler
+   */
+  public handleClick() {
+    if (this.clickFunction) {
+      this.clickFunction(); // Call the provided click function
+    }
+  }
 }
