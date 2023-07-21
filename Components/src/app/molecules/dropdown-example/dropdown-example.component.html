@@ -259,7 +259,7 @@
             </div>
             <div class="spt-spacing-bottom--4">
                 <spt-dropdown label="ngModel 1 (single)" [(ngModel)]="model2" [ngModelOptions]="{standalone: true}" hint="initialized with ngModel">
-                    <spt-option *ngFor="let o of options" icon="add" [clickFunction] ="doSomething" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
+                    <spt-option *ngFor="let o of options" icon="star" [clickFunction] ="doSomething" [value]="o.id" [text]="o.value" [disabled]="o.disabled"></spt-option>
                 </spt-dropdown>
             </div>
 
