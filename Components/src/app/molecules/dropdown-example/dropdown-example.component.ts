@@ -86,4 +86,8 @@ export class DropdownExampleComponent implements OnInit {
   changeExample(event: any) {
     console.log(event);
   }
+
+  doSomething(){
+    alert('It works')
+  }
 }

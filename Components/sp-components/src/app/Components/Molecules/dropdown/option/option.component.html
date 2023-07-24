@@ -1,9 +1,17 @@
-<div class="option-container" [ngClass]="{'disabled': disabled, 'enabled': !disabled}">
-    <!--- multiple selection (include checkbox) -->
-    <div *ngIf="select.selectMultiple" nz-col nzSpan="8">
-        <label nz-checkbox nzValue="{{value}}" [(ngModel)]="checkboxModel" (ngModelChange)="selectItem()">{{text}}</label>
-    </div>
+<div class="option-container" >
+    <div [ngClass]="{'disabled': disabled, 'enabled': !disabled}">
+        <!--- multiple selection (include checkbox) -->
+        <div *ngIf="select.selectMultiple" nz-col nzSpan="8">
+            <label nz-checkbox nzValue="{{value}}" [(ngModel)]="checkboxModel" (ngModelChange)="selectItem()">{{text}}</label>
+        </div>
 
-    <!-- single selection -->
-    <div *ngIf="!select.selectMultiple">{{text}}</div>
+     <!-- single selection -->
+        <div class="single-text" *ngIf="!select.selectMultiple">
+        {{text}}
+        </div>
+    </div>
+    <!-- lock icon to enable the option -->
+    <div class="single-icon" *ngIf="disabled && icon" (click)="handleClick()">
+        <spt-icon style="margin: -3px;margin-bottom: -10px; " [name]="icon"></spt-icon>
+    </div>
 </div>
