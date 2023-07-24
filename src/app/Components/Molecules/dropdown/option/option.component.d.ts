@@ -6,6 +6,8 @@ export declare class OptionComponent implements OnInit {
     value: any;
     text: string;
     disabled: boolean;
+    icon: boolean;
+    clickFunction: any;
     get selected(): boolean;
     active: boolean;
     checkboxModel: boolean;
@@ -29,4 +31,8 @@ export declare class OptionComponent implements OnInit {
      * select option item
      */
     selectItem(): void;
+    /**
+     * click handler
+     */
+    handleClick(): void;
 }

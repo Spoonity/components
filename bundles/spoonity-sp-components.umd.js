@@ -749,13 +749,21 @@
         OptionComponent.prototype.selectItem = function () {
             this.select.selectOption(this);
         };
+        /**
+         * click handler
+         */
+        OptionComponent.prototype.handleClick = function () {
+            if (this.clickFunction) {
+                this.clickFunction(); // Call the provided click function
+            }
+        };
         return OptionComponent;
     }());
     OptionComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-option',
-                    template: "<div class=\"option-container\" [ngClass]=\"{'disabled': disabled, 'enabled': !disabled}\">\n    <!--- multiple selection (include checkbox) -->\n    <div *ngIf=\"select.selectMultiple\" nz-col nzSpan=\"8\">\n        <label nz-checkbox nzValue=\"{{value}}\" [(ngModel)]=\"checkboxModel\" (ngModelChange)=\"selectItem()\">{{text}}</label>\n    </div>\n\n    <!-- single selection -->\n    <div *ngIf=\"!select.selectMultiple\">{{text}}</div>\n</div>\n",
-                    styles: [".options-container{display:block;min-height:2.5rem;line-height:2.5rem;color:#4f4e4d;background-color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-webkit-user-select:none;-moz-user-select:none;user-select:none;cursor:pointer}.options-container div{padding:0 5px}.option-item-active{background-color:#f3f3f3;outline:none}@media screen and (-ms-high-contrast:active){.option-item-active{background-color:#f3f3f3}}:host{display:block;min-height:2.5rem;line-height:2.5rem;color:#4f4e4d;background-color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-webkit-user-select:none;-moz-user-select:none;user-select:none;cursor:pointer}:host div{padding:0 5px}:host.active,:host.selected{background-color:#f3f3f3;outline:none}@media screen and (-ms-high-contrast:active){:host.active,:host.selected{background-color:#f3f3f3}}:host .enabled:hover{background-color:#f3f3f3;outline:none}@media screen and (-ms-high-contrast:active){:host .enabled:hover{background-color:#f3f3f3}}:host.selected{font-weight:700}:host .disabled{color:#93a1aa;cursor:auto}:host .disabled:focus,:host .disabled:hover{outline:none;background-color:#fff}@media screen and (-ms-high-contrast:active){:host .disabled:focus,:host .disabled:hover{background-color:#fff}}.option-container{display:flex}"]
+                    template: "<div class=\"option-container\" >\n    <div [ngClass]=\"{'disabled': disabled, 'enabled': !disabled}\">\n        <!--- multiple selection (include checkbox) -->\n        <div *ngIf=\"select.selectMultiple\" nz-col nzSpan=\"8\">\n            <label nz-checkbox nzValue=\"{{value}}\" [(ngModel)]=\"checkboxModel\" (ngModelChange)=\"selectItem()\">{{text}}</label>\n        </div>\n\n     <!-- single selection -->\n        <div class=\"single-text\" *ngIf=\"!select.selectMultiple\">\n        {{text}}\n        </div>\n    </div>\n    <!-- lock icon to enable the option -->\n    <div class=\"single-icon\" *ngIf=\"disabled && icon\" (click)=\"handleClick()\">\n        <spt-icon style=\"margin: -3px;margin-bottom: -10px; \" [name]=\"icon\"></spt-icon>\n    </div>\n</div>\n",
+                    styles: [".options-container{display:block;min-height:2.5rem;line-height:2.5rem;color:#4f4e4d;background-color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-webkit-user-select:none;-moz-user-select:none;user-select:none;cursor:pointer}.options-container div{padding:0 5px}.option-item-active{background-color:#f3f3f3;outline:none}@media screen and (-ms-high-contrast:active){.option-item-active{background-color:#f3f3f3}}:host{display:block;min-height:2.5rem;line-height:2.5rem;color:#4f4e4d;background-color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-webkit-user-select:none;-moz-user-select:none;user-select:none;cursor:pointer}:host div{padding:0 5px}:host.active,:host.selected{background-color:#f3f3f3;outline:none}@media screen and (-ms-high-contrast:active){:host.active,:host.selected{background-color:#f3f3f3}}:host .enabled:hover{background-color:#f3f3f3;outline:none}@media screen and (-ms-high-contrast:active){:host .enabled:hover{background-color:#f3f3f3}}:host.selected{font-weight:700}:host .disabled{color:#93a1aa;cursor:auto}:host .disabled:focus,:host .disabled:hover{outline:none;background-color:#fff}@media screen and (-ms-high-contrast:active){:host .disabled:focus,:host .disabled:hover{background-color:#fff}}.option-container{justify-content:space-between}.option-container,.single-icon{display:flex;align-items:center}.single-icon{justify-content:center}"]
                 },] }
     ];
     OptionComponent.ctorParameters = function () { return [
@@ -765,6 +773,8 @@
         value: [{ type: core.Input }],
         text: [{ type: core.Input }],
         disabled: [{ type: core.Input }],
+        icon: [{ type: core.Input }],
+        clickFunction: [{ type: core.Input }],
         selected: [{ type: core.HostBinding, args: ['class.selected',] }],
         active: [{ type: core.HostBinding, args: ['class.active',] }],
         onClick: [{ type: core.HostListener, args: ['click', ['$event'],] }]
