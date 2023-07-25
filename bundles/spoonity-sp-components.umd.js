@@ -762,7 +762,7 @@
     OptionComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-option',
-                    template: "<div class=\"option-container\" >\n    <div [ngClass]=\"{'disabled': disabled, 'enabled': !disabled}\">\n        <!--- multiple selection (include checkbox) -->\n        <div *ngIf=\"select.selectMultiple\" nz-col nzSpan=\"8\">\n            <label nz-checkbox nzValue=\"{{value}}\" [(ngModel)]=\"checkboxModel\" (ngModelChange)=\"selectItem()\">{{text}}</label>\n        </div>\n\n     <!-- single selection -->\n        <div class=\"single-text\" *ngIf=\"!select.selectMultiple\">\n        {{text}}\n        </div>\n    </div>\n    <!-- lock icon to enable the option -->\n    <div class=\"single-icon\" *ngIf=\"disabled && icon\" (click)=\"handleClick()\">\n        <spt-icon style=\"margin: -3px;margin-bottom: -10px; \" [name]=\"icon\"></spt-icon>\n    </div>\n</div>\n",
+                    template: "<div class=\"option-container\" >\n    <div [ngClass]=\"{'disabled': disabled, 'enabled': !disabled}\">\n        <!--- multiple selection (include checkbox) -->\n        <div *ngIf=\"select.selectMultiple\" nz-col nzSpan=\"8\">\n            <label nz-checkbox nzValue=\"{{value}}\" [(ngModel)]=\"checkboxModel\" (ngModelChange)=\"selectItem()\">{{text}}</label>\n        </div>\n\n     <!-- single selection -->\n        <div class=\"single-text\" *ngIf=\"!select.selectMultiple\">\n        {{text}}\n        </div>\n    </div>\n    <!-- lock icon to enable the option -->\n    <div class=\"single-icon\" *ngIf=\"disabled && icon\" (click)=\"handleClick()\">\n        <spt-icon style=\"margin: -3px;margin-bottom: -10px; \" color=\"#ff9900\" [name]=\"icon\"></spt-icon>\n    </div>\n</div>\n",
                     styles: [".options-container{display:block;min-height:2.5rem;line-height:2.5rem;color:#4f4e4d;background-color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-webkit-user-select:none;-moz-user-select:none;user-select:none;cursor:pointer}.options-container div{padding:0 5px}.option-item-active{background-color:#f3f3f3;outline:none}@media screen and (-ms-high-contrast:active){.option-item-active{background-color:#f3f3f3}}:host{display:block;min-height:2.5rem;line-height:2.5rem;color:#4f4e4d;background-color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-webkit-user-select:none;-moz-user-select:none;user-select:none;cursor:pointer}:host div{padding:0 5px}:host.active,:host.selected{background-color:#f3f3f3;outline:none}@media screen and (-ms-high-contrast:active){:host.active,:host.selected{background-color:#f3f3f3}}:host .enabled:hover{background-color:#f3f3f3;outline:none}@media screen and (-ms-high-contrast:active){:host .enabled:hover{background-color:#f3f3f3}}:host.selected{font-weight:700}:host .disabled{color:#93a1aa;cursor:auto}:host .disabled:focus,:host .disabled:hover{outline:none;background-color:#fff}@media screen and (-ms-high-contrast:active){:host .disabled:focus,:host .disabled:hover{background-color:#fff}}.option-container{justify-content:space-between}.option-container,.single-icon{display:flex;align-items:center}.single-icon{justify-content:center}"]
                 },] }
     ];
@@ -2812,6 +2812,11 @@
         name: 'star'
     };
 
+    var appStarsIcon = {
+        data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z\"/></svg>",
+        name: 'stars'
+    };
+
     var appThumbUpIcon = {
         data: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"/><path d=\"M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z\"/></svg>",
         name: 'thumb-up'
@@ -2881,6 +2886,7 @@
         appSettingsSuggestIcon,
         appShoppingBagIcon,
         appStarIcon,
+        appStarsIcon,
         appThumbDownIcon,
         appThumbUpIcon,
         appTuneIcon,
@@ -3457,36 +3463,37 @@
     exports.ɵdd = appSettingsSuggestIcon;
     exports.ɵde = appShoppingBagIcon;
     exports.ɵdf = appStarIcon;
-    exports.ɵdg = appThumbDownIcon;
-    exports.ɵdh = appThumbUpIcon;
-    exports.ɵdi = appTuneIcon;
-    exports.ɵdj = appVerticalSplitIcon;
-    exports.ɵdk = appArrowBackIcon;
-    exports.ɵdl = appArrowDownwardIcon;
-    exports.ɵdm = appArrowForwardIcon;
-    exports.ɵdn = appArrowUpwardIcon;
-    exports.ɵdo = appCancelBlackIcon;
-    exports.ɵdp = appCheckIcon;
-    exports.ɵdq = appChevronLeftIcon;
-    exports.ɵdr = appChevronRightIcon;
-    exports.ɵds = appClearIcon;
-    exports.ɵdt = appEastIcon;
-    exports.ɵdu = appExpandLessIcon;
-    exports.ɵdv = appExpandMoreIcon;
-    exports.ɵdw = appFirstPageIcon;
-    exports.ɵdx = appLastPageIcon;
-    exports.ɵdy = appMoreVertIcon;
-    exports.ɵdz = appMoreHorizIcon;
+    exports.ɵdg = appStarsIcon;
+    exports.ɵdh = appThumbDownIcon;
+    exports.ɵdi = appThumbUpIcon;
+    exports.ɵdj = appTuneIcon;
+    exports.ɵdk = appVerticalSplitIcon;
+    exports.ɵdl = appArrowBackIcon;
+    exports.ɵdm = appArrowDownwardIcon;
+    exports.ɵdn = appArrowForwardIcon;
+    exports.ɵdo = appArrowUpwardIcon;
+    exports.ɵdp = appCancelBlackIcon;
+    exports.ɵdq = appCheckIcon;
+    exports.ɵdr = appChevronLeftIcon;
+    exports.ɵds = appChevronRightIcon;
+    exports.ɵdt = appClearIcon;
+    exports.ɵdu = appEastIcon;
+    exports.ɵdv = appExpandLessIcon;
+    exports.ɵdw = appExpandMoreIcon;
+    exports.ɵdx = appFirstPageIcon;
+    exports.ɵdy = appLastPageIcon;
+    exports.ɵdz = appMoreVertIcon;
     exports.ɵe = OptionComponent;
-    exports.ɵea = appRefreshIcon;
-    exports.ɵeb = appPriorityHighIcon;
-    exports.ɵec = appSmsIcon;
-    exports.ɵed = appPeopleIcon;
-    exports.ɵee = appCheckBoxOutlineBlankIcon;
-    exports.ɵef = appCheckBoxIcon;
-    exports.ɵeg = appIndeterminateCheckBoxIcon;
-    exports.ɵeh = appRadioButtonCheckedIcon;
-    exports.ɵei = appRadioButtonUncheckedIcon;
+    exports.ɵea = appMoreHorizIcon;
+    exports.ɵeb = appRefreshIcon;
+    exports.ɵec = appPriorityHighIcon;
+    exports.ɵed = appSmsIcon;
+    exports.ɵee = appPeopleIcon;
+    exports.ɵef = appCheckBoxOutlineBlankIcon;
+    exports.ɵeg = appCheckBoxIcon;
+    exports.ɵeh = appIndeterminateCheckBoxIcon;
+    exports.ɵei = appRadioButtonCheckedIcon;
+    exports.ɵej = appRadioButtonUncheckedIcon;
     exports.ɵf = SearchService;
     exports.ɵg = SearchOptionComponent;
     exports.ɵh = SearchTemplateComponent;
