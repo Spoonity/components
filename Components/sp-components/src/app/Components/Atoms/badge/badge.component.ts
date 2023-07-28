@@ -12,5 +12,8 @@ export class BadgeComponent {
   /** badge color */
   @Input() color: string;
 
+  /** badge text color */
+  @Input() textColor: string;
+
   constructor() { }
 }
