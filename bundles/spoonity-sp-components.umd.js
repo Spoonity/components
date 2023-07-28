@@ -1677,14 +1677,15 @@
     BadgeComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-badge',
-                    template: "\n<nz-tag class=\"badges\" [nzColor]=\"color\" [style.font-size]=\"'14px'\" [style.line-height]=\"'16px'\">{{name}}</nz-tag>\n",
+                    template: "\n<nz-tag class=\"badges\" [nzColor]=\"color\" [style.font-size]=\"'14px'\" [style.line-height]=\"'16px'\" [style.color]=\"textColor\">{{name}}</nz-tag>\n",
                     styles: [".badges{display:flex}nz-tag{width:-webkit-fit-content!important;width:-moz-fit-content!important;width:fit-content!important;padding:3px 12px!important;height:-webkit-fit-content!important;height:-moz-fit-content!important;height:fit-content!important;border:none!important;font-size:12px!important}"]
                 },] }
     ];
     BadgeComponent.ctorParameters = function () { return []; };
     BadgeComponent.propDecorators = {
         name: [{ type: core.Input }],
-        color: [{ type: core.Input }]
+        color: [{ type: core.Input }],
+        textColor: [{ type: core.Input }]
     };
 
     var DividerComponent = /** @class */ (function () {

@@ -3,5 +3,7 @@ export declare class BadgeComponent {
     name: string;
     /** badge color */
     color: string;
+    /** badge text color */
+    textColor: string;
     constructor();
 }
