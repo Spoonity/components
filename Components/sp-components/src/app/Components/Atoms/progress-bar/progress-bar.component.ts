@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class ProgressBarComponent {
   @Input() percent: number;
   @Input() info: boolean;
+  @Input() status: 'success' | 'exception' | 'active' | 'normal';
 
   constructor() { }
 }
