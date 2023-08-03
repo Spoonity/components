@@ -1388,14 +1388,15 @@ class ProgressBarComponent {
 ProgressBarComponent.decorators = [
     { type: Component, args: [{
                 selector: 'spt-progress-bar',
-                template: "<nz-progress [nzPercent]=\"percent\" [nzShowInfo]=\"info\" nzType=\"line\"></nz-progress>\n",
+                template: "<nz-progress [nzPercent]=\"percent\" [nzShowInfo]=\"info\" [nzStatus]=\"status\" nzType=\"line\"></nz-progress>\n",
                 styles: [""]
             },] }
 ];
 ProgressBarComponent.ctorParameters = () => [];
 ProgressBarComponent.propDecorators = {
     percent: [{ type: Input }],
-    info: [{ type: Input }]
+    info: [{ type: Input }],
+    status: [{ type: Input }]
 };
 
 class CheckboxComponent {

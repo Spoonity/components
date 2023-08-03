@@ -1715,14 +1715,15 @@
     ProgressBarComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'spt-progress-bar',
-                    template: "<nz-progress [nzPercent]=\"percent\" [nzShowInfo]=\"info\" nzType=\"line\"></nz-progress>\n",
+                    template: "<nz-progress [nzPercent]=\"percent\" [nzShowInfo]=\"info\" [nzStatus]=\"status\" nzType=\"line\"></nz-progress>\n",
                     styles: [""]
                 },] }
     ];
     ProgressBarComponent.ctorParameters = function () { return []; };
     ProgressBarComponent.propDecorators = {
         percent: [{ type: core.Input }],
-        info: [{ type: core.Input }]
+        info: [{ type: core.Input }],
+        status: [{ type: core.Input }]
     };
 
     var CheckboxComponent = /** @class */ (function () {
