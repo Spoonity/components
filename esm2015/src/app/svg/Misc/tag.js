@@ -1,0 +1,5 @@
+export const appTagIcon = {
+    data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 10V8h-4V4h-2v4h-4V4H8v4H4v2h4v4H4v2h4v4h2v-4h4v4h2v-4h4v-2h-4v-4h4zm-6 4h-4v-4h4v4z"/></svg>`,
+    name: 'tag'
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidGFnLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vc3JjL2FwcC9zdmcvTWlzYy90YWcudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsTUFBTSxDQUFDLE1BQU0sVUFBVSxHQUFHO0lBQ3RCLElBQUksRUFBRSx1S0FBdUs7SUFDN0ssSUFBSSxFQUFFLEtBQUs7Q0FDZCxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGNvbnN0IGFwcFRhZ0ljb24gPSB7XG4gICAgZGF0YTogYDxzdmcgeG1sbnM9XCJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Z1wiIHZpZXdCb3g9XCIwIDAgMjQgMjRcIj48cGF0aCBkPVwiTTIwIDEwVjhoLTRWNGgtMnY0aC00VjRIOHY0SDR2Mmg0djRINHYyaDR2NGgydi00aDR2NGgydi00aDR2LTJoLTR2LTRoNHptLTYgNGgtNHYtNGg0djR6XCIvPjwvc3ZnPmAsXG4gICAgbmFtZTogJ3RhZydcbn07Il19
