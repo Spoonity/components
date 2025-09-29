@@ -45,7 +45,8 @@ const exec = promisify(execAsync);
       console.log('error: \'git add ../esm2015\' failed');
     });
   await exec('git commit -m "Publish sp-components"')
-    .catch(() => {
+    .catch((e) => {
+      console.log(e.message);
       console.log('error: \'git commit\' failed');
     });
   await exec('git push')
