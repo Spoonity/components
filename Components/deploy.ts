@@ -28,7 +28,8 @@ const exec = promisify(execAsync);
   await exec('rm -rf ../temp/');
 
   await exec('git pull -s recursive -X theirs')
-    .catch(() => {
+    .catch((e) => {
+      console.log(e.message);
       console.log('error: \'git pull\' failed');
     });
   await exec('git add ../')
