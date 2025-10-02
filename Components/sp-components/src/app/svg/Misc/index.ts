@@ -50,6 +50,7 @@ import { appHistoryBlackIcon } from './history_black';
 import {appTagIcon} from "./tag";
 import {appHashtagCircleIcon} from "./hashtag-circle";
 import {appReceiptIcon} from "./receipt";
+import {appCodeIcon} from "./code";
 
 export const miscIcons = [
   appAccountBalanceIcon,
@@ -103,5 +104,6 @@ export const miscIcons = [
   appHistoryBlackIcon,
   appTagIcon,
   appHashtagCircleIcon,
-  appReceiptIcon
+  appReceiptIcon,
+  appCodeIcon
 ];
